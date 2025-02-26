@@ -1,40 +1,33 @@
-<!-- templates/index.html -->
-{{define "title"}}Главная{{end}}
-
-{{define "content"}}
-<section class="hero">
-    <div class="container">
-        <h1>Профессиональные строительные услуги</h1>
-        <p>Полный цикл работ от проектирования до сдачи объекта</p>
-        <button class="cta-button">Получить консультацию</button>
-    </div>
-</section>
-
-<section class="services" id="services">
-    <div class="container">
-        <h2>Наши услуги</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <img src="/static/images/icon1.png" alt="Строительство">
-                <h3>Строительство домов</h3>
-                <p>Полный цикл работ под ключ</p>
-            </div>
-            <!-- Добавьте другие услуги -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЧСУП "АВАЮССТРОЙ"</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script defer src="/static/js/theme.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="/static/images/logo.svg" alt="Логотип АВАЮССТРОЙ">
         </div>
-    </div>
-</section>
-
-<section class="projects">
-    <div class="container">
-        <h2>Последние проекты</h2>
-        <div class="projects-grid">
-            {{range .Projects}}
-            <div class="project-card">
-                <img src="{{.Image}}" alt="{{.Title}}">
-                <h4>{{.Title}}</h4>
-            </div>
-            {{end}}
-        </div>
-    </div>
-</section>
-{{end}}
+        <ul class="nav-links">
+            <li><a href="/about">О нас</a></li>
+            <li><a href="/services">Услуги</a></li>
+            <li><a href="/contact">Контакты</a></li>
+        </ul>
+        <button id="theme-toggle">🌙</button>
+    </nav>
+    
+    <header class="hero">
+        <h1>ЧСУП "АВАЮССТРОЙ"</h1>
+        <p>Качество. Надежность. Будущее.</p>
+        <a class="btn" href="/services">Наши услуги</a>
+    </header>
+    
+    <footer>
+        <p>© 2025 ЧСУП "АВАЮССТРОЙ" | Все права защищены</p>
+    </footer>
+</body>
+</html>

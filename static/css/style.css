@@ -1,96 +1,128 @@
-/* static/css/style.css */
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro:wght@300;400;600&display=swap');
+
 :root {
-    --primary-color: #2A5C82;
-    --secondary-color: #F5A623;
-    --text-color: #333;
+    --primary-color: #ff6600;
+    --background-light: #ffffff;
+    --background-dark: #121212;
+    --text-light: #000000;
+    --text-dark: #ffffff;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-dark: rgba(255, 255, 255, 0.1);
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
+    background: url("/static/images/background.png") no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    font-family: "SF Pro", sans-serif;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.header {
-    background: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    padding: 1rem 0;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+.dark-mode {
+    background: var(--background-dark);
+    color: var(--text-dark);
 }
 
 .logo img {
-    height: 50px;
+    width: 150px;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 600;
+    transition: opacity 0.3s;
+}
+
+nav a:hover {
+    opacity: 0.7;
+}
+
+nav button {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 200px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    color: orange;
 }
 
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                url('/static/images/hero-bg.jpg');
-    background-size: cover;
-    color: white;
-    padding: 6rem 0;
     text-align: center;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.service-card {
-    text-align: center;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.project-card img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-.cta-button {
-    background: var(--secondary-color);
+    padding: 100px 20px;
+    background: url('/static/images/background.png') center/cover no-repeat;
     color: white;
-    padding: 1rem 2rem;
-    border: none;
+    box-shadow: inset 0 0 30px var(--shadow-dark);
+}
+
+.btn {
+    background: var(--primary-color);
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
     border-radius: 5px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+    display: inline-block;
+    margin-top: 20px;
+    font-weight: bold;
+    transition: transform 0.2s;
 }
 
-.cta-button:hover {
-    transform: translateY(-2px);
+.btn:hover {
+    transform: scale(1.05);
 }
 
-@media (max-width: 768px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .nav {
-        display: none; /* Мобильное меню нужно реализовать отдельно */
-    }
+.service, .contact-container {
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0px 4px 10px var(--shadow-light);
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.service:hover, .contact-container:hover {
+    transform: translateY(-5px);
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    color: white;
+    text-align: center;
+    padding: 10px;
 }
