@@ -1,0 +1,40 @@
+<!-- templates/index.html -->
+{{define "title"}}Главная{{end}}
+
+{{define "content"}}
+<section class="hero">
+    <div class="container">
+        <h1>Профессиональные строительные услуги</h1>
+        <p>Полный цикл работ от проектирования до сдачи объекта</p>
+        <button class="cta-button">Получить консультацию</button>
+    </div>
+</section>
+
+<section class="services" id="services">
+    <div class="container">
+        <h2>Наши услуги</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="/static/images/icon1.png" alt="Строительство">
+                <h3>Строительство домов</h3>
+                <p>Полный цикл работ под ключ</p>
+            </div>
+            <!-- Добавьте другие услуги -->
+        </div>
+    </div>
+</section>
+
+<section class="projects">
+    <div class="container">
+        <h2>Последние проекты</h2>
+        <div class="projects-grid">
+            {{range .Projects}}
+            <div class="project-card">
+                <img src="{{.Image}}" alt="{{.Title}}">
+                <h4>{{.Title}}</h4>
+            </div>
+            {{end}}
+        </div>
+    </div>
+</section>
+{{end}}
