@@ -1,34 +1,70 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <title>Наши услуги</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>АВАЮССТРОЙ | Услуги</title>
+    <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
     <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="/static/js/script.js" defer></script>
 </head>
 <body>
-    <nav>
-        <div class="logo">
-            <img src="/static/images/logo.svg" alt="Логотип АВАЮССТРОЙ">
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="/static/images/logo.svg" alt="АВАЮССТРОЙ">
+                <span>АВАЮССТРОЙ</span>
+            </div>
+            <nav class="nav">
+                <a href="/">Главная</a>
+                <a href="/services">Услуги</a>
+                <a href="/projects">Проекты</a>
+                <a href="/contacts">Контакты</a>
+            </nav>
+            <button class="menu-toggle" aria-label="Открыть меню">
+                <span class="hamburger"></span>
+            </button>
         </div>
-        <h2>
-            ЧСУП"АВАЮССТРОЙ"
-        </h2>
-        <ul class="nav-links">
-            <li><a href="/">Главная</a></li>
-            <li><a href="/about">О нас</a></li>
-            <li><a href="/contact">Контакты</a></li>
-        </ul>
-    </nav>
-    <section id="services">
-        <h2>Наши услуги</h2>
-        <div class="service">
-            <img src="/static/images/service1.jpg" alt="Строительство домов">
-            <h3>Строительство домов</h3>
+    </header>
+
+    <main>
+        <section class="services">
+            <div class="container">
+                <h2>Наши услуги</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <img src="/static/images/earthworks.jpg" alt="Земляные работы">
+                        <h3>Земляные работы</h3>
+                        <p>Рытье котлованов, планировка участков, вывоз грунта.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="/static/images/pipeline.jpg" alt="Прокладка трубопровода">
+                        <h3>Прокладка трубопровода</h3>
+                        <p>Монтаж трубопроводов для воды, газа и канализации.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="/static/images/drainage.jpg" alt="Система водоотведения">
+                        <h3>Система водоотведения</h3>
+                        <p>Устройство дренажных систем для отвода воды.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="/static/images/sewer.jpg" alt="Установка канализации">
+                        <h3>Установка канализации</h3>
+                        <p>Монтаж внутренних и внешних канализационных систем.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 АВАЮССТРОЙ. Все права защищены</p>
+            <p>Телефон: +375 (29) 720-27-91</p>
         </div>
-        <div class="service">
-            <img src="/static/images/service2.jpg" alt="Ремонт и отделка">
-            <h3>Ремонт и отделка</h3>
-        </div>
-    </section>
+    </footer>
 </body>
 </html>

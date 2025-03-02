@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>АВАЮССТРОЙ | Главная</title>
+    <title>АВАЮССТРОЙ | {{.Title}}</title>
     <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,14 +15,14 @@
     <header class="header">
         <div class="container">
             <div class="logo">
-                <img src="/static/images/logo.svg" alt="АВАЮССТРОЙ">
+                <img src="/static/images/logo.png" alt="АВАЮССТРОЙ">
                 <span>АВАЮССТРОЙ</span>
             </div>
             <nav class="nav">
-                <a href="/">Главная</a>
-                <a href="/services">Услуги</a>
-                <a href="/projects">Аренда</a>
-                <a href="/contacts">Контакты</a>
+                <a href="/" data-page="index">Главная</a>
+                <a href="/services" data-page="services">Услуги</a>
+                <a href="/projects" data-page="projects">Проекты</a>
+                <a href="/contacts" data-page="contacts">Контакты</a>
             </nav>
             <button class="menu-toggle" aria-label="Открыть меню">
                 <span class="hamburger"></span>
@@ -30,20 +30,14 @@
         </div>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h1>Профессиональные земляные работы</h1>
-                <p>Качественное выполнение работ любой сложности</p>
-                <a href="/contacts" class="cta-button">Получить консультацию</a>
-            </div>
-        </section>
+    <main id="content">
+        {{ block "content" . }}{{ end }} <!-- Здесь подгружается контент -->
     </main>
 
     <footer class="footer">
         <div class="container">
-            <p>ЧСУП АВАЮССТРОЙ. Все права защищены</p>
-            <p>Телефон: +375 (29) 720-27-91</p>
+            <p>© 2024 АВАЮССТРОЙ. Все права защищены</p>
+            <p>Телефон: +7 (999) 123-45-67</p>
         </div>
     </footer>
 </body>

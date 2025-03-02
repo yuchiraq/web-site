@@ -1,31 +1,33 @@
 package main
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
+	// Инициализация Gin
 	r := gin.Default()
-	r.Static("/static", "./static")
-	r.LoadHTMLGlob("templates/*")
 
+	// Статические файлы
+	r.Static("/static", "./static")
+
+	// Маршруты для страниц
 	r.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.html", gin.H{"title": "Главная | АВАЮССТРОЙ"})
+		c.File("templates/index.html")
 	})
 
 	r.GET("/services", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "services.html", gin.H{"title": "Услуги | АВАЮССТРОЙ"})
+		c.File("templates/services.html")
 	})
 
-	r.GET("/contact", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "contact.html", gin.H{"title": "Контакты | АВАЮССТРОЙ"})
+	r.GET("/projects", func(c *gin.Context) {
+		c.File("templates/projects.html")
 	})
 
-	r.GET("/about", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "about.html", gin.H{"title": "О нас | АВАЮССТРОЙ"})
+	r.GET("/contacts", func(c *gin.Context) {
+		c.File("templates/contacts.html")
 	})
 
+	// Запуск сервера
 	r.Run(":8088")
 }
