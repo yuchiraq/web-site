@@ -3,8 +3,8 @@
     --secondary-color: rgb(255, 145, 0);
     --background-light: rgb(255, 255, 255);
     --background-dark: rgb(18, 18, 18);
-    --header-light: rgba(255, 255, 255, 0.7);
-    --header-dark: rgba(18, 18, 18, 0.7);
+    --header-light: rgba(255, 255, 255, 0.8);
+    --header-dark: rgba(18, 18, 18, 0.8);
     --text-light: #333333;
     --text-dark: #E0E0E0;
     --card-light: rgba(255, 255, 255, 0.9); /* Прозрачность */
