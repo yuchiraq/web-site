@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const header = document.querySelector('.header');
+    const phoneIcon = document.querySelector('.phone-icon');
 
     let lastScroll = 0;
 
@@ -22,4 +23,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
     const theme = prefersDarkScheme.matches ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', theme);
+
+    // Обработчик для иконки телефона
+    phoneIcon.addEventListener('click', function (event) {
+        event.preventDefault(); // Предотвращаем переход по ссылке
+        const phoneNumber = phoneIcon.getAttribute('href').replace('tel:', '');
+        window.location.href = `tel:${phoneNumber}`; // Открываем системный выбор телефона
+    });
 });

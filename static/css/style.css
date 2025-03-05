@@ -1,10 +1,10 @@
 :root {
     --primary-color: #FF6D00; /* Оранжевый акцент */
-    --secondary-color: #FF9100;
+    --secondary-color: rgb(255, 145, 0);
     --background-light: rgb(255, 255, 255);
     --background-dark: rgb(18, 18, 18);
-    --header-light: rgba(255, 255, 255, 0.8);
-    --header-dark: rgba(18, 18, 18, 0.8);
+    --header-light: rgba(255, 255, 255, 0.7);
+    --header-dark: rgba(18, 18, 18, 0.7);
     --text-light: #333333;
     --text-dark: #E0E0E0;
     --card-light: rgba(255, 255, 255, 0.9); /* Прозрачность */
@@ -61,9 +61,68 @@ hr.dashed {
 .container {
     max-width: 80%;
     margin: 0 auto;
+    margin-top: 0px;
     padding-right: 0 20px;
     padding-left: 0 20px;
     padding-top: 0;
+}
+
+/* Основные стили для футера */
+.footer {
+    margin-top: 2rem;
+    background-color: var(--background-light); /* Тёмный фон */
+    color: var(--text-light); /* Светлый текст */
+    padding:  0;
+    font-family: Arial, sans-serif;
+    border-top: var(--border);
+}
+
+.footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: var(--primary-color); /* Синий цвет для заголовков */
+}
+
+.footer-section p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 5px 0;
+}
+
+.footer-section strong {
+    color: var(--secondary-color); /* Синий цвет для выделения */
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-section {
+        margin-bottom: 30px;
+    }
 }
 
 /* Шапка */
@@ -136,7 +195,8 @@ hr.dashed {
 .logo span {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--primary-color);
+    color: var(--secondary-color);
+    -webkit-text-stroke: 0.5px var(--text-light); 
 }
 
 .page {
@@ -230,8 +290,16 @@ main {
 
 /* Стили для главной картинки с эффектом затемнения */
 .service-image {
-    position: relative;
+    /*position: relative;*/
     overflow: hidden;
+    
+    height: auto;
+    max-width: 50%;
+    align-items: center;
+}
+
+.service-image img {
+    align-items: center;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
 }
@@ -293,6 +361,7 @@ main {
 .service-description h3 {
     font-size: 1.75rem;
     margin-bottom: 1rem;
+    margin-top: 0;
     color: var(--primary-color);
 }
 
@@ -304,7 +373,7 @@ main {
 
 .service-description ul {
     list-style-type: disc;
-    margin-left: 2rem;
+    margin-left: 0rem;
     margin-bottom: 1.5rem;
 }
 
@@ -346,11 +415,12 @@ main {
 .hero {
     padding: 6rem 0;
     text-align: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/static/images/hero-bg.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url('/static/images/hero.png');
     background-size: cover;
     background-position: center;
     color: white;
     width: 100%;
+    
 }
 
 .hero h1 {
@@ -364,7 +434,7 @@ main {
 }
 
 .cta-button {
-    background: var(--secondary-color);
+    background-color: var(--secondary-color);
     color: white;
     padding: 1rem 2rem;
     border: none;
@@ -383,12 +453,15 @@ main {
 /* О компании */
 .about {
     padding: 4rem 0;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .about h2 {
     font-size: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0rem;
     text-align: center;
+    font-weight: 500;
 }
 
 .about-content {
@@ -404,7 +477,7 @@ main {
 .about-text p {
     font-size: 1.1rem;
     line-height: 1.6;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0rem;
 }
 
 .about-text ul {
@@ -421,6 +494,7 @@ main {
 
 .about-image {
     flex: 1;
+    margin-top: 1rem;
 }
 
 .about-image img {
@@ -432,6 +506,8 @@ main {
 /* Наши преимущества */
 .features {
     padding: 4rem 0;
+    padding-top: 0;
+    padding-bottom: 0;
     background: var(--background-light);
 }
 
@@ -439,6 +515,8 @@ main {
     font-size: 2rem;
     margin-bottom: 2rem;
     text-align: center;
+    font-weight: 500;
+    line-height: 2.2rem;
 }
 
 .feature-list {
@@ -451,7 +529,8 @@ main {
     background: var(--card-light);
     backdrop-filter: blur(var(--blur));
     border-radius: var(--border-radius);
-    padding: 1.5rem;
+    padding: 1rem;
+    padding-top: 0rem;
     box-shadow: var(--shadow);
     border: var(--border);
     text-align: center;
@@ -459,24 +538,29 @@ main {
 
 .feature-item h3 {
     font-size: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
     color: var(--primary-color);
 }
 
 .feature-item p {
     font-size: 1.1rem;
     line-height: 1.6;
+    margin-top: 1rem;
 }
 
 /* Наши услуги */
 .services {
     padding: 4rem 0;
+    padding-top: 2rem;
 }
 
 .services h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
+    margin-top: 0rem;
     text-align: center;
+    font-weight: 500;
+    line-height: 1rem;
 }
 
 .service-list {
@@ -500,12 +584,13 @@ main {
     height: 200px;
     object-fit: cover;
     border-radius: var(--border-radius);
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
 }
 
 .service-item h3 {
     font-size: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
+    margin-top: 0.5rem;
     color: var(--primary-color);
 }
 
@@ -513,6 +598,7 @@ main {
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
 }
 
 .service-button {
@@ -590,7 +676,7 @@ main {
         flex-direction: column;
     }
 
-    .service-image img {
+    .service-image {
         max-width: 100%;
     }
 
@@ -606,4 +692,82 @@ main {
         grid-template-columns: 1fr;
     }
 
+}
+
+/* Кнопка телефона */
+.phone-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: none; /* По умолчанию скрываем кнопку */
+}
+
+.phone-icon {
+    background-color: rgba(255, 255, 255, 0.1); /* Прозрачный фон */
+    backdrop-filter: blur(var(--blur)); /* Размытие фона */
+    border: none;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.phone-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+.phone-icon:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Прозрачный фон при наведении */
+    transform: scale(1.1);
+}
+
+/* Выпадающий список с номерами */
+.phone-dropdown {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.1); /* Прозрачный фон */
+    backdrop-filter: blur(10px); /* Размытие фона */
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border: var(--border);
+    padding: 0.5rem;
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.phone-dropdown a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.phone-dropdown a:hover {
+    color: var(--primary-color);
+}
+
+/* Показываем выпадающий список при наведении */
+.phone-button:hover .phone-dropdown {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+    .phone-button {
+        display: block; /* Показываем кнопку только на мобильных устройствах */
+    }
 }
