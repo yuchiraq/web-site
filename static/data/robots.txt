@@ -2,4 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /private/
+Disallow: /templates/
+Disallow: /static/
 Sitemap: http://avayusstroi.by/sitemap.xml
