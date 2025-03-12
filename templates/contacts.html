@@ -4,8 +4,9 @@
     {{ template "head" }}
     <title>АВАЮССТРОЙ | Контакты</title>
     <!-- Мета-тег description -->
-    <meta name="description" content="АВАЮССТРОЙ предлагает профессиональные услуги по строительству, дренажным системам, 
-    водопонижению и аренде спецтехники в Бресте и Брестской области. Качественные решения для вашего проекта.">
+    <meta name="description" content="Свяжитесь с ЧСУП «АВАЮССТРОЙ» для заказа строительных услуг, 
+    аренды спецтехники или консультации. Мы работаем в Бресте и Брестской области. Оставьте заявку, 
+    и мы оперативно ответим на все ваши вопросы. Ваш надежный партнер в строительстве!">
     <!-- Мета-тег keywords (опционально, но некоторые поисковики его учитывают) -->
     <meta name="keywords" content="
     строительство в Бресте, дренажные системы Брест, водопонижение Брест, аренда спецтехники Брест,
@@ -26,40 +27,71 @@
     аренда спецтехники для земляных работ Брест, строительство дорог Брест, дренаж дорог Брест,
     водопонижение для дорожного строительства Брест, аренда техники для дорожных работ Брест
     ">
+    <!-- Подключение иконок FontAwesome для кнопок Viber и Telegram -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    {{ template "header"}}
+    {{ template "header" }}
 
+    
     <main>
+        <!-- Призыв к действию -->
+        <section class="cta">
+            <div class="container">
+                <h2>Закажите услугу прямо сейчас!</h2>
+                <p>Свяжитесь с нами для получения консультации или оформления заказа.</p>
+                <a href="#" class="cta-button open-modal-button">Заказать звонок</a>
+            </div>
+        </section>
         <section class="section">
             <div class="container">
                 <h2>Контакты</h2>
                 <div class="boxes-list">
                     <div class="box" style="padding-top: 1rem;">
-                    <h3>ЧСУП «АВАЮССТРОЙ»</h3>
-                    <p><strong>Адрес:</strong> 224032, г. Брест, ул. Янки Купалы, 109</p>
-                    <p><strong>Телефоны:</strong></p>
-                    <ul>
-                        <li>+375 (29) 720-27-91 (Александр)</li>
-                        <li>+375 (33) 670-92-73 (Александр)</li>
-                    </ul>
+                        <h3>ЧСУП «АВАЮССТРОЙ»</h3>
+                        <p><strong>Адрес:</strong> 224032, г. Брест, ул. Янки Купалы, 109</p>
+                        <p><strong>Телефоны:</strong></p>
+                        <ul>
+                            <li>
+                                +375 (29) 720-27-91 (Александр)
+                                <!-- Кнопка Viber -->
+                                <a href="viber://chat?number=%2B375297202791" target="_blank" style="margin-left: 10px;">
+                                    <i class="fab fa-viber" style="color: #7360F2; font-size: 24px;"></i>
+                                </a>
+                                <!-- Кнопка Telegram -->
+                                <a href="https://t.me/+375297202791" target="_blank" style="margin-left: 10px;">
+                                    <i class="fab fa-telegram" style="color: #0088cc; font-size: 24px;"></i>
+                                </a>
+                            </li>
+                            <li>
+                                +375 (33) 670-92-73 (Александр)
+                                <!-- Кнопка Viber -->
+                                <a href="viber://chat?number=%2B375336709273" target="_blank" style="margin-left: 10px;">
+                                    <i class="fab fa-viber" style="color: #7360F2; font-size: 24px;"></i>
+                                </a>
+                                <!-- Кнопка Telegram -->
+                                <a href="https://t.me/+375336709273" target="_blank" style="margin-left: 10px;">
+                                    <i class="fab fa-telegram" style="color: #0088cc; font-size: 24px;"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="box" style="padding-top: 1rem;">
+                        <p><strong>Директор:</strong> А.С. Стракович (на основании устава, приказ №1 от 27.10.2010)</p>
+                        <p><strong>Свидетельство о государственной регистрации:</strong> №291002836</p>
+                        <p><strong>УНП:</strong> 291002836</p>
+                    </div>
+                    <div class="box" style="padding-top: 1rem;">
+                        <p><strong>Платёжные реквизиты:</strong></p>
+                        <ul>
+                            <li><strong>Расчётный счёт:</strong> BY41OLMP30123001046460000933</li>
+                            <li><strong>Банк:</strong> Брестская областная дирекция ОАО «Белгазпромбанк»</li>
+                            <li><strong>Адрес банка:</strong> г. Брест, ул. Московская, 174 А</li>
+                            <li><strong>БИК:</strong> OLMPBY2X</li>
+                            <li><strong>УНП банка:</strong> 100429079</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="box" style="padding-top: 1rem;">
-                    <p><strong>Директор:</strong> А.С. Стракович (на основании устава, приказ №1 от 27.10.2010)</p>
-                    <p><strong>Свидетельство о государственной регистрации:</strong> №291002836</p>
-                    <p><strong>УНП:</strong> 291002836</p>
-                </div>
-                <div class="box" style="padding-top: 1rem;">
-                    <p><strong>Платёжные реквизиты:</strong></p>
-                    <ul>
-                        <li><strong>Расчётный счёт:</strong> BY41OLMP30123001046460000933</li>
-                        <li><strong>Банк:</strong> Брестская областная дирекция ОАО «Белгазпромбанк»</li>
-                        <li><strong>Адрес банка:</strong> г. Брест, ул. Московская, 174 А</li>
-                        <li><strong>БИК:</strong> OLMPBY2X</li>
-                        <li><strong>УНП банка:</strong> 100429079</li>
-                    </ul>
-                </div>
-            </div>
 
                 <!-- Блок с Яндекс.Картами -->
                 <div class="map-container">

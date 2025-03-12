@@ -34,14 +34,28 @@
     
 </header>
 
+<!-- Модальное окно -->
+<div id="phoneFormModal" class="modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Оставьте заявку, и мы свяжемся с вами!</h3>
+        <form id="contactForm">
+            <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+            <input type="tel" id="phone" name="phone" placeholder="Ваш телефон" required>
+            <button type="submit" class="cta-button">
+                <span class="submit-text">Отправить заявку</span>
+                <span class="loading-spinner" style="display: none;">⏳</span>
+            </button>
+        </form>
+        <p id="responseMessage"></p>
+    </div>
+</div>
+
 <!-- Кнопка телефона -->
 <div class="phone-button">
-    <button class="phone-icon">
+    <button class="phone-icon" id="openPhoneForm">
         <img src="/static/images/phone-icon.svg" alt="Позвонить">
     </button>
-    <div class="phone-dropdown">
-        <a href="tel:+375297202791">+375 (29) 720-27-91</a>
-        <a href="tel:+375336709273">+375 (33) 670-92-73</a>
-    </div>
 </div>
 {{ end }}

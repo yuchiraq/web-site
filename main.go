@@ -26,6 +26,8 @@ func main() {
 	r.StaticFile("/robots.txt", "./static/data/robots.txt")
 	r.StaticFile("/favicon.ico", "./static/images/favicon.ico")
 
+	r.POST("/submit", submitHandler) // Обработчик формы
+
 	// Запуск сервера
 	log.Println("Сервер запущен на http://localhost:80")
 	if err := r.Run(":80"); err != nil {
