@@ -878,6 +878,8 @@ main {
     border: var(--border);
     border-radius: var(--border-radius);
     font-size: 1rem;
+    background-color: var(--background-light);
+    color: var(--text-light);
 }
 
 #contactForm button {

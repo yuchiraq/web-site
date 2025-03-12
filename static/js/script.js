@@ -12,6 +12,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let lastScroll = 0;
 
+    // Переключение темы
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    const theme = prefersDarkScheme.matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+
     // Анимация навигации при скролле
     window.addEventListener('scroll', function () {
         const currentScroll = window.scrollY;
