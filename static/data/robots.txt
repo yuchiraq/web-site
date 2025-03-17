@@ -1,7 +1,5 @@
 User-agent: *
+Disallow: /admin
 Allow: /
-Disallow: /admin/
-Disallow: /private/
-Disallow: /templates/
-Disallow: /static/
-Sitemap: http://avayusstroi.by/sitemap.xml
+Sitemap: https://avayusstroi.by/sitemap.xml
+Allow: /rss.xml

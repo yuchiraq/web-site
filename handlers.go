@@ -54,6 +54,13 @@ func submitHandler(c *gin.Context) {
 		return
 	}
 
+	// Валидация данных
+	if req.Name == "" || req.Phone == "" {
+		log.Printf("Ошибка: пустое имя или телефон")
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Name and phone are required"})
+		return
+	}
+
 	log.Printf("Получена заявка: Имя: %s, Телефон: %s", req.Name, req.Phone)
 
 	// Отправляем уведомление на email
@@ -69,6 +76,9 @@ func submitHandler(c *gin.Context) {
 			log.Printf("Ошибка при отправке Telegram-уведомления в чат %s: %v", chatID, err)
 		}
 	}
+
+	// Логирование успешной заявки
+	log.Printf("Успешная заявка: Имя: %s, Телефон: %s", req.Name, req.Phone)
 
 	// Успешный ответ
 	c.JSON(http.StatusOK, gin.H{"success": true})

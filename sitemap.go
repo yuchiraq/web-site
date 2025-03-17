@@ -3,7 +3,8 @@ package main
 import (
 	"encoding/xml"
 	"os"
-	"time"
+	"path/filepath"
+	"strings"
 )
 
 type URL struct {
@@ -21,68 +22,48 @@ type URLSet struct {
 
 // GenerateSitemap создаёт или обновляет sitemap.xml
 func GenerateSitemap() error {
-	// Список URL вашего сайта
-	urls := []URL{
-		{
-			Loc:        "https://avayusstroi.by/",
-			LastMod:    time.Now().Format("2006-01-02"),
-			ChangeFreq: "daily",
-			Priority:   "1.0",
-		},
-		{
-			Loc:        "https://avayusstroi.by/services",
-			LastMod:    time.Now().Format("2006-01-02"),
-			ChangeFreq: "weekly",
-			Priority:   "0.8",
-		},
-		{
-			Loc:        "https://avayusstroi.by/rent",
-			LastMod:    time.Now().Format("2006-01-02"),
-			ChangeFreq: "weekly",
-			Priority:   "0.8",
-		},
-		{
-			Loc:        "https://avayusstroi.by/contacts",
-			LastMod:    time.Now().Format("2006-01-02"),
-			ChangeFreq: "monthly",
-			Priority:   "0.5",
-		},
-		{
-			Loc:        "https://avayusstroi.by/services/drainage",
-			LastMod:    time.Now().Format("2006-01-02"),
-			ChangeFreq: "weekly",
-			Priority:   "0.7",
-		},
-		{
-			Loc:        "https://avayusstroi.by/services/plumbing",
-			LastMod:    time.Now().Format("2006-01-02"),
-			ChangeFreq: "weekly",
-			Priority:   "0.7",
-		},
-		{
-			Loc:        "https://avayusstroi.by/services/sewerage",
-			LastMod:    time.Now().Format("2006-01-02"),
-			ChangeFreq: "weekly",
-			Priority:   "0.7",
-		},
-		{
-			Loc:        "https://avayusstroi.by/services/storm_sewer",
-			LastMod:    time.Now().Format("2006-01-02"),
-			ChangeFreq: "weekly",
-			Priority:   "0.7",
-		},
-		{
-			Loc:        "https://avayusstroi.by/services/topas",
-			LastMod:    time.Now().Format("2006-01-02"),
-			ChangeFreq: "weekly",
-			Priority:   "0.7",
-		},
-		{
-			Loc:        "https://avayusstroi.by/services/water_lowering",
-			LastMod:    time.Now().Format("2006-01-02"),
-			ChangeFreq: "weekly",
-			Priority:   "0.7",
-		},
+	urls := []URL{}
+
+	// Сканируем папку templates
+	err := filepath.Walk("templates", func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+		// Пропускаем вложенные шаблоны
+		if strings.Contains(path, "header.html") || strings.Contains(path, "footer.html") ||
+			strings.Contains(path, "head.html") || strings.Contains(path, "phone_button.html") {
+			return nil
+		}
+		if !info.IsDir() && filepath.Ext(path) == ".html" {
+			route := strings.TrimPrefix(path, "templates/")
+			route = strings.TrimSuffix(route, ".html")
+			if route == "index" {
+				route = "/"
+			} else {
+				route = "/" + route
+			}
+			priority := "0.5"
+			changeFreq := "monthly"
+			if route == "/" {
+				priority = "1.0"
+				changeFreq = "daily"
+			} else if strings.HasPrefix(route, "/services") {
+				priority = "0.7"
+				changeFreq = "weekly"
+			}
+			// Получаем дату последнего изменения файла
+			lastMod := info.ModTime().Format("2006-01-02")
+			urls = append(urls, URL{
+				Loc:        "https://avayusstroi.by" + route,
+				LastMod:    lastMod,
+				ChangeFreq: changeFreq,
+				Priority:   priority,
+			})
+		}
+		return nil
+	})
+	if err != nil {
+		return err
 	}
 
 	// Создаём структуру для sitemap
