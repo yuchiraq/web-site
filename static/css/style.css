@@ -246,7 +246,7 @@ main {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: url('/static/images/hero.png') no-repeat center center/cover;
+    background: url('/static/images/hero_new.webp') no-repeat center center/cover;
     color: #FFFFFF;
     overflow: hidden;
 }

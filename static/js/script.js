@@ -196,3 +196,9 @@ styleSheet.insertRule(`
         }
     }
 `, styleSheet.cssRules.length);
+
+window.addEventListener('scroll', () => {
+    const hero = document.querySelector('.hero');
+    const scrollTop = window.pageYOffset;
+    hero.style.backgroundPositionY = -scrollTop * 0.25 + 'px';
+});
