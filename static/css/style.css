@@ -246,9 +246,20 @@ main {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: url('/static/images/hero_new.webp') no-repeat center center/cover;
+    background: url('/static/images/hero_new.jpg') no-repeat local center/cover;
+    background-attachment: scroll; /* Для параллакс-эффекта */
+    background-size: cover;
     color: #FFFFFF;
     overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 80vh;
+        padding: 2rem 0;
+        background-attachment: scroll; /* Отключаем fixed для мобильных */
+        background-size: 250%; /* Увеличиваем масштаб для мобильных */
+    }
 }
 
 .hero-overlay {
@@ -347,11 +358,6 @@ main {
 }
 
 @media (max-width: 768px) {
-    .hero {
-        height: 80vh;
-        padding: 2rem 0;
-    }
-
     .hero-content {
         padding: 2rem;
         max-width: 70%;
@@ -656,6 +662,152 @@ main {
 
     .service-item {
         padding: 1rem;
+    }
+}
+
+/* Наши проекты (карусель) */
+.projects {
+    padding: 4rem 0;
+    padding-top: 0;
+    background: var(--background-light);
+}
+
+.projects h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    animation: scroll 20s linear infinite;
+}
+
+.carousel-track img {
+    width: auto;
+    height: 400px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    margin-right: 1rem;
+    box-shadow: var(--shadow-light);
+    transition: transform 0.3s ease;
+}
+
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 768px) {
+    .projects {
+        padding: 2rem 0;
+        padding-top: 0;
+    }
+
+    .projects h2 {
+        font-size: 2rem;
+    }
+
+    .carousel-track {
+        display: flex;
+        animation: scroll 10s linear infinite;
+    }
+
+    .carousel-track img {
+        width: auto;
+        height: 222px;
+    }
+}
+
+/* Наши клиенты (карусель и счетчик) */
+.clients {
+    padding: 4rem 0;
+    background: var(--background-light);
+}
+
+.clients h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.clients-carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.clients-track {
+    display: flex;
+    animation: scroll 15s linear infinite;
+}
+
+.clients-track img {
+    width: 150px;
+    height: 80px;
+    object-fit: contain;
+    margin-right: 2rem;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.clients-track img:hover {
+    filter: grayscale(0%);
+}
+
+.other-clients {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.other-clients p {
+    font-size: 1.5rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.other-clients .counter {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .clients {
+        padding: 2rem 0;
+    }
+
+    .clients h2 {
+        font-size: 2rem;
+    }
+
+    .clients-track img {
+        width: 100px;
+        height: 50px;
+    }
+
+    .other-clients p {
+        font-size: 1.2rem;
+    }
+
+    .other-clients .counter {
+        font-size: 2rem;
     }
 }
 

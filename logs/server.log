@@ -1,1146 +1,361 @@
-2025/03/17 19:23:34 sitemap.xml успешно сгенерирован
-2025/03/17 19:23:34 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 19:23:34 Запуск HTTPS-сервера на порту 443
-2025/03/17 19:27:10 http: TLS handshake error from 10.8.0.1:33882: read tcp 10.8.0.6:443->10.8.0.1:33882: read: connection reset by peer
-2025/03/17 19:27:44 http: TLS handshake error from 10.8.0.1:58700: read tcp 10.8.0.6:443->10.8.0.1:58700: read: connection reset by peer
-2025/03/17 19:31:06 http: TLS handshake error from 10.8.0.1:37990: read tcp 10.8.0.6:443->10.8.0.1:37990: read: connection reset by peer
-2025/03/17 19:31:39 http: TLS handshake error from 10.8.0.1:40854: read tcp 10.8.0.6:443->10.8.0.1:40854: read: connection reset by peer
-2025/03/17 19:35:11 http: TLS handshake error from 10.8.0.1:53368: read tcp 10.8.0.6:443->10.8.0.1:53368: read: connection reset by peer
-2025/03/17 19:35:27 http: TLS handshake error from 10.8.0.1:43180: read tcp 10.8.0.6:443->10.8.0.1:43180: read: connection reset by peer
-2025/03/17 19:39:01 http: TLS handshake error from 10.8.0.1:35818: read tcp 10.8.0.6:443->10.8.0.1:35818: read: connection reset by peer
-2025/03/17 19:39:35 http: TLS handshake error from 10.8.0.1:57212: read tcp 10.8.0.6:443->10.8.0.1:57212: read: connection reset by peer
-2025/03/17 19:42:14 http: TLS handshake error from 10.8.0.1:55146: EOF
-2025/03/17 19:42:56 http: TLS handshake error from 10.8.0.1:46310: read tcp 10.8.0.6:443->10.8.0.1:46310: read: connection reset by peer
-2025/03/17 19:43:30 http: TLS handshake error from 10.8.0.1:50178: read tcp 10.8.0.6:443->10.8.0.1:50178: read: connection reset by peer
-2025/03/17 19:44:13 http: TLS handshake error from 10.8.0.1:35746: EOF
-2025/03/17 19:45:15 http: TLS handshake error from 10.8.0.1:56240: read tcp 10.8.0.6:443->10.8.0.1:56240: read: connection reset by peer
-2025/03/17 19:45:49 http: TLS handshake error from 10.8.0.1:40042: read tcp 10.8.0.6:443->10.8.0.1:40042: read: connection reset by peer
-2025/03/17 19:46:05 http: TLS handshake error from 10.8.0.1:54848: read tcp 10.8.0.6:443->10.8.0.1:54848: read: connection reset by peer
-2025/03/17 19:46:39 http: TLS handshake error from 10.8.0.1:34936: read tcp 10.8.0.6:443->10.8.0.1:34936: read: connection reset by peer
-2025/03/17 19:47:20 http: TLS handshake error from 10.8.0.1:40332: read tcp 10.8.0.6:443->10.8.0.1:40332: read: connection reset by peer
-2025/03/17 19:47:54 http: TLS handshake error from 10.8.0.1:34582: read tcp 10.8.0.6:443->10.8.0.1:34582: read: connection reset by peer
-2025/03/17 19:48:36 http: TLS handshake error from 10.8.0.1:36848: read tcp 10.8.0.6:443->10.8.0.1:36848: read: connection reset by peer
-2025/03/17 19:49:10 http: TLS handshake error from 10.8.0.1:39160: read tcp 10.8.0.6:443->10.8.0.1:39160: read: connection reset by peer
-2025/03/17 19:50:15 http: TLS handshake error from 10.8.0.1:33694: EOF
-2025/03/17 19:50:16 http: TLS handshake error from 10.8.0.1:51826: read tcp 10.8.0.6:443->10.8.0.1:51826: read: connection reset by peer
-2025/03/17 19:50:49 http: TLS handshake error from 10.8.0.1:38976: read tcp 10.8.0.6:443->10.8.0.1:38976: read: connection reset by peer
-2025/03/17 19:52:48 http: TLS handshake error from 10.8.0.1:47592: read tcp 10.8.0.6:443->10.8.0.1:47592: read: connection reset by peer
-2025/03/17 19:53:22 http: TLS handshake error from 10.8.0.1:56826: read tcp 10.8.0.6:443->10.8.0.1:56826: read: connection reset by peer
-2025/03/17 19:54:12 http: TLS handshake error from 10.8.0.1:33574: read tcp 10.8.0.6:443->10.8.0.1:33574: read: connection reset by peer
-2025/03/17 19:54:46 http: TLS handshake error from 10.8.0.1:44098: read tcp 10.8.0.6:443->10.8.0.1:44098: read: connection reset by peer
-2025/03/17 19:57:08 http: TLS handshake error from 10.8.0.1:32960: read tcp 10.8.0.6:443->10.8.0.1:32960: read: connection reset by peer
-2025/03/17 19:57:41 http: TLS handshake error from 10.8.0.1:44056: read tcp 10.8.0.6:443->10.8.0.1:44056: read: connection reset by peer
-2025/03/17 19:58:15 http: TLS handshake error from 10.8.0.1:39082: EOF
-2025/03/17 19:58:29 http: TLS handshake error from 10.8.0.1:39936: read tcp 10.8.0.6:443->10.8.0.1:39936: read: connection reset by peer
-2025/03/17 19:59:03 http: TLS handshake error from 10.8.0.1:53554: read tcp 10.8.0.6:443->10.8.0.1:53554: read: connection reset by peer
-2025/03/17 19:59:11 http: TLS handshake error from 10.8.0.1:48482: read tcp 10.8.0.6:443->10.8.0.1:48482: read: connection reset by peer
-2025/03/17 19:59:45 http: TLS handshake error from 10.8.0.1:38806: read tcp 10.8.0.6:443->10.8.0.1:38806: read: connection reset by peer
-2025/03/17 20:01:50 http: TLS handshake error from 10.8.0.1:44400: read tcp 10.8.0.6:443->10.8.0.1:44400: read: connection reset by peer
-2025/03/17 20:02:22 http: TLS handshake error from 10.8.0.1:41534: read tcp 10.8.0.6:443->10.8.0.1:41534: read: connection reset by peer
-2025/03/17 20:04:52 http: TLS handshake error from 10.8.0.1:57162: read tcp 10.8.0.6:443->10.8.0.1:57162: read: connection reset by peer
-2025/03/17 20:05:26 http: TLS handshake error from 10.8.0.1:49208: read tcp 10.8.0.6:443->10.8.0.1:49208: read: connection reset by peer
-2025/03/17 20:06:15 http: TLS handshake error from 10.8.0.1:42668: EOF
-2025/03/17 20:13:05 http: TLS handshake error from 10.8.0.1:45540: read tcp 10.8.0.6:443->10.8.0.1:45540: read: connection reset by peer
-2025/03/17 20:13:38 http: TLS handshake error from 10.8.0.1:51664: read tcp 10.8.0.6:443->10.8.0.1:51664: read: connection reset by peer
-2025/03/17 20:14:13 http: TLS handshake error from 10.8.0.1:38866: EOF
-2025/03/17 20:14:15 http: TLS handshake error from 10.8.0.1:46920: EOF
-2025/03/17 20:16:18 http: TLS handshake error from 10.8.0.1:40294: EOF
-2025/03/17 20:18:06 http: TLS handshake error from 10.8.0.1:56514: read tcp 10.8.0.6:443->10.8.0.1:56514: read: connection reset by peer
-2025/03/17 20:18:40 http: TLS handshake error from 10.8.0.1:40582: read tcp 10.8.0.6:443->10.8.0.1:40582: read: connection reset by peer
-2025/03/17 20:19:59 http: TLS handshake error from 10.8.0.1:51434: read tcp 10.8.0.6:443->10.8.0.1:51434: read: connection reset by peer
-2025/03/17 20:20:31 http: TLS handshake error from 10.8.0.1:51032: read tcp 10.8.0.6:443->10.8.0.1:51032: read: connection reset by peer
-2025/03/17 20:20:58 http: TLS handshake error from 10.8.0.1:56532: read tcp 10.8.0.6:443->10.8.0.1:56532: read: connection reset by peer
-2025/03/17 20:21:32 http: TLS handshake error from 10.8.0.1:42576: read tcp 10.8.0.6:443->10.8.0.1:42576: read: connection reset by peer
-2025/03/17 20:21:51 http: TLS handshake error from 10.8.0.1:49094: read tcp 10.8.0.6:443->10.8.0.1:49094: read: connection reset by peer
-2025/03/17 20:22:15 http: TLS handshake error from 10.8.0.1:59528: EOF
-2025/03/17 20:22:23 http: TLS handshake error from 10.8.0.1:55264: read tcp 10.8.0.6:443->10.8.0.1:55264: read: connection reset by peer
-2025/03/17 20:22:57 http: TLS handshake error from 10.8.0.1:36850: read tcp 10.8.0.6:443->10.8.0.1:36850: read: connection reset by peer
-2025/03/17 20:23:31 http: TLS handshake error from 10.8.0.1:45116: read tcp 10.8.0.6:443->10.8.0.1:45116: read: connection reset by peer
-2025/03/17 20:28:19 sitemap.xml успешно сгенерирован
-2025/03/17 20:28:19 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 20:28:19 Запуск HTTPS-сервера на порту 443
-2025/03/17 20:29:31 sitemap.xml успешно сгенерирован
-2025/03/17 20:29:31 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 20:29:31 Запуск HTTPS-сервера на порту 443
-2025/03/17 20:32:51 http: TLS handshake error from 10.8.0.1:41884: read tcp 10.8.0.6:443->10.8.0.1:41884: read: connection reset by peer
-2025/03/17 20:33:24 http: TLS handshake error from 10.8.0.1:54608: read tcp 10.8.0.6:443->10.8.0.1:54608: read: connection reset by peer
-2025/03/17 20:34:06 http: TLS handshake error from 10.8.0.1:42638: read tcp 10.8.0.6:443->10.8.0.1:42638: read: connection reset by peer
-2025/03/17 20:34:39 http: TLS handshake error from 10.8.0.1:42194: read tcp 10.8.0.6:443->10.8.0.1:42194: read: connection reset by peer
-2025/03/17 20:35:18 http: TLS handshake error from 10.8.0.1:34686: read tcp 10.8.0.6:443->10.8.0.1:34686: read: connection reset by peer
-2025/03/17 20:36:21 http: TLS handshake error from 10.8.0.1:60254: EOF
-2025/03/17 20:38:10 http: TLS handshake error from 10.8.0.1:44322: read tcp 10.8.0.6:443->10.8.0.1:44322: read: connection timed out
-2025/03/17 20:41:00 sitemap.xml успешно сгенерирован
-2025/03/17 20:41:00 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 20:41:00 Запуск HTTPS-сервера на порту 443
-2025/03/17 20:44:13 http: TLS handshake error from 10.8.0.1:32922: EOF
-2025/03/17 20:44:26 http: TLS handshake error from 10.8.0.1:35028: read tcp 10.8.0.6:443->10.8.0.1:35028: read: connection reset by peer
-2025/03/17 20:45:00 http: TLS handshake error from 10.8.0.1:45446: read tcp 10.8.0.6:443->10.8.0.1:45446: read: connection reset by peer
-2025/03/17 20:45:39 sitemap.xml успешно сгенерирован
-2025/03/17 20:45:39 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 20:45:39 Запуск HTTPS-сервера на порту 443
-2025/03/17 20:46:18 http: TLS handshake error from 10.8.0.1:46034: EOF
-2025/03/17 20:48:45 http: TLS handshake error from 10.8.0.1:36900: read tcp 10.8.0.6:443->10.8.0.1:36900: read: connection reset by peer
-2025/03/17 20:49:30 http: TLS handshake error from 10.8.0.1:34454: read tcp 10.8.0.6:443->10.8.0.1:34454: read: connection reset by peer
-2025/03/17 20:49:51 sitemap.xml успешно сгенерирован
-2025/03/17 20:49:51 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 20:49:51 Запуск HTTPS-сервера на порту 443
-2025/03/17 20:52:03 sitemap.xml успешно сгенерирован
-2025/03/17 20:52:03 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 20:52:03 Запуск HTTPS-сервера на порту 443
-2025/03/17 20:53:26 sitemap.xml успешно сгенерирован
-2025/03/17 20:53:26 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 20:53:26 Запуск HTTPS-сервера на порту 443
-2025/03/17 20:56:44 http: TLS handshake error from 10.8.0.1:41586: read tcp 10.8.0.6:443->10.8.0.1:41586: read: connection reset by peer
-2025/03/17 20:57:17 http: TLS handshake error from 10.8.0.1:60960: read tcp 10.8.0.6:443->10.8.0.1:60960: read: connection reset by peer
-2025/03/17 20:57:51 http: TLS handshake error from 10.8.0.1:43158: read tcp 10.8.0.6:443->10.8.0.1:43158: read: connection reset by peer
-2025/03/17 20:58:24 http: TLS handshake error from 10.8.0.1:51146: read tcp 10.8.0.6:443->10.8.0.1:51146: read: connection reset by peer
-2025/03/17 20:58:46 http: TLS handshake error from 10.8.0.1:43492: read tcp 10.8.0.6:443->10.8.0.1:43492: read: connection reset by peer
-2025/03/17 20:59:20 http: TLS handshake error from 10.8.0.1:40122: read tcp 10.8.0.6:443->10.8.0.1:40122: read: connection reset by peer
-2025/03/17 21:00:34 http: TLS handshake error from 10.8.0.1:57616: read tcp 10.8.0.6:443->10.8.0.1:57616: read: connection reset by peer
-2025/03/17 21:01:07 http: TLS handshake error from 10.8.0.1:44704: read tcp 10.8.0.6:443->10.8.0.1:44704: read: connection reset by peer
-2025/03/17 21:01:28 http: TLS handshake error from 10.8.0.1:54920: read tcp 10.8.0.6:443->10.8.0.1:54920: read: connection reset by peer
-2025/03/17 21:02:01 http: TLS handshake error from 10.8.0.1:60630: read tcp 10.8.0.6:443->10.8.0.1:60630: read: connection reset by peer
-2025/03/17 21:02:34 http: TLS handshake error from 10.8.0.1:38288: EOF
-2025/03/17 21:03:54 http: TLS handshake error from 10.8.0.1:57956: client sent an HTTP request to an HTTPS server
-2025/03/17 21:07:20 sitemap.xml успешно сгенерирован
-2025/03/17 21:07:20 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 21:07:20 Запуск HTTPS-сервера на порту 443
-2025/03/17 21:07:48 sitemap.xml успешно сгенерирован
-2025/03/17 21:07:48 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 21:07:48 Запуск HTTPS-сервера на порту 443
-2025/03/17 21:10:54 http: TLS handshake error from 10.8.0.1:33524: read tcp 10.8.0.6:443->10.8.0.1:33524: read: connection reset by peer
-2025/03/17 21:13:20 sitemap.xml успешно сгенерирован
-2025/03/17 21:13:20 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 21:13:20 Запуск HTTPS-сервера на порту 443
-2025/03/17 21:13:59 sitemap.xml успешно сгенерирован
-2025/03/17 21:13:59 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 21:13:59 Запуск HTTPS-сервера на порту 443
-2025/03/17 21:14:13 http: TLS handshake error from 10.8.0.1:39584: EOF
-2025/03/17 21:15:07 sitemap.xml успешно сгенерирован
-2025/03/17 21:15:07 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 21:15:07 Запуск HTTPS-сервера на порту 443
-2025/03/17 21:16:18 http: TLS handshake error from 10.8.0.1:41028: EOF
-2025/03/17 21:17:27 sitemap.xml успешно сгенерирован
-2025/03/17 21:17:27 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 21:17:27 Запуск HTTPS-сервера на порту 443
-2025/03/17 21:19:12 sitemap.xml успешно сгенерирован
-2025/03/17 21:19:12 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 21:19:12 Запуск HTTPS-сервера на порту 443
-2025/03/17 21:22:47 http: TLS handshake error from 10.8.0.1:37128: read tcp 10.8.0.6:443->10.8.0.1:37128: read: connection reset by peer
-2025/03/17 21:23:20 http: TLS handshake error from 10.8.0.1:49282: read tcp 10.8.0.6:443->10.8.0.1:49282: read: connection reset by peer
-2025/03/17 21:35:11 sitemap.xml успешно сгенерирован
-2025/03/17 21:35:11 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 21:35:11 Запуск HTTPS-сервера на порту 443
-2025/03/17 21:38:39 http: TLS handshake error from 10.8.0.1:52098: read tcp 10.8.0.6:443->10.8.0.1:52098: read: connection reset by peer
-2025/03/17 21:39:11 http: TLS handshake error from 10.8.0.1:36676: read tcp 10.8.0.6:443->10.8.0.1:36676: read: connection reset by peer
-2025/03/17 21:39:25 http: TLS handshake error from 10.8.0.1:36672: read tcp 10.8.0.6:443->10.8.0.1:36672: read: connection reset by peer
-2025/03/17 21:39:59 http: TLS handshake error from 10.8.0.1:46510: read tcp 10.8.0.6:443->10.8.0.1:46510: read: connection reset by peer
-2025/03/17 21:41:00 sitemap.xml успешно сгенерирован
-2025/03/17 21:41:00 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 21:41:00 Запуск HTTPS-сервера на порту 443
-2025/03/17 21:41:49 sitemap.xml успешно сгенерирован
-2025/03/17 21:41:49 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 21:41:49 Запуск HTTPS-сервера на порту 443
-2025/03/17 21:44:13 http: TLS handshake error from 10.8.0.1:32976: EOF
-2025/03/17 21:45:35 http: TLS handshake error from 10.8.0.1:59146: read tcp 10.8.0.6:443->10.8.0.1:59146: read: connection reset by peer
-2025/03/17 21:46:08 http: TLS handshake error from 10.8.0.1:33608: read tcp 10.8.0.6:443->10.8.0.1:33608: read: connection reset by peer
-2025/03/17 21:46:18 http: TLS handshake error from 10.8.0.1:38984: EOF
-2025/03/17 21:46:42 http: TLS handshake error from 10.8.0.1:46748: read tcp 10.8.0.6:443->10.8.0.1:46748: read: connection reset by peer
-2025/03/17 21:47:15 http: TLS handshake error from 10.8.0.1:39432: read tcp 10.8.0.6:443->10.8.0.1:39432: read: connection reset by peer
-2025/03/17 21:47:20 http: TLS handshake error from 10.8.0.1:42018: EOF
-2025/03/17 21:47:22 http: TLS handshake error from 10.8.0.1:42026: EOF
-2025/03/17 21:47:27 http: TLS handshake error from 10.8.0.1:42028: EOF
-2025/03/17 21:47:43 http: TLS handshake error from 10.8.0.1:59118: tls: first record does not look like a TLS handshake
-2025/03/17 21:47:45 http: TLS handshake error from 10.8.0.1:35832: tls: first record does not look like a TLS handshake
-2025/03/17 21:48:01 http: TLS handshake error from 10.8.0.1:43868: read tcp 10.8.0.6:443->10.8.0.1:43868: read: connection reset by peer
-2025/03/17 21:48:35 http: TLS handshake error from 10.8.0.1:58648: read tcp 10.8.0.6:443->10.8.0.1:58648: read: connection reset by peer
-2025/03/17 21:48:49 sitemap.xml успешно сгенерирован
-2025/03/17 21:48:49 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 21:48:49 Запуск HTTPS-сервера на порту 443
-2025/03/17 21:49:31 sitemap.xml успешно сгенерирован
-2025/03/17 21:49:31 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 21:49:31 Запуск HTTPS-сервера на порту 443
-2025/03/17 21:49:42 sitemap.xml успешно сгенерирован
-2025/03/17 21:49:42 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 21:49:42 Запуск HTTPS-сервера на порту 443
-2025/03/17 21:50:02 sitemap.xml успешно сгенерирован
-2025/03/17 21:50:02 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 21:50:02 Запуск HTTPS-сервера на порту 443
-2025/03/17 21:51:29 sitemap.xml успешно сгенерирован
-2025/03/17 21:51:29 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 21:51:29 Запуск HTTPS-сервера на порту 443
-2025/03/17 21:51:48 sitemap.xml успешно сгенерирован
-2025/03/17 21:51:48 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 21:51:48 Запуск HTTPS-сервера на порту 443
-2025/03/17 21:52:39 sitemap.xml успешно сгенерирован
-2025/03/17 21:52:39 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 21:52:39 Запуск HTTPS-сервера на порту 443
-2025/03/17 21:53:23 sitemap.xml успешно сгенерирован
-2025/03/17 21:53:23 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 21:53:23 Запуск HTTPS-сервера на порту 443
-2025/03/17 21:54:09 http: TLS handshake error from 10.8.0.1:37548: read tcp 10.8.0.6:443->10.8.0.1:37548: read: connection reset by peer
-2025/03/17 21:54:09 http: TLS handshake error from 10.8.0.1:12349: read tcp 10.8.0.6:443->10.8.0.1:12349: read: connection reset by peer
-2025/03/17 21:54:10 http: TLS handshake error from 10.8.0.1:24718: read tcp 10.8.0.6:443->10.8.0.1:24718: read: connection reset by peer
-2025/03/17 21:54:10 http: TLS handshake error from 10.8.0.1:50167: tls: client requested unsupported application protocols ([http/0.9 http/1.0 spdy/1 spdy/2 spdy/3 h2c hq])
-2025/03/17 21:54:10 http: TLS handshake error from 10.8.0.1:42167: tls: client requested unsupported application protocols ([hq h2c spdy/3 spdy/2 spdy/1 http/1.0 http/0.9])
-2025/03/17 21:54:11 http: TLS handshake error from 10.8.0.1:26532: tls: client offered only unsupported versions: [302 301]
-2025/03/17 21:54:11 http: TLS handshake error from 10.8.0.1:10132: read tcp 10.8.0.6:443->10.8.0.1:10132: read: connection reset by peer
-2025/03/17 21:54:12 http: TLS handshake error from 10.8.0.1:51329: EOF
-2025/03/17 21:54:12 http: TLS handshake error from 10.8.0.1:35567: read tcp 10.8.0.6:443->10.8.0.1:35567: read: connection reset by peer
-2025/03/17 21:54:12 http: TLS handshake error from 10.8.0.1:36093: read tcp 10.8.0.6:443->10.8.0.1:36093: read: connection reset by peer
-2025/03/17 21:55:03 http: TLS handshake error from 10.8.0.1:55306: client sent an HTTP request to an HTTPS server
-2025/03/17 21:56:30 http: TLS handshake error from 10.8.0.1:41422: read tcp 10.8.0.6:443->10.8.0.1:41422: read: connection reset by peer
-2025/03/17 21:57:17 http: TLS handshake error from 10.8.0.1:35728: read tcp 10.8.0.6:443->10.8.0.1:35728: read: connection reset by peer
-2025/03/17 21:57:50 http: TLS handshake error from 10.8.0.1:53124: read tcp 10.8.0.6:443->10.8.0.1:53124: read: connection reset by peer
-2025/03/17 21:58:16 http: TLS handshake error from 10.8.0.1:51366: read tcp 10.8.0.6:443->10.8.0.1:51366: read: connection reset by peer
-2025/03/17 21:58:19 sitemap.xml успешно сгенерирован
-2025/03/17 21:58:19 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 21:58:19 Запуск HTTPS-сервера на порту 443
-2025/03/17 22:01:58 http: TLS handshake error from 10.8.0.1:37438: read tcp 10.8.0.6:443->10.8.0.1:37438: read: connection reset by peer
-2025/03/17 22:02:47 http: TLS handshake error from 10.8.0.1:45554: read tcp 10.8.0.6:443->10.8.0.1:45554: read: connection reset by peer
-2025/03/17 22:02:54 http: TLS handshake error from 10.8.0.1:57106: read tcp 10.8.0.6:443->10.8.0.1:57106: read: connection reset by peer
-2025/03/17 22:03:27 http: TLS handshake error from 10.8.0.1:55012: read tcp 10.8.0.6:443->10.8.0.1:55012: read: connection reset by peer
-2025/03/17 22:03:43 http: TLS handshake error from 10.8.0.1:57050: read tcp 10.8.0.6:443->10.8.0.1:57050: read: connection reset by peer
-2025/03/17 22:04:04 http: TLS handshake error from 10.8.0.1:46372: EOF
-2025/03/17 22:04:17 http: TLS handshake error from 10.8.0.1:53230: read tcp 10.8.0.6:443->10.8.0.1:53230: read: connection reset by peer
-2025/03/17 22:04:43 http: TLS handshake error from 10.8.0.1:33332: read tcp 10.8.0.6:443->10.8.0.1:33332: read: connection reset by peer
-2025/03/17 22:05:16 http: TLS handshake error from 10.8.0.1:38108: read tcp 10.8.0.6:443->10.8.0.1:38108: read: connection reset by peer
-2025/03/17 22:05:52 http: TLS handshake error from 10.8.0.1:58020: read tcp 10.8.0.6:443->10.8.0.1:58020: read: connection reset by peer
-2025/03/17 22:06:23 sitemap.xml успешно сгенерирован
-2025/03/17 22:06:23 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 22:06:23 Запуск HTTPS-сервера на порту 443
-2025/03/17 22:07:32 http: TLS handshake error from 192.168.1.162:52808: remote error: tls: unknown certificate
-2025/03/17 22:09:15 http: TLS handshake error from 10.8.0.1:50964: read tcp 10.8.0.6:443->10.8.0.1:50964: read: connection reset by peer
-2025/03/17 22:09:35 http: TLS handshake error from 10.8.0.1:58758: read tcp 10.8.0.6:443->10.8.0.1:58758: read: connection reset by peer
-2025/03/17 22:10:08 http: TLS handshake error from 10.8.0.1:57062: read tcp 10.8.0.6:443->10.8.0.1:57062: read: connection reset by peer
-2025/03/17 22:10:30 http: TLS handshake error from 10.8.0.1:52976: read tcp 10.8.0.6:443->10.8.0.1:52976: read: connection reset by peer
-2025/03/17 22:10:30 http: TLS handshake error from 10.8.0.1:34774: read tcp 10.8.0.6:443->10.8.0.1:34774: read: connection reset by peer
-2025/03/17 22:10:30 http: TLS handshake error from 10.8.0.1:60898: read tcp 10.8.0.6:443->10.8.0.1:60898: read: connection reset by peer
-2025/03/17 22:10:31 http: TLS handshake error from 10.8.0.1:50970: read tcp 10.8.0.6:443->10.8.0.1:50970: read: connection reset by peer
-2025/03/17 22:10:32 http: TLS handshake error from 10.8.0.1:50982: read tcp 10.8.0.6:443->10.8.0.1:50982: read: connection reset by peer
-2025/03/17 22:10:32 http: TLS handshake error from 10.8.0.1:41436: read tcp 10.8.0.6:443->10.8.0.1:41436: read: connection reset by peer
-2025/03/17 22:10:32 http: TLS handshake error from 10.8.0.1:41420: read tcp 10.8.0.6:443->10.8.0.1:41420: read: connection reset by peer
-2025/03/17 22:10:32 http: TLS handshake error from 10.8.0.1:41428: read tcp 10.8.0.6:443->10.8.0.1:41428: read: connection reset by peer
-2025/03/17 22:10:32 http: TLS handshake error from 10.8.0.1:41448: read tcp 10.8.0.6:443->10.8.0.1:41448: read: connection reset by peer
-2025/03/17 22:10:33 http: TLS handshake error from 10.8.0.1:50990: read tcp 10.8.0.6:443->10.8.0.1:50990: read: connection reset by peer
-2025/03/17 22:10:34 http: TLS handshake error from 10.8.0.1:52986: read tcp 10.8.0.6:443->10.8.0.1:52986: read: connection reset by peer
-2025/03/17 22:10:34 http: TLS handshake error from 10.8.0.1:34780: read tcp 10.8.0.6:443->10.8.0.1:34780: read: connection reset by peer
-2025/03/17 22:10:34 http: TLS handshake error from 10.8.0.1:41464: read tcp 10.8.0.6:443->10.8.0.1:41464: read: connection reset by peer
-2025/03/17 22:10:36 http: TLS handshake error from 10.8.0.1:51032: read tcp 10.8.0.6:443->10.8.0.1:51032: read: connection reset by peer
-2025/03/17 22:10:36 http: TLS handshake error from 10.8.0.1:51036: read tcp 10.8.0.6:443->10.8.0.1:51036: read: connection reset by peer
-2025/03/17 22:10:36 http: TLS handshake error from 10.8.0.1:41532: read tcp 10.8.0.6:443->10.8.0.1:41532: read: connection reset by peer
-2025/03/17 22:10:36 http: TLS handshake error from 10.8.0.1:60914: read tcp 10.8.0.6:443->10.8.0.1:60914: read: connection reset by peer
-2025/03/17 22:10:36 http: TLS handshake error from 10.8.0.1:51046: read tcp 10.8.0.6:443->10.8.0.1:51046: read: connection reset by peer
-2025/03/17 22:10:36 http: TLS handshake error from 10.8.0.1:41546: read tcp 10.8.0.6:443->10.8.0.1:41546: read: connection reset by peer
-2025/03/17 22:10:36 http: TLS handshake error from 10.8.0.1:41572: read tcp 10.8.0.6:443->10.8.0.1:41572: read: connection reset by peer
-2025/03/17 22:10:36 http: TLS handshake error from 10.8.0.1:41574: read tcp 10.8.0.6:443->10.8.0.1:41574: read: connection reset by peer
-2025/03/17 22:10:36 http: TLS handshake error from 10.8.0.1:41566: read tcp 10.8.0.6:443->10.8.0.1:41566: read: connection reset by peer
-2025/03/17 22:10:36 http: TLS handshake error from 10.8.0.1:53000: read tcp 10.8.0.6:443->10.8.0.1:53000: read: connection reset by peer
-2025/03/17 22:10:36 http: TLS handshake error from 10.8.0.1:41560: read tcp 10.8.0.6:443->10.8.0.1:41560: read: connection reset by peer
-2025/03/17 22:10:36 http: TLS handshake error from 10.8.0.1:34796: read tcp 10.8.0.6:443->10.8.0.1:34796: read: connection reset by peer
-2025/03/17 22:10:36 http: TLS handshake error from 10.8.0.1:51050: read tcp 10.8.0.6:443->10.8.0.1:51050: read: connection reset by peer
-2025/03/17 22:10:37 http: TLS handshake error from 10.8.0.1:54344: read tcp 10.8.0.6:443->10.8.0.1:54344: read: connection reset by peer
-2025/03/17 22:10:38 http: TLS handshake error from 10.8.0.1:33740: read tcp 10.8.0.6:443->10.8.0.1:33740: read: connection reset by peer
-2025/03/17 22:10:38 http: TLS handshake error from 10.8.0.1:33756: read tcp 10.8.0.6:443->10.8.0.1:33756: read: connection reset by peer
-2025/03/17 22:10:38 http: TLS handshake error from 10.8.0.1:36176: read tcp 10.8.0.6:443->10.8.0.1:36176: read: connection reset by peer
-2025/03/17 22:10:39 http: TLS handshake error from 10.8.0.1:49412: read tcp 10.8.0.6:443->10.8.0.1:49412: read: connection reset by peer
-2025/03/17 22:10:39 http: TLS handshake error from 10.8.0.1:42030: read tcp 10.8.0.6:443->10.8.0.1:42030: read: connection reset by peer
-2025/03/17 22:10:39 http: TLS handshake error from 10.8.0.1:42062: read tcp 10.8.0.6:443->10.8.0.1:42062: read: connection reset by peer
-2025/03/17 22:10:39 http: TLS handshake error from 10.8.0.1:33734: read tcp 10.8.0.6:443->10.8.0.1:33734: read: connection reset by peer
-2025/03/17 22:10:39 http: TLS handshake error from 10.8.0.1:42042: read tcp 10.8.0.6:443->10.8.0.1:42042: read: connection reset by peer
-2025/03/17 22:10:39 http: TLS handshake error from 10.8.0.1:42066: read tcp 10.8.0.6:443->10.8.0.1:42066: read: connection reset by peer
-2025/03/17 22:10:39 http: TLS handshake error from 10.8.0.1:42046: read tcp 10.8.0.6:443->10.8.0.1:42046: read: connection reset by peer
-2025/03/17 22:10:40 http: TLS handshake error from 10.8.0.1:48300: read tcp 10.8.0.6:443->10.8.0.1:48300: read: connection reset by peer
-2025/03/17 22:10:40 http: TLS handshake error from 10.8.0.1:45408: read tcp 10.8.0.6:443->10.8.0.1:45408: read: connection reset by peer
-2025/03/17 22:10:45 http: TLS handshake error from 10.8.0.1:45420: read tcp 10.8.0.6:443->10.8.0.1:45420: read: connection reset by peer
-2025/03/17 22:10:46 http: TLS handshake error from 10.8.0.1:41406: read tcp 10.8.0.6:443->10.8.0.1:41406: read: connection reset by peer
-2025/03/17 22:10:46 http: TLS handshake error from 10.8.0.1:45436: read tcp 10.8.0.6:443->10.8.0.1:45436: read: connection reset by peer
-2025/03/17 22:10:48 http: TLS handshake error from 10.8.0.1:54912: read tcp 10.8.0.6:443->10.8.0.1:54912: read: connection reset by peer
-2025/03/17 22:10:51 http: TLS handshake error from 10.8.0.1:54914: read tcp 10.8.0.6:443->10.8.0.1:54914: read: connection reset by peer
-2025/03/17 22:10:51 http: TLS handshake error from 10.8.0.1:54918: read tcp 10.8.0.6:443->10.8.0.1:54918: read: connection reset by peer
-2025/03/17 22:10:52 http: TLS handshake error from 10.8.0.1:54926: read tcp 10.8.0.6:443->10.8.0.1:54926: read: connection reset by peer
-2025/03/17 22:10:54 http: TLS handshake error from 10.8.0.1:54934: read tcp 10.8.0.6:443->10.8.0.1:54934: read: connection reset by peer
-2025/03/17 22:10:56 http: TLS handshake error from 10.8.0.1:54946: read tcp 10.8.0.6:443->10.8.0.1:54946: read: connection reset by peer
-2025/03/17 22:10:57 http: TLS handshake error from 10.8.0.1:54960: read tcp 10.8.0.6:443->10.8.0.1:54960: read: connection reset by peer
-2025/03/17 22:11:03 http: TLS handshake error from 10.8.0.1:53610: read tcp 10.8.0.6:443->10.8.0.1:53610: read: connection reset by peer
-2025/03/17 22:11:06 http: TLS handshake error from 10.8.0.1:42906: read tcp 10.8.0.6:443->10.8.0.1:42906: read: connection reset by peer
-2025/03/17 22:11:06 http: TLS handshake error from 10.8.0.1:53616: read tcp 10.8.0.6:443->10.8.0.1:53616: read: connection reset by peer
-2025/03/17 22:11:06 http: TLS handshake error from 10.8.0.1:42950: read tcp 10.8.0.6:443->10.8.0.1:42950: read: connection reset by peer
-2025/03/17 22:11:06 http: TLS handshake error from 10.8.0.1:42908: read tcp 10.8.0.6:443->10.8.0.1:42908: read: connection reset by peer
-2025/03/17 22:11:06 http: TLS handshake error from 10.8.0.1:42926: read tcp 10.8.0.6:443->10.8.0.1:42926: read: connection reset by peer
-2025/03/17 22:11:06 http: TLS handshake error from 10.8.0.1:42924: read tcp 10.8.0.6:443->10.8.0.1:42924: read: connection reset by peer
-2025/03/17 22:11:06 http: TLS handshake error from 10.8.0.1:42936: read tcp 10.8.0.6:443->10.8.0.1:42936: read: connection reset by peer
-2025/03/17 22:11:11 http: TLS handshake error from 10.8.0.1:57300: read tcp 10.8.0.6:443->10.8.0.1:57300: read: connection reset by peer
-2025/03/17 22:11:11 http: TLS handshake error from 10.8.0.1:54948: read tcp 10.8.0.6:443->10.8.0.1:54948: read: connection reset by peer
-2025/03/17 22:12:05 http: TLS handshake error from 10.8.0.1:54634: EOF
-2025/03/17 22:13:46 http: TLS handshake error from 10.8.0.1:46996: read tcp 10.8.0.6:443->10.8.0.1:46996: read: connection reset by peer
-2025/03/17 22:14:13 http: TLS handshake error from 10.8.0.1:43294: EOF
-2025/03/17 22:14:19 http: TLS handshake error from 10.8.0.1:56124: read tcp 10.8.0.6:443->10.8.0.1:56124: read: connection reset by peer
-2025/03/17 22:14:45 http: TLS handshake error from 10.8.0.1:34098: read tcp 10.8.0.6:443->10.8.0.1:34098: read: connection reset by peer
-2025/03/17 22:15:34 http: TLS handshake error from 10.8.0.1:44384: read tcp 10.8.0.6:443->10.8.0.1:44384: read: connection reset by peer
-2025/03/17 22:16:18 http: TLS handshake error from 10.8.0.1:49152: EOF
-2025/03/17 22:18:58 http: TLS handshake error from 10.8.0.1:47108: read tcp 10.8.0.6:443->10.8.0.1:47108: read: connection reset by peer
-2025/03/17 22:19:31 http: TLS handshake error from 10.8.0.1:40828: read tcp 10.8.0.6:443->10.8.0.1:40828: read: connection reset by peer
-2025/03/17 22:20:05 http: TLS handshake error from 10.8.0.1:40550: EOF
-2025/03/17 22:20:54 http: TLS handshake error from 10.8.0.1:38906: tls: client offered only unsupported versions: []
-2025/03/17 22:27:06 http: TLS handshake error from 10.8.0.1:46768: read tcp 10.8.0.6:443->10.8.0.1:46768: read: connection reset by peer
-2025/03/17 22:27:39 http: TLS handshake error from 10.8.0.1:36654: read tcp 10.8.0.6:443->10.8.0.1:36654: read: connection reset by peer
-2025/03/17 22:28:05 http: TLS handshake error from 10.8.0.1:38366: EOF
-2025/03/17 22:35:01 http: TLS handshake error from 10.8.0.1:45502: read tcp 10.8.0.6:443->10.8.0.1:45502: read: connection reset by peer
-2025/03/17 22:35:02 http: TLS handshake error from 10.8.0.1:45508: read tcp 10.8.0.6:443->10.8.0.1:45508: read: connection reset by peer
-2025/03/17 22:35:03 http: TLS handshake error from 10.8.0.1:45518: read tcp 10.8.0.6:443->10.8.0.1:45518: read: connection reset by peer
-2025/03/17 22:35:05 http: TLS handshake error from 10.8.0.1:45548: tls: client requested unsupported application protocols ([http/0.9 http/1.0 spdy/1 spdy/2 spdy/3 h2c hq])
-2025/03/17 22:35:05 http: TLS handshake error from 10.8.0.1:45608: tls: client requested unsupported application protocols ([hq h2c spdy/3 spdy/2 spdy/1 http/1.0 http/0.9])
-2025/03/17 22:35:06 http: TLS handshake error from 10.8.0.1:45614: tls: client offered only unsupported versions: [302 301]
-2025/03/17 22:35:06 http: TLS handshake error from 10.8.0.1:34376: read tcp 10.8.0.6:443->10.8.0.1:34376: read: connection reset by peer
-2025/03/17 22:35:07 http: TLS handshake error from 10.8.0.1:45628: read tcp 10.8.0.6:443->10.8.0.1:45628: read: connection reset by peer
-2025/03/17 22:35:07 http: TLS handshake error from 10.8.0.1:45636: read tcp 10.8.0.6:443->10.8.0.1:45636: read: connection reset by peer
-2025/03/17 22:35:07 http: TLS handshake error from 10.8.0.1:45638: read tcp 10.8.0.6:443->10.8.0.1:45638: read: connection reset by peer
-2025/03/17 22:35:08 http: TLS handshake error from 10.8.0.1:45646: read tcp 10.8.0.6:443->10.8.0.1:45646: read: connection reset by peer
-2025/03/17 22:35:39 http: TLS handshake error from 10.8.0.1:34278: read tcp 10.8.0.6:443->10.8.0.1:34278: read: connection reset by peer
-2025/03/17 22:36:05 http: TLS handshake error from 10.8.0.1:33134: EOF
-2025/03/17 22:36:34 sitemap.xml успешно сгенерирован
-2025/03/17 22:36:34 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 22:36:34 Запуск HTTPS-сервера на порту 443
-2025/03/17 22:43:02 http: TLS handshake error from 10.8.0.1:48162: read tcp 10.8.0.6:443->10.8.0.1:48162: read: connection reset by peer
-2025/03/17 22:43:35 http: TLS handshake error from 10.8.0.1:50252: read tcp 10.8.0.6:443->10.8.0.1:50252: read: connection reset by peer
-2025/03/17 22:44:05 http: TLS handshake error from 10.8.0.1:33182: EOF
-2025/03/17 22:44:13 http: TLS handshake error from 10.8.0.1:46932: EOF
-2025/03/17 22:44:37 http: TLS handshake error from 10.8.0.1:57622: read tcp 10.8.0.6:443->10.8.0.1:57622: read: connection reset by peer
-2025/03/17 22:45:03 sitemap.xml успешно сгенерирован
-2025/03/17 22:45:03 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 22:45:03 Запуск HTTPS-сервера на порту 443
-2025/03/17 22:46:18 http: TLS handshake error from 10.8.0.1:44526: EOF
-2025/03/17 22:46:22 sitemap.xml успешно сгенерирован
-2025/03/17 22:46:22 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 22:46:22 Запуск HTTPS-сервера на порту 443
-2025/03/17 22:49:13 http: TLS handshake error from 10.8.0.1:51192: EOF
-2025/03/17 22:49:19 http: TLS handshake error from 10.8.0.1:51230: EOF
-2025/03/17 22:49:21 http: TLS handshake error from 10.8.0.1:48204: EOF
-2025/03/17 22:49:32 http: TLS handshake error from 10.8.0.1:37846: tls: first record does not look like a TLS handshake
-2025/03/17 22:49:36 http: TLS handshake error from 10.8.0.1:37902: tls: first record does not look like a TLS handshake
-2025/03/17 22:50:09 http: TLS handshake error from 10.8.0.1:49560: read tcp 10.8.0.6:443->10.8.0.1:49560: read: connection reset by peer
-2025/03/17 22:50:42 http: TLS handshake error from 10.8.0.1:43476: read tcp 10.8.0.6:443->10.8.0.1:43476: read: connection reset by peer
-2025/03/17 22:52:56 http: TLS handshake error from 10.8.0.1:48136: read tcp 10.8.0.6:443->10.8.0.1:48136: read: connection reset by peer
-2025/03/17 22:53:29 http: TLS handshake error from 10.8.0.1:55578: read tcp 10.8.0.6:443->10.8.0.1:55578: read: connection reset by peer
-2025/03/17 22:54:04 http: TLS handshake error from 10.8.0.1:59498: EOF
-2025/03/17 22:54:22 http: TLS handshake error from 10.8.0.1:32788: read tcp 10.8.0.6:443->10.8.0.1:32788: read: connection reset by peer
-2025/03/17 22:54:55 http: TLS handshake error from 10.8.0.1:36606: read tcp 10.8.0.6:443->10.8.0.1:36606: read: connection reset by peer
-2025/03/17 22:55:21 http: TLS handshake error from 10.8.0.1:35832: read tcp 10.8.0.6:443->10.8.0.1:35832: read: connection reset by peer
-2025/03/17 22:55:24 http: TLS handshake error from 10.8.0.1:22540: tls: first record does not look like a TLS handshake
-2025/03/17 22:55:53 http: TLS handshake error from 10.8.0.1:36088: read tcp 10.8.0.6:443->10.8.0.1:36088: read: connection reset by peer
-2025/03/17 22:56:10 http: TLS handshake error from 10.8.0.1:40130: read tcp 10.8.0.6:443->10.8.0.1:40130: read: connection reset by peer
-2025/03/17 22:56:43 http: TLS handshake error from 10.8.0.1:58084: read tcp 10.8.0.6:443->10.8.0.1:58084: read: connection reset by peer
-2025/03/17 22:57:02 http: TLS handshake error from 10.8.0.1:34134: read tcp 10.8.0.6:443->10.8.0.1:34134: read: connection reset by peer
-2025/03/17 22:57:35 http: TLS handshake error from 10.8.0.1:47264: read tcp 10.8.0.6:443->10.8.0.1:47264: read: connection reset by peer
-2025/03/17 22:57:46 sitemap.xml успешно сгенерирован
-2025/03/17 22:57:46 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 22:57:46 Запуск HTTPS-сервера на порту 443
-2025/03/17 23:00:57 http: TLS handshake error from 10.8.0.1:34002: read tcp 10.8.0.6:443->10.8.0.1:34002: read: connection reset by peer
-2025/03/17 23:01:46 http: TLS handshake error from 10.8.0.1:59896: read tcp 10.8.0.6:443->10.8.0.1:59896: read: connection reset by peer
-2025/03/17 23:02:27 http: TLS handshake error from 10.8.0.1:56130: read tcp 10.8.0.6:443->10.8.0.1:56130: read: connection reset by peer
-2025/03/17 23:02:59 http: TLS handshake error from 10.8.0.1:36192: read tcp 10.8.0.6:443->10.8.0.1:36192: read: connection reset by peer
-2025/03/17 23:03:43 http: TLS handshake error from 10.8.0.1:33274: read tcp 10.8.0.6:443->10.8.0.1:33274: read: connection reset by peer
-2025/03/17 23:04:00 http: TLS handshake error from 10.8.0.1:50000: read tcp 10.8.0.6:443->10.8.0.1:50000: read: connection reset by peer
-2025/03/17 23:04:18 http: TLS handshake error from 10.8.0.1:59598: read tcp 10.8.0.6:443->10.8.0.1:59598: read: connection reset by peer
-2025/03/17 23:05:07 http: TLS handshake error from 10.8.0.1:39076: read tcp 10.8.0.6:443->10.8.0.1:39076: read: connection reset by peer
-2025/03/17 23:05:22 http: TLS handshake error from 10.8.0.1:39656: read tcp 10.8.0.6:443->10.8.0.1:39656: read: connection reset by peer
-2025/03/17 23:05:54 http: TLS handshake error from 10.8.0.1:59994: read tcp 10.8.0.6:443->10.8.0.1:59994: read: connection reset by peer
-2025/03/17 23:06:32 http: TLS handshake error from 10.8.0.1:36852: read tcp 10.8.0.6:443->10.8.0.1:36852: read: connection reset by peer
-2025/03/17 23:07:06 http: TLS handshake error from 10.8.0.1:37742: read tcp 10.8.0.6:443->10.8.0.1:37742: read: connection reset by peer
-2025/03/17 23:08:11 http: TLS handshake error from 10.8.0.1:45852: EOF
-2025/03/17 23:08:42 http: TLS handshake error from 10.8.0.1:45252: read tcp 10.8.0.6:443->10.8.0.1:45252: read: connection reset by peer
-2025/03/17 23:09:15 http: TLS handshake error from 10.8.0.1:56696: read tcp 10.8.0.6:443->10.8.0.1:56696: read: connection reset by peer
-2025/03/17 23:10:14 http: TLS handshake error from 10.8.0.1:53380: read tcp 10.8.0.6:443->10.8.0.1:53380: read: connection reset by peer
-2025/03/17 23:10:31 http: TLS handshake error from 10.8.0.1:50310: read tcp 10.8.0.6:443->10.8.0.1:50310: read: connection reset by peer
-2025/03/17 23:10:41 http: TLS handshake error from 10.8.0.1:58562: tls: first record does not look like a TLS handshake
-2025/03/17 23:14:14 sitemap.xml успешно сгенерирован
-2025/03/17 23:14:14 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 23:14:14 Запуск HTTPS-сервера на порту 443
-2025/03/17 23:16:18 http: TLS handshake error from 10.8.0.1:53634: EOF
-2025/03/17 23:17:06 http: TLS handshake error from 10.8.0.1:49328: tls: client offered only unsupported versions: [302 301]
-2025/03/17 23:17:29 http: TLS handshake error from 10.8.0.1:57154: read tcp 10.8.0.6:443->10.8.0.1:57154: read: connection reset by peer
-2025/03/17 23:18:02 http: TLS handshake error from 10.8.0.1:48240: read tcp 10.8.0.6:443->10.8.0.1:48240: read: connection reset by peer
-2025/03/17 23:19:12 http: TLS handshake error from 10.8.0.1:39932: read tcp 10.8.0.6:443->10.8.0.1:39932: read: connection reset by peer
-2025/03/17 23:19:44 http: TLS handshake error from 10.8.0.1:56714: read tcp 10.8.0.6:443->10.8.0.1:56714: read: connection reset by peer
-2025/03/17 23:20:20 http: TLS handshake error from 10.8.0.1:41732: read tcp 10.8.0.6:443->10.8.0.1:41732: read: connection reset by peer
-2025/03/17 23:20:37 http: TLS handshake error from 10.8.0.1:55662: read tcp 10.8.0.6:443->10.8.0.1:55662: read: connection reset by peer
-2025/03/17 23:21:05 http: TLS handshake error from 10.8.0.1:45414: read tcp 10.8.0.6:443->10.8.0.1:45414: read: connection reset by peer
-2025/03/17 23:21:39 http: TLS handshake error from 10.8.0.1:57680: read tcp 10.8.0.6:443->10.8.0.1:57680: read: connection reset by peer
-2025/03/17 23:22:02 http: TLS handshake error from 10.8.0.1:49508: read tcp 10.8.0.6:443->10.8.0.1:49508: read: connection reset by peer
-2025/03/17 23:22:35 http: TLS handshake error from 10.8.0.1:44640: read tcp 10.8.0.6:443->10.8.0.1:44640: read: connection reset by peer
-2025/03/17 23:23:04 http: TLS handshake error from 10.8.0.1:52600: read tcp 10.8.0.6:443->10.8.0.1:52600: read: connection reset by peer
-2025/03/17 23:23:37 http: TLS handshake error from 10.8.0.1:46098: read tcp 10.8.0.6:443->10.8.0.1:46098: read: connection reset by peer
-2025/03/17 23:24:11 http: TLS handshake error from 10.8.0.1:49108: EOF
-2025/03/17 23:24:16 http: TLS handshake error from 10.8.0.1:48480: read tcp 10.8.0.6:443->10.8.0.1:48480: read: connection reset by peer
-2025/03/17 23:24:49 http: TLS handshake error from 10.8.0.1:52354: read tcp 10.8.0.6:443->10.8.0.1:52354: read: connection reset by peer
-2025/03/17 23:25:18 http: TLS handshake error from 10.8.0.1:41076: read tcp 10.8.0.6:443->10.8.0.1:41076: read: connection reset by peer
-2025/03/17 23:25:22 sitemap.xml успешно сгенерирован
-2025/03/17 23:25:22 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/17 23:25:22 Запуск HTTPS-сервера на порту 443
-2025/03/17 23:28:40 http: TLS handshake error from 10.8.0.1:60056: read tcp 10.8.0.6:443->10.8.0.1:60056: read: connection reset by peer
-2025/03/17 23:29:14 http: TLS handshake error from 10.8.0.1:58178: read tcp 10.8.0.6:443->10.8.0.1:58178: read: connection reset by peer
-2025/03/17 23:29:47 http: TLS handshake error from 10.8.0.1:34750: read tcp 10.8.0.6:443->10.8.0.1:34750: read: connection reset by peer
-2025/03/17 23:30:20 http: TLS handshake error from 10.8.0.1:57120: read tcp 10.8.0.6:443->10.8.0.1:57120: read: connection reset by peer
-2025/03/17 23:30:34 http: TLS handshake error from 10.8.0.1:48342: read tcp 10.8.0.6:443->10.8.0.1:48342: read: connection reset by peer
-2025/03/17 23:31:22 http: TLS handshake error from 10.8.0.1:48638: read tcp 10.8.0.6:443->10.8.0.1:48638: read: connection reset by peer
-2025/03/17 23:31:22 http: TLS handshake error from 10.8.0.1:55554: read tcp 10.8.0.6:443->10.8.0.1:55554: read: connection reset by peer
-2025/03/17 23:31:55 http: TLS handshake error from 10.8.0.1:57578: read tcp 10.8.0.6:443->10.8.0.1:57578: read: connection reset by peer
-2025/03/17 23:32:11 http: TLS handshake error from 10.8.0.1:37380: EOF
-2025/03/17 23:32:12 http: TLS handshake error from 10.8.0.1:35026: read tcp 10.8.0.6:443->10.8.0.1:35026: read: connection reset by peer
-2025/03/17 23:32:45 http: TLS handshake error from 10.8.0.1:59932: read tcp 10.8.0.6:443->10.8.0.1:59932: read: connection reset by peer
-2025/03/17 23:34:24 http: TLS handshake error from 10.8.0.1:55806: read tcp 10.8.0.6:443->10.8.0.1:55806: read: connection reset by peer
-2025/03/17 23:34:57 http: TLS handshake error from 10.8.0.1:60656: read tcp 10.8.0.6:443->10.8.0.1:60656: read: connection reset by peer
-2025/03/17 23:35:25 http: TLS handshake error from 10.8.0.1:42080: read tcp 10.8.0.6:443->10.8.0.1:42080: read: connection reset by peer
-2025/03/17 23:35:59 http: TLS handshake error from 10.8.0.1:37452: read tcp 10.8.0.6:443->10.8.0.1:37452: read: connection reset by peer
-2025/03/17 23:36:38 http: TLS handshake error from 10.8.0.1:41864: read tcp 10.8.0.6:443->10.8.0.1:41864: read: connection reset by peer
-2025/03/17 23:37:12 http: TLS handshake error from 10.8.0.1:49850: read tcp 10.8.0.6:443->10.8.0.1:49850: read: connection reset by peer
-2025/03/17 23:39:22 http: TLS handshake error from 10.8.0.1:48350: read tcp 10.8.0.6:443->10.8.0.1:48350: read: connection reset by peer
-2025/03/17 23:39:40 http: TLS handshake error from 10.8.0.1:52088: read tcp 10.8.0.6:443->10.8.0.1:52088: read: connection reset by peer
-2025/03/17 23:40:11 http: TLS handshake error from 10.8.0.1:42282: EOF
-2025/03/18 00:02:41 http: TLS handshake error from 10.8.0.1:64102: tls: first record does not look like a TLS handshake
-2025/03/18 00:49:04 http: TLS handshake error from 10.8.0.1:54574: read tcp 10.8.0.6:443->10.8.0.1:54574: read: connection reset by peer
-2025/03/18 00:49:57 http: TLS handshake error from 10.8.0.1:52012: tls: client offered only unsupported versions: [302 301]
-2025/03/18 00:50:02 http: TLS handshake error from 10.8.0.1:47830: tls: client offered only unsupported versions: [301]
-2025/03/18 00:50:04 http: TLS handshake error from 10.8.0.1:47930: tls: client offered only unsupported versions: []
-2025/03/18 01:14:54 http: TLS handshake error from 10.8.0.1:47304: read tcp 10.8.0.6:443->10.8.0.1:47304: read: connection reset by peer
-2025/03/18 01:14:59 http: TLS handshake error from 10.8.0.1:47312: EOF
-2025/03/18 01:15:05 http: TLS handshake error from 10.8.0.1:52616: client sent an HTTP request to an HTTPS server
-2025/03/18 01:15:15 http: TLS handshake error from 10.8.0.1:53844: client sent an HTTP request to an HTTPS server
-2025/03/18 01:15:17 http: TLS handshake error from 10.8.0.1:53880: tls: first record does not look like a TLS handshake
-2025/03/18 01:15:58 http: TLS handshake error from 10.8.0.1:44198: read tcp 10.8.0.6:443->10.8.0.1:44198: read: connection reset by peer
-2025/03/18 01:16:14 http: TLS handshake error from 10.8.0.1:33736: tls: client offered only unsupported versions: [302 301]
-2025/03/18 01:16:16 http: TLS handshake error from 10.8.0.1:33754: tls: client offered only unsupported versions: [301]
-2025/03/18 01:16:22 http: TLS handshake error from 10.8.0.1:59282: tls: client offered only unsupported versions: []
-2025/03/18 01:32:53 http: TLS handshake error from 10.8.0.1:44136: read tcp 10.8.0.6:443->10.8.0.1:44136: read: connection reset by peer
-2025/03/18 01:32:54 http: TLS handshake error from 10.8.0.1:44180: EOF
-2025/03/18 01:32:58 http: TLS handshake error from 10.8.0.1:44200: client sent an HTTP request to an HTTPS server
-2025/03/18 01:33:09 http: TLS handshake error from 10.8.0.1:47240: client sent an HTTP request to an HTTPS server
-2025/03/18 01:33:11 http: TLS handshake error from 10.8.0.1:47246: tls: first record does not look like a TLS handshake
-2025/03/18 01:34:08 http: TLS handshake error from 10.8.0.1:35288: tls: client offered only unsupported versions: [302 301]
-2025/03/18 01:34:11 http: TLS handshake error from 10.8.0.1:52100: tls: client offered only unsupported versions: [301]
-2025/03/18 01:34:13 http: TLS handshake error from 10.8.0.1:52104: tls: client offered only unsupported versions: []
-2025/03/18 01:34:33 http: TLS handshake error from 10.8.0.1:37312: read tcp 10.8.0.6:443->10.8.0.1:37312: read: connection reset by peer
-2025/03/18 02:34:17 http: TLS handshake error from 10.8.0.1:44450: read tcp 10.8.0.6:443->10.8.0.1:44450: read: connection reset by peer
-2025/03/18 02:34:18 http: TLS handshake error from 10.8.0.1:40422: read tcp 10.8.0.6:443->10.8.0.1:40422: read: connection reset by peer
-2025/03/18 02:34:19 http: TLS handshake error from 10.8.0.1:40426: read tcp 10.8.0.6:443->10.8.0.1:40426: read: connection reset by peer
-2025/03/18 02:34:20 http: TLS handshake error from 10.8.0.1:40456: tls: client requested unsupported application protocols ([http/0.9 http/1.0 spdy/1 spdy/2 spdy/3 h2c hq])
-2025/03/18 02:34:21 http: TLS handshake error from 10.8.0.1:40494: tls: client requested unsupported application protocols ([hq h2c spdy/3 spdy/2 spdy/1 http/1.0 http/0.9])
-2025/03/18 02:34:23 http: TLS handshake error from 10.8.0.1:40540: tls: client offered only unsupported versions: [302 301]
-2025/03/18 02:34:25 http: TLS handshake error from 10.8.0.1:40550: read tcp 10.8.0.6:443->10.8.0.1:40550: read: connection reset by peer
-2025/03/18 02:34:29 http: TLS handshake error from 10.8.0.1:40566: read tcp 10.8.0.6:443->10.8.0.1:40566: read: connection reset by peer
-2025/03/18 02:34:31 http: TLS handshake error from 10.8.0.1:58740: read tcp 10.8.0.6:443->10.8.0.1:58740: read: connection reset by peer
-2025/03/18 02:34:32 http: TLS handshake error from 10.8.0.1:58856: read tcp 10.8.0.6:443->10.8.0.1:58856: read: connection reset by peer
-2025/03/18 02:36:04 http: TLS handshake error from 10.8.0.1:59174: read tcp 10.8.0.6:443->10.8.0.1:59174: read: connection reset by peer
-2025/03/18 02:36:05 http: TLS handshake error from 10.8.0.1:59184: read tcp 10.8.0.6:443->10.8.0.1:59184: read: connection reset by peer
-2025/03/18 02:36:05 http: TLS handshake error from 10.8.0.1:59194: read tcp 10.8.0.6:443->10.8.0.1:59194: read: connection reset by peer
-2025/03/18 02:36:05 http: TLS handshake error from 10.8.0.1:59210: tls: client requested unsupported application protocols ([http/0.9 http/1.0 spdy/1 spdy/2 spdy/3 h2c hq])
-2025/03/18 02:36:06 http: TLS handshake error from 10.8.0.1:59216: tls: client requested unsupported application protocols ([hq h2c spdy/3 spdy/2 spdy/1 http/1.0 http/0.9])
-2025/03/18 02:36:06 http: TLS handshake error from 10.8.0.1:59224: tls: client offered only unsupported versions: [302 301]
-2025/03/18 02:36:07 http: TLS handshake error from 10.8.0.1:59230: read tcp 10.8.0.6:443->10.8.0.1:59230: read: connection reset by peer
-2025/03/18 02:36:08 http: TLS handshake error from 10.8.0.1:59242: read tcp 10.8.0.6:443->10.8.0.1:59242: read: connection reset by peer
-2025/03/18 02:36:08 http: TLS handshake error from 10.8.0.1:59246: read tcp 10.8.0.6:443->10.8.0.1:59246: read: connection reset by peer
-2025/03/18 02:36:09 http: TLS handshake error from 10.8.0.1:49178: read tcp 10.8.0.6:443->10.8.0.1:49178: read: connection reset by peer
-2025/03/18 02:50:45 http: TLS handshake error from 10.8.0.1:48250: read tcp 10.8.0.6:443->10.8.0.1:48250: read: connection reset by peer
-2025/03/18 02:50:46 http: TLS handshake error from 10.8.0.1:48272: read tcp 10.8.0.6:443->10.8.0.1:48272: read: connection reset by peer
-2025/03/18 02:50:48 http: TLS handshake error from 10.8.0.1:48282: read tcp 10.8.0.6:443->10.8.0.1:48282: read: connection reset by peer
-2025/03/18 02:50:48 http: TLS handshake error from 10.8.0.1:57846: tls: client requested unsupported application protocols ([http/0.9 http/1.0 spdy/1 spdy/2 spdy/3 h2c hq])
-2025/03/18 02:50:51 http: TLS handshake error from 10.8.0.1:57848: tls: client requested unsupported application protocols ([hq h2c spdy/3 spdy/2 spdy/1 http/1.0 http/0.9])
-2025/03/18 02:50:55 http: TLS handshake error from 10.8.0.1:57876: tls: client offered only unsupported versions: [302 301]
-2025/03/18 02:50:57 http: TLS handshake error from 10.8.0.1:57884: read tcp 10.8.0.6:443->10.8.0.1:57884: read: connection reset by peer
-2025/03/18 02:50:58 http: TLS handshake error from 10.8.0.1:56992: read tcp 10.8.0.6:443->10.8.0.1:56992: read: connection reset by peer
-2025/03/18 02:50:59 http: TLS handshake error from 10.8.0.1:57004: read tcp 10.8.0.6:443->10.8.0.1:57004: read: connection reset by peer
-2025/03/18 02:51:01 http: TLS handshake error from 10.8.0.1:57020: read tcp 10.8.0.6:443->10.8.0.1:57020: read: connection reset by peer
-2025/03/18 03:14:31 http: TLS handshake error from 10.8.0.1:12973: tls: client offered only unsupported versions: [302]
-2025/03/18 03:14:31 http: TLS handshake error from 10.8.0.1:21126: tls: unsupported SSLv2 handshake received
-2025/03/18 03:14:31 http: TLS handshake error from 10.8.0.1:37958: tls: client offered only unsupported versions: []
-2025/03/18 03:14:31 http: TLS handshake error from 10.8.0.1:60412: tls: client offered only unsupported versions: [301]
-2025/03/18 03:14:31 http: TLS handshake error from 10.8.0.1:11923: tls: no cipher suite supported by both client and server
-2025/03/18 03:51:06 http: TLS handshake error from 10.8.0.1:37314: read tcp 10.8.0.6:443->10.8.0.1:37314: read: connection reset by peer
-2025/03/18 03:51:20 http: TLS handshake error from 10.8.0.1:54870: tls: client offered only unsupported versions: [302 301]
-2025/03/18 03:51:21 http: TLS handshake error from 10.8.0.1:54890: tls: client offered only unsupported versions: [301]
-2025/03/18 03:51:23 http: TLS handshake error from 10.8.0.1:37448: tls: client offered only unsupported versions: []
-2025/03/18 04:14:23 http: TLS handshake error from 10.8.0.1:57886: client sent an HTTP request to an HTTPS server
-2025/03/18 04:30:41 http: TLS handshake error from 10.8.0.1:60257: remote error: tls: bad certificate
-2025/03/18 04:40:27 http: TLS handshake error from 10.8.0.1:60664: read tcp 10.8.0.6:443->10.8.0.1:60664: read: connection reset by peer
-2025/03/18 04:40:27 http: TLS handshake error from 10.8.0.1:43772: read tcp 10.8.0.6:443->10.8.0.1:43772: read: connection reset by peer
-2025/03/18 04:40:27 http: TLS handshake error from 10.8.0.1:57866: read tcp 10.8.0.6:443->10.8.0.1:57866: read: connection reset by peer
-2025/03/18 04:40:27 http: TLS handshake error from 10.8.0.1:46000: tls: client requested unsupported application protocols ([http/0.9 http/1.0 spdy/1 spdy/2 spdy/3 h2c hq])
-2025/03/18 04:40:27 http: TLS handshake error from 10.8.0.1:59798: tls: client requested unsupported application protocols ([hq h2c spdy/3 spdy/2 spdy/1 http/1.0 http/0.9])
-2025/03/18 04:40:28 http: TLS handshake error from 10.8.0.1:45768: tls: client offered only unsupported versions: [302 301]
-2025/03/18 04:40:28 http: TLS handshake error from 10.8.0.1:35272: read tcp 10.8.0.6:443->10.8.0.1:35272: read: connection reset by peer
-2025/03/18 04:40:28 http: TLS handshake error from 10.8.0.1:47570: read tcp 10.8.0.6:443->10.8.0.1:47570: read: connection reset by peer
-2025/03/18 04:40:28 http: TLS handshake error from 10.8.0.1:58348: read tcp 10.8.0.6:443->10.8.0.1:58348: read: connection reset by peer
-2025/03/18 04:40:28 http: TLS handshake error from 10.8.0.1:39336: read tcp 10.8.0.6:443->10.8.0.1:39336: read: connection reset by peer
-2025/03/18 06:40:50 http: TLS handshake error from 10.8.0.1:30313: EOF
-2025/03/18 06:51:19 http: TLS handshake error from 10.8.0.1:60982: read tcp 10.8.0.6:443->10.8.0.1:60982: read: connection reset by peer
-2025/03/18 06:51:19 http: TLS handshake error from 10.8.0.1:55680: read tcp 10.8.0.6:443->10.8.0.1:55680: read: connection reset by peer
-2025/03/18 06:51:20 http: TLS handshake error from 10.8.0.1:55684: read tcp 10.8.0.6:443->10.8.0.1:55684: read: connection reset by peer
-2025/03/18 06:51:20 http: TLS handshake error from 10.8.0.1:55700: tls: client requested unsupported application protocols ([http/0.9 http/1.0 spdy/1 spdy/2 spdy/3 h2c hq])
-2025/03/18 06:51:21 http: TLS handshake error from 10.8.0.1:55706: tls: client requested unsupported application protocols ([hq h2c spdy/3 spdy/2 spdy/1 http/1.0 http/0.9])
-2025/03/18 06:51:21 http: TLS handshake error from 10.8.0.1:55710: tls: client offered only unsupported versions: [302 301]
-2025/03/18 06:51:22 http: TLS handshake error from 10.8.0.1:55714: read tcp 10.8.0.6:443->10.8.0.1:55714: read: connection reset by peer
-2025/03/18 06:51:22 http: TLS handshake error from 10.8.0.1:55716: read tcp 10.8.0.6:443->10.8.0.1:55716: read: connection reset by peer
-2025/03/18 06:51:23 http: TLS handshake error from 10.8.0.1:55732: read tcp 10.8.0.6:443->10.8.0.1:55732: read: connection reset by peer
-2025/03/18 06:51:23 http: TLS handshake error from 10.8.0.1:55734: read tcp 10.8.0.6:443->10.8.0.1:55734: read: connection reset by peer
-2025/03/18 06:51:23 http: TLS handshake error from 10.8.0.1:55750: client sent an HTTP request to an HTTPS server
-2025/03/18 06:51:24 http: TLS handshake error from 10.8.0.1:55764: client sent an HTTP request to an HTTPS server
-2025/03/18 06:51:24 http: TLS handshake error from 10.8.0.1:55770: client sent an HTTP request to an HTTPS server
-2025/03/18 07:51:37 http: TLS handshake error from 10.8.0.1:34072: tls: unsupported SSLv2 handshake received
-2025/03/18 07:51:37 http: TLS handshake error from 10.8.0.1:17035: tls: client offered only unsupported versions: []
-2025/03/18 07:51:37 http: TLS handshake error from 10.8.0.1:42794: tls: client offered only unsupported versions: [301]
-2025/03/18 07:51:37 http: TLS handshake error from 10.8.0.1:29487: tls: no cipher suite supported by both client and server
-2025/03/18 07:51:37 http: TLS handshake error from 10.8.0.1:39830: tls: client offered only unsupported versions: [302]
-2025/03/18 07:51:37 http: TLS handshake error from 10.8.0.1:18303: EOF
-2025/03/18 07:57:46 http: TLS handshake error from 10.8.0.1:55706: client sent an HTTP request to an HTTPS server
-2025/03/18 07:57:54 http: TLS handshake error from 10.8.0.1:59754: client sent an HTTP request to an HTTPS server
-2025/03/18 08:02:39 http: TLS handshake error from 10.8.0.1:43050: unexpected EOF
-2025/03/18 08:04:25 http: TLS handshake error from 10.8.0.1:37242: tls: first record does not look like a TLS handshake
-2025/03/18 08:31:00 http: TLS handshake error from 10.8.0.1:35400: read tcp 10.8.0.6:443->10.8.0.1:35400: read: connection reset by peer
-2025/03/18 08:31:22 http: TLS handshake error from 10.8.0.1:47862: tls: client offered only unsupported versions: [302 301]
-2025/03/18 08:31:24 http: TLS handshake error from 10.8.0.1:47908: tls: client offered only unsupported versions: [301]
-2025/03/18 08:31:26 http: TLS handshake error from 10.8.0.1:47950: tls: client offered only unsupported versions: []
-2025/03/18 09:22:10 http: TLS handshake error from 10.8.0.1:21138: tls: client offered only unsupported versions: [302 301]
-2025/03/18 09:28:01 http: TLS handshake error from 10.8.0.1:37296: read tcp 10.8.0.6:443->10.8.0.1:37296: read: connection reset by peer
-2025/03/18 09:28:02 http: TLS handshake error from 10.8.0.1:37300: read tcp 10.8.0.6:443->10.8.0.1:37300: read: connection reset by peer
-2025/03/18 09:28:02 http: TLS handshake error from 10.8.0.1:37312: read tcp 10.8.0.6:443->10.8.0.1:37312: read: connection reset by peer
-2025/03/18 09:28:02 http: TLS handshake error from 10.8.0.1:37320: tls: client requested unsupported application protocols ([http/0.9 http/1.0 spdy/1 spdy/2 spdy/3 h2c hq])
-2025/03/18 09:28:02 http: TLS handshake error from 10.8.0.1:37332: tls: client requested unsupported application protocols ([hq h2c spdy/3 spdy/2 spdy/1 http/1.0 http/0.9])
-2025/03/18 09:28:03 http: TLS handshake error from 10.8.0.1:37344: tls: client offered only unsupported versions: [302 301]
-2025/03/18 09:28:03 http: TLS handshake error from 10.8.0.1:37352: read tcp 10.8.0.6:443->10.8.0.1:37352: read: connection reset by peer
-2025/03/18 09:28:04 http: TLS handshake error from 10.8.0.1:37368: read tcp 10.8.0.6:443->10.8.0.1:37368: read: connection reset by peer
-2025/03/18 09:28:04 http: TLS handshake error from 10.8.0.1:37376: read tcp 10.8.0.6:443->10.8.0.1:37376: read: connection reset by peer
-2025/03/18 09:28:04 http: TLS handshake error from 10.8.0.1:37388: read tcp 10.8.0.6:443->10.8.0.1:37388: read: connection reset by peer
-2025/03/18 09:32:40 http: TLS handshake error from 10.8.0.1:59518: EOF
-2025/03/18 09:43:50 http: TLS handshake error from 10.8.0.1:35434: client sent an HTTP request to an HTTPS server
-2025/03/18 09:45:49 http: TLS handshake error from 10.8.0.1:42296: EOF
-2025/03/18 09:45:49 http: TLS handshake error from 10.8.0.1:42284: EOF
-2025/03/18 09:45:49 http: TLS handshake error from 10.8.0.1:42320: tls: client requested unsupported application protocols ([http/0.9 http/1.0 spdy/1 spdy/2 spdy/3 h2c hq])
-2025/03/18 09:45:49 http: TLS handshake error from 10.8.0.1:42312: EOF
-2025/03/18 09:45:49 http: TLS handshake error from 10.8.0.1:42328: tls: client requested unsupported application protocols ([hq h2c spdy/3 spdy/2 spdy/1 http/1.0 http/0.9])
-2025/03/18 09:45:49 http: TLS handshake error from 10.8.0.1:42336: tls: client offered only unsupported versions: [302 301]
-2025/03/18 09:45:50 http: TLS handshake error from 10.8.0.1:42340: EOF
-2025/03/18 09:45:50 http: TLS handshake error from 10.8.0.1:42344: EOF
-2025/03/18 09:45:50 http: TLS handshake error from 10.8.0.1:42350: EOF
-2025/03/18 09:45:50 http: TLS handshake error from 10.8.0.1:42354: EOF
-2025/03/18 10:10:14 http: TLS handshake error from 10.8.0.1:4134: tls: client offered only unsupported versions: [301]
-2025/03/18 10:10:14 http: TLS handshake error from 10.8.0.1:37052: tls: unsupported SSLv2 handshake received
-2025/03/18 10:10:14 http: TLS handshake error from 10.8.0.1:4043: tls: client offered only unsupported versions: []
-2025/03/18 10:10:14 http: TLS handshake error from 10.8.0.1:7486: tls: client offered only unsupported versions: [302]
-2025/03/18 10:10:14 http: TLS handshake error from 10.8.0.1:34536: tls: no cipher suite supported by both client and server
-2025/03/18 10:10:14 http: TLS handshake error from 10.8.0.1:61850: read tcp 10.8.0.6:443->10.8.0.1:61850: read: connection reset by peer
-2025/03/18 10:38:18 http: TLS handshake error from 10.8.0.1:43992: tls: client offered only unsupported versions: [301]
-2025/03/18 10:50:41 http: TLS handshake error from 10.8.0.1:59240: client sent an HTTP request to an HTTPS server
-2025/03/18 11:17:53 http: TLS handshake error from 10.8.0.1:58169: EOF
-2025/03/18 11:18:26 http: TLS handshake error from 10.8.0.1:37485: EOF
-2025/03/18 11:18:59 http: TLS handshake error from 10.8.0.1:58527: read tcp 10.8.0.6:443->10.8.0.1:58527: read: connection reset by peer
-2025/03/18 11:19:32 http: TLS handshake error from 10.8.0.1:40407: tls: client requested unsupported application protocols ([http/0.9 http/1.0 spdy/1 spdy/2 spdy/3 h2c hq])
-2025/03/18 11:20:06 http: TLS handshake error from 10.8.0.1:37243: tls: client requested unsupported application protocols ([hq h2c spdy/3 spdy/2 spdy/1 http/1.0 http/0.9])
-2025/03/18 11:20:39 http: TLS handshake error from 10.8.0.1:47103: tls: client offered only unsupported versions: [302 301]
-2025/03/18 11:21:12 http: TLS handshake error from 10.8.0.1:41661: read tcp 10.8.0.6:443->10.8.0.1:41661: read: connection reset by peer
-2025/03/18 11:21:45 http: TLS handshake error from 10.8.0.1:46031: read tcp 10.8.0.6:443->10.8.0.1:46031: read: connection reset by peer
-2025/03/18 11:22:18 http: TLS handshake error from 10.8.0.1:49583: read tcp 10.8.0.6:443->10.8.0.1:49583: read: connection reset by peer
-2025/03/18 11:22:52 http: TLS handshake error from 10.8.0.1:36545: EOF
-2025/03/18 11:25:54 http: TLS handshake error from 10.8.0.1:27470: tls: no cipher suite supported by both client and server
-2025/03/18 11:25:54 http: TLS handshake error from 10.8.0.1:26850: tls: unsupported SSLv2 handshake received
-2025/03/18 11:25:54 http: TLS handshake error from 10.8.0.1:37261: tls: client offered only unsupported versions: [302]
-2025/03/18 11:25:54 http: TLS handshake error from 10.8.0.1:43665: tls: client offered only unsupported versions: [301]
-2025/03/18 11:25:54 http: TLS handshake error from 10.8.0.1:4178: tls: client offered only unsupported versions: []
-2025/03/18 11:25:55 http: TLS handshake error from 10.8.0.1:51834: EOF
-2025/03/18 12:11:50 http: TLS handshake error from 10.8.0.1:45394: EOF
-2025/03/18 12:12:45 http: TLS handshake error from 10.8.0.1:33510: client sent an HTTP request to an HTTPS server
-2025/03/18 12:27:32 http: TLS handshake error from 10.8.0.1:33414: EOF
-2025/03/18 12:28:01 http: TLS handshake error from 10.8.0.1:33948: EOF
-2025/03/18 12:30:21 http: TLS handshake error from 10.8.0.1:45218: read tcp 10.8.0.6:443->10.8.0.1:45218: read: connection reset by peer
-2025/03/18 12:30:24 http: TLS handshake error from 10.8.0.1:33398: read tcp 10.8.0.6:443->10.8.0.1:33398: read: connection reset by peer
-2025/03/18 12:30:24 http: TLS handshake error from 10.8.0.1:33018: read tcp 10.8.0.6:443->10.8.0.1:33018: read: connection reset by peer
-2025/03/18 12:30:25 http: TLS handshake error from 10.8.0.1:52328: read tcp 10.8.0.6:443->10.8.0.1:52328: read: connection reset by peer
-2025/03/18 12:30:54 http: TLS handshake error from 10.8.0.1:51166: read tcp 10.8.0.6:443->10.8.0.1:51166: read: connection reset by peer
-2025/03/18 12:30:58 http: TLS handshake error from 10.8.0.1:45846: read tcp 10.8.0.6:443->10.8.0.1:45846: read: connection reset by peer
-2025/03/18 12:31:28 http: TLS handshake error from 10.8.0.1:56082: read tcp 10.8.0.6:443->10.8.0.1:56082: read: connection reset by peer
-2025/03/18 12:31:31 http: TLS handshake error from 10.8.0.1:56088: read tcp 10.8.0.6:443->10.8.0.1:56088: read: connection reset by peer
-2025/03/18 12:32:04 http: TLS handshake error from 10.8.0.1:54144: read tcp 10.8.0.6:443->10.8.0.1:54144: read: connection reset by peer
-2025/03/18 12:32:21 http: TLS handshake error from 10.8.0.1:57514: EOF
-2025/03/18 12:32:57 http: TLS handshake error from 10.8.0.1:47784: read tcp 10.8.0.6:443->10.8.0.1:47784: read: connection reset by peer
-2025/03/18 12:33:30 http: TLS handshake error from 10.8.0.1:39900: read tcp 10.8.0.6:443->10.8.0.1:39900: read: connection reset by peer
-2025/03/18 12:37:06 http: TLS handshake error from 10.8.0.1:39654: read tcp 10.8.0.6:443->10.8.0.1:39654: read: connection reset by peer
-2025/03/18 12:37:38 http: TLS handshake error from 10.8.0.1:34632: read tcp 10.8.0.6:443->10.8.0.1:34632: read: connection reset by peer
-2025/03/18 12:38:02 http: TLS handshake error from 10.8.0.1:51012: read tcp 10.8.0.6:443->10.8.0.1:51012: read: connection reset by peer
-2025/03/18 12:38:35 http: TLS handshake error from 10.8.0.1:45278: read tcp 10.8.0.6:443->10.8.0.1:45278: read: connection reset by peer
-2025/03/18 12:38:47 http: TLS handshake error from 10.8.0.1:37074: EOF
-2025/03/18 12:39:15 http: TLS handshake error from 10.8.0.1:58122: read tcp 10.8.0.6:443->10.8.0.1:58122: read: connection reset by peer
-2025/03/18 12:39:48 http: TLS handshake error from 10.8.0.1:35128: read tcp 10.8.0.6:443->10.8.0.1:35128: read: connection reset by peer
-2025/03/18 12:40:21 http: TLS handshake error from 10.8.0.1:46160: EOF
-2025/03/18 12:42:32 http: TLS handshake error from 10.8.0.1:34246: read tcp 10.8.0.6:443->10.8.0.1:34246: read: connection reset by peer
-2025/03/18 12:43:04 http: TLS handshake error from 10.8.0.1:40132: read tcp 10.8.0.6:443->10.8.0.1:40132: read: connection reset by peer
-2025/03/18 12:43:32 http: TLS handshake error from 10.8.0.1:51428: read tcp 10.8.0.6:443->10.8.0.1:51428: read: connection reset by peer
-2025/03/18 12:44:05 http: TLS handshake error from 10.8.0.1:46410: read tcp 10.8.0.6:443->10.8.0.1:46410: read: connection reset by peer
-2025/03/18 12:44:38 http: TLS handshake error from 10.8.0.1:38926: read tcp 10.8.0.6:443->10.8.0.1:38926: read: connection timed out
-2025/03/18 12:45:19 http: TLS handshake error from 10.8.0.1:35502: read tcp 10.8.0.6:443->10.8.0.1:35502: read: connection timed out
-2025/03/18 12:47:17 http: TLS handshake error from 10.8.0.1:34080: read tcp 10.8.0.6:443->10.8.0.1:34080: read: connection reset by peer
-2025/03/18 12:47:50 http: TLS handshake error from 10.8.0.1:48778: read tcp 10.8.0.6:443->10.8.0.1:48778: read: connection reset by peer
-2025/03/18 12:48:21 http: TLS handshake error from 10.8.0.1:41844: EOF
-2025/03/18 12:55:23 http: TLS handshake error from 10.8.0.1:46468: read tcp 10.8.0.6:443->10.8.0.1:46468: read: connection reset by peer
-2025/03/18 12:55:53 http: TLS handshake error from 10.8.0.1:38948: read tcp 10.8.0.6:443->10.8.0.1:38948: read: connection timed out
-2025/03/18 12:55:56 http: TLS handshake error from 10.8.0.1:48008: read tcp 10.8.0.6:443->10.8.0.1:48008: read: connection reset by peer
-2025/03/18 12:56:21 http: TLS handshake error from 10.8.0.1:36486: EOF
-2025/03/18 12:58:01 http: TLS handshake error from 10.8.0.1:38138: EOF
-2025/03/18 13:03:13 http: TLS handshake error from 10.8.0.1:55278: read tcp 10.8.0.6:443->10.8.0.1:55278: read: connection reset by peer
-2025/03/18 13:03:46 http: TLS handshake error from 10.8.0.1:54052: read tcp 10.8.0.6:443->10.8.0.1:54052: read: connection reset by peer
-2025/03/18 13:04:22 http: TLS handshake error from 10.8.0.1:58512: EOF
-2025/03/18 13:08:47 http: TLS handshake error from 10.8.0.1:60308: EOF
-2025/03/18 13:24:07 http: TLS handshake error from 10.8.0.1:35054: EOF
-2025/03/18 13:28:01 http: TLS handshake error from 10.8.0.1:37224: EOF
-2025/03/18 13:31:27 http: TLS handshake error from 10.8.0.1:1352: read tcp 10.8.0.6:443->10.8.0.1:1352: read: connection reset by peer
-2025/03/18 13:31:27 http: TLS handshake error from 10.8.0.1:1350: read tcp 10.8.0.6:443->10.8.0.1:1350: read: connection reset by peer
-2025/03/18 13:31:27 http: TLS handshake error from 10.8.0.1:1349: EOF
-2025/03/18 13:31:27 http: TLS handshake error from 10.8.0.1:1351: EOF
-2025/03/18 13:33:09 http: TLS handshake error from 10.8.0.1:39850: read tcp 10.8.0.6:443->10.8.0.1:39850: read: connection reset by peer
-2025/03/18 13:33:42 http: TLS handshake error from 10.8.0.1:54866: read tcp 10.8.0.6:443->10.8.0.1:54866: read: connection reset by peer
-2025/03/18 13:34:10 http: TLS handshake error from 10.8.0.1:48482: EOF
-2025/03/18 13:38:47 http: TLS handshake error from 10.8.0.1:53024: EOF
-2025/03/18 13:41:03 http: TLS handshake error from 10.8.0.1:38942: read tcp 10.8.0.6:443->10.8.0.1:38942: read: connection reset by peer
-2025/03/18 13:41:36 http: TLS handshake error from 10.8.0.1:37934: read tcp 10.8.0.6:443->10.8.0.1:37934: read: connection reset by peer
-2025/03/18 13:42:10 http: TLS handshake error from 10.8.0.1:49262: EOF
-2025/03/18 13:47:41 sitemap.xml успешно сгенерирован
-2025/03/18 13:47:41 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-2025/03/18 13:47:41 Запуск HTTPS-сервера на порту 443
-2025/03/18 13:47:48 http: TLS handshake error from 10.8.0.1:34322: tls: first record does not look like a TLS handshake
-2025/03/18 13:50:55 http: TLS handshake error from 10.8.0.1:43454: read tcp 10.8.0.6:443->10.8.0.1:43454: read: connection reset by peer
-2025/03/18 13:51:26 http: TLS handshake error from 10.8.0.1:43868: EOF
-2025/03/18 13:51:28 http: TLS handshake error from 10.8.0.1:57116: read tcp 10.8.0.6:443->10.8.0.1:57116: read: connection reset by peer
-2025/03/18 13:51:36 http: TLS handshake error from 10.8.0.1:52570: read tcp 10.8.0.6:443->10.8.0.1:52570: read: connection reset by peer
-2025/03/18 13:51:36 http: TLS handshake error from 10.8.0.1:33914: read tcp 10.8.0.6:443->10.8.0.1:33914: read: connection reset by peer
-2025/03/18 13:51:36 http: TLS handshake error from 10.8.0.1:56550: read tcp 10.8.0.6:443->10.8.0.1:56550: read: connection reset by peer
-2025/03/18 13:52:19 http: TLS handshake error from 10.8.0.1:45154: read tcp 10.8.0.6:443->10.8.0.1:45154: read: connection reset by peer
-2025/03/18 13:52:52 http: TLS handshake error from 10.8.0.1:56974: read tcp 10.8.0.6:443->10.8.0.1:56974: read: connection reset by peer
-2025/03/18 13:55:11 http: TLS handshake error from 10.8.0.1:54514: read tcp 10.8.0.6:443->10.8.0.1:54514: read: connection reset by peer
-2025/03/18 13:55:45 http: TLS handshake error from 10.8.0.1:55746: read tcp 10.8.0.6:443->10.8.0.1:55746: read: connection reset by peer
-2025/03/18 13:56:15 http: TLS handshake error from 10.8.0.1:54890: EOF
-2025/03/18 13:58:01 http: TLS handshake error from 10.8.0.1:48730: EOF
-2025/03/18 14:03:08 http: TLS handshake error from 10.8.0.1:46186: read tcp 10.8.0.6:443->10.8.0.1:46186: read: connection reset by peer
-2025/03/18 14:03:37 http: TLS handshake error from 10.8.0.1:28596: tls: client offered only unsupported versions: []
-2025/03/18 14:03:41 http: TLS handshake error from 10.8.0.1:47564: read tcp 10.8.0.6:443->10.8.0.1:47564: read: connection reset by peer
-2025/03/18 14:04:06 http: TLS handshake error from 10.8.0.1:5494: tls: no cipher suite supported by both client and server
-2025/03/18 14:04:16 http: TLS handshake error from 10.8.0.1:42828: EOF
-2025/03/18 14:06:03 http: TLS handshake error from 10.8.0.1:62911: read tcp 10.8.0.6:443->10.8.0.1:62911: read: connection reset by peer
-2025/03/18 14:06:03 http: TLS handshake error from 10.8.0.1:22927: read tcp 10.8.0.6:443->10.8.0.1:22927: read: connection reset by peer
-2025/03/18 14:06:04 http: TLS handshake error from 10.8.0.1:44449: read tcp 10.8.0.6:443->10.8.0.1:44449: read: connection reset by peer
-2025/03/18 14:06:04 http: TLS handshake error from 10.8.0.1:5627: tls: client requested unsupported application protocols ([http/0.9 http/1.0 spdy/1 spdy/2 spdy/3 h2c hq])
-2025/03/18 14:06:04 http: TLS handshake error from 10.8.0.1:36745: tls: client requested unsupported application protocols ([hq h2c spdy/3 spdy/2 spdy/1 http/1.0 http/0.9])
-2025/03/18 14:06:05 http: TLS handshake error from 10.8.0.1:58553: tls: client offered only unsupported versions: [302 301]
-2025/03/18 14:06:05 http: TLS handshake error from 10.8.0.1:20723: read tcp 10.8.0.6:443->10.8.0.1:20723: read: connection reset by peer
-2025/03/18 14:06:06 http: TLS handshake error from 10.8.0.1:18383: read tcp 10.8.0.6:443->10.8.0.1:18383: read: connection reset by peer
-2025/03/18 14:06:06 http: TLS handshake error from 10.8.0.1:28941: read tcp 10.8.0.6:443->10.8.0.1:28941: read: connection reset by peer
-2025/03/18 14:06:07 http: TLS handshake error from 10.8.0.1:38427: read tcp 10.8.0.6:443->10.8.0.1:38427: read: connection reset by peer
-2025/03/18 14:08:47 http: TLS handshake error from 10.8.0.1:59180: EOF
-2025/03/18 14:11:00 http: TLS handshake error from 10.8.0.1:41362: read tcp 10.8.0.6:443->10.8.0.1:41362: read: connection reset by peer
-2025/03/18 14:11:33 http: TLS handshake error from 10.8.0.1:37022: read tcp 10.8.0.6:443->10.8.0.1:37022: read: connection reset by peer
-2025/03/18 14:12:16 http: TLS handshake error from 10.8.0.1:41940: EOF
-2025/03/18 14:19:07 http: TLS handshake error from 10.8.0.1:49054: read tcp 10.8.0.6:443->10.8.0.1:49054: read: connection reset by peer
-2025/03/18 14:19:39 http: TLS handshake error from 10.8.0.1:36802: read tcp 10.8.0.6:443->10.8.0.1:36802: read: connection reset by peer
-2025/03/18 14:20:16 http: TLS handshake error from 10.8.0.1:59588: EOF
-2025/03/18 14:27:02 http: TLS handshake error from 10.8.0.1:58956: read tcp 10.8.0.6:443->10.8.0.1:58956: read: connection reset by peer
-2025/03/18 14:27:34 http: TLS handshake error from 10.8.0.1:56380: read tcp 10.8.0.6:443->10.8.0.1:56380: read: connection reset by peer
-2025/03/18 14:28:01 http: TLS handshake error from 10.8.0.1:48986: EOF
-2025/03/18 14:28:16 http: TLS handshake error from 10.8.0.1:56202: EOF
-2025/03/18 14:35:07 http: TLS handshake error from 10.8.0.1:48892: read tcp 10.8.0.6:443->10.8.0.1:48892: read: connection reset by peer
-2025/03/18 14:35:40 http: TLS handshake error from 10.8.0.1:59054: read tcp 10.8.0.6:443->10.8.0.1:59054: read: connection reset by peer
-2025/03/18 14:36:16 http: TLS handshake error from 10.8.0.1:46132: EOF
-2025/03/18 14:38:47 http: TLS handshake error from 10.8.0.1:37086: EOF
-2025/03/18 14:43:10 http: TLS handshake error from 10.8.0.1:45146: read tcp 10.8.0.6:443->10.8.0.1:45146: read: connection reset by peer
-2025/03/18 14:43:44 http: TLS handshake error from 10.8.0.1:45026: read tcp 10.8.0.6:443->10.8.0.1:45026: read: connection reset by peer
-2025/03/18 14:44:16 http: TLS handshake error from 10.8.0.1:55508: EOF
-2025/03/18 14:51:08 http: TLS handshake error from 10.8.0.1:42252: read tcp 10.8.0.6:443->10.8.0.1:42252: read: connection reset by peer
-2025/03/18 14:51:49 http: TLS handshake error from 10.8.0.1:55782: read tcp 10.8.0.6:443->10.8.0.1:55782: read: connection reset by peer
-2025/03/18 14:52:18 http: TLS handshake error from 10.8.0.1:37784: EOF
-2025/03/18 14:55:28 http: TLS handshake error from 10.8.0.1:53468: EOF
-2025/03/18 14:58:18 http: TLS handshake error from 10.8.0.1:53130: EOF
-2025/03/18 14:58:24 http: TLS handshake error from 10.8.0.1:34288: read tcp 10.8.0.6:443->10.8.0.1:34288: read: connection reset by peer
-2025/03/18 14:58:36 http: TLS handshake error from 10.8.0.1:34286: read tcp 10.8.0.6:443->10.8.0.1:34286: read: connection reset by peer
-2025/03/18 14:59:04 http: TLS handshake error from 10.8.0.1:44172: read tcp 10.8.0.6:443->10.8.0.1:44172: read: connection reset by peer
-2025/03/18 15:00:18 http: TLS handshake error from 10.8.0.1:56332: EOF
-2025/03/18 15:01:13 http: TLS handshake error from 10.8.0.1:42322: read tcp 10.8.0.6:443->10.8.0.1:42322: read: connection reset by peer
-2025/03/18 15:01:39 http: TLS handshake error from 10.8.0.1:1170: EOF
-2025/03/18 15:01:43 http: TLS handshake error from 10.8.0.1:1455: EOF
-2025/03/18 15:03:44 http: TLS handshake error from 10.8.0.1:1282: EOF
-2025/03/18 15:06:23 http: TLS handshake error from 10.8.0.1:56944: read tcp 10.8.0.6:443->10.8.0.1:56944: read: connection reset by peer
-2025/03/18 15:06:38 http: TLS handshake error from 10.8.0.1:56930: read tcp 10.8.0.6:443->10.8.0.1:56930: read: connection reset by peer
-2025/03/18 15:07:16 http: TLS handshake error from 10.8.0.1:57506: read tcp 10.8.0.6:443->10.8.0.1:57506: read: connection reset by peer
-2025/03/18 15:07:47 http: TLS handshake error from 10.8.0.1:57518: read tcp 10.8.0.6:443->10.8.0.1:57518: read: connection reset by peer
-2025/03/18 15:08:18 http: TLS handshake error from 10.8.0.1:49022: EOF
-2025/03/18 15:08:48 http: TLS handshake error from 10.8.0.1:59540: EOF
-2025/03/18 15:15:11 http: TLS handshake error from 10.8.0.1:57838: read tcp 10.8.0.6:443->10.8.0.1:57838: read: connection reset by peer
-2025/03/18 15:15:45 http: TLS handshake error from 10.8.0.1:47360: read tcp 10.8.0.6:443->10.8.0.1:47360: read: connection reset by peer
-2025/03/18 15:16:17 http: TLS handshake error from 10.8.0.1:41026: EOF
-2025/03/18 15:23:20 http: TLS handshake error from 10.8.0.1:47694: read tcp 10.8.0.6:443->10.8.0.1:47694: read: connection reset by peer
-2025/03/18 15:23:53 http: TLS handshake error from 10.8.0.1:59654: read tcp 10.8.0.6:443->10.8.0.1:59654: read: connection reset by peer
-2025/03/18 15:24:17 http: TLS handshake error from 10.8.0.1:38234: EOF
-2025/03/18 15:28:01 http: TLS handshake error from 10.8.0.1:52844: EOF
-2025/03/18 15:31:05 http: TLS handshake error from 10.8.0.1:39244: read tcp 10.8.0.6:443->10.8.0.1:39244: read: connection reset by peer
-2025/03/18 15:31:39 http: TLS handshake error from 10.8.0.1:53218: read tcp 10.8.0.6:443->10.8.0.1:53218: read: connection reset by peer
-2025/03/18 15:32:17 http: TLS handshake error from 10.8.0.1:43156: EOF
-2025/03/18 15:38:47 http: TLS handshake error from 10.8.0.1:44520: EOF
-2025/03/18 15:39:14 http: TLS handshake error from 10.8.0.1:40984: read tcp 10.8.0.6:443->10.8.0.1:40984: read: connection reset by peer
-2025/03/18 15:39:47 http: TLS handshake error from 10.8.0.1:35028: read tcp 10.8.0.6:443->10.8.0.1:35028: read: connection reset by peer
-2025/03/18 15:40:18 http: TLS handshake error from 10.8.0.1:46654: EOF
-2025/03/18 15:47:08 http: TLS handshake error from 10.8.0.1:57896: read tcp 10.8.0.6:443->10.8.0.1:57896: read: connection reset by peer
-2025/03/18 15:47:41 http: TLS handshake error from 10.8.0.1:51576: read tcp 10.8.0.6:443->10.8.0.1:51576: read: connection reset by peer
-2025/03/18 15:48:18 http: TLS handshake error from 10.8.0.1:59190: EOF
-2025/03/18 15:55:17 http: TLS handshake error from 10.8.0.1:53106: read tcp 10.8.0.6:443->10.8.0.1:53106: read: connection reset by peer
-2025/03/18 15:55:50 http: TLS handshake error from 10.8.0.1:33706: read tcp 10.8.0.6:443->10.8.0.1:33706: read: connection reset by peer
-2025/03/18 15:56:18 http: TLS handshake error from 10.8.0.1:54284: EOF
-2025/03/18 15:58:01 http: TLS handshake error from 10.8.0.1:55976: EOF
-2025/03/18 16:03:09 http: TLS handshake error from 10.8.0.1:51400: read tcp 10.8.0.6:443->10.8.0.1:51400: read: connection reset by peer
-2025/03/18 16:03:42 http: TLS handshake error from 10.8.0.1:40100: read tcp 10.8.0.6:443->10.8.0.1:40100: read: connection reset by peer
-2025/03/18 16:04:18 http: TLS handshake error from 10.8.0.1:49732: EOF
-2025/03/18 16:08:47 http: TLS handshake error from 10.8.0.1:38682: EOF
-2025/03/18 16:11:14 http: TLS handshake error from 10.8.0.1:50070: read tcp 10.8.0.6:443->10.8.0.1:50070: read: connection reset by peer
-2025/03/18 16:11:48 http: TLS handshake error from 10.8.0.1:41746: read tcp 10.8.0.6:443->10.8.0.1:41746: read: connection reset by peer
-2025/03/18 16:12:18 http: TLS handshake error from 10.8.0.1:37570: EOF
-2025/03/18 16:19:22 http: TLS handshake error from 10.8.0.1:33220: read tcp 10.8.0.6:443->10.8.0.1:33220: read: connection reset by peer
-2025/03/18 16:19:54 http: TLS handshake error from 10.8.0.1:33088: read tcp 10.8.0.6:443->10.8.0.1:33088: read: connection reset by peer
-2025/03/18 16:20:18 http: TLS handshake error from 10.8.0.1:33076: EOF
-2025/03/18 16:27:21 http: TLS handshake error from 10.8.0.1:48592: read tcp 10.8.0.6:443->10.8.0.1:48592: read: connection reset by peer
-2025/03/18 16:27:54 http: TLS handshake error from 10.8.0.1:39468: read tcp 10.8.0.6:443->10.8.0.1:39468: read: connection reset by peer
-2025/03/18 16:28:01 http: TLS handshake error from 10.8.0.1:35520: EOF
-2025/03/18 16:28:19 http: TLS handshake error from 10.8.0.1:33896: EOF
-2025/03/18 16:35:16 http: TLS handshake error from 10.8.0.1:50850: read tcp 10.8.0.6:443->10.8.0.1:50850: read: connection reset by peer
-2025/03/18 16:35:49 http: TLS handshake error from 10.8.0.1:54498: read tcp 10.8.0.6:443->10.8.0.1:54498: read: connection reset by peer
-2025/03/18 16:36:19 http: TLS handshake error from 10.8.0.1:41932: EOF
-2025/03/18 16:37:45 http: TLS handshake error from 10.8.0.1:49018: EOF
-2025/03/18 16:37:45 http: TLS handshake error from 10.8.0.1:49032: EOF
-2025/03/18 16:37:46 http: TLS handshake error from 10.8.0.1:49046: tls: client requested unsupported application protocols ([http/0.9 http/1.0 spdy/1 spdy/2 spdy/3 h2c hq])
-2025/03/18 16:37:46 http: TLS handshake error from 10.8.0.1:49040: EOF
-2025/03/18 16:37:47 http: TLS handshake error from 10.8.0.1:60814: tls: client offered only unsupported versions: [302 301]
-2025/03/18 16:37:47 http: TLS handshake error from 10.8.0.1:60810: tls: client requested unsupported application protocols ([hq h2c spdy/3 spdy/2 spdy/1 http/1.0 http/0.9])
-2025/03/18 16:37:49 http: TLS handshake error from 10.8.0.1:60820: EOF
-2025/03/18 16:37:49 http: TLS handshake error from 10.8.0.1:60834: EOF
-2025/03/18 16:37:49 http: TLS handshake error from 10.8.0.1:60838: EOF
-2025/03/18 16:37:49 http: TLS handshake error from 10.8.0.1:60846: EOF
-2025/03/18 16:38:47 http: TLS handshake error from 10.8.0.1:45326: EOF
-2025/03/18 16:41:53 http: TLS handshake error from 10.8.0.1:49648: EOF
-2025/03/18 16:41:54 http: TLS handshake error from 10.8.0.1:49652: read tcp 10.8.0.6:443->10.8.0.1:49652: read: connection reset by peer
-2025/03/18 16:41:54 http: TLS handshake error from 10.8.0.1:49654: read tcp 10.8.0.6:443->10.8.0.1:49654: read: connection reset by peer
-2025/03/18 16:41:54 http: TLS handshake error from 10.8.0.1:49666: tls: client requested unsupported application protocols ([http/0.9 http/1.0 spdy/1 spdy/2 spdy/3 h2c hq])
-2025/03/18 16:41:54 http: TLS handshake error from 10.8.0.1:49674: tls: client requested unsupported application protocols ([hq h2c spdy/3 spdy/2 spdy/1 http/1.0 http/0.9])
-2025/03/18 16:41:54 http: TLS handshake error from 10.8.0.1:49676: tls: client offered only unsupported versions: [302 301]
-2025/03/18 16:41:54 http: TLS handshake error from 10.8.0.1:49682: read tcp 10.8.0.6:443->10.8.0.1:49682: read: connection reset by peer
-2025/03/18 16:41:54 http: TLS handshake error from 10.8.0.1:49684: read tcp 10.8.0.6:443->10.8.0.1:49684: read: connection reset by peer
-2025/03/18 16:41:55 http: TLS handshake error from 10.8.0.1:49694: read tcp 10.8.0.6:443->10.8.0.1:49694: read: connection reset by peer
-2025/03/18 16:41:55 http: TLS handshake error from 10.8.0.1:49702: read tcp 10.8.0.6:443->10.8.0.1:49702: read: connection reset by peer
-2025/03/18 16:43:14 http: TLS handshake error from 10.8.0.1:39804: read tcp 10.8.0.6:443->10.8.0.1:39804: read: connection reset by peer
-2025/03/18 16:43:48 http: TLS handshake error from 10.8.0.1:60838: read tcp 10.8.0.6:443->10.8.0.1:60838: read: connection reset by peer
-2025/03/18 16:44:19 http: TLS handshake error from 10.8.0.1:49892: EOF
-2025/03/18 16:51:10 http: TLS handshake error from 10.8.0.1:54084: read tcp 10.8.0.6:443->10.8.0.1:54084: read: connection reset by peer
-2025/03/18 16:51:43 http: TLS handshake error from 10.8.0.1:33366: read tcp 10.8.0.6:443->10.8.0.1:33366: read: connection reset by peer
-2025/03/18 16:52:19 http: TLS handshake error from 10.8.0.1:58116: EOF
-2025/03/18 16:58:01 http: TLS handshake error from 10.8.0.1:51878: EOF
-2025/03/18 16:59:12 http: TLS handshake error from 10.8.0.1:58178: read tcp 10.8.0.6:443->10.8.0.1:58178: read: connection reset by peer
-2025/03/18 16:59:44 http: TLS handshake error from 10.8.0.1:49754: read tcp 10.8.0.6:443->10.8.0.1:49754: read: connection reset by peer
-2025/03/18 17:00:19 http: TLS handshake error from 10.8.0.1:56810: EOF
-2025/03/18 17:07:13 http: TLS handshake error from 10.8.0.1:41016: read tcp 10.8.0.6:443->10.8.0.1:41016: read: connection reset by peer
-2025/03/18 17:07:46 http: TLS handshake error from 10.8.0.1:36662: read tcp 10.8.0.6:443->10.8.0.1:36662: read: connection reset by peer
-2025/03/18 17:08:20 http: TLS handshake error from 10.8.0.1:52742: EOF
-2025/03/18 17:08:47 http: TLS handshake error from 10.8.0.1:53582: EOF
-2025/03/18 17:15:13 http: TLS handshake error from 10.8.0.1:57242: read tcp 10.8.0.6:443->10.8.0.1:57242: read: connection reset by peer
-2025/03/18 17:15:45 http: TLS handshake error from 10.8.0.1:50770: read tcp 10.8.0.6:443->10.8.0.1:50770: read: connection reset by peer
-2025/03/18 17:16:20 http: TLS handshake error from 10.8.0.1:44586: EOF
-2025/03/18 17:23:08 http: TLS handshake error from 10.8.0.1:53184: read tcp 10.8.0.6:443->10.8.0.1:53184: read: connection reset by peer
-2025/03/18 17:23:42 http: TLS handshake error from 10.8.0.1:42858: read tcp 10.8.0.6:443->10.8.0.1:42858: read: connection reset by peer
-2025/03/18 17:24:20 http: TLS handshake error from 10.8.0.1:34770: EOF
-2025/03/18 17:28:01 http: TLS handshake error from 10.8.0.1:41798: EOF
-2025/03/18 17:31:18 http: TLS handshake error from 10.8.0.1:60126: read tcp 10.8.0.6:443->10.8.0.1:60126: read: connection reset by peer
-2025/03/18 17:31:52 http: TLS handshake error from 10.8.0.1:34384: read tcp 10.8.0.6:443->10.8.0.1:34384: read: connection reset by peer
-2025/03/18 17:32:20 http: TLS handshake error from 10.8.0.1:59494: EOF
-2025/03/18 17:33:08 http: TLS handshake error from 10.8.0.1:59610: EOF
-2025/03/18 17:33:29 http: TLS handshake error from 10.8.0.1:39720: EOF
-2025/03/18 17:33:58 http: TLS handshake error from 10.8.0.1:51588: EOF
-2025/03/18 17:35:38 http: TLS handshake error from 10.8.0.1:43624: read tcp 10.8.0.6:443->10.8.0.1:43624: read: connection reset by peer
-2025/03/18 17:36:12 http: TLS handshake error from 10.8.0.1:41518: read tcp 10.8.0.6:443->10.8.0.1:41518: read: connection reset by peer
-2025/03/18 17:36:18 http: TLS handshake error from 10.8.0.1:59386: read tcp 10.8.0.6:443->10.8.0.1:59386: read: connection reset by peer
-2025/03/18 17:36:20 http: TLS handshake error from 10.8.0.1:39706: read tcp 10.8.0.6:443->10.8.0.1:39706: read: connection reset by peer
-2025/03/18 17:36:21 http: TLS handshake error from 10.8.0.1:57288: read tcp 10.8.0.6:443->10.8.0.1:57288: read: connection reset by peer
-2025/03/18 17:37:01 http: TLS handshake error from 10.8.0.1:51262: read tcp 10.8.0.6:443->10.8.0.1:51262: read: connection reset by peer
-2025/03/18 17:37:34 http: TLS handshake error from 10.8.0.1:34696: read tcp 10.8.0.6:443->10.8.0.1:34696: read: connection reset by peer
-2025/03/18 17:37:50 http: TLS handshake error from 10.8.0.1:39382: read tcp 10.8.0.6:443->10.8.0.1:39382: read: connection reset by peer
-2025/03/18 17:38:17 http: TLS handshake error from 10.8.0.1:51944: EOF
-2025/03/18 17:38:23 http: TLS handshake error from 10.8.0.1:40256: read tcp 10.8.0.6:443->10.8.0.1:40256: read: connection reset by peer
-2025/03/18 17:45:11 http: TLS handshake error from 10.8.0.1:55858: read tcp 10.8.0.6:443->10.8.0.1:55858: read: connection reset by peer
-2025/03/18 17:45:44 http: TLS handshake error from 10.8.0.1:50592: read tcp 10.8.0.6:443->10.8.0.1:50592: read: connection reset by peer
-2025/03/18 17:46:17 http: TLS handshake error from 10.8.0.1:45982: EOF
-2025/03/18 17:50:28 http: TLS handshake error from 10.8.0.1:43964: read tcp 10.8.0.6:443->10.8.0.1:43964: read: connection timed out
-2025/03/18 17:50:32 http: TLS handshake error from 10.8.0.1:49724: read tcp 10.8.0.6:443->10.8.0.1:49724: read: connection timed out
-2025/03/18 17:51:13 http: TLS handshake error from 10.8.0.1:51266: read tcp 10.8.0.6:443->10.8.0.1:51266: read: connection timed out
-2025/03/18 17:53:12 http: TLS handshake error from 10.8.0.1:42844: read tcp 10.8.0.6:443->10.8.0.1:42844: read: connection reset by peer
-2025/03/18 17:53:45 http: TLS handshake error from 10.8.0.1:38132: read tcp 10.8.0.6:443->10.8.0.1:38132: read: connection reset by peer
-2025/03/18 17:54:18 http: TLS handshake error from 10.8.0.1:40684: EOF
-2025/03/18 18:01:14 http: TLS handshake error from 10.8.0.1:56236: read tcp 10.8.0.6:443->10.8.0.1:56236: read: connection reset by peer
-2025/03/18 18:01:47 http: TLS handshake error from 10.8.0.1:56324: read tcp 10.8.0.6:443->10.8.0.1:56324: read: connection reset by peer
-2025/03/18 18:02:18 http: TLS handshake error from 10.8.0.1:43238: EOF
-2025/03/18 18:03:58 http: TLS handshake error from 10.8.0.1:47456: EOF
-2025/03/18 18:09:09 http: TLS handshake error from 10.8.0.1:53938: read tcp 10.8.0.6:443->10.8.0.1:53938: read: connection reset by peer
-2025/03/18 18:09:42 http: TLS handshake error from 10.8.0.1:54268: read tcp 10.8.0.6:443->10.8.0.1:54268: read: connection reset by peer
-2025/03/18 18:10:18 http: TLS handshake error from 10.8.0.1:42364: EOF
-2025/03/18 18:17:11 http: TLS handshake error from 10.8.0.1:38682: read tcp 10.8.0.6:443->10.8.0.1:38682: read: connection reset by peer
-2025/03/18 18:17:44 http: TLS handshake error from 10.8.0.1:41586: read tcp 10.8.0.6:443->10.8.0.1:41586: read: connection reset by peer
-2025/03/18 18:18:18 http: TLS handshake error from 10.8.0.1:46764: EOF
-2025/03/18 18:25:19 http: TLS handshake error from 10.8.0.1:53940: read tcp 10.8.0.6:443->10.8.0.1:53940: read: connection reset by peer
-2025/03/18 18:25:52 http: TLS handshake error from 10.8.0.1:43974: read tcp 10.8.0.6:443->10.8.0.1:43974: read: connection reset by peer
-2025/03/18 18:26:18 http: TLS handshake error from 10.8.0.1:37406: EOF
-2025/03/18 18:29:10 http: TLS handshake error from 10.8.0.1:38552: EOF
-2025/03/18 18:33:11 http: TLS handshake error from 10.8.0.1:42614: read tcp 10.8.0.6:443->10.8.0.1:42614: read: connection reset by peer
-2025/03/18 18:33:45 http: TLS handshake error from 10.8.0.1:56294: read tcp 10.8.0.6:443->10.8.0.1:56294: read: connection reset by peer
-2025/03/18 18:33:58 http: TLS handshake error from 10.8.0.1:35108: EOF
-2025/03/18 18:34:18 http: TLS handshake error from 10.8.0.1:41998: EOF
-2025/03/18 18:40:45 http: TLS handshake error from 10.8.0.1:53324: read tcp 10.8.0.6:443->10.8.0.1:53324: read: connection reset by peer
-2025/03/18 18:40:45 http: TLS handshake error from 10.8.0.1:53328: read tcp 10.8.0.6:443->10.8.0.1:53328: read: connection reset by peer
-2025/03/18 18:40:46 http: TLS handshake error from 10.8.0.1:53336: read tcp 10.8.0.6:443->10.8.0.1:53336: read: connection reset by peer
-2025/03/18 18:40:46 http: TLS handshake error from 10.8.0.1:53350: tls: client requested unsupported application protocols ([http/0.9 http/1.0 spdy/1 spdy/2 spdy/3 h2c hq])
-2025/03/18 18:40:46 http: TLS handshake error from 10.8.0.1:53352: tls: client requested unsupported application protocols ([hq h2c spdy/3 spdy/2 spdy/1 http/1.0 http/0.9])
-2025/03/18 18:40:46 http: TLS handshake error from 10.8.0.1:53368: tls: client offered only unsupported versions: [302 301]
-2025/03/18 18:40:47 http: TLS handshake error from 10.8.0.1:53374: read tcp 10.8.0.6:443->10.8.0.1:53374: read: connection reset by peer
-2025/03/18 18:40:47 http: TLS handshake error from 10.8.0.1:53380: read tcp 10.8.0.6:443->10.8.0.1:53380: read: connection reset by peer
-2025/03/18 18:40:47 http: TLS handshake error from 10.8.0.1:52020: read tcp 10.8.0.6:443->10.8.0.1:52020: read: connection reset by peer
-2025/03/18 18:40:48 http: TLS handshake error from 10.8.0.1:52026: read tcp 10.8.0.6:443->10.8.0.1:52026: read: connection reset by peer
-2025/03/18 18:40:59 http: TLS handshake error from 10.8.0.1:27299: EOF
-2025/03/18 18:41:13 http: TLS handshake error from 10.8.0.1:59786: read tcp 10.8.0.6:443->10.8.0.1:59786: read: connection reset by peer
-2025/03/18 18:41:46 http: TLS handshake error from 10.8.0.1:56454: read tcp 10.8.0.6:443->10.8.0.1:56454: read: connection reset by peer
-2025/03/18 18:42:19 http: TLS handshake error from 10.8.0.1:58910: EOF
-2025/03/18 18:49:12 http: TLS handshake error from 10.8.0.1:34592: read tcp 10.8.0.6:443->10.8.0.1:34592: read: connection reset by peer
-2025/03/18 18:49:45 http: TLS handshake error from 10.8.0.1:55378: read tcp 10.8.0.6:443->10.8.0.1:55378: read: connection reset by peer
-2025/03/18 18:50:19 http: TLS handshake error from 10.8.0.1:35576: EOF
-2025/03/18 18:57:12 http: TLS handshake error from 10.8.0.1:57058: read tcp 10.8.0.6:443->10.8.0.1:57058: read: connection reset by peer
-2025/03/18 18:57:45 http: TLS handshake error from 10.8.0.1:37072: read tcp 10.8.0.6:443->10.8.0.1:37072: read: connection reset by peer
-2025/03/18 18:58:19 http: TLS handshake error from 10.8.0.1:43826: EOF
-2025/03/18 19:03:58 http: TLS handshake error from 10.8.0.1:40524: EOF
-2025/03/18 19:05:18 http: TLS handshake error from 10.8.0.1:40852: read tcp 10.8.0.6:443->10.8.0.1:40852: read: connection reset by peer
-2025/03/18 19:05:51 http: TLS handshake error from 10.8.0.1:46288: read tcp 10.8.0.6:443->10.8.0.1:46288: read: connection reset by peer
-2025/03/18 19:06:19 http: TLS handshake error from 10.8.0.1:38902: EOF
-2025/03/18 19:13:08 http: TLS handshake error from 10.8.0.1:59770: read tcp 10.8.0.6:443->10.8.0.1:59770: read: connection reset by peer
-2025/03/18 19:13:41 http: TLS handshake error from 10.8.0.1:59692: read tcp 10.8.0.6:443->10.8.0.1:59692: read: connection reset by peer
-2025/03/18 19:14:19 http: TLS handshake error from 10.8.0.1:36540: EOF
-2025/03/18 19:19:50 http: TLS handshake error from 10.8.0.1:47994: tls: client offered only unsupported versions: [302 301]
-2025/03/18 19:21:13 http: TLS handshake error from 10.8.0.1:57364: read tcp 10.8.0.6:443->10.8.0.1:57364: read: connection reset by peer
-2025/03/18 19:21:46 http: TLS handshake error from 10.8.0.1:49208: read tcp 10.8.0.6:443->10.8.0.1:49208: read: connection reset by peer
-2025/03/18 19:22:20 http: TLS handshake error from 10.8.0.1:50882: EOF
-2025/03/18 19:29:10 http: TLS handshake error from 10.8.0.1:49806: read tcp 10.8.0.6:443->10.8.0.1:49806: read: connection reset by peer
-2025/03/18 19:29:44 http: TLS handshake error from 10.8.0.1:44108: read tcp 10.8.0.6:443->10.8.0.1:44108: read: connection reset by peer
-2025/03/18 19:30:20 http: TLS handshake error from 10.8.0.1:38942: EOF
-2025/03/18 19:33:58 http: TLS handshake error from 10.8.0.1:48486: EOF
-2025/03/18 19:35:16 http: TLS handshake error from 10.8.0.1:44082: tls: first record does not look like a TLS handshake
-2025/03/18 19:37:17 http: TLS handshake error from 10.8.0.1:34112: read tcp 10.8.0.6:443->10.8.0.1:34112: read: connection reset by peer
-2025/03/18 19:37:50 http: TLS handshake error from 10.8.0.1:50090: read tcp 10.8.0.6:443->10.8.0.1:50090: read: connection reset by peer
-2025/03/18 19:38:20 http: TLS handshake error from 10.8.0.1:56592: EOF
-2025/03/18 19:40:00 http: TLS handshake error from 10.8.0.1:48920: read tcp 10.8.0.6:443->10.8.0.1:48920: read: connection reset by peer
-2025/03/18 19:40:00 http: TLS handshake error from 10.8.0.1:39594: read tcp 10.8.0.6:443->10.8.0.1:39594: read: connection reset by peer
-2025/03/18 19:40:00 http: TLS handshake error from 10.8.0.1:54388: read tcp 10.8.0.6:443->10.8.0.1:54388: read: connection reset by peer
-2025/03/18 19:40:00 http: TLS handshake error from 10.8.0.1:48410: tls: client requested unsupported application protocols ([http/0.9 http/1.0 spdy/1 spdy/2 spdy/3 h2c hq])
-2025/03/18 19:40:00 http: TLS handshake error from 10.8.0.1:33800: tls: client requested unsupported application protocols ([hq h2c spdy/3 spdy/2 spdy/1 http/1.0 http/0.9])
-2025/03/18 19:40:01 http: TLS handshake error from 10.8.0.1:39184: tls: client offered only unsupported versions: [302 301]
-2025/03/18 19:40:01 http: TLS handshake error from 10.8.0.1:44674: read tcp 10.8.0.6:443->10.8.0.1:44674: read: connection reset by peer
-2025/03/18 19:40:01 http: TLS handshake error from 10.8.0.1:50678: read tcp 10.8.0.6:443->10.8.0.1:50678: read: connection reset by peer
-2025/03/18 19:40:01 http: TLS handshake error from 10.8.0.1:58006: read tcp 10.8.0.6:443->10.8.0.1:58006: read: connection reset by peer
-2025/03/18 19:40:01 http: TLS handshake error from 10.8.0.1:35652: read tcp 10.8.0.6:443->10.8.0.1:35652: read: connection reset by peer
-2025/03/18 19:45:09 http: TLS handshake error from 10.8.0.1:46520: read tcp 10.8.0.6:443->10.8.0.1:46520: read: connection reset by peer
-2025/03/18 19:45:41 http: TLS handshake error from 10.8.0.1:40742: read tcp 10.8.0.6:443->10.8.0.1:40742: read: connection reset by peer
-2025/03/18 19:46:20 http: TLS handshake error from 10.8.0.1:39282: EOF
-2025/03/18 19:53:19 http: TLS handshake error from 10.8.0.1:41732: read tcp 10.8.0.6:443->10.8.0.1:41732: read: connection reset by peer
-2025/03/18 19:53:52 http: TLS handshake error from 10.8.0.1:33184: read tcp 10.8.0.6:443->10.8.0.1:33184: read: connection reset by peer
-2025/03/18 19:54:20 http: TLS handshake error from 10.8.0.1:55980: EOF
-2025/03/18 20:01:14 http: TLS handshake error from 10.8.0.1:40832: read tcp 10.8.0.6:443->10.8.0.1:40832: read: connection reset by peer
-2025/03/18 20:01:47 http: TLS handshake error from 10.8.0.1:49914: read tcp 10.8.0.6:443->10.8.0.1:49914: read: connection reset by peer
-2025/03/18 20:02:20 http: TLS handshake error from 10.8.0.1:49266: EOF
-2025/03/18 20:02:30 http: TLS handshake error from 10.8.0.1:50420: client sent an HTTP request to an HTTPS server
-2025/03/18 20:03:58 http: TLS handshake error from 10.8.0.1:45072: EOF
-2025/03/18 20:09:14 http: TLS handshake error from 10.8.0.1:46238: read tcp 10.8.0.6:443->10.8.0.1:46238: read: connection reset by peer
-2025/03/18 20:09:47 http: TLS handshake error from 10.8.0.1:53470: read tcp 10.8.0.6:443->10.8.0.1:53470: read: connection reset by peer
-2025/03/18 20:10:21 http: TLS handshake error from 10.8.0.1:52998: EOF
-2025/03/18 20:17:13 http: TLS handshake error from 10.8.0.1:37284: read tcp 10.8.0.6:443->10.8.0.1:37284: read: connection reset by peer
-2025/03/18 20:17:45 http: TLS handshake error from 10.8.0.1:55856: read tcp 10.8.0.6:443->10.8.0.1:55856: read: connection reset by peer
-2025/03/18 20:18:21 http: TLS handshake error from 10.8.0.1:45770: EOF
-2025/03/18 20:19:01 http: TLS handshake error from 10.8.0.1:52806: read tcp 10.8.0.6:443->10.8.0.1:52806: read: connection reset by peer
-2025/03/18 20:19:21 http: TLS handshake error from 10.8.0.1:47318: tls: client offered only unsupported versions: [302 301]
-2025/03/18 20:19:23 http: TLS handshake error from 10.8.0.1:47330: tls: client offered only unsupported versions: [301]
-2025/03/18 20:19:26 http: TLS handshake error from 10.8.0.1:47354: tls: client offered only unsupported versions: []
-2025/03/18 20:25:14 http: TLS handshake error from 10.8.0.1:43620: read tcp 10.8.0.6:443->10.8.0.1:43620: read: connection reset by peer
-2025/03/18 20:25:47 http: TLS handshake error from 10.8.0.1:45592: read tcp 10.8.0.6:443->10.8.0.1:45592: read: connection reset by peer
-2025/03/18 20:26:21 http: TLS handshake error from 10.8.0.1:40552: EOF
-2025/03/18 20:33:17 http: TLS handshake error from 10.8.0.1:40140: read tcp 10.8.0.6:443->10.8.0.1:40140: read: connection reset by peer
-2025/03/18 20:33:50 http: TLS handshake error from 10.8.0.1:42272: read tcp 10.8.0.6:443->10.8.0.1:42272: read: connection reset by peer
-2025/03/18 20:33:58 http: TLS handshake error from 10.8.0.1:49730: EOF
-2025/03/18 20:34:21 http: TLS handshake error from 10.8.0.1:50526: EOF
-2025/03/18 20:40:07 http: TLS handshake error from 10.8.0.1:58343: read tcp 10.8.0.6:443->10.8.0.1:58343: read: connection reset by peer
-2025/03/18 20:41:13 http: TLS handshake error from 10.8.0.1:52076: read tcp 10.8.0.6:443->10.8.0.1:52076: read: connection reset by peer
-2025/03/18 20:41:45 http: TLS handshake error from 10.8.0.1:50866: read tcp 10.8.0.6:443->10.8.0.1:50866: read: connection reset by peer
-2025/03/18 20:42:21 http: TLS handshake error from 10.8.0.1:51480: EOF
-2025/03/18 20:42:33 http: TLS handshake error from 10.8.0.1:43256: client sent an HTTP request to an HTTPS server
-2025/03/18 20:46:06 http: TLS handshake error from 10.8.0.1:40589: read tcp 10.8.0.6:443->10.8.0.1:40589: read: connection reset by peer
-2025/03/18 20:49:11 http: TLS handshake error from 10.8.0.1:44946: read tcp 10.8.0.6:443->10.8.0.1:44946: read: connection reset by peer
-2025/03/18 20:49:44 http: TLS handshake error from 10.8.0.1:37482: read tcp 10.8.0.6:443->10.8.0.1:37482: read: connection reset by peer
-2025/03/18 20:50:22 http: TLS handshake error from 10.8.0.1:45608: EOF
-2025/03/18 20:57:21 http: TLS handshake error from 10.8.0.1:43454: read tcp 10.8.0.6:443->10.8.0.1:43454: read: connection reset by peer
-2025/03/18 20:57:54 http: TLS handshake error from 10.8.0.1:35034: read tcp 10.8.0.6:443->10.8.0.1:35034: read: connection reset by peer
-2025/03/18 20:58:22 http: TLS handshake error from 10.8.0.1:46818: EOF
-2025/03/18 21:02:55 http: TLS handshake error from 10.8.0.1:52614: EOF
-2025/03/18 21:02:55 http: TLS handshake error from 10.8.0.1:52758: EOF
-2025/03/18 21:02:56 http: TLS handshake error from 10.8.0.1:52944: EOF
-2025/03/18 21:02:56 http: TLS handshake error from 10.8.0.1:53132: tls: client requested unsupported application protocols ([http/0.9 http/1.0 spdy/1 spdy/2 spdy/3 h2c hq])
-2025/03/18 21:02:57 http: TLS handshake error from 10.8.0.1:53294: tls: client requested unsupported application protocols ([hq h2c spdy/3 spdy/2 spdy/1 http/1.0 http/0.9])
-2025/03/18 21:02:57 http: TLS handshake error from 10.8.0.1:53792: tls: client offered only unsupported versions: [302 301]
-2025/03/18 21:02:57 http: TLS handshake error from 10.8.0.1:53990: EOF
-2025/03/18 21:02:58 http: TLS handshake error from 10.8.0.1:54150: EOF
-2025/03/18 21:02:58 http: TLS handshake error from 10.8.0.1:54540: EOF
-2025/03/18 21:02:59 http: TLS handshake error from 10.8.0.1:54790: EOF
-2025/03/18 21:02:59 http: TLS handshake error from 10.8.0.1:54976: tls: client offered only unsupported versions: [301]
-2025/03/18 21:02:59 http: TLS handshake error from 10.8.0.1:55130: tls: unsupported SSLv2 handshake received
-2025/03/18 21:02:59 http: TLS handshake error from 10.8.0.1:55314: tls: client offered only unsupported versions: []
-2025/03/18 21:03:00 http: TLS handshake error from 10.8.0.1:55756: tls: client offered only unsupported versions: [302 301]
-2025/03/18 21:03:58 http: TLS handshake error from 10.8.0.1:36380: EOF
-2025/03/18 21:05:20 http: TLS handshake error from 10.8.0.1:45446: read tcp 10.8.0.6:443->10.8.0.1:45446: read: connection reset by peer
-2025/03/18 21:05:53 http: TLS handshake error from 10.8.0.1:49378: read tcp 10.8.0.6:443->10.8.0.1:49378: read: connection reset by peer
-2025/03/18 21:06:22 http: TLS handshake error from 10.8.0.1:60174: EOF
-2025/03/18 21:13:21 http: TLS handshake error from 10.8.0.1:55558: read tcp 10.8.0.6:443->10.8.0.1:55558: read: connection reset by peer
-2025/03/18 21:13:54 http: TLS handshake error from 10.8.0.1:42136: read tcp 10.8.0.6:443->10.8.0.1:42136: read: connection reset by peer
-2025/03/18 21:14:22 http: TLS handshake error from 10.8.0.1:46374: EOF
-2025/03/18 21:21:15 http: TLS handshake error from 10.8.0.1:35724: read tcp 10.8.0.6:443->10.8.0.1:35724: read: connection reset by peer
-2025/03/18 21:21:49 http: TLS handshake error from 10.8.0.1:36434: read tcp 10.8.0.6:443->10.8.0.1:36434: read: connection reset by peer
-2025/03/18 21:22:22 http: TLS handshake error from 10.8.0.1:55254: EOF
-2025/03/18 21:29:14 http: TLS handshake error from 10.8.0.1:45026: read tcp 10.8.0.6:443->10.8.0.1:45026: read: connection reset by peer
-2025/03/18 21:29:48 http: TLS handshake error from 10.8.0.1:44584: read tcp 10.8.0.6:443->10.8.0.1:44584: read: connection reset by peer
-2025/03/18 21:30:22 http: TLS handshake error from 10.8.0.1:46820: EOF
-2025/03/18 21:33:58 http: TLS handshake error from 10.8.0.1:39178: EOF
-2025/03/18 21:37:13 http: TLS handshake error from 10.8.0.1:35278: read tcp 10.8.0.6:443->10.8.0.1:35278: read: connection reset by peer
-2025/03/18 21:37:45 http: TLS handshake error from 10.8.0.1:47970: read tcp 10.8.0.6:443->10.8.0.1:47970: read: connection reset by peer
-2025/03/18 21:38:23 http: TLS handshake error from 10.8.0.1:34132: EOF
-2025/03/18 21:45:12 http: TLS handshake error from 10.8.0.1:55750: read tcp 10.8.0.6:443->10.8.0.1:55750: read: connection reset by peer
-2025/03/18 21:45:14 http: TLS handshake error from 10.8.0.1:50352: read tcp 10.8.0.6:443->10.8.0.1:50352: read: connection reset by peer
-2025/03/18 21:45:14 http: TLS handshake error from 10.8.0.1:50354: read tcp 10.8.0.6:443->10.8.0.1:50354: read: connection reset by peer
-2025/03/18 21:45:14 http: TLS handshake error from 10.8.0.1:50368: read tcp 10.8.0.6:443->10.8.0.1:50368: read: connection reset by peer
-2025/03/18 21:45:15 http: TLS handshake error from 10.8.0.1:50370: tls: client requested unsupported application protocols ([http/0.9 http/1.0 spdy/1 spdy/2 spdy/3 h2c hq])
-2025/03/18 21:45:15 http: TLS handshake error from 10.8.0.1:50384: tls: client requested unsupported application protocols ([hq h2c spdy/3 spdy/2 spdy/1 http/1.0 http/0.9])
-2025/03/18 21:45:15 http: TLS handshake error from 10.8.0.1:50396: tls: client offered only unsupported versions: [302 301]
-2025/03/18 21:45:16 http: TLS handshake error from 10.8.0.1:50408: read tcp 10.8.0.6:443->10.8.0.1:50408: read: connection reset by peer
-2025/03/18 21:45:16 http: TLS handshake error from 10.8.0.1:50412: read tcp 10.8.0.6:443->10.8.0.1:50412: read: connection reset by peer
-2025/03/18 21:45:17 http: TLS handshake error from 10.8.0.1:50414: read tcp 10.8.0.6:443->10.8.0.1:50414: read: connection reset by peer
-2025/03/18 21:45:17 http: TLS handshake error from 10.8.0.1:31724: read tcp 10.8.0.6:443->10.8.0.1:31724: read: connection reset by peer
-2025/03/18 21:45:46 http: TLS handshake error from 10.8.0.1:50416: read tcp 10.8.0.6:443->10.8.0.1:50416: read: connection reset by peer
-2025/03/18 21:46:23 http: TLS handshake error from 10.8.0.1:48584: EOF
-2025/03/18 21:53:16 http: TLS handshake error from 10.8.0.1:40238: read tcp 10.8.0.6:443->10.8.0.1:40238: read: connection reset by peer
-2025/03/18 21:53:49 http: TLS handshake error from 10.8.0.1:33852: read tcp 10.8.0.6:443->10.8.0.1:33852: read: connection reset by peer
-2025/03/18 21:54:23 http: TLS handshake error from 10.8.0.1:53266: EOF
-2025/03/18 22:01:22 http: TLS handshake error from 10.8.0.1:57784: read tcp 10.8.0.6:443->10.8.0.1:57784: read: connection reset by peer
-2025/03/18 22:01:55 http: TLS handshake error from 10.8.0.1:42908: read tcp 10.8.0.6:443->10.8.0.1:42908: read: connection reset by peer
-2025/03/18 22:02:23 http: TLS handshake error from 10.8.0.1:47120: EOF
-2025/03/18 22:03:58 http: TLS handshake error from 10.8.0.1:51584: EOF
-2025/03/18 22:09:16 http: TLS handshake error from 10.8.0.1:47090: read tcp 10.8.0.6:443->10.8.0.1:47090: read: connection reset by peer
-2025/03/18 22:09:50 http: TLS handshake error from 10.8.0.1:54762: read tcp 10.8.0.6:443->10.8.0.1:54762: read: connection reset by peer
-2025/03/18 22:10:23 http: TLS handshake error from 10.8.0.1:51058: EOF
-2025/03/18 22:17:19 http: TLS handshake error from 10.8.0.1:55364: read tcp 10.8.0.6:443->10.8.0.1:55364: read: connection reset by peer
-2025/03/18 22:17:52 http: TLS handshake error from 10.8.0.1:42020: read tcp 10.8.0.6:443->10.8.0.1:42020: read: connection reset by peer
-2025/03/18 22:18:24 http: TLS handshake error from 10.8.0.1:48866: EOF
-2025/03/18 22:25:18 http: TLS handshake error from 10.8.0.1:57344: read tcp 10.8.0.6:443->10.8.0.1:57344: read: connection reset by peer
-2025/03/18 22:25:51 http: TLS handshake error from 10.8.0.1:43508: read tcp 10.8.0.6:443->10.8.0.1:43508: read: connection reset by peer
-2025/03/18 22:26:24 http: TLS handshake error from 10.8.0.1:41116: EOF
-2025/03/18 22:28:09 http2: server: error reading preface from client 192.168.1.111:55868: read tcp 192.168.1.162:443->192.168.1.111:55868: read: connection reset by peer
-2025/03/18 22:32:58 http: TLS handshake error from 10.8.0.1:35920: tls: client offered only unsupported versions: [302 301]
-2025/03/18 22:33:16 http: TLS handshake error from 10.8.0.1:35980: read tcp 10.8.0.6:443->10.8.0.1:35980: read: connection reset by peer
-2025/03/18 22:33:40 http: TLS handshake error from 10.8.0.1:42258: EOF
-2025/03/18 22:33:43 http: TLS handshake error from 10.8.0.1:41900: EOF
-2025/03/18 22:33:43 http: TLS handshake error from 10.8.0.1:42822: EOF
-2025/03/18 22:33:49 http: TLS handshake error from 10.8.0.1:52264: read tcp 10.8.0.6:443->10.8.0.1:52264: read: connection reset by peer
-2025/03/18 22:33:58 http: TLS handshake error from 10.8.0.1:49102: EOF
-2025/03/18 22:34:24 http: TLS handshake error from 10.8.0.1:32954: EOF
-2025/03/18 22:34:27 http: TLS handshake error from 10.8.0.1:60390: EOF
-2025/03/18 22:35:12 http: TLS handshake error from 10.8.0.1:43388: EOF
-2025/03/18 22:36:01 http: TLS handshake error from 10.8.0.1:55754: read tcp 10.8.0.6:443->10.8.0.1:55754: read: connection reset by peer
-2025/03/18 22:36:03 http: TLS handshake error from 10.8.0.1:51288: read tcp 10.8.0.6:443->10.8.0.1:51288: read: connection reset by peer
-2025/03/18 22:36:19 http: TLS handshake error from 10.8.0.1:50362: read tcp 10.8.0.6:443->10.8.0.1:50362: read: connection reset by peer
-2025/03/18 22:36:48 http: TLS handshake error from 10.8.0.1:49098: read tcp 10.8.0.6:443->10.8.0.1:49098: read: connection reset by peer
-2025/03/18 22:36:50 http: TLS handshake error from 10.8.0.1:36670: read tcp 10.8.0.6:443->10.8.0.1:36670: read: connection reset by peer
-2025/03/18 22:36:51 http: TLS handshake error from 10.8.0.1:35596: read tcp 10.8.0.6:443->10.8.0.1:35596: read: connection reset by peer
-2025/03/18 22:36:56 http: TLS handshake error from 10.8.0.1:36940: read tcp 10.8.0.6:443->10.8.0.1:36940: read: connection reset by peer
-2025/03/18 22:37:30 http: TLS handshake error from 10.8.0.1:33162: read tcp 10.8.0.6:443->10.8.0.1:33162: read: connection reset by peer
-2025/03/18 22:38:10 http: TLS handshake error from 10.8.0.1:54626: read tcp 10.8.0.6:443->10.8.0.1:54626: read: connection reset by peer
-2025/03/18 22:38:44 http: TLS handshake error from 10.8.0.1:43284: read tcp 10.8.0.6:443->10.8.0.1:43284: read: connection reset by peer
-2025/03/18 22:38:59 http: TLS handshake error from 10.8.0.1:40148: read tcp 10.8.0.6:443->10.8.0.1:40148: read: connection reset by peer
-2025/03/18 22:39:10 http: TLS handshake error from 10.8.0.1:62762: tls: client offered only unsupported versions: []
-2025/03/18 22:39:32 http: TLS handshake error from 10.8.0.1:60386: read tcp 10.8.0.6:443->10.8.0.1:60386: read: connection reset by peer
-2025/03/18 22:39:36 http: TLS handshake error from 10.8.0.1:47308: tls: no cipher suite supported by both client and server
-2025/03/18 22:40:08 http: TLS handshake error from 10.8.0.1:43704: read tcp 10.8.0.6:443->10.8.0.1:43704: read: connection reset by peer
-2025/03/18 22:40:41 http: TLS handshake error from 10.8.0.1:34926: read tcp 10.8.0.6:443->10.8.0.1:34926: read: connection reset by peer
-2025/03/18 22:40:57 http: TLS handshake error from 10.8.0.1:48684: read tcp 10.8.0.6:443->10.8.0.1:48684: read: connection reset by peer
-2025/03/18 22:40:58 http: TLS handshake error from 10.8.0.1:48698: read tcp 10.8.0.6:443->10.8.0.1:48698: read: connection reset by peer
-2025/03/18 22:40:58 http: TLS handshake error from 10.8.0.1:48700: read tcp 10.8.0.6:443->10.8.0.1:48700: read: connection reset by peer
-2025/03/18 22:40:58 http: TLS handshake error from 10.8.0.1:48714: tls: client requested unsupported application protocols ([http/0.9 http/1.0 spdy/1 spdy/2 spdy/3 h2c hq])
-2025/03/18 22:40:59 http: TLS handshake error from 10.8.0.1:48722: tls: client requested unsupported application protocols ([hq h2c spdy/3 spdy/2 spdy/1 http/1.0 http/0.9])
-2025/03/18 22:40:59 http: TLS handshake error from 10.8.0.1:48724: tls: client offered only unsupported versions: [302 301]
-2025/03/18 22:41:00 http: TLS handshake error from 10.8.0.1:48738: read tcp 10.8.0.6:443->10.8.0.1:48738: read: connection reset by peer
-2025/03/18 22:41:00 http: TLS handshake error from 10.8.0.1:48742: read tcp 10.8.0.6:443->10.8.0.1:48742: read: connection reset by peer
-2025/03/18 22:41:02 http: TLS handshake error from 10.8.0.1:48750: read tcp 10.8.0.6:443->10.8.0.1:48750: read: connection reset by peer
-2025/03/18 22:41:02 http: TLS handshake error from 10.8.0.1:48766: read tcp 10.8.0.6:443->10.8.0.1:48766: read: connection reset by peer
-2025/03/18 22:41:41 http: TLS handshake error from 10.8.0.1:49538: read tcp 10.8.0.6:443->10.8.0.1:49538: read: connection reset by peer
-2025/03/18 22:42:15 http: TLS handshake error from 10.8.0.1:51274: read tcp 10.8.0.6:443->10.8.0.1:51274: read: connection reset by peer
-2025/03/18 22:42:44 http: TLS handshake error from 10.8.0.1:33196: EOF
-2025/03/18 22:42:52 http: TLS handshake error from 10.8.0.1:39602: read tcp 10.8.0.6:443->10.8.0.1:39602: read: connection reset by peer
-2025/03/18 22:42:52 http: TLS handshake error from 10.8.0.1:58538: read tcp 10.8.0.6:443->10.8.0.1:58538: read: connection reset by peer
-2025/03/18 22:42:52 http: TLS handshake error from 10.8.0.1:46510: read tcp 10.8.0.6:443->10.8.0.1:46510: read: connection reset by peer
-2025/03/18 22:42:53 http: TLS handshake error from 10.8.0.1:46526: read tcp 10.8.0.6:443->10.8.0.1:46526: read: connection reset by peer
-2025/03/18 22:42:53 http: TLS handshake error from 10.8.0.1:46524: read tcp 10.8.0.6:443->10.8.0.1:46524: read: connection reset by peer
-2025/03/18 22:42:53 http: TLS handshake error from 10.8.0.1:39610: read tcp 10.8.0.6:443->10.8.0.1:39610: read: connection reset by peer
-2025/03/18 22:42:54 http: TLS handshake error from 10.8.0.1:39624: read tcp 10.8.0.6:443->10.8.0.1:39624: read: connection reset by peer
-2025/03/18 22:42:54 http: TLS handshake error from 10.8.0.1:39612: read tcp 10.8.0.6:443->10.8.0.1:39612: read: connection reset by peer
-2025/03/18 22:42:54 http: TLS handshake error from 10.8.0.1:46542: read tcp 10.8.0.6:443->10.8.0.1:46542: read: connection reset by peer
-2025/03/18 22:42:56 http: TLS handshake error from 10.8.0.1:46546: read tcp 10.8.0.6:443->10.8.0.1:46546: read: connection reset by peer
-2025/03/18 22:42:57 http: TLS handshake error from 10.8.0.1:39648: read tcp 10.8.0.6:443->10.8.0.1:39648: read: connection reset by peer
-2025/03/18 22:42:57 http: TLS handshake error from 10.8.0.1:39642: read tcp 10.8.0.6:443->10.8.0.1:39642: read: connection reset by peer
-2025/03/18 22:42:57 http: TLS handshake error from 10.8.0.1:39636: read tcp 10.8.0.6:443->10.8.0.1:39636: read: connection reset by peer
-2025/03/18 22:42:57 http: TLS handshake error from 10.8.0.1:58542: read tcp 10.8.0.6:443->10.8.0.1:58542: read: connection reset by peer
-2025/03/18 22:42:57 http: TLS handshake error from 10.8.0.1:39644: read tcp 10.8.0.6:443->10.8.0.1:39644: read: connection reset by peer
-2025/03/18 22:42:57 http: TLS handshake error from 10.8.0.1:46574: read tcp 10.8.0.6:443->10.8.0.1:46574: read: connection reset by peer
-2025/03/18 22:42:57 http: TLS handshake error from 10.8.0.1:46550: read tcp 10.8.0.6:443->10.8.0.1:46550: read: connection reset by peer
-2025/03/18 22:42:57 http: TLS handshake error from 10.8.0.1:46562: read tcp 10.8.0.6:443->10.8.0.1:46562: read: connection reset by peer
-2025/03/18 22:42:57 http: TLS handshake error from 10.8.0.1:46582: read tcp 10.8.0.6:443->10.8.0.1:46582: read: connection reset by peer
-2025/03/18 22:42:57 http: TLS handshake error from 10.8.0.1:46566: read tcp 10.8.0.6:443->10.8.0.1:46566: read: connection reset by peer
-2025/03/18 22:42:57 http: TLS handshake error from 10.8.0.1:39662: read tcp 10.8.0.6:443->10.8.0.1:39662: read: connection reset by peer
-2025/03/18 22:42:57 http: TLS handshake error from 10.8.0.1:39670: read tcp 10.8.0.6:443->10.8.0.1:39670: read: connection reset by peer
-2025/03/18 22:42:57 http: TLS handshake error from 10.8.0.1:39672: read tcp 10.8.0.6:443->10.8.0.1:39672: read: connection reset by peer
-2025/03/18 22:42:57 http: TLS handshake error from 10.8.0.1:58554: read tcp 10.8.0.6:443->10.8.0.1:58554: read: connection reset by peer
-2025/03/18 22:42:57 http: TLS handshake error from 10.8.0.1:39680: read tcp 10.8.0.6:443->10.8.0.1:39680: read: connection reset by peer
-2025/03/18 22:42:57 http: TLS handshake error from 10.8.0.1:46598: read tcp 10.8.0.6:443->10.8.0.1:46598: read: connection reset by peer
-2025/03/18 22:42:57 http: TLS handshake error from 10.8.0.1:46602: read tcp 10.8.0.6:443->10.8.0.1:46602: read: connection reset by peer
-2025/03/18 22:42:57 http: TLS handshake error from 10.8.0.1:46618: read tcp 10.8.0.6:443->10.8.0.1:46618: read: connection reset by peer
-2025/03/18 22:42:57 http: TLS handshake error from 10.8.0.1:46630: read tcp 10.8.0.6:443->10.8.0.1:46630: read: connection reset by peer
-2025/03/18 22:42:57 http: TLS handshake error from 10.8.0.1:46642: read tcp 10.8.0.6:443->10.8.0.1:46642: read: connection reset by peer
-2025/03/18 22:42:59 http: TLS handshake error from 10.8.0.1:38790: read tcp 10.8.0.6:443->10.8.0.1:38790: read: connection reset by peer
-2025/03/18 22:43:00 http: TLS handshake error from 10.8.0.1:48328: read tcp 10.8.0.6:443->10.8.0.1:48328: read: connection reset by peer
-2025/03/18 22:43:12 http: TLS handshake error from 10.8.0.1:50294: read tcp 10.8.0.6:443->10.8.0.1:50294: read: connection reset by peer
-2025/03/18 22:43:14 http: TLS handshake error from 10.8.0.1:50310: read tcp 10.8.0.6:443->10.8.0.1:50310: read: connection reset by peer
-2025/03/18 22:43:24 http: TLS handshake error from 10.8.0.1:57856: read tcp 10.8.0.6:443->10.8.0.1:57856: read: connection reset by peer
-2025/03/18 22:43:27 http: TLS handshake error from 10.8.0.1:39182: read tcp 10.8.0.6:443->10.8.0.1:39182: read: connection reset by peer
-2025/03/18 22:43:28 http: TLS handshake error from 10.8.0.1:39190: read tcp 10.8.0.6:443->10.8.0.1:39190: read: connection reset by peer
-2025/03/18 22:43:28 http: TLS handshake error from 10.8.0.1:39212: read tcp 10.8.0.6:443->10.8.0.1:39212: read: connection reset by peer
-2025/03/18 22:43:28 http: TLS handshake error from 10.8.0.1:39226: read tcp 10.8.0.6:443->10.8.0.1:39226: read: connection reset by peer
-2025/03/18 22:43:28 http: TLS handshake error from 10.8.0.1:39202: read tcp 10.8.0.6:443->10.8.0.1:39202: read: connection reset by peer
-2025/03/18 22:43:32 http: TLS handshake error from 10.8.0.1:37794: read tcp 10.8.0.6:443->10.8.0.1:37794: read: connection reset by peer
-2025/03/18 22:43:44 http: TLS handshake error from 10.8.0.1:56076: read tcp 10.8.0.6:443->10.8.0.1:56076: read: connection reset by peer
-2025/03/18 22:43:50 http: TLS handshake error from 10.8.0.1:53014: read tcp 10.8.0.6:443->10.8.0.1:53014: read: connection reset by peer
-2025/03/18 22:43:50 http: TLS handshake error from 10.8.0.1:47076: read tcp 10.8.0.6:443->10.8.0.1:47076: read: connection reset by peer
-2025/03/18 22:43:50 http: TLS handshake error from 10.8.0.1:47056: read tcp 10.8.0.6:443->10.8.0.1:47056: read: connection reset by peer
-2025/03/18 22:43:50 http: TLS handshake error from 10.8.0.1:42510: read tcp 10.8.0.6:443->10.8.0.1:42510: read: connection reset by peer
-2025/03/18 22:43:50 http: TLS handshake error from 10.8.0.1:47090: read tcp 10.8.0.6:443->10.8.0.1:47090: read: connection reset by peer
-2025/03/18 22:43:50 http: TLS handshake error from 10.8.0.1:47062: read tcp 10.8.0.6:443->10.8.0.1:47062: read: connection reset by peer
-2025/03/18 22:43:50 http: TLS handshake error from 10.8.0.1:47088: read tcp 10.8.0.6:443->10.8.0.1:47088: read: connection reset by peer
-2025/03/18 22:43:50 http: TLS handshake error from 10.8.0.1:47068: read tcp 10.8.0.6:443->10.8.0.1:47068: read: connection reset by peer
-2025/03/18 22:43:51 http: TLS handshake error from 10.8.0.1:47138: read tcp 10.8.0.6:443->10.8.0.1:47138: read: connection reset by peer
-2025/03/18 22:43:51 http: TLS handshake error from 10.8.0.1:42524: read tcp 10.8.0.6:443->10.8.0.1:42524: read: connection reset by peer
-2025/03/18 22:43:51 http: TLS handshake error from 10.8.0.1:53024: read tcp 10.8.0.6:443->10.8.0.1:53024: read: connection reset by peer
-2025/03/18 22:43:51 http: TLS handshake error from 10.8.0.1:47152: read tcp 10.8.0.6:443->10.8.0.1:47152: read: connection reset by peer
-2025/03/18 22:43:51 http: TLS handshake error from 10.8.0.1:47110: read tcp 10.8.0.6:443->10.8.0.1:47110: read: connection reset by peer
-2025/03/18 22:43:51 http: TLS handshake error from 10.8.0.1:47144: read tcp 10.8.0.6:443->10.8.0.1:47144: read: connection reset by peer
-2025/03/18 22:43:51 http: TLS handshake error from 10.8.0.1:47096: read tcp 10.8.0.6:443->10.8.0.1:47096: read: connection reset by peer
-2025/03/18 22:43:51 http: TLS handshake error from 10.8.0.1:47124: read tcp 10.8.0.6:443->10.8.0.1:47124: read: connection reset by peer
-2025/03/18 22:43:54 http: TLS handshake error from 10.8.0.1:60198: read tcp 10.8.0.6:443->10.8.0.1:60198: read: connection reset by peer
-2025/03/18 22:44:07 http: TLS handshake error from 10.8.0.1:50010: read tcp 10.8.0.6:443->10.8.0.1:50010: read: connection reset by peer
-2025/03/18 22:44:20 http: TLS handshake error from 10.8.0.1:53530: read tcp 10.8.0.6:443->10.8.0.1:53530: read: connection reset by peer
-2025/03/18 22:44:21 http: TLS handshake error from 10.8.0.1:55672: read tcp 10.8.0.6:443->10.8.0.1:55672: read: connection reset by peer
-2025/03/18 22:44:24 http: TLS handshake error from 10.8.0.1:58902: read tcp 10.8.0.6:443->10.8.0.1:58902: read: connection reset by peer
-2025/03/18 22:44:28 http: TLS handshake error from 10.8.0.1:46874: read tcp 10.8.0.6:443->10.8.0.1:46874: read: connection reset by peer
-2025/03/18 22:44:31 http: TLS handshake error from 10.8.0.1:46888: read tcp 10.8.0.6:443->10.8.0.1:46888: read: connection reset by peer
-2025/03/18 22:44:44 http: TLS handshake error from 10.8.0.1:57982: read tcp 10.8.0.6:443->10.8.0.1:57982: read: connection reset by peer
-2025/03/18 22:44:53 http: TLS handshake error from 10.8.0.1:38072: read tcp 10.8.0.6:443->10.8.0.1:38072: read: connection reset by peer
-2025/03/18 22:44:56 http: TLS handshake error from 10.8.0.1:41144: read tcp 10.8.0.6:443->10.8.0.1:41144: read: connection reset by peer
-2025/03/18 22:45:01 http: TLS handshake error from 10.8.0.1:45538: read tcp 10.8.0.6:443->10.8.0.1:45538: read: connection reset by peer
-2025/03/18 22:45:32 http: TLS handshake error from 10.8.0.1:42914: read tcp 10.8.0.6:443->10.8.0.1:42914: read: connection reset by peer
-2025/03/18 22:45:52 http: TLS handshake error from 10.8.0.1:50734: read tcp 10.8.0.6:443->10.8.0.1:50734: read: connection reset by peer
-2025/03/18 22:45:52 http: TLS handshake error from 10.8.0.1:50746: read tcp 10.8.0.6:443->10.8.0.1:50746: read: connection reset by peer
-2025/03/18 22:45:52 http: TLS handshake error from 10.8.0.1:50756: read tcp 10.8.0.6:443->10.8.0.1:50756: read: connection reset by peer
-2025/03/18 22:46:04 http: TLS handshake error from 10.8.0.1:54544: read tcp 10.8.0.6:443->10.8.0.1:54544: read: connection timed out
-2025/03/18 22:46:05 http: TLS handshake error from 10.8.0.1:44938: read tcp 10.8.0.6:443->10.8.0.1:44938: read: connection reset by peer
-2025/03/18 22:46:23 http: TLS handshake error from 10.8.0.1:45768: read tcp 10.8.0.6:443->10.8.0.1:45768: read: connection reset by peer
-2025/03/18 22:47:24 http: TLS handshake error from 10.8.0.1:54126: read tcp 10.8.0.6:443->10.8.0.1:54126: read: connection reset by peer
-2025/03/18 22:47:24 http: TLS handshake error from 10.8.0.1:54142: read tcp 10.8.0.6:443->10.8.0.1:54142: read: connection reset by peer
-2025/03/18 22:47:24 http: TLS handshake error from 10.8.0.1:54124: read tcp 10.8.0.6:443->10.8.0.1:54124: read: connection reset by peer
-2025/03/18 22:47:55 http: TLS handshake error from 10.8.0.1:33316: read tcp 10.8.0.6:443->10.8.0.1:33316: read: connection reset by peer
-2025/03/18 22:48:24 http: TLS handshake error from 10.8.0.1:41482: read tcp 10.8.0.6:443->10.8.0.1:41482: read: connection reset by peer
-2025/03/18 22:48:24 http: TLS handshake error from 10.8.0.1:41488: read tcp 10.8.0.6:443->10.8.0.1:41488: read: connection reset by peer
-2025/03/18 22:48:24 http: TLS handshake error from 10.8.0.1:41468: read tcp 10.8.0.6:443->10.8.0.1:41468: read: connection reset by peer
-2025/03/18 22:48:40 http: TLS handshake error from 10.8.0.1:57232: read tcp 10.8.0.6:443->10.8.0.1:57232: read: connection reset by peer
-2025/03/18 22:48:45 http: TLS handshake error from 10.8.0.1:55522: read tcp 10.8.0.6:443->10.8.0.1:55522: read: connection reset by peer
-2025/03/18 22:48:45 http: TLS handshake error from 10.8.0.1:55532: read tcp 10.8.0.6:443->10.8.0.1:55532: read: connection reset by peer
-2025/03/18 22:48:45 http: TLS handshake error from 10.8.0.1:55526: read tcp 10.8.0.6:443->10.8.0.1:55526: read: connection reset by peer
-2025/03/18 22:48:55 http: TLS handshake error from 10.8.0.1:36012: read tcp 10.8.0.6:443->10.8.0.1:36012: read: connection reset by peer
-2025/03/18 22:49:08 http: TLS handshake error from 10.8.0.1:36168: read tcp 10.8.0.6:443->10.8.0.1:36168: read: connection reset by peer
-2025/03/18 22:49:09 http: TLS handshake error from 10.8.0.1:51698: read tcp 10.8.0.6:443->10.8.0.1:51698: read: connection reset by peer
-2025/03/18 22:49:19 http: TLS handshake error from 10.8.0.1:55166: read tcp 10.8.0.6:443->10.8.0.1:55166: read: connection reset by peer
-2025/03/18 22:49:19 http: TLS handshake error from 10.8.0.1:55178: read tcp 10.8.0.6:443->10.8.0.1:55178: read: connection reset by peer
-2025/03/18 22:50:29 http: TLS handshake error from 10.8.0.1:47508: read tcp 10.8.0.6:443->10.8.0.1:47508: read: connection reset by peer
-2025/03/18 22:51:02 http: TLS handshake error from 10.8.0.1:44278: read tcp 10.8.0.6:443->10.8.0.1:44278: read: connection timed out
-2025/03/18 22:51:31 http: TLS handshake error from 10.8.0.1:43256: read tcp 10.8.0.6:443->10.8.0.1:43256: read: connection timed out
-2025/03/18 22:51:43 http: TLS handshake error from 10.8.0.1:59594: read tcp 10.8.0.6:443->10.8.0.1:59594: read: connection timed out
-2025/03/18 22:52:24 http: TLS handshake error from 10.8.0.1:39228: read tcp 10.8.0.6:443->10.8.0.1:39228: read: connection timed out
-2025/03/18 22:52:31 http: TLS handshake error from 10.8.0.1:54150: EOF
-2025/03/18 22:53:34 http: TLS handshake error from 10.8.0.1:43936: read tcp 10.8.0.6:443->10.8.0.1:43936: read: connection reset by peer
-2025/03/18 22:53:34 http: TLS handshake error from 10.8.0.1:43950: read tcp 10.8.0.6:443->10.8.0.1:43950: read: connection reset by peer
-2025/03/18 22:53:34 http: TLS handshake error from 10.8.0.1:43964: read tcp 10.8.0.6:443->10.8.0.1:43964: read: connection reset by peer
-2025/03/18 22:53:34 http: TLS handshake error from 10.8.0.1:43966: tls: client requested unsupported application protocols ([http/0.9 http/1.0 spdy/1 spdy/2 spdy/3 h2c hq])
-2025/03/18 22:53:34 http: TLS handshake error from 10.8.0.1:43980: tls: client requested unsupported application protocols ([hq h2c spdy/3 spdy/2 spdy/1 http/1.0 http/0.9])
-2025/03/18 22:53:34 http: TLS handshake error from 10.8.0.1:43984: tls: client offered only unsupported versions: [302 301]
-2025/03/18 22:53:35 http: TLS handshake error from 10.8.0.1:43992: read tcp 10.8.0.6:443->10.8.0.1:43992: read: connection reset by peer
-2025/03/18 22:53:35 http: TLS handshake error from 10.8.0.1:43994: read tcp 10.8.0.6:443->10.8.0.1:43994: read: connection reset by peer
-2025/03/18 22:53:35 http: TLS handshake error from 10.8.0.1:44000: read tcp 10.8.0.6:443->10.8.0.1:44000: read: connection reset by peer
-2025/03/18 22:53:35 http: TLS handshake error from 10.8.0.1:44004: read tcp 10.8.0.6:443->10.8.0.1:44004: read: connection reset by peer
-2025/03/18 23:20:13 http: TLS handshake error from 10.8.0.1:45996: tls: first record does not look like a TLS handshake
-2025/03/18 23:44:37 http: TLS handshake error from 10.8.0.1:52332: EOF
-2025/03/18 23:45:06 http: TLS handshake error from 10.8.0.1:53580: EOF
-2025/03/18 23:47:42 http: TLS handshake error from 10.8.0.1:57696: read tcp 10.8.0.6:443->10.8.0.1:57696: read: connection reset by peer
-2025/03/18 23:47:44 http: TLS handshake error from 10.8.0.1:52330: read tcp 10.8.0.6:443->10.8.0.1:52330: read: connection reset by peer
-2025/03/18 23:47:45 http: TLS handshake error from 10.8.0.1:57250: read tcp 10.8.0.6:443->10.8.0.1:57250: read: connection reset by peer
-2025/03/18 23:47:45 http: TLS handshake error from 10.8.0.1:48770: read tcp 10.8.0.6:443->10.8.0.1:48770: read: connection reset by peer
-2025/03/18 23:48:15 http: TLS handshake error from 10.8.0.1:34850: read tcp 10.8.0.6:443->10.8.0.1:34850: read: connection reset by peer
-2025/03/18 23:48:18 http: TLS handshake error from 10.8.0.1:34858: read tcp 10.8.0.6:443->10.8.0.1:34858: read: connection reset by peer
-2025/03/18 23:48:48 http: TLS handshake error from 10.8.0.1:58228: read tcp 10.8.0.6:443->10.8.0.1:58228: read: connection reset by peer
-2025/03/18 23:49:25 http: TLS handshake error from 10.8.0.1:34952: EOF
-2025/03/18 23:49:31 http: TLS handshake error from 10.8.0.1:44942: read tcp 10.8.0.6:443->10.8.0.1:44942: read: connection reset by peer
-2025/03/18 23:50:03 http: TLS handshake error from 10.8.0.1:36592: read tcp 10.8.0.6:443->10.8.0.1:36592: read: connection reset by peer
-2025/03/18 23:54:35 http: TLS handshake error from 10.8.0.1:48878: read tcp 10.8.0.6:443->10.8.0.1:48878: read: connection reset by peer
-2025/03/18 23:56:34 http: TLS handshake error from 10.8.0.1:48954: EOF
-2025/03/18 23:56:40 http: TLS handshake error from 10.8.0.1:41926: read tcp 10.8.0.6:443->10.8.0.1:41926: read: connection reset by peer
-2025/03/18 23:57:25 http: TLS handshake error from 10.8.0.1:33186: EOF
-2025/03/18 23:59:10 http: TLS handshake error from 10.8.0.1:39436: read tcp 10.8.0.6:443->10.8.0.1:39436: read: connection reset by peer
-2025/03/18 23:59:12 http: TLS handshake error from 10.8.0.1:33282: read tcp 10.8.0.6:443->10.8.0.1:33282: read: connection reset by peer
-2025/03/18 23:59:29 http: TLS handshake error from 10.8.0.1:35694: read tcp 10.8.0.6:443->10.8.0.1:35694: read: connection reset by peer
-2025/03/18 23:59:55 http: TLS handshake error from 10.8.0.1:60062: read tcp 10.8.0.6:443->10.8.0.1:60062: read: connection timed out
-2025/03/18 23:59:55 http: TLS handshake error from 10.8.0.1:45954: read tcp 10.8.0.6:443->10.8.0.1:45954: read: connection reset by peer
-2025/03/19 00:00:28 http: TLS handshake error from 10.8.0.1:34158: read tcp 10.8.0.6:443->10.8.0.1:34158: read: connection reset by peer
-2025/03/19 00:00:43 http: TLS handshake error from 10.8.0.1:44748: read tcp 10.8.0.6:443->10.8.0.1:44748: read: connection reset by peer
-2025/03/19 00:00:44 http: TLS handshake error from 10.8.0.1:60486: read tcp 10.8.0.6:443->10.8.0.1:60486: read: connection timed out
-2025/03/19 00:00:53 http: TLS handshake error from 10.8.0.1:34400: read tcp 10.8.0.6:443->10.8.0.1:34400: read: connection timed out
-2025/03/19 00:01:17 http: TLS handshake error from 10.8.0.1:59298: read tcp 10.8.0.6:443->10.8.0.1:59298: read: connection reset by peer
-2025/03/19 00:05:58 http: TLS handshake error from 10.8.0.1:57130: EOF
-2025/03/19 00:09:15 http: TLS handshake error from 10.8.0.1:53914: read tcp 10.8.0.6:443->10.8.0.1:53914: read: connection reset by peer
-2025/03/19 00:09:49 http: TLS handshake error from 10.8.0.1:57210: read tcp 10.8.0.6:443->10.8.0.1:57210: read: connection reset by peer
-2025/03/19 00:11:23 http: TLS handshake error from 10.8.0.1:41964: read tcp 10.8.0.6:443->10.8.0.1:41964: read: connection timed out
-2025/03/19 00:11:27 http: TLS handshake error from 10.8.0.1:34554: read tcp 10.8.0.6:443->10.8.0.1:34554: read: connection timed out
-2025/03/19 00:12:04 http: TLS handshake error from 10.8.0.1:45968: read tcp 10.8.0.6:443->10.8.0.1:45968: read: connection timed out
-2025/03/19 00:13:44 http: TLS handshake error from 10.8.0.1:44078: read tcp 10.8.0.6:443->10.8.0.1:44078: read: connection reset by peer
-2025/03/19 00:14:18 http: TLS handshake error from 10.8.0.1:36632: read tcp 10.8.0.6:443->10.8.0.1:36632: read: connection reset by peer
-2025/03/19 00:18:19 http: TLS handshake error from 10.8.0.1:46972: read tcp 10.8.0.6:443->10.8.0.1:46972: read: connection reset by peer
-2025/03/19 00:18:51 http: TLS handshake error from 10.8.0.1:33498: read tcp 10.8.0.6:443->10.8.0.1:33498: read: connection reset by peer
-2025/03/19 00:21:11 http: TLS handshake error from 10.8.0.1:54104: read tcp 10.8.0.6:443->10.8.0.1:54104: read: connection reset by peer
-2025/03/19 00:21:17 http: TLS handshake error from 10.8.0.1:55270: read tcp 10.8.0.6:443->10.8.0.1:55270: read: connection timed out
-2025/03/19 00:21:45 http: TLS handshake error from 10.8.0.1:33816: read tcp 10.8.0.6:443->10.8.0.1:33816: read: connection reset by peer
-2025/03/19 00:23:19 http: TLS handshake error from 10.8.0.1:50454: read tcp 10.8.0.6:443->10.8.0.1:50454: read: connection reset by peer
-2025/03/19 00:23:53 http: TLS handshake error from 10.8.0.1:48510: read tcp 10.8.0.6:443->10.8.0.1:48510: read: connection reset by peer
-2025/03/19 00:26:07 http: TLS handshake error from 10.8.0.1:55910: read tcp 10.8.0.6:443->10.8.0.1:55910: read: connection reset by peer
-2025/03/19 00:26:34 http: TLS handshake error from 10.8.0.1:38180: EOF
-2025/03/19 00:26:41 http: TLS handshake error from 10.8.0.1:37996: read tcp 10.8.0.6:443->10.8.0.1:37996: read: connection reset by peer
-2025/03/19 00:29:04 http: TLS handshake error from 10.8.0.1:54346: read tcp 10.8.0.6:443->10.8.0.1:54346: read: connection reset by peer
-2025/03/19 00:29:38 http: TLS handshake error from 10.8.0.1:39412: read tcp 10.8.0.6:443->10.8.0.1:39412: read: connection reset by peer
-2025/03/19 00:30:01 http: TLS handshake error from 10.8.0.1:56704: client sent an HTTP request to an HTTPS server
-2025/03/19 00:33:38 http: TLS handshake error from 10.8.0.1:43018: read tcp 10.8.0.6:443->10.8.0.1:43018: read: connection reset by peer
-2025/03/19 00:34:11 http: TLS handshake error from 10.8.0.1:35746: read tcp 10.8.0.6:443->10.8.0.1:35746: read: connection reset by peer
-2025/03/19 00:34:24 http: TLS handshake error from 10.8.0.1:55354: read tcp 10.8.0.6:443->10.8.0.1:55354: read: connection reset by peer
-2025/03/19 00:34:57 http: TLS handshake error from 10.8.0.1:48596: read tcp 10.8.0.6:443->10.8.0.1:48596: read: connection reset by peer
-2025/03/19 00:35:58 http: TLS handshake error from 10.8.0.1:59602: EOF
-2025/03/19 00:36:05 http: TLS handshake error from 10.8.0.1:49416: read tcp 10.8.0.6:443->10.8.0.1:49416: read: connection reset by peer
+2025/03/21 21:16:56 http: TLS handshake error from 10.8.0.1:53984: read tcp 10.8.0.6:443->10.8.0.1:53984: read: connection reset by peer
+2025/03/21 21:17:01 http: TLS handshake error from 10.8.0.1:60920: read tcp 10.8.0.6:443->10.8.0.1:60920: read: connection reset by peer
+2025/03/21 21:17:02 http: TLS handshake error from 10.8.0.1:55572: read tcp 10.8.0.6:443->10.8.0.1:55572: read: connection reset by peer
+2025/03/21 21:17:03 http: TLS handshake error from 10.8.0.1:42550: read tcp 10.8.0.6:443->10.8.0.1:42550: read: connection reset by peer
+2025/03/21 21:17:16 http: TLS handshake error from 10.8.0.1:50768: read tcp 10.8.0.6:443->10.8.0.1:50768: read: connection reset by peer
+2025/03/21 21:17:19 http: TLS handshake error from 10.8.0.1:41128: read tcp 10.8.0.6:443->10.8.0.1:41128: read: connection reset by peer
+2025/03/21 21:17:20 http: TLS handshake error from 10.8.0.1:54678: read tcp 10.8.0.6:443->10.8.0.1:54678: read: connection reset by peer
+2025/03/21 21:17:31 http: TLS handshake error from 10.8.0.1:50168: read tcp 10.8.0.6:443->10.8.0.1:50168: read: connection reset by peer
+2025/03/21 21:17:34 http: TLS handshake error from 10.8.0.1:50184: read tcp 10.8.0.6:443->10.8.0.1:50184: read: connection reset by peer
+2025/03/21 21:18:05 http: TLS handshake error from 10.8.0.1:39682: read tcp 10.8.0.6:443->10.8.0.1:39682: read: connection reset by peer
+2025/03/21 21:18:06 http: TLS handshake error from 10.8.0.1:39692: read tcp 10.8.0.6:443->10.8.0.1:39692: read: connection reset by peer
+2025/03/21 21:18:39 http: TLS handshake error from 10.8.0.1:47722: read tcp 10.8.0.6:443->10.8.0.1:47722: read: connection reset by peer
+2025/03/21 21:18:40 http: TLS handshake error from 10.8.0.1:47726: read tcp 10.8.0.6:443->10.8.0.1:47726: read: connection reset by peer
+2025/03/21 21:18:58 http: TLS handshake error from 10.8.0.1:42160: EOF
+2025/03/21 21:19:13 http: TLS handshake error from 10.8.0.1:54864: read tcp 10.8.0.6:443->10.8.0.1:54864: read: connection reset by peer
+2025/03/21 21:19:16 http: TLS handshake error from 10.8.0.1:44204: EOF
+2025/03/21 21:19:22 http: TLS handshake error from 10.8.0.1:57592: read tcp 10.8.0.6:443->10.8.0.1:57592: read: connection reset by peer
+2025/03/21 21:19:56 http: TLS handshake error from 10.8.0.1:39038: read tcp 10.8.0.6:443->10.8.0.1:39038: read: connection reset by peer
+2025/03/21 21:20:32 http: TLS handshake error from 10.8.0.1:54082: read tcp 10.8.0.6:443->10.8.0.1:54082: read: connection reset by peer
+2025/03/21 21:21:05 http: TLS handshake error from 10.8.0.1:46772: read tcp 10.8.0.6:443->10.8.0.1:46772: read: connection reset by peer
+2025/03/21 21:21:23 http: TLS handshake error from 10.8.0.1:58612: read tcp 10.8.0.6:443->10.8.0.1:58612: read: connection reset by peer
+2025/03/21 21:21:56 http: TLS handshake error from 10.8.0.1:41886: read tcp 10.8.0.6:443->10.8.0.1:41886: read: connection reset by peer
+2025/03/21 21:22:30 http: TLS handshake error from 10.8.0.1:55924: read tcp 10.8.0.6:443->10.8.0.1:55924: read: connection reset by peer
+2025/03/21 21:23:03 http: TLS handshake error from 10.8.0.1:46766: read tcp 10.8.0.6:443->10.8.0.1:46766: read: connection reset by peer
+2025/03/21 21:23:50 http: TLS handshake error from 10.8.0.1:53904: read tcp 10.8.0.6:443->10.8.0.1:53904: read: connection reset by peer
+2025/03/21 21:24:23 http: TLS handshake error from 10.8.0.1:45342: read tcp 10.8.0.6:443->10.8.0.1:45342: read: connection reset by peer
+2025/03/21 21:25:03 http: TLS handshake error from 10.8.0.1:48456: read tcp 10.8.0.6:443->10.8.0.1:48456: read: connection reset by peer
+2025/03/21 21:25:37 http: TLS handshake error from 10.8.0.1:44720: read tcp 10.8.0.6:443->10.8.0.1:44720: read: connection reset by peer
+2025/03/21 21:26:07 http: TLS handshake error from 10.8.0.1:56106: read tcp 10.8.0.6:443->10.8.0.1:56106: read: connection reset by peer
+2025/03/21 21:26:40 http: TLS handshake error from 10.8.0.1:48932: read tcp 10.8.0.6:443->10.8.0.1:48932: read: connection reset by peer
+2025/03/21 21:27:00 http: TLS handshake error from 10.8.0.1:44768: read tcp 10.8.0.6:443->10.8.0.1:44768: read: connection reset by peer
+2025/03/21 21:27:16 http: TLS handshake error from 10.8.0.1:42796: EOF
+2025/03/21 21:27:34 http: TLS handshake error from 10.8.0.1:34630: read tcp 10.8.0.6:443->10.8.0.1:34630: read: connection reset by peer
+2025/03/21 21:28:21 http: TLS handshake error from 10.8.0.1:53442: read tcp 10.8.0.6:443->10.8.0.1:53442: read: connection reset by peer
+2025/03/21 21:28:54 http: TLS handshake error from 10.8.0.1:53426: read tcp 10.8.0.6:443->10.8.0.1:53426: read: connection reset by peer
+2025/03/21 21:29:36 http: TLS handshake error from 10.8.0.1:34228: read tcp 10.8.0.6:443->10.8.0.1:34228: read: connection reset by peer
+2025/03/21 21:29:47 http: TLS handshake error from 10.8.0.1:35574: read tcp 10.8.0.6:443->10.8.0.1:35574: read: connection timed out
+2025/03/21 21:30:09 http: TLS handshake error from 10.8.0.1:35532: read tcp 10.8.0.6:443->10.8.0.1:35532: read: connection reset by peer
+2025/03/21 21:30:35 http: TLS handshake error from 10.8.0.1:55400: read tcp 10.8.0.6:443->10.8.0.1:55400: read: connection reset by peer
+2025/03/21 21:31:08 http: TLS handshake error from 10.8.0.1:36458: read tcp 10.8.0.6:443->10.8.0.1:36458: read: connection reset by peer
+2025/03/21 21:31:26 http: TLS handshake error from 10.8.0.1:51562: read tcp 10.8.0.6:443->10.8.0.1:51562: read: connection reset by peer
+2025/03/21 21:31:58 http: TLS handshake error from 10.8.0.1:49466: read tcp 10.8.0.6:443->10.8.0.1:49466: read: connection reset by peer
+2025/03/21 21:32:02 http: TLS handshake error from 10.8.0.1:60944: read tcp 10.8.0.6:443->10.8.0.1:60944: read: connection timed out
+2025/03/21 21:32:48 http: TLS handshake error from 10.8.0.1:49428: read tcp 10.8.0.6:443->10.8.0.1:49428: read: connection reset by peer
+2025/03/21 21:33:21 http: TLS handshake error from 10.8.0.1:55078: read tcp 10.8.0.6:443->10.8.0.1:55078: read: connection reset by peer
+2025/03/21 21:33:46 http: TLS handshake error from 10.8.0.1:41402: read tcp 10.8.0.6:443->10.8.0.1:41402: read: connection reset by peer
+2025/03/21 21:34:19 http: TLS handshake error from 10.8.0.1:41596: read tcp 10.8.0.6:443->10.8.0.1:41596: read: connection reset by peer
+2025/03/21 21:34:28 http: TLS handshake error from 10.8.0.1:54249: read tcp 10.8.0.6:443->10.8.0.1:54249: read: connection reset by peer
+2025/03/21 21:35:01 http: TLS handshake error from 10.8.0.1:55671: read tcp 10.8.0.6:443->10.8.0.1:55671: read: connection reset by peer
+2025/03/21 21:35:01 http: TLS handshake error from 10.8.0.1:44202: read tcp 10.8.0.6:443->10.8.0.1:44202: read: connection reset by peer
+2025/03/21 21:35:16 http: TLS handshake error from 10.8.0.1:36958: EOF
+2025/03/21 21:35:34 http: TLS handshake error from 10.8.0.1:45469: read tcp 10.8.0.6:443->10.8.0.1:45469: read: connection reset by peer
+2025/03/21 21:35:34 http: TLS handshake error from 10.8.0.1:42718: read tcp 10.8.0.6:443->10.8.0.1:42718: read: connection reset by peer
+2025/03/21 21:35:55 http: TLS handshake error from 10.8.0.1:51804: read tcp 10.8.0.6:443->10.8.0.1:51804: read: connection reset by peer
+2025/03/21 21:36:07 http: TLS handshake error from 10.8.0.1:50535: tls: client requested unsupported application protocols ([http/0.9 http/1.0 spdy/1 spdy/2 spdy/3 h2c hq])
+2025/03/21 21:36:22 http: TLS handshake error from 10.8.0.1:59197: tls: client offered only unsupported versions: [301]
+2025/03/21 21:36:22 http: TLS handshake error from 10.8.0.1:52491: tls: client offered only unsupported versions: []
+2025/03/21 21:36:22 http: TLS handshake error from 10.8.0.1:28775: tls: unsupported SSLv2 handshake received
+2025/03/21 21:36:22 http: TLS handshake error from 10.8.0.1:20909: tls: no cipher suite supported by both client and server
+2025/03/21 21:36:23 http: TLS handshake error from 10.8.0.1:58751: tls: client offered only unsupported versions: [302]
+2025/03/21 21:36:28 http: TLS handshake error from 10.8.0.1:47108: read tcp 10.8.0.6:443->10.8.0.1:47108: read: connection reset by peer
+2025/03/21 21:36:40 http: TLS handshake error from 10.8.0.1:57373: tls: client requested unsupported application protocols ([hq h2c spdy/3 spdy/2 spdy/1 http/1.0 http/0.9])
+2025/03/21 21:37:13 http: TLS handshake error from 10.8.0.1:33195: tls: client offered only unsupported versions: [302 301]
+2025/03/21 21:37:14 http: TLS handshake error from 10.8.0.1:60434: read tcp 10.8.0.6:443->10.8.0.1:60434: read: connection reset by peer
+2025/03/21 21:37:47 http: TLS handshake error from 10.8.0.1:47029: read tcp 10.8.0.6:443->10.8.0.1:47029: read: connection reset by peer
+2025/03/21 21:37:47 http: TLS handshake error from 10.8.0.1:54356: read tcp 10.8.0.6:443->10.8.0.1:54356: read: connection reset by peer
+2025/03/21 21:38:15 http: TLS handshake error from 10.8.0.1:58622: read tcp 10.8.0.6:443->10.8.0.1:58622: read: connection reset by peer
+2025/03/21 21:38:20 http: TLS handshake error from 10.8.0.1:53585: EOF
+2025/03/21 21:38:47 http: TLS handshake error from 10.8.0.1:43454: read tcp 10.8.0.6:443->10.8.0.1:43454: read: connection reset by peer
+2025/03/21 21:38:53 http: TLS handshake error from 10.8.0.1:53751: read tcp 10.8.0.6:443->10.8.0.1:53751: read: connection reset by peer
+2025/03/21 21:39:11 http: TLS handshake error from 10.8.0.1:41708: read tcp 10.8.0.6:443->10.8.0.1:41708: read: connection reset by peer
+2025/03/21 21:39:26 http: TLS handshake error from 10.8.0.1:45859: read tcp 10.8.0.6:443->10.8.0.1:45859: read: connection reset by peer
+2025/03/21 21:39:45 http: TLS handshake error from 10.8.0.1:34402: read tcp 10.8.0.6:443->10.8.0.1:34402: read: connection reset by peer
+2025/03/21 21:40:12 http: TLS handshake error from 10.8.0.1:34624: read tcp 10.8.0.6:443->10.8.0.1:34624: read: connection reset by peer
+2025/03/21 21:40:45 http: TLS handshake error from 10.8.0.1:53248: read tcp 10.8.0.6:443->10.8.0.1:53248: read: connection reset by peer
+2025/03/21 21:40:59 http: TLS handshake error from 10.8.0.1:42832: read tcp 10.8.0.6:443->10.8.0.1:42832: read: connection reset by peer
+2025/03/21 21:41:32 http: TLS handshake error from 10.8.0.1:40896: read tcp 10.8.0.6:443->10.8.0.1:40896: read: connection reset by peer
+2025/03/21 21:42:01 http: TLS handshake error from 10.8.0.1:48540: read tcp 10.8.0.6:443->10.8.0.1:48540: read: connection reset by peer
+2025/03/21 21:42:34 http: TLS handshake error from 10.8.0.1:45786: read tcp 10.8.0.6:443->10.8.0.1:45786: read: connection reset by peer
+2025/03/21 21:42:57 http: TLS handshake error from 10.8.0.1:56026: read tcp 10.8.0.6:443->10.8.0.1:56026: read: connection reset by peer
+2025/03/21 21:43:16 http: TLS handshake error from 10.8.0.1:47792: EOF
+2025/03/21 21:43:30 http: TLS handshake error from 10.8.0.1:47326: read tcp 10.8.0.6:443->10.8.0.1:47326: read: connection reset by peer
+2025/03/21 21:44:06 http: TLS handshake error from 10.8.0.1:41560: read tcp 10.8.0.6:443->10.8.0.1:41560: read: connection reset by peer
+2025/03/21 21:44:39 http: TLS handshake error from 10.8.0.1:40078: EOF
+2025/03/21 21:44:40 http: TLS handshake error from 10.8.0.1:37764: read tcp 10.8.0.6:443->10.8.0.1:37764: read: connection reset by peer
+2025/03/21 21:45:18 http: TLS handshake error from 10.8.0.1:44656: read tcp 10.8.0.6:443->10.8.0.1:44656: read: connection reset by peer
+2025/03/21 21:45:51 http: TLS handshake error from 10.8.0.1:55078: read tcp 10.8.0.6:443->10.8.0.1:55078: read: connection reset by peer
+2025/03/21 21:46:31 http: TLS handshake error from 10.8.0.1:48692: read tcp 10.8.0.6:443->10.8.0.1:48692: read: connection reset by peer
+2025/03/21 21:47:05 http: TLS handshake error from 10.8.0.1:35718: read tcp 10.8.0.6:443->10.8.0.1:35718: read: connection reset by peer
+2025/03/21 21:47:22 http: TLS handshake error from 10.8.0.1:40190: read tcp 10.8.0.6:443->10.8.0.1:40190: read: connection reset by peer
+2025/03/21 21:47:55 http: TLS handshake error from 10.8.0.1:37938: read tcp 10.8.0.6:443->10.8.0.1:37938: read: connection reset by peer
+2025/03/21 21:48:32 http: TLS handshake error from 10.8.0.1:35358: read tcp 10.8.0.6:443->10.8.0.1:35358: read: connection reset by peer
+2025/03/21 21:49:05 http: TLS handshake error from 10.8.0.1:33232: read tcp 10.8.0.6:443->10.8.0.1:33232: read: connection reset by peer
+2025/03/21 21:49:59 http: TLS handshake error from 10.8.0.1:40974: read tcp 10.8.0.6:443->10.8.0.1:40974: read: connection reset by peer
+2025/03/21 21:50:17 http: TLS handshake error from 10.8.0.1:60410: read tcp 10.8.0.6:443->10.8.0.1:60410: read: connection reset by peer
+2025/03/21 21:50:56 http: TLS handshake error from 10.8.0.1:39740: read tcp 10.8.0.6:443->10.8.0.1:39740: read: connection reset by peer
+2025/03/21 21:51:16 http: TLS handshake error from 10.8.0.1:43394: EOF
+2025/03/21 21:51:30 http: TLS handshake error from 10.8.0.1:33400: read tcp 10.8.0.6:443->10.8.0.1:33400: read: connection reset by peer
+2025/03/21 21:52:05 http: TLS handshake error from 10.8.0.1:40336: read tcp 10.8.0.6:443->10.8.0.1:40336: read: connection reset by peer
+2025/03/21 21:52:22 http: TLS handshake error from 10.8.0.1:40036: read tcp 10.8.0.6:443->10.8.0.1:40036: read: connection reset by peer
+2025/03/21 21:52:58 http: TLS handshake error from 10.8.0.1:52764: read tcp 10.8.0.6:443->10.8.0.1:52764: read: connection reset by peer
+2025/03/21 21:53:32 http: TLS handshake error from 10.8.0.1:52560: read tcp 10.8.0.6:443->10.8.0.1:52560: read: connection reset by peer
+2025/03/21 21:53:52 http: TLS handshake error from 10.8.0.1:37226: read tcp 10.8.0.6:443->10.8.0.1:37226: read: connection reset by peer
+2025/03/21 21:54:25 http: TLS handshake error from 10.8.0.1:54594: read tcp 10.8.0.6:443->10.8.0.1:54594: read: connection reset by peer
+2025/03/21 21:54:45 http: TLS handshake error from 10.8.0.1:58826: read tcp 10.8.0.6:443->10.8.0.1:58826: read: connection reset by peer
+2025/03/21 21:55:19 http: TLS handshake error from 10.8.0.1:57938: read tcp 10.8.0.6:443->10.8.0.1:57938: read: connection reset by peer
+2025/03/21 21:55:57 http: TLS handshake error from 10.8.0.1:54014: read tcp 10.8.0.6:443->10.8.0.1:54014: read: connection reset by peer
+2025/03/21 21:56:30 http: TLS handshake error from 10.8.0.1:46772: read tcp 10.8.0.6:443->10.8.0.1:46772: read: connection reset by peer
+2025/03/21 21:56:55 http: TLS handshake error from 10.8.0.1:56124: read tcp 10.8.0.6:443->10.8.0.1:56124: read: connection reset by peer
+2025/03/21 21:57:28 http: TLS handshake error from 10.8.0.1:38022: read tcp 10.8.0.6:443->10.8.0.1:38022: read: connection reset by peer
+2025/03/21 21:57:41 http: TLS handshake error from 10.8.0.1:33292: read tcp 10.8.0.6:443->10.8.0.1:33292: read: connection reset by peer
+2025/03/21 21:58:14 http: TLS handshake error from 10.8.0.1:34806: read tcp 10.8.0.6:443->10.8.0.1:34806: read: connection reset by peer
+2025/03/21 21:58:31 http: TLS handshake error from 10.8.0.1:55276: read tcp 10.8.0.6:443->10.8.0.1:55276: read: connection reset by peer
+2025/03/21 21:59:04 http: TLS handshake error from 10.8.0.1:39530: read tcp 10.8.0.6:443->10.8.0.1:39530: read: connection reset by peer
+2025/03/21 21:59:16 http: TLS handshake error from 10.8.0.1:54346: EOF
+2025/03/21 21:59:50 http: TLS handshake error from 10.8.0.1:47856: read tcp 10.8.0.6:443->10.8.0.1:47856: read: connection reset by peer
+2025/03/21 22:00:24 http: TLS handshake error from 10.8.0.1:44594: read tcp 10.8.0.6:443->10.8.0.1:44594: read: connection reset by peer
+2025/03/21 22:00:49 http: TLS handshake error from 10.8.0.1:55008: read tcp 10.8.0.6:443->10.8.0.1:55008: read: connection reset by peer
+2025/03/21 22:01:23 http: TLS handshake error from 10.8.0.1:37886: read tcp 10.8.0.6:443->10.8.0.1:37886: read: connection reset by peer
+2025/03/21 22:02:07 http: TLS handshake error from 10.8.0.1:49976: read tcp 10.8.0.6:443->10.8.0.1:49976: read: connection reset by peer
+2025/03/21 22:02:40 http: TLS handshake error from 10.8.0.1:34964: read tcp 10.8.0.6:443->10.8.0.1:34964: read: connection reset by peer
+2025/03/21 22:02:54 http: TLS handshake error from 10.8.0.1:50038: read tcp 10.8.0.6:443->10.8.0.1:50038: read: connection reset by peer
+2025/03/21 22:03:27 http: TLS handshake error from 10.8.0.1:47308: read tcp 10.8.0.6:443->10.8.0.1:47308: read: connection reset by peer
+2025/03/21 22:03:43 http: TLS handshake error from 10.8.0.1:56326: read tcp 10.8.0.6:443->10.8.0.1:56326: read: connection reset by peer
+2025/03/21 22:04:16 http: TLS handshake error from 10.8.0.1:46138: read tcp 10.8.0.6:443->10.8.0.1:46138: read: connection reset by peer
+2025/03/21 22:04:42 http: TLS handshake error from 10.8.0.1:58532: read tcp 10.8.0.6:443->10.8.0.1:58532: read: connection reset by peer
+2025/03/21 22:05:15 http: TLS handshake error from 10.8.0.1:34536: read tcp 10.8.0.6:443->10.8.0.1:34536: read: connection reset by peer
+2025/03/21 22:05:57 http: TLS handshake error from 10.8.0.1:58520: read tcp 10.8.0.6:443->10.8.0.1:58520: read: connection reset by peer
+2025/03/21 22:06:30 http: TLS handshake error from 10.8.0.1:44026: read tcp 10.8.0.6:443->10.8.0.1:44026: read: connection reset by peer
+2025/03/21 22:06:48 http: TLS handshake error from 10.8.0.1:57918: read tcp 10.8.0.6:443->10.8.0.1:57918: read: connection reset by peer
+2025/03/21 22:07:17 http: TLS handshake error from 10.8.0.1:59252: EOF
+2025/03/21 22:07:22 http: TLS handshake error from 10.8.0.1:35720: read tcp 10.8.0.6:443->10.8.0.1:35720: read: connection reset by peer
+2025/03/21 22:08:06 http: TLS handshake error from 10.8.0.1:59642: read tcp 10.8.0.6:443->10.8.0.1:59642: read: connection reset by peer
+2025/03/21 22:08:38 http: TLS handshake error from 10.8.0.1:37974: read tcp 10.8.0.6:443->10.8.0.1:37974: read: connection reset by peer
+2025/03/21 22:09:10 http: TLS handshake error from 10.8.0.1:42074: read tcp 10.8.0.6:443->10.8.0.1:42074: read: connection reset by peer
+2025/03/21 22:09:43 http: TLS handshake error from 10.8.0.1:50196: read tcp 10.8.0.6:443->10.8.0.1:50196: read: connection reset by peer
+2025/03/21 22:10:22 http: TLS handshake error from 10.8.0.1:53554: read tcp 10.8.0.6:443->10.8.0.1:53554: read: connection reset by peer
+2025/03/21 22:10:55 http: TLS handshake error from 10.8.0.1:40658: read tcp 10.8.0.6:443->10.8.0.1:40658: read: connection reset by peer
+2025/03/21 22:11:09 http: TLS handshake error from 10.8.0.1:37468: read tcp 10.8.0.6:443->10.8.0.1:37468: read: connection reset by peer
+2025/03/21 22:11:43 http: TLS handshake error from 10.8.0.1:42174: read tcp 10.8.0.6:443->10.8.0.1:42174: read: connection reset by peer
+2025/03/21 22:11:51 http: TLS handshake error from 10.8.0.1:36628: read tcp 10.8.0.6:443->10.8.0.1:36628: read: connection reset by peer
+2025/03/21 22:12:25 http: TLS handshake error from 10.8.0.1:49754: read tcp 10.8.0.6:443->10.8.0.1:49754: read: connection reset by peer
+2025/03/21 22:13:01 http: TLS handshake error from 10.8.0.1:36110: read tcp 10.8.0.6:443->10.8.0.1:36110: read: connection reset by peer
+2025/03/21 22:13:34 http: TLS handshake error from 10.8.0.1:57244: read tcp 10.8.0.6:443->10.8.0.1:57244: read: connection reset by peer
+2025/03/21 22:14:11 http: TLS handshake error from 10.8.0.1:40106: read tcp 10.8.0.6:443->10.8.0.1:40106: read: connection reset by peer
+2025/03/21 22:14:39 http: TLS handshake error from 10.8.0.1:59126: EOF
+2025/03/21 22:14:44 http: TLS handshake error from 10.8.0.1:49616: read tcp 10.8.0.6:443->10.8.0.1:49616: read: connection reset by peer
+2025/03/21 22:15:03 http: TLS handshake error from 10.8.0.1:37508: read tcp 10.8.0.6:443->10.8.0.1:37508: read: connection reset by peer
+2025/03/21 22:15:17 http: TLS handshake error from 10.8.0.1:51714: EOF
+2025/03/21 22:15:36 http: TLS handshake error from 10.8.0.1:53328: read tcp 10.8.0.6:443->10.8.0.1:53328: read: connection reset by peer
+2025/03/21 22:16:19 http: TLS handshake error from 10.8.0.1:54534: read tcp 10.8.0.6:443->10.8.0.1:54534: read: connection reset by peer
+2025/03/21 22:16:51 http: TLS handshake error from 10.8.0.1:39734: read tcp 10.8.0.6:443->10.8.0.1:39734: read: connection reset by peer
+2025/03/21 22:17:32 http: TLS handshake error from 10.8.0.1:57484: read tcp 10.8.0.6:443->10.8.0.1:57484: read: connection reset by peer
+2025/03/21 22:18:06 http: TLS handshake error from 10.8.0.1:48772: read tcp 10.8.0.6:443->10.8.0.1:48772: read: connection reset by peer
+2025/03/21 22:18:28 http: TLS handshake error from 10.8.0.1:55628: read tcp 10.8.0.6:443->10.8.0.1:55628: read: connection reset by peer
+2025/03/21 22:19:02 http: TLS handshake error from 10.8.0.1:58462: read tcp 10.8.0.6:443->10.8.0.1:58462: read: connection reset by peer
+2025/03/21 22:19:29 http: TLS handshake error from 10.8.0.1:35588: read tcp 10.8.0.6:443->10.8.0.1:35588: read: connection reset by peer
+2025/03/21 22:20:02 http: TLS handshake error from 10.8.0.1:56636: read tcp 10.8.0.6:443->10.8.0.1:56636: read: connection reset by peer
+2025/03/21 22:20:45 http: TLS handshake error from 10.8.0.1:38542: read tcp 10.8.0.6:443->10.8.0.1:38542: read: connection reset by peer
+2025/03/21 22:21:18 http: TLS handshake error from 10.8.0.1:36518: read tcp 10.8.0.6:443->10.8.0.1:36518: read: connection reset by peer
+2025/03/21 22:21:58 http: TLS handshake error from 10.8.0.1:60414: read tcp 10.8.0.6:443->10.8.0.1:60414: read: connection reset by peer
+2025/03/21 22:22:31 http: TLS handshake error from 10.8.0.1:45254: read tcp 10.8.0.6:443->10.8.0.1:45254: read: connection reset by peer
+2025/03/21 22:23:01 http: TLS handshake error from 10.8.0.1:54438: read tcp 10.8.0.6:443->10.8.0.1:54438: read: connection reset by peer
+2025/03/21 22:23:17 http: TLS handshake error from 10.8.0.1:41152: EOF
+2025/03/21 22:23:33 http: TLS handshake error from 10.8.0.1:58474: read tcp 10.8.0.6:443->10.8.0.1:58474: read: connection reset by peer
+2025/03/21 22:24:27 http: TLS handshake error from 10.8.0.1:59968: read tcp 10.8.0.6:443->10.8.0.1:59968: read: connection reset by peer
+2025/03/21 22:25:09 http: TLS handshake error from 10.8.0.1:47808: read tcp 10.8.0.6:443->10.8.0.1:47808: read: connection reset by peer
+2025/03/21 22:25:42 http: TLS handshake error from 10.8.0.1:35696: read tcp 10.8.0.6:443->10.8.0.1:35696: read: connection reset by peer
+2025/03/21 22:26:13 http: TLS handshake error from 10.8.0.1:46388: read tcp 10.8.0.6:443->10.8.0.1:46388: read: connection timed out
+2025/03/21 22:26:22 http: TLS handshake error from 10.8.0.1:44648: read tcp 10.8.0.6:443->10.8.0.1:44648: read: connection reset by peer
+2025/03/21 22:26:55 http: TLS handshake error from 10.8.0.1:51768: read tcp 10.8.0.6:443->10.8.0.1:51768: read: connection reset by peer
+2025/03/21 22:27:28 http: TLS handshake error from 10.8.0.1:60348: read tcp 10.8.0.6:443->10.8.0.1:60348: read: connection reset by peer
+2025/03/21 22:28:02 http: TLS handshake error from 10.8.0.1:44536: read tcp 10.8.0.6:443->10.8.0.1:44536: read: connection reset by peer
+2025/03/21 22:28:24 http: TLS handshake error from 10.8.0.1:43488: read tcp 10.8.0.6:443->10.8.0.1:43488: read: connection reset by peer
+2025/03/21 22:28:57 http: TLS handshake error from 10.8.0.1:34330: read tcp 10.8.0.6:443->10.8.0.1:34330: read: connection reset by peer
+2025/03/21 22:29:38 http: TLS handshake error from 10.8.0.1:60612: read tcp 10.8.0.6:443->10.8.0.1:60612: read: connection reset by peer
+2025/03/21 22:30:11 http: TLS handshake error from 10.8.0.1:37974: read tcp 10.8.0.6:443->10.8.0.1:37974: read: connection reset by peer
+2025/03/21 22:30:48 http: TLS handshake error from 10.8.0.1:39442: read tcp 10.8.0.6:443->10.8.0.1:39442: read: connection reset by peer
+2025/03/21 22:31:17 http: TLS handshake error from 10.8.0.1:40540: EOF
+2025/03/21 22:31:21 http: TLS handshake error from 10.8.0.1:32776: read tcp 10.8.0.6:443->10.8.0.1:32776: read: connection reset by peer
+2025/03/21 22:31:57 http: TLS handshake error from 10.8.0.1:42982: read tcp 10.8.0.6:443->10.8.0.1:42982: read: connection reset by peer
+2025/03/21 22:32:30 http: TLS handshake error from 10.8.0.1:59874: read tcp 10.8.0.6:443->10.8.0.1:59874: read: connection reset by peer
+2025/03/21 22:32:50 http: TLS handshake error from 10.8.0.1:39678: read tcp 10.8.0.6:443->10.8.0.1:39678: read: connection reset by peer
+2025/03/21 22:33:24 http: TLS handshake error from 10.8.0.1:45602: read tcp 10.8.0.6:443->10.8.0.1:45602: read: connection reset by peer
+2025/03/21 22:34:00 http: TLS handshake error from 10.8.0.1:35322: read tcp 10.8.0.6:443->10.8.0.1:35322: read: connection reset by peer
+2025/03/21 22:34:34 http: TLS handshake error from 10.8.0.1:60248: read tcp 10.8.0.6:443->10.8.0.1:60248: read: connection reset by peer
+2025/03/21 22:35:04 http: TLS handshake error from 10.8.0.1:43902: read tcp 10.8.0.6:443->10.8.0.1:43902: read: connection reset by peer
+2025/03/21 22:35:37 http: TLS handshake error from 10.8.0.1:33602: read tcp 10.8.0.6:443->10.8.0.1:33602: read: connection reset by peer
+2025/03/21 22:36:20 http: TLS handshake error from 10.8.0.1:60394: read tcp 10.8.0.6:443->10.8.0.1:60394: read: connection reset by peer
+2025/03/21 22:36:53 http: TLS handshake error from 10.8.0.1:36568: read tcp 10.8.0.6:443->10.8.0.1:36568: read: connection reset by peer
+2025/03/21 22:37:12 http: TLS handshake error from 10.8.0.1:46988: read tcp 10.8.0.6:443->10.8.0.1:46988: read: connection reset by peer
+2025/03/21 22:37:45 http: TLS handshake error from 10.8.0.1:60338: read tcp 10.8.0.6:443->10.8.0.1:60338: read: connection reset by peer
+2025/03/21 22:38:04 http: TLS handshake error from 10.8.0.1:55136: read tcp 10.8.0.6:443->10.8.0.1:55136: read: connection reset by peer
+2025/03/21 22:38:19 sitemap.xml успешно сгенерирован
+2025/03/21 22:38:19 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
+2025/03/21 22:38:19 Запуск HTTPS-сервера на порту 443
+2025/03/21 22:41:00 sitemap.xml успешно сгенерирован
+2025/03/21 22:41:00 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
+2025/03/21 22:41:00 Запуск HTTPS-сервера на порту 443
+2025/03/21 22:42:40 http2: server: error reading preface from client 10.8.0.1:47629: read tcp 10.8.0.6:443->10.8.0.1:47629: read: connection reset by peer
+2025/03/21 22:43:59 http2: server: error reading preface from client 10.8.0.1:35185: read tcp 10.8.0.6:443->10.8.0.1:35185: read: connection reset by peer
+2025/03/21 22:44:07 http: TLS handshake error from 10.8.0.1:48332: read tcp 10.8.0.6:443->10.8.0.1:48332: read: connection reset by peer
+2025/03/21 22:44:26 http: TLS handshake error from 10.8.0.1:55564: read tcp 10.8.0.6:443->10.8.0.1:55564: read: connection reset by peer
+2025/03/21 22:44:39 http: TLS handshake error from 10.8.0.1:40554: EOF
+2025/03/21 22:44:59 http: TLS handshake error from 10.8.0.1:33322: read tcp 10.8.0.6:443->10.8.0.1:33322: read: connection reset by peer
+2025/03/21 22:46:13 http: TLS handshake error from 10.8.0.1:56154: read tcp 10.8.0.6:443->10.8.0.1:56154: read: connection reset by peer
+2025/03/21 22:46:38 http2: server: error reading preface from client 10.8.0.1:27341: read tcp 10.8.0.6:443->10.8.0.1:27341: read: connection reset by peer
+2025/03/21 22:46:46 http: TLS handshake error from 10.8.0.1:43700: read tcp 10.8.0.6:443->10.8.0.1:43700: read: connection reset by peer
+2025/03/21 22:47:08 http: TLS handshake error from 10.8.0.1:59592: read tcp 10.8.0.6:443->10.8.0.1:59592: read: connection reset by peer
+2025/03/21 22:47:18 http: TLS handshake error from 10.8.0.1:46484: EOF
+2025/03/21 22:47:42 http: TLS handshake error from 10.8.0.1:48194: read tcp 10.8.0.6:443->10.8.0.1:48194: read: connection reset by peer
+2025/03/21 22:47:57 http: TLS handshake error from 10.8.0.1:53932: read tcp 10.8.0.6:443->10.8.0.1:53932: read: connection reset by peer
+2025/03/21 22:48:30 http: TLS handshake error from 10.8.0.1:56004: read tcp 10.8.0.6:443->10.8.0.1:56004: read: connection reset by peer
+2025/03/21 22:48:48 http: TLS handshake error from 10.8.0.1:43420: read tcp 10.8.0.6:443->10.8.0.1:43420: read: connection reset by peer
+2025/03/21 22:49:17 http2: server: error reading preface from client 10.8.0.1:60109: read tcp 10.8.0.6:443->10.8.0.1:60109: read: connection reset by peer
+2025/03/21 22:49:22 http: TLS handshake error from 10.8.0.1:32946: read tcp 10.8.0.6:443->10.8.0.1:32946: read: connection reset by peer
+2025/03/21 22:50:04 http: TLS handshake error from 10.8.0.1:38450: read tcp 10.8.0.6:443->10.8.0.1:38450: read: connection reset by peer
+2025/03/21 22:50:36 http: TLS handshake error from 10.8.0.1:52690: read tcp 10.8.0.6:443->10.8.0.1:52690: read: connection reset by peer
+2025/03/21 22:51:15 http: TLS handshake error from 10.8.0.1:39876: read tcp 10.8.0.6:443->10.8.0.1:39876: read: connection reset by peer
+2025/03/21 22:51:33 http: TLS handshake error from 10.8.0.1:58170: read tcp 10.8.0.6:443->10.8.0.1:58170: read: connection reset by peer
+2025/03/21 22:51:53 http: TLS handshake error from 10.8.0.1:46726: read tcp 10.8.0.6:443->10.8.0.1:46726: read: connection reset by peer
+2025/03/21 22:52:04 http2: server: error reading preface from client 10.8.0.1:58505: read tcp 10.8.0.6:443->10.8.0.1:58505: read: connection reset by peer
+2025/03/21 22:52:26 http: TLS handshake error from 10.8.0.1:50812: read tcp 10.8.0.6:443->10.8.0.1:50812: read: connection reset by peer
+2025/03/21 22:53:15 http: TLS handshake error from 10.8.0.1:42084: read tcp 10.8.0.6:443->10.8.0.1:42084: read: connection reset by peer
+2025/03/21 22:53:47 http: TLS handshake error from 10.8.0.1:44074: read tcp 10.8.0.6:443->10.8.0.1:44074: read: connection reset by peer
+2025/03/21 22:53:57 http2: server: error reading preface from client 10.8.0.1:65471: read tcp 10.8.0.6:443->10.8.0.1:65471: read: connection reset by peer
+2025/03/21 22:54:20 http: TLS handshake error from 10.8.0.1:49244: read tcp 10.8.0.6:443->10.8.0.1:49244: read: connection reset by peer
+2025/03/21 22:54:52 http: TLS handshake error from 10.8.0.1:48042: read tcp 10.8.0.6:443->10.8.0.1:48042: read: connection reset by peer
+2025/03/21 22:55:05 http2: server: error reading preface from client 10.8.0.1:16883: read tcp 10.8.0.6:443->10.8.0.1:16883: read: connection reset by peer
+2025/03/21 22:55:08 http: TLS handshake error from 10.8.0.1:57064: EOF
+2025/03/21 22:55:19 http: TLS handshake error from 10.8.0.1:40244: EOF
+2025/03/21 22:55:22 http: TLS handshake error from 10.8.0.1:38564: read tcp 10.8.0.6:443->10.8.0.1:38564: read: connection reset by peer
+2025/03/21 22:55:55 http: TLS handshake error from 10.8.0.1:34330: read tcp 10.8.0.6:443->10.8.0.1:34330: read: connection reset by peer
+2025/03/21 22:56:13 http: TLS handshake error from 10.8.0.1:44988: read tcp 10.8.0.6:443->10.8.0.1:44988: read: connection reset by peer
+2025/03/21 22:56:46 http: TLS handshake error from 10.8.0.1:58400: read tcp 10.8.0.6:443->10.8.0.1:58400: read: connection reset by peer
+2025/03/21 22:57:10 http: TLS handshake error from 10.8.0.1:47816: read tcp 10.8.0.6:443->10.8.0.1:47816: read: connection reset by peer
+2025/03/21 22:57:37 http2: server: error reading preface from client 10.8.0.1:23093: read tcp 10.8.0.6:443->10.8.0.1:23093: read: connection reset by peer
+2025/03/21 22:57:58 http: TLS handshake error from 10.8.0.1:44510: read tcp 10.8.0.6:443->10.8.0.1:44510: read: connection reset by peer
+2025/03/21 22:58:11 http: TLS handshake error from 10.8.0.1:49916: read tcp 10.8.0.6:443->10.8.0.1:49916: read: connection reset by peer
+2025/03/21 22:58:44 http: TLS handshake error from 10.8.0.1:51526: read tcp 10.8.0.6:443->10.8.0.1:51526: read: connection reset by peer
+2025/03/21 22:59:01 http: TLS handshake error from 10.8.0.1:51866: read tcp 10.8.0.6:443->10.8.0.1:51866: read: connection reset by peer
+2025/03/21 22:59:34 http: TLS handshake error from 10.8.0.1:43674: read tcp 10.8.0.6:443->10.8.0.1:43674: read: connection reset by peer
+2025/03/21 23:00:13 http: TLS handshake error from 10.8.0.1:38972: read tcp 10.8.0.6:443->10.8.0.1:38972: read: connection reset by peer
+2025/03/21 23:00:47 http: TLS handshake error from 10.8.0.1:34482: read tcp 10.8.0.6:443->10.8.0.1:34482: read: connection reset by peer
+2025/03/21 23:01:04 http: TLS handshake error from 10.8.0.1:56930: read tcp 10.8.0.6:443->10.8.0.1:56930: read: connection reset by peer
+2025/03/21 23:01:37 http: TLS handshake error from 10.8.0.1:55166: read tcp 10.8.0.6:443->10.8.0.1:55166: read: connection reset by peer
+2025/03/21 23:02:37 http: TLS handshake error from 10.8.0.1:38118: read tcp 10.8.0.6:443->10.8.0.1:38118: read: connection reset by peer
+2025/03/21 23:02:55 http: TLS handshake error from 10.8.0.1:41830: read tcp 10.8.0.6:443->10.8.0.1:41830: read: connection reset by peer
+2025/03/21 23:03:19 http: TLS handshake error from 10.8.0.1:51252: EOF
+2025/03/21 23:05:48 sitemap.xml успешно сгенерирован
+2025/03/21 23:05:48 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
+2025/03/21 23:05:48 Запуск HTTPS-сервера на порту 443
+2025/03/21 23:08:03 sitemap.xml успешно сгенерирован
+2025/03/21 23:08:03 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
+2025/03/21 23:08:03 Запуск HTTPS-сервера на порту 443
+2025/03/21 23:11:10 http: TLS handshake error from 10.8.0.1:48806: read tcp 10.8.0.6:443->10.8.0.1:48806: read: connection reset by peer
+2025/03/21 23:11:55 http: TLS handshake error from 10.8.0.1:48886: read tcp 10.8.0.6:443->10.8.0.1:48886: read: connection reset by peer
+2025/03/21 23:12:29 http: TLS handshake error from 10.8.0.1:52870: read tcp 10.8.0.6:443->10.8.0.1:52870: read: connection reset by peer
+2025/03/21 23:13:02 http: TLS handshake error from 10.8.0.1:34618: read tcp 10.8.0.6:443->10.8.0.1:34618: read: connection reset by peer
+2025/03/21 23:13:36 http: TLS handshake error from 10.8.0.1:57894: read tcp 10.8.0.6:443->10.8.0.1:57894: read: connection reset by peer
+2025/03/21 23:14:39 http: TLS handshake error from 10.8.0.1:50530: EOF
+2025/03/21 23:16:51 http: TLS handshake error from 10.8.0.1:56486: read tcp 10.8.0.6:443->10.8.0.1:56486: read: connection reset by peer
+2025/03/21 23:17:25 http: TLS handshake error from 10.8.0.1:39680: read tcp 10.8.0.6:443->10.8.0.1:39680: read: connection reset by peer
+2025/03/21 23:18:00 http: TLS handshake error from 10.8.0.1:59246: EOF
+2025/03/21 23:18:43 sitemap.xml успешно сгенерирован
+2025/03/21 23:18:43 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
+2025/03/21 23:18:43 Запуск HTTPS-сервера на порту 443
+2025/03/21 23:21:58 http: TLS handshake error from 10.8.0.1:53968: read tcp 10.8.0.6:443->10.8.0.1:53968: read: connection reset by peer
+2025/03/21 23:22:31 http: TLS handshake error from 10.8.0.1:54520: read tcp 10.8.0.6:443->10.8.0.1:54520: read: connection reset by peer
+2025/03/21 23:25:08 http: TLS handshake error from 10.8.0.1:58194: EOF
+2025/03/21 23:25:31 sitemap.xml успешно сгенерирован
+2025/03/21 23:25:31 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
+2025/03/21 23:25:31 Запуск HTTPS-сервера на порту 443
+2025/03/21 23:29:07 http: TLS handshake error from 10.8.0.1:33788: read tcp 10.8.0.6:443->10.8.0.1:33788: read: connection reset by peer
+2025/03/21 23:29:40 http: TLS handshake error from 10.8.0.1:49408: read tcp 10.8.0.6:443->10.8.0.1:49408: read: connection reset by peer
+2025/03/21 23:29:52 sitemap.xml успешно сгенерирован
+2025/03/21 23:29:52 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
+2025/03/21 23:29:52 Запуск HTTPS-сервера на порту 443
+2025/03/21 23:30:42 sitemap.xml успешно сгенерирован
+2025/03/21 23:30:42 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
+2025/03/21 23:30:42 Запуск HTTPS-сервера на порту 443
+2025/03/21 23:30:54 sitemap.xml успешно сгенерирован
+2025/03/21 23:30:54 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
+2025/03/21 23:30:54 Запуск HTTPS-сервера на порту 443
+2025/03/21 23:31:16 sitemap.xml успешно сгенерирован
+2025/03/21 23:31:16 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
+2025/03/21 23:31:16 Запуск HTTPS-сервера на порту 443
+2025/03/21 23:34:26 http: TLS handshake error from 10.8.0.1:58228: read tcp 10.8.0.6:443->10.8.0.1:58228: read: connection reset by peer
+2025/03/21 23:34:59 http: TLS handshake error from 10.8.0.1:56346: read tcp 10.8.0.6:443->10.8.0.1:56346: read: connection reset by peer
+2025/03/21 23:37:41 sitemap.xml успешно сгенерирован
+2025/03/21 23:37:41 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
+2025/03/21 23:37:41 Запуск HTTPS-сервера на порту 443
+2025/03/21 23:40:51 http: TLS handshake error from 10.8.0.1:43798: read tcp 10.8.0.6:443->10.8.0.1:43798: read: connection reset by peer
+2025/03/21 23:41:24 http: TLS handshake error from 10.8.0.1:39732: read tcp 10.8.0.6:443->10.8.0.1:39732: read: connection reset by peer
+2025/03/21 23:42:54 sitemap.xml успешно сгенерирован
+2025/03/21 23:42:54 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
+2025/03/21 23:42:54 Запуск HTTPS-сервера на порту 443
+2025/03/21 23:44:39 http: TLS handshake error from 10.8.0.1:36694: EOF
+2025/03/21 23:44:40 http: TLS handshake error from 10.8.0.1:54440: tls: client offered only unsupported versions: [302 301]
+2025/03/21 23:46:19 http: TLS handshake error from 10.8.0.1:42760: read tcp 10.8.0.6:443->10.8.0.1:42760: read: connection reset by peer
+2025/03/21 23:46:51 http: TLS handshake error from 10.8.0.1:35958: read tcp 10.8.0.6:443->10.8.0.1:35958: read: connection reset by peer
+2025/03/21 23:47:06 http: TLS handshake error from 10.8.0.1:38730: read tcp 10.8.0.6:443->10.8.0.1:38730: read: connection reset by peer
+2025/03/21 23:47:39 http: TLS handshake error from 10.8.0.1:51490: read tcp 10.8.0.6:443->10.8.0.1:51490: read: connection reset by peer
+2025/03/21 23:48:16 http: TLS handshake error from 10.8.0.1:32774: EOF
+2025/03/21 23:52:55 http: TLS handshake error from 10.8.0.1:60038: read tcp 10.8.0.6:443->10.8.0.1:60038: read: connection reset by peer
+2025/03/21 23:52:55 http: TLS handshake error from 10.8.0.1:60044: read tcp 10.8.0.6:443->10.8.0.1:60044: read: connection reset by peer
+2025/03/21 23:52:55 http: TLS handshake error from 10.8.0.1:60052: read tcp 10.8.0.6:443->10.8.0.1:60052: read: connection reset by peer
+2025/03/21 23:52:56 http: TLS handshake error from 10.8.0.1:60064: tls: client requested unsupported application protocols ([http/0.9 http/1.0 spdy/1 spdy/2 spdy/3 h2c hq])
+2025/03/21 23:52:56 http: TLS handshake error from 10.8.0.1:60076: tls: client requested unsupported application protocols ([hq h2c spdy/3 spdy/2 spdy/1 http/1.0 http/0.9])
+2025/03/21 23:52:56 http: TLS handshake error from 10.8.0.1:60084: tls: client offered only unsupported versions: [302 301]
+2025/03/21 23:52:56 http: TLS handshake error from 10.8.0.1:60094: read tcp 10.8.0.6:443->10.8.0.1:60094: read: connection reset by peer
+2025/03/21 23:52:56 http: TLS handshake error from 10.8.0.1:60102: read tcp 10.8.0.6:443->10.8.0.1:60102: read: connection reset by peer
+2025/03/21 23:52:56 http: TLS handshake error from 10.8.0.1:60106: read tcp 10.8.0.6:443->10.8.0.1:60106: read: connection reset by peer
+2025/03/21 23:52:56 http: TLS handshake error from 10.8.0.1:60112: read tcp 10.8.0.6:443->10.8.0.1:60112: read: connection reset by peer
+2025/03/21 23:55:08 http: TLS handshake error from 10.8.0.1:45382: EOF
+2025/03/21 23:55:10 http: TLS handshake error from 10.8.0.1:59952: read tcp 10.8.0.6:443->10.8.0.1:59952: read: connection reset by peer
+2025/03/21 23:55:43 http: TLS handshake error from 10.8.0.1:48578: read tcp 10.8.0.6:443->10.8.0.1:48578: read: connection reset by peer
+2025/03/21 23:56:16 http: TLS handshake error from 10.8.0.1:33460: EOF
+2025/03/21 23:56:32 http: TLS handshake error from 10.8.0.1:40734: read tcp 10.8.0.6:443->10.8.0.1:40734: read: connection reset by peer
+2025/03/21 23:56:50 sitemap.xml успешно сгенерирован
+2025/03/21 23:56:50 Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
+2025/03/21 23:56:50 Запуск HTTPS-сервера на порту 443
+2025/03/22 00:00:40 http: TLS handshake error from 10.8.0.1:39768: read tcp 10.8.0.6:443->10.8.0.1:39768: read: connection reset by peer
+2025/03/22 00:01:14 http: TLS handshake error from 10.8.0.1:48136: read tcp 10.8.0.6:443->10.8.0.1:48136: read: connection reset by peer
+2025/03/22 00:01:37 http: TLS handshake error from 10.8.0.1:53460: read tcp 10.8.0.6:443->10.8.0.1:53460: read: connection reset by peer
+2025/03/22 00:02:10 http: TLS handshake error from 10.8.0.1:42168: read tcp 10.8.0.6:443->10.8.0.1:42168: read: connection reset by peer
+2025/03/22 00:02:41 http: TLS handshake error from 10.8.0.1:53996: read tcp 10.8.0.6:443->10.8.0.1:53996: read: connection reset by peer
+2025/03/22 00:03:29 http: TLS handshake error from 10.8.0.1:32804: read tcp 10.8.0.6:443->10.8.0.1:32804: read: connection reset by peer
+2025/03/22 00:03:40 http: TLS handshake error from 10.8.0.1:55160: read tcp 10.8.0.6:443->10.8.0.1:55160: read: connection reset by peer
+2025/03/22 00:04:12 http: TLS handshake error from 10.8.0.1:46094: read tcp 10.8.0.6:443->10.8.0.1:46094: read: connection reset by peer
+2025/03/22 00:04:16 http: TLS handshake error from 10.8.0.1:37614: EOF
+2025/03/22 00:04:34 http: TLS handshake error from 10.8.0.1:57300: read tcp 10.8.0.6:443->10.8.0.1:57300: read: connection reset by peer
+2025/03/22 00:05:23 http: TLS handshake error from 10.8.0.1:49090: read tcp 10.8.0.6:443->10.8.0.1:49090: read: connection reset by peer
+2025/03/22 00:05:47 http: TLS handshake error from 10.8.0.1:56456: read tcp 10.8.0.6:443->10.8.0.1:56456: read: connection reset by peer
+2025/03/22 00:06:20 http: TLS handshake error from 10.8.0.1:34692: read tcp 10.8.0.6:443->10.8.0.1:34692: read: connection reset by peer
+2025/03/22 00:07:05 http: TLS handshake error from 10.8.0.1:50876: read tcp 10.8.0.6:443->10.8.0.1:50876: read: connection reset by peer
+2025/03/22 00:07:54 http: TLS handshake error from 10.8.0.1:56108: read tcp 10.8.0.6:443->10.8.0.1:56108: read: connection reset by peer
+2025/03/22 00:08:00 http: TLS handshake error from 10.8.0.1:42214: read tcp 10.8.0.6:443->10.8.0.1:42214: read: connection reset by peer
+2025/03/22 00:08:34 http: TLS handshake error from 10.8.0.1:55132: read tcp 10.8.0.6:443->10.8.0.1:55132: read: connection reset by peer
+2025/03/22 00:09:33 http: TLS handshake error from 10.8.0.1:40690: read tcp 10.8.0.6:443->10.8.0.1:40690: read: connection reset by peer
+2025/03/22 00:10:07 http: TLS handshake error from 10.8.0.1:55890: read tcp 10.8.0.6:443->10.8.0.1:55890: read: connection reset by peer
+2025/03/22 00:10:47 http: TLS handshake error from 10.8.0.1:46660: read tcp 10.8.0.6:443->10.8.0.1:46660: read: connection reset by peer
+2025/03/22 00:10:52 http: TLS handshake error from 10.8.0.1:35284: client sent an HTTP request to an HTTPS server
+2025/03/22 00:11:20 http: TLS handshake error from 10.8.0.1:43470: read tcp 10.8.0.6:443->10.8.0.1:43470: read: connection reset by peer
+2025/03/22 00:12:16 http: TLS handshake error from 10.8.0.1:34854: read tcp 10.8.0.6:443->10.8.0.1:34854: read: connection reset by peer
+2025/03/22 00:12:16 http: TLS handshake error from 10.8.0.1:34072: EOF
+2025/03/22 00:12:50 http: TLS handshake error from 10.8.0.1:59000: read tcp 10.8.0.6:443->10.8.0.1:59000: read: connection reset by peer
+2025/03/22 00:12:52 http: TLS handshake error from 10.8.0.1:46818: read tcp 10.8.0.6:443->10.8.0.1:46818: read: connection reset by peer
+2025/03/22 00:14:18 http: TLS handshake error from 10.8.0.1:38714: read tcp 10.8.0.6:443->10.8.0.1:38714: read: connection reset by peer
+2025/03/22 00:14:39 http: TLS handshake error from 10.8.0.1:41360: EOF
+2025/03/22 00:14:51 http: TLS handshake error from 10.8.0.1:47988: read tcp 10.8.0.6:443->10.8.0.1:47988: read: connection reset by peer
+2025/03/22 00:15:06 http: TLS handshake error from 10.8.0.1:41422: read tcp 10.8.0.6:443->10.8.0.1:41422: read: connection reset by peer
+2025/03/22 00:15:39 http: TLS handshake error from 10.8.0.1:55054: read tcp 10.8.0.6:443->10.8.0.1:55054: read: connection reset by peer
+2025/03/22 00:15:43 http: TLS handshake error from 10.8.0.1:46524: read tcp 10.8.0.6:443->10.8.0.1:46524: read: connection timed out
+2025/03/22 00:16:20 http: TLS handshake error from 10.8.0.1:59652: read tcp 10.8.0.6:443->10.8.0.1:59652: read: connection reset by peer
+2025/03/22 00:16:54 http: TLS handshake error from 10.8.0.1:33370: read tcp 10.8.0.6:443->10.8.0.1:33370: read: connection reset by peer
+2025/03/22 00:17:11 http: TLS handshake error from 10.8.0.1:51370: read tcp 10.8.0.6:443->10.8.0.1:51370: read: connection reset by peer
+2025/03/22 00:17:44 http: TLS handshake error from 10.8.0.1:57104: read tcp 10.8.0.6:443->10.8.0.1:57104: read: connection reset by peer
+2025/03/22 00:18:35 http: TLS handshake error from 10.8.0.1:38168: read tcp 10.8.0.6:443->10.8.0.1:38168: read: connection reset by peer
+2025/03/22 00:19:23 http: TLS handshake error from 10.8.0.1:35314: read tcp 10.8.0.6:443->10.8.0.1:35314: read: connection reset by peer
+2025/03/22 00:19:34 http: TLS handshake error from 10.8.0.1:50840: read tcp 10.8.0.6:443->10.8.0.1:50840: read: connection reset by peer

@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const submitButton = form.querySelector('button[type="submit"]');
     const submitText = submitButton.querySelector('.submit-text');
     const loadingSpinner = submitButton.querySelector('.loading-spinner');
+    const clientCounters = document.querySelectorAll('.clients .counter');
+    const clientsSection = document.querySelector('.clients');
 
     let lastScroll = 0;
 
@@ -29,6 +31,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         lastScroll = currentScroll;
+    });
+
+    // Параллакс-эффект для .hero
+    window.addEventListener('scroll', () => {
+        const hero = document.querySelector('.hero');
+        const scrollTop = window.pageYOffset;
+        hero.style.backgroundPosition = `center ${-scrollTop * 0.25}px`;
     });
 
     // Открытие формы по кнопке телефона
@@ -196,9 +205,3 @@ styleSheet.insertRule(`
         }
     }
 `, styleSheet.cssRules.length);
-
-window.addEventListener('scroll', () => {
-    const hero = document.querySelector('.hero');
-    const scrollTop = window.pageYOffset;
-    hero.style.backgroundPositionY = -scrollTop * 0.25 + 'px';
-});
