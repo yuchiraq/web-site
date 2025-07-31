@@ -43,6 +43,8 @@ func main() {
 	r.StaticFile("/sitemap.xml", "./static/data/sitemap.xml")
 	r.StaticFile("/robots.txt", "./static/data/robots.txt")
 	r.StaticFile("/favicon.ico", "./static/images/favicon.ico")
+	r.StaticFile("/favicon.svg", "./static/images/logo_n.svg")
+	r.StaticFile("/favicon", "./static/images/logo_n.svg")
 
 	// Обработчик формы
 	r.POST("/submit", submitHandler)

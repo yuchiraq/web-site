@@ -244,7 +244,8 @@ func generateRSSFeed(c *gin.Context) {
 func readFile(filePath string) string {
 	content, err := ioutil.ReadFile(filePath)
 	if err != nil {
-		return ""
+		fmt.Fprintf(os.Stderr, "Ошибка чтения файла %s: %v\n", filePath, err)
+		os.Exit(1) // <- аварийный выход, чтобы явно увидеть ошибку
 	}
 	return string(content)
 }
