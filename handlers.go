@@ -64,11 +64,11 @@ func submitHandler(c *gin.Context) {
 	log.Printf("Получена заявка: Имя: %s, Телефон: %s", req.Name, req.Phone)
 
 	// Отправляем уведомление на email
-	if err := sendEmail(req.Name, req.Phone); err != nil {
+	/*if err := sendEmail(req.Name, req.Phone); err != nil {
 		log.Printf("Ошибка при отправке email: %v", err)
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to send email notification"})
 		return
-	}
+	}*/
 
 	// Отправляем уведомление в Telegram всем указанным чатам
 	for _, chatID := range settings.Telegram.ChatIDs {
