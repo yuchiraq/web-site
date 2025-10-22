@@ -53,7 +53,7 @@ func main() {
 
 	// Обработка 404
 	r.NoRoute(func(c *gin.Context) {
-		c.HTML(404, "index.html", gin.H{
+		c.HTML(404, "404.html", gin.H{
 			"Title": "404 - Страница не найдена",
 		})
 	})
