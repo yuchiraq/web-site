@@ -59,18 +59,18 @@ func main() {
 	})
 
 	// Запуск HTTPS-сервера на порту 443
-	go func() {
+	/*go func() {
 		log.Println("Запуск HTTPS-сервера на порту 443")
 		if err := http.ListenAndServeTLS(":443", "/etc/letsencrypt/live/avayusstroi.by/fullchain.pem", "/etc/letsencrypt/live/avayusstroi.by/privkey.pem", r); err != nil {
 			log.Fatalf("Ошибка запуска HTTPS-сервера: %v", err)
 		}
-	}()
+	}()*/
 
 	// Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS
-	log.Println("Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS")
-	if err := http.ListenAndServe(":80", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	//log.Println("Запуск HTTP-сервера на порту 80 для перенаправления на HTTPS")
+	if err := http.ListenAndServe(":8080", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		// Перенаправляем все запросы на HTTPS
-		http.Redirect(w, r, "https://"+r.Host+r.RequestURI, http.StatusMovedPermanently)
+	//	http.Redirect(w, r, "https://"+r.Host+r.RequestURI, http.StatusMovedPermanently)
 	})); err != nil {
 		log.Fatalf("Ошибка запуска HTTP-сервера: %v", err)
 	}
