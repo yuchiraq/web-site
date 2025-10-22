@@ -73,8 +73,8 @@ func main() {
 	// })); err != nil {
 	// 	log.Fatalf("Ошибка запуска HTTP-сервера: %v", err)
 	// }
-	log.Println("Запуск HTTP-сервера на порту 8080")
-	if err := r.Run(":8080"); err != nil {
+	log.Println("Запуск HTTP-сервера на порту 8088")
+	if err := r.Run(":8088"); err != nil {
 		log.Fatalf("Ошибка запуска HTTP-сервера: %v", err)
 	}
 }
