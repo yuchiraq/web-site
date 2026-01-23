@@ -13,11 +13,25 @@
     ">
     <!-- Подключение иконок FontAwesome для кнопок Viber и Telegram -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .copy-notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: none;
+            z-index: 1000;
+        }
+    </style>
 </head>
 <body>
     {{ template "header" }}
 
-    
+
     <main>
         <!-- Призыв к действию -->
         <section class="cta">
@@ -30,8 +44,9 @@
         <section class="section">
             <div class="container">
                 <h2>Контакты</h2>
+                <p><b>Подсказка:</b> кликните на любой из блоков ниже, чтобы скопировать информацию в буфер обмена.</p>
                 <div class="boxes-list">
-                    <div class="box" style="padding-top: 1rem;">
+                    <div class="box" style="padding-top: 1rem; cursor: pointer;" title="Нажмите, чтобы скопировать" onclick="copyToClipboard(this)">
                         <h3>ЧСУП «АВАЮССТРОЙ»</h3>
                         <p><strong>email:</strong> avajsstroi@mail.ru</p>
                         <p><strong>Телефоны:</strong></p>
@@ -60,13 +75,13 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="box" style="padding-top: 1rem;">
+                    <div class="box" style="padding-top: 1rem; cursor: pointer;" title="Нажмите, чтобы скопировать" onclick="copyToClipboard(this)">
                         <h3>Частное строительное унитарное предприятие «АВАЮССТРОЙ»</h3>
                         <p><strong>Адрес:</strong> 224032, г. Брест, ул. Янки Купалы, 109</p>
                         <p><strong>Директор:</strong> А.С. Стракович (на основании устава, приказ №1 от 27.10.2010)</p>
                         <p><strong>УНП:</strong> 291002836</p>
                     </div>
-                    <div class="box" style="padding-top: 1rem;">
+                    <div class="box" style="padding-top: 1rem; cursor: pointer;" title="Нажмите, чтобы скопировать" onclick="copyToClipboard(this)">
                         <h3>Платёжные реквизиты:</h3>
                         <ul>
                             <li><strong>Расчётный счёт:</strong> BY41OLMP30123001046460000933</li>
@@ -86,7 +101,23 @@
             </div>
         </section>
     </main>
+    <div id="copy-notification" class="copy-notification">Текст скопирован в буфер обмена</div>
 
-  
+    <script>
+        function copyToClipboard(element) {
+            const textToCopy = element.innerText;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const notification = document.getElementById('copy-notification');
+                notification.style.display = 'block';
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                }, 2000);
+            }).catch(err => {
+                console.error('Не удалось скопировать текст: ', err);
+            });
+        }
+    </script>
+
+
 </body>
 </html>
