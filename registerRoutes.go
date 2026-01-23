@@ -2,10 +2,12 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"net/http"
 	"os"
 	"path/filepath"
 	"strings"
+	"time"
 
 	"github.com/gin-gonic/gin"
 )
@@ -69,11 +71,46 @@ func registerRoutes(router *gin.Engine) error {
 				if title == "" {
 					title = "ЧСУП АВАЮССТРОЙ"
 				}
-				c.HTML(http.StatusOK, filepath.Base(path), gin.H{
-					"Title": title,
-				})
+
+				if route == "/" {
+					// Get photos for the carousel
+					photoPath := "static/images/photos"
+					files, err := os.ReadDir(photoPath)
+					if err != nil {
+						// Log the error and continue without photos
+						fmt.Println("Error reading photos directory:", err)
+						c.HTML(http.StatusOK, filepath.Base(path), gin.H{
+							"Title": title,
+						})
+						return
+					}
+
+					var photos []string
+					for _, file := range files {
+						if !file.IsDir() {
+							// Use filepath.ToSlash for cross-platform compatibility
+							photos = append(photos, filepath.ToSlash(filepath.Join("/", "static", "images", "photos", file.Name())))
+						}
+					}
+
+					// Shuffle photos
+					r := rand.New(rand.NewSource(time.Now().UnixNano()))
+					r.Shuffle(len(photos), func(i, j int) {
+						photos[i], photos[j] = photos[j], photos[i]
+					})
+
+					c.HTML(http.StatusOK, filepath.Base(path), gin.H{
+						"Title":  title,
+						"Photos": photos,
+					})
+				} else {
+					c.HTML(http.StatusOK, filepath.Base(path), gin.H{
+						"Title": title,
+					})
+				}
 			})
-			fmt.Printf("Зарегистрирован маршрут: %s\n", route)
+			fmt.Printf("Зарегистрирован маршрут: %s
+", route)
 		}
 		return nil
 	})

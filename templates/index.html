@@ -157,16 +157,9 @@
             </div>
             <div class="carousel">
                 <div class="carousel-track">
-                    <img src="/static/images/photos/1.jpg" alt="Проект">
-                    <img src="/static/images/photos/2.jpg" alt="Проект">
-                    <img src="/static/images/photos/3.jpg" alt="Проект">
-                    <img src="/static/images/photos/4.jpg" alt="Проект">
-                    <img src="/static/images/photos/5.jpg" alt="Проект">
-                    <img src="/static/images/photos/6.jpg" alt="Проект">
-                    <img src="/static/images/photos/5325957411132608810_121.jpg" alt="Проект">
-                    <img src="/static/images/photos/5325957411132608816_121.jpg" alt="Проект">
-                    <img src="/static/images/photos/5325957411132608817_121.jpg" alt="Проект">
-                    <img src="/static/images/photos/5325957411132608819_121.jpg" alt="Проект">
+                    {{range .Photos}}
+                    <img src="{{.}}" alt="фото с объекта">
+                    {{end}}
                 </div>
             </div>
         </section>
