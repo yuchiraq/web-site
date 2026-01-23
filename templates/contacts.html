@@ -19,12 +19,15 @@
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background-color: #333;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             display: none;
             z-index: 1000;
+            font-size: 16px;
+            transition: opacity 0.5s, bottom 0.5s;
         }
     </style>
 </head>
@@ -109,8 +112,14 @@
             navigator.clipboard.writeText(textToCopy).then(() => {
                 const notification = document.getElementById('copy-notification');
                 notification.style.display = 'block';
+                notification.style.opacity = '1';
+                notification.style.bottom = '40px';
                 setTimeout(() => {
-                    notification.style.display = 'none';
+                    notification.style.opacity = '0';
+                    notification.style.bottom = '20px';
+                    setTimeout(() => {
+                        notification.style.display = 'none';
+                    }, 500);
                 }, 2000);
             }).catch(err => {
                 console.error('Не удалось скопировать текст: ', err);
