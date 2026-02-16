@@ -34,6 +34,9 @@ func GenerateSitemap() error {
 			strings.Contains(path, "head.html") || strings.Contains(path, "phone_button.html") {
 			return nil
 		}
+		if strings.Contains(path, "templates/static") || strings.Contains(path, "404.html") {
+			return nil
+		}
 		if !info.IsDir() && filepath.Ext(path) == ".html" {
 			route := strings.TrimPrefix(path, "templates/")
 			route = strings.TrimSuffix(route, ".html")

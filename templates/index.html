@@ -156,9 +156,12 @@
                 <h2 data-aos="fade-up">Наши проекты</h2>
             </div>
             <div class="carousel">
-                <div class="carousel-track">
+                <div class="carousel-track" aria-label="Фотографии выполненных объектов">
                     {{range .Photos}}
-                    <img src="{{.}}" alt="фото с объекта">
+                    <img src="{{.}}" alt="фото с объекта" loading="lazy">
+                    {{end}}
+                    {{range .Photos}}
+                    <img src="{{.}}" alt="" aria-hidden="true" loading="lazy">
                     {{end}}
                 </div>
             </div>
