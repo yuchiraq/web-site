@@ -261,7 +261,7 @@ main {
         align-items: flex-start;
         background-image: url('/static/images/hero_mobile.png');
         background-position: center;
-        background-size: cover;
+        background-size: 118%;
         background-attachment: scroll;
     }
 }
