@@ -246,7 +246,7 @@ main {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: url('/static/images/hero_new.jpg') no-repeat local center/cover;
+    background: url('/static/images/hero_new.webp') no-repeat local center/cover;
     background-attachment: scroll; /* Для параллакс-эффекта */
     background-size: cover;
     color: #FFFFFF;
@@ -384,18 +384,8 @@ main {
 
 @media (max-width: 768px) {
     .hero-content {
-        padding: 0.4rem;
-        max-width: calc(100% - 1.2rem);
-        min-height: calc(92vh - 3.7rem);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        text-align: left;
-        background: transparent;
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-        border: none;
-        box-shadow: none;
+        padding: 1.2rem;
+        max-width: calc(100% - 1.5rem);
     }
 
     .hero h1 {
@@ -1717,8 +1707,6 @@ main {
 .carousel-track img {
     flex: 0 0 auto;
     display: block;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
 }
 
 @keyframes scrollLoop {
@@ -1736,14 +1724,8 @@ main {
     }
 
     .carousel-track {
-        animation-duration: 12s;
+        animation-duration: 9s;
         transform: translate3d(0, 0, 0);
-    }
-
-    .carousel-track img {
-        width: 260px;
-        height: 222px;
-        object-fit: cover;
     }
 
     .service-hero {
