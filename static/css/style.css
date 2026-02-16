@@ -1383,7 +1383,18 @@ main {
 }
 
 .service-hero {
+    position: relative;
     padding: 2rem 0 3rem;
+    overflow: hidden;
+}
+
+.service-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
 }
 
 .service-hero__grid {
@@ -1535,6 +1546,7 @@ main {
 
 .carousel-track img {
     flex: 0 0 auto;
+    display: block;
 }
 
 @keyframes scrollLoop {
@@ -1547,8 +1559,64 @@ main {
 }
 
 @media (max-width: 768px) {
+    .carousel {
+        min-height: 222px;
+    }
+
     .carousel-track {
         animation-duration: 9s;
+        transform: translate3d(0, 0, 0);
+    }
+
+    .service-hero {
+        padding: 2.5rem 0;
+        color: #fff;
+    }
+
+    .service-hero--water,
+    .service-hero--topas {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .service-hero--water {
+        background-image: url("/static/images/water_lowering/cover.jpg");
+    }
+
+    .service-hero--topas {
+        background-image: url("/static/images/topas/cover.jpg");
+    }
+
+    .service-hero--water::before,
+    .service-hero--topas::before {
+        opacity: 1;
+        background: linear-gradient(135deg, rgba(8, 28, 52, 0.85), rgba(8, 28, 52, 0.55));
+    }
+
+    .service-hero__grid {
+        position: relative;
+        z-index: 1;
+    }
+
+    .service-hero__lead,
+    .service-hero__benefits li {
+        color: rgba(255, 255, 255, 0.94);
+    }
+
+    .service-hero__media {
+        display: none;
+    }
+
+    .service-hero .cta-button--secondary {
+        border-color: rgba(255, 255, 255, 0.8);
+        color: #fff;
+    }
+
+    .service-hero .messenger-link {
+        border-color: rgba(255, 255, 255, 0.45);
+        color: #fff;
+        background: rgba(255, 255, 255, 0.08);
     }
 }
 
