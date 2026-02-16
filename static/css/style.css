@@ -1356,47 +1356,62 @@ main {
     }
 }
 /* Service landing improvements */
+.breadcrumbs {
+    padding: 1rem 0 0;
+}
+
+.breadcrumbs ol {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0;
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.breadcrumbs li:not(:last-child)::after {
+    content: '/';
+    margin-left: 0.5rem;
+    opacity: 0.6;
+}
+
+.breadcrumbs a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
 .service-hero {
-    padding: 1.5rem 0 2.5rem;
+    padding: 2rem 0 3rem;
 }
 
 .service-hero__grid {
     display: grid;
-    gap: 1.5rem;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2rem;
+    grid-template-columns: 1.2fr 1fr;
     align-items: center;
 }
 
 .service-hero__lead {
-    font-size: 1.1rem;
-    line-height: 1.65;
+    font-size: 1.15rem;
+    line-height: 1.7;
     margin-bottom: 1rem;
 }
 
 .service-hero__benefits {
-    margin: 0 0 1.2rem;
-    padding-left: 1.1rem;
+    margin: 0 0 1.5rem;
+    padding-left: 1rem;
 }
 
 .service-hero__benefits li {
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
 }
 
 .service-hero__actions {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.65rem;
-}
-
-.service-hero__actions .cta-button,
-.service-hero__actions .messenger-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-    min-height: 46px;
-    box-sizing: border-box;
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
 }
 
 .cta-button--secondary {
@@ -1414,32 +1429,28 @@ main {
     font-weight: 500;
 }
 
-.service-hero__media {
-    min-width: 0;
-}
-
 .service-hero__media img {
-    width: 100%;
-    height: auto;
-    display: block;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-light);
 }
 
 .service-trust,
+.service-cases,
 .quick-order,
 .faq-section {
-    padding: 2.1rem 0;
+    padding: 2.5rem 0;
 }
 
-.trust-grid {
+.trust-grid,
+.cases-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
 }
 
-.trust-grid article {
-    padding: 1.15rem;
+.trust-grid article,
+.case-card {
+    padding: 1.25rem;
     border-radius: var(--border-radius);
     background: var(--card-light);
     box-shadow: var(--shadow-light);
@@ -1455,34 +1466,26 @@ main {
     box-shadow: var(--shadow-light);
     border-radius: var(--border-radius);
     border: var(--glass-border);
-    padding: 1.25rem;
+    padding: 1.5rem;
     display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-    gap: 1rem;
-    align-items: start;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 1.5rem;
+    align-items: center;
 }
 
 .quick-order-form {
     display: grid;
     gap: 0.75rem;
-    min-width: 0;
 }
 
 .quick-order-form label {
     display: grid;
     gap: 0.35rem;
     font-size: 0.95rem;
-    min-width: 0;
-}
-
-.quick-order-form input,
-.quick-order-form button {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
 }
 
 .quick-order-form input {
+    width: 100%;
     padding: 0.75rem;
     border-radius: var(--border-radius);
     border: 1px solid var(--divider-color);
@@ -1493,8 +1496,8 @@ main {
     background: var(--card-light);
     border: var(--glass-border);
     border-radius: var(--border-radius);
-    padding: 1rem 1.15rem;
-    margin-bottom: 0.7rem;
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.75rem;
 }
 
 .faq-section summary {
@@ -1503,52 +1506,21 @@ main {
 }
 
 .faq-section p {
-    margin-top: 0.7rem;
+    margin-top: 0.75rem;
 }
 
 @media (max-width: 992px) {
     .service-hero__grid,
     .quick-order__wrap,
-    .trust-grid {
+    .trust-grid,
+    .cases-grid {
         grid-template-columns: 1fr;
     }
 
     .service-hero {
-        padding: 1rem 0 1.75rem;
+        padding-top: 1rem;
     }
 }
-
-@media (max-width: 768px) {
-    .service-hero h1 {
-        font-size: 1.55rem;
-        line-height: 1.28;
-        margin-bottom: 0.85rem;
-    }
-
-    .service-hero__lead {
-        font-size: 0.98rem;
-        margin-bottom: 0.8rem;
-    }
-
-    .service-hero__benefits {
-        margin-bottom: 1rem;
-    }
-
-    .service-hero__actions {
-        grid-template-columns: 1fr;
-        gap: 0.55rem;
-    }
-
-    .service-hero__media {
-        order: -1;
-    }
-
-    .service-detail {
-        padding-top: 0.5rem;
-    }
-}
-
-/* Seamless project carousel */
 .carousel {
     width: 100%;
     overflow: hidden;
@@ -1566,8 +1538,12 @@ main {
 }
 
 @keyframes scrollLoop {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
 }
 
 @media (max-width: 768px) {
@@ -1575,3 +1551,4 @@ main {
         animation-duration: 9s;
     }
 }
+
