@@ -2,69 +2,229 @@
 <html lang="ru" data-theme="light">
 <head>
     {{ template "head" }}
-    <title>Водопонижение в Бресте и области | ЧСУП "АВАЮССТРОЙ"</title>
-    <!-- Мета-тег description -->
-    <meta name="description" content="ЧСУП «АВАЮССТРОЙ» предоставляет услуги водопонижения в Бресте и Брестской области. Современное оборудование для подготовки строительных площадок с гарантией качества!">
-    <!-- Мета-тег keywords -->
-    <meta name="keywords" content="
-        водопонижение Брест, услуги водопонижения Брест, водопонижение в Брестской области, водопонижение строительных площадок Брест,
-        водопонижение Берёза, водопонижение Пинск, водопонижение Кобрин, водопонижение Барановичи, водопонижение Лунинец,
-        водопонижение Ивацевичи, водопонижение Жабинка, водопонижение для строительства Брест, иглофильтры Брест,
-        насосы для водопонижения Брест, профессиональное водопонижение Брест, водопонижение для дорог Брест
-    ">
+    <title>Водопонижение в Бресте и Брестской области | Иглофильтры и дренаж — АВАЮССТРОЙ</title>
+    <meta name="description" content="Услуги водопонижения в Бресте и области: иглофильтры, насосы, дренаж для котлованов и строительных площадок. Точный расчет, безопасные работы, гарантия.">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://avayusstroi.by/services/water_lowering">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_BY">
+    <meta property="og:site_name" content="ЧСУП «АВАЮССТРОЙ»">
+    <meta property="og:title" content="Водопонижение в Бресте и области — АВАЮССТРОЙ">
+    <meta property="og:description" content="Снижаем уровень грунтовых вод для безопасного строительства: иглофильтровые системы, насосы, дренаж, контроль работ.">
+    <meta property="og:url" content="https://avayusstroi.by/services/water_lowering">
+    <meta property="og:image" content="https://avayusstroi.by/static/images/water_lowering/cover.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Профессиональное водопонижение в Брестской области">
+    <meta name="twitter:description" content="Подготовим котлован и участок к строительству. Работаем по договору и с гарантией сроков.">
+    <meta name="twitter:image" content="https://avayusstroi.by/static/images/water_lowering/cover.jpg">
+
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://avayusstroi.by/"},
+            {"@type": "ListItem", "position": 2, "name": "Услуги", "item": "https://avayusstroi.by/services"},
+            {"@type": "ListItem", "position": 3, "name": "Водопонижение", "item": "https://avayusstroi.by/services/water_lowering"}
+          ]
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "LocalBusiness",
+              "@id": "https://avayusstroi.by/#business",
+              "name": "ЧСУП «АВАЮССТРОЙ»",
+              "url": "https://avayusstroi.by",
+              "telephone": ["+375297202791", "+375336709273"],
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "ул. Янки Купалы, 109",
+                "addressLocality": "Брест",
+                "addressCountry": "BY"
+              },
+              "areaServed": ["Брест", "Брестская область", "Барановичи", "Пинск", "Кобрин", "Ивацевичи", "Лунинец", "Жабинка"]
+            },
+            {
+              "@type": "Service",
+              "name": "Водопонижение строительных площадок",
+              "serviceType": "Иглофильтры, насосные системы, дренаж",
+              "provider": {"@id": "https://avayusstroi.by/#business"},
+              "areaServed": "Брестская область",
+              "url": "https://avayusstroi.by/services/water_lowering",
+              "description": "Комплексные работы по снижению уровня грунтовых вод для котлованов, фундаментов и инженерных сетей."
+            }
+          ]
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Когда требуется водопонижение?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "При высоком уровне грунтовых вод, затоплении котлованов и риске разрушения оснований при строительстве."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Какие методы вы применяете?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Используем иглофильтровые установки, глубинные насосы и дренажные системы в зависимости от геологии участка."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "В каких городах вы работаете?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Работаем по Бресту и области: Барановичи, Пинск, Кобрин, Ивацевичи, Лунинец, Жабинка и другие направления."
+              }
+            }
+          ]
+        }
+    </script>
 </head>
 <body>
-    {{ template "header" }}
+{{ template "header" }}
 
-    <main>
-        <section class="service-detail">
-            <div class="container">
-                <h2>Водопонижение в Бресте и области</h2>
-                <div class="service-content">
-                    <div class="service-image">
-                        <img src="/static/images/water_lowering/cover.jpg" alt="Водопонижение в Бресте">
-                        <div class="overlay">
-                            <a href="/contacts" class="order-button">Заказать услугу</a>
-                        </div>
-                    </div>
-                    <div class="service-description">
-                        <h3>Что такое водопонижение и зачем оно нужно?</h3>
-                        <p>
-                            Водопонижение — это процесс искусственного снижения уровня грунтовых вод на строительной площадке. 
-                            Это необходимо для обеспечения безопасных и стабильных условий проведения строительных работ. 
-                            Без водопонижения высокий уровень грунтовых вод может привести к затоплению котлованов, разрушению фундаментов и другим серьезным проблемам.
-                        </p>
-                        <h3>Проблемы, с которыми сталкиваются наши клиенты</h3>
-                        <ul>
-                            <li><strong>Затопление котлованов:</strong> Высокий уровень грунтовых вод делает невозможным проведение земляных работ.</li>
-                            <li><strong>Разрушение фундаментов:</strong> Вода подмывает основание зданий, что приводит к трещинам и деформациям.</li>
-                            <li><strong>Сложности при строительстве:</strong> Высокая влажность затрудняет укладку бетона и других материалов.</li>
-                            <li><strong>Экологические риски:</strong> Застой воды может привести к заболачиванию территории.</li>
-                        </ul>
-                        <h3>Наши методы водопонижения</h3>
-                        <p>
-                            Мы используем современные технологии и оборудование для эффективного водопонижения. 
-                            Наши методы включают:
-                        </p>
-                        <ul>
-                            <li><strong>Иглофильтровые системы:</strong> Быстрое и эффективное снижение уровня воды на глубину до 5 метров.</li>
-                            <li><strong>Глубинные насосы:</strong> Для откачки воды с больших глубин.</li>
-                            <li><strong>Дренажные системы:</strong> Для отвода воды с участка и предотвращения её повторного появления.</li>
-                        </ul>
-                        <h3>Почему выбирают нас?</h3>
-                        <ul>
-                            <li><strong>Опыт более 10 лет:</strong> Мы успешно выполнили более 100 проектов по водопонижению в Бресте и области.</li>
-                            <li><strong>Современное оборудование:</strong> Используем только проверенные технологии и оборудование.</li>
-                            <li><strong>Гарантия качества:</strong> Все работы выполняются в строгом соответствии с нормами безопасности.</li>
-                            <li><strong>Доступные цены:</strong> Предлагаем конкурентные цены без скрытых комиссий.</li>
-                            <li><strong>Работаем по всей Брестской области:</strong> Брест, Барановичи, Пинск, Кобрин, Ивацевичи, Лунинец, Столин, Жабинка, Малорита и другие города.</li>
-                        </ul>
-                    </div>
+<main>
+    <section class="breadcrumbs" aria-label="Хлебные крошки">
+        <div class="container">
+            <ol>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/services">Услуги</a></li>
+                <li aria-current="page">Водопонижение</li>
+            </ol>
+        </div>
+    </section>
+
+    <section class="service-hero service-hero--water">
+        <div class="container service-hero__grid">
+            <div>
+                <h1>Водопонижение в Бресте и Брестской области</h1>
+                <p class="service-hero__lead">Подготавливаем строительные площадки к безопасным работам: контролируем уровень грунтовых вод и исключаем риски для фундамента.</p>
+                <ul class="service-hero__benefits">
+                    <li>Подбор технологии под геологию объекта.</li>
+                    <li>Оперативный выезд и запуск оборудования.</li>
+                    <li>Соблюдение сроков и норм безопасности.</li>
+                </ul>
+                <div class="service-hero__actions">
+                    <a href="tel:+375336709273" class="cta-button" data-track="phone_click" data-service="water_lowering">Срочный звонок</a>
+                    <a href="#quick-order-water" class="cta-button cta-button--secondary">Получить расчет</a>
+                    <a href="https://t.me/+375336709273" target="_blank" rel="noopener" class="messenger-link" data-track="messenger_click" data-messenger="telegram" data-service="water_lowering">Telegram</a>
+                    <a href="viber://chat?number=%2B375336709273" class="messenger-link" data-track="messenger_click" data-messenger="viber" data-service="water_lowering">Viber</a>
                 </div>
             </div>
-        </section>
-    </main>
+            <div class="service-hero__media">
+                <img src="/static/images/water_lowering/cover.jpg" alt="Работы по водопонижению с использованием насосного оборудования" fetchpriority="high" width="860" height="575">
+            </div>
+        </div>
+    </section>
 
-    {{ template "footer" }}
+    <section class="service-trust">
+        <div class="container trust-grid">
+            <article><h2>Техническая экспертиза</h2><p>Оцениваем геологию и подбираем схему водопонижения под конкретный объект и сроки строительства.</p></article>
+            <article><h2>Сильная техника</h2><p>Используем иглофильтры, насосные станции и дренажные системы для стабильного результата.</p></article>
+            <article><h2>Контроль и отчетность</h2><p>Контролируем уровень воды в процессе работ и информируем заказчика о ходе проекта.</p></article>
+        </div>
+    </section>
+
+    <section class="service-detail">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-description">
+                    <h2>Что входит в услугу водопонижения</h2>
+                    <p>Водопонижение необходимо при строительстве фундаментов, прокладке инженерных сетей и устройстве котлованов в условиях высокого уровня грунтовых вод. Мы обеспечиваем устойчивые условия для земляных и бетонных работ.</p>
+
+                    <h3>Основные методы</h3>
+                    <ul>
+                        <li><strong>Иглофильтровые системы:</strong> эффективное локальное понижение уровня воды.</li>
+                        <li><strong>Глубинные насосы:</strong> откачка воды с больших глубин и сложных участков.</li>
+                        <li><strong>Дренаж:</strong> организованный отвод воды и защита от повторного подтопления.</li>
+                    </ul>
+
+                    <h3>Этапы работ</h3>
+                    <ol class="service-steps">
+                        <li>Выезд на объект и техническая оценка условий.</li>
+                        <li>Проектирование схемы водопонижения и расчет стоимости.</li>
+                        <li>Монтаж оборудования и запуск системы.</li>
+                        <li>Сопровождение до завершения ключевых строительных этапов.</li>
+                    </ol>
+
+                    <h3>География работ</h3>
+                    <p>Выполняем проекты в Бресте, Барановичах, Пинске, Кобрине, Ивацевичах, Лунинеце, Жабинке и других районах Брестской области.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-cases">
+        <div class="container">
+            <h2>Кейсы по водопонижению</h2>
+            <div class="cases-grid">
+                <article class="case-card">
+                    <h3>Котлован под ТЦ, Брест</h3>
+                    <p>Стабилизировали уровень грунтовых вод, исключили простой техники и смещение грунта.</p>
+                </article>
+                <article class="case-card">
+                    <h3>Прокладка сетей, Барановичи</h3>
+                    <p>Организовали откачку и дренаж на участке с высоким УГВ, обеспечив безопасный монтаж.</p>
+                </article>
+                <article class="case-card">
+                    <h3>Промплощадка, Пинск</h3>
+                    <p>Реализовали комплекс иглофильтров + насосов для непрерывного хода работ.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="quick-order-water" class="quick-order">
+        <div class="container quick-order__wrap">
+            <div>
+                <h2>Оставьте заявку на водопонижение</h2>
+                <p>Свяжемся с вами, уточним задачу и предложим рабочее решение под сроки и бюджет объекта.</p>
+            </div>
+            <form class="quick-order-form" data-track-form="water_quick_order">
+                <label>
+                    Имя
+                    <input type="text" name="name" required placeholder="Ваше имя">
+                </label>
+                <label>
+                    Телефон
+                    <input type="tel" name="phone" required placeholder="+375 (__) ___-__-__">
+                </label>
+                <button type="button" class="cta-button open-modal-button" data-track="order_click" data-service="water_lowering">Заказать консультацию</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <h2>FAQ по водопонижению</h2>
+            <details>
+                <summary>Сколько времени занимает запуск системы?</summary>
+                <p>Срок зависит от масштаба объекта, но базовый запуск обычно выполняется в течение 1–2 дней после подготовки.</p>
+            </details>
+            <details>
+                <summary>Можно ли выполнить водопонижение на действующей стройке?</summary>
+                <p>Да, мы подбираем решение, которое интегрируется в текущий график и минимизирует простои.</p>
+            </details>
+            <details>
+                <summary>Работаете ли вы с частными участками?</summary>
+                <p>Да, выполняем работы как для частных домов, так и для коммерческих и инфраструктурных объектов.</p>
+            </details>
+        </div>
+    </section>
+</main>
+
+{{ template "footer" }}
 </body>
 </html>

@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Элементы DOM
     const header = document.querySelector('.header');
     const phoneIcon = document.getElementById('openPhoneForm');
     const modal = document.getElementById('phoneFormModal');
@@ -7,79 +6,94 @@ document.addEventListener('DOMContentLoaded', function () {
     const closeModal = document.querySelector('.close');
     const form = document.getElementById('contactForm');
     const responseMessage = document.getElementById('responseMessage');
-    const submitButton = form.querySelector('button[type="submit"]');
-    const submitText = submitButton.querySelector('.submit-text');
-    const loadingSpinner = submitButton.querySelector('.loading-spinner');
-    const clientCounters = document.querySelectorAll('.clients .counter');
-    const clientsSection = document.querySelector('.clients');
+
+    const submitButton = form ? form.querySelector('button[type="submit"]') : null;
+    const submitText = submitButton ? submitButton.querySelector('.submit-text') : null;
+    const loadingSpinner = submitButton ? submitButton.querySelector('.loading-spinner') : null;
 
     let lastScroll = 0;
 
-    // Переключение темы
+    function pushTrackingEvent(eventName, params = {}) {
+        window.dataLayer = window.dataLayer || [];
+        const payload = Object.assign({
+            event: eventName,
+            event_category: 'lead',
+            page_path: window.location.pathname
+        }, params);
+
+        window.dataLayer.push(payload);
+
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', eventName, params);
+        }
+
+        if (typeof window.ym === 'function') {
+            window.ym(100205864, 'reachGoal', eventName, params);
+        }
+    }
+
     const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    const theme = prefersDarkScheme.matches ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.setAttribute('data-theme', prefersDarkScheme.matches ? 'dark' : 'light');
 
-    // Анимация навигации при скролле
     window.addEventListener('scroll', function () {
+        if (!header) return;
         const currentScroll = window.scrollY;
-
         if (currentScroll > lastScroll && currentScroll > 100) {
             header.classList.add('scrolled');
         } else if (currentScroll < lastScroll) {
             header.classList.remove('scrolled');
         }
-
         lastScroll = currentScroll;
     });
 
-    // Параллакс-эффект для .hero
     window.addEventListener('scroll', () => {
         const hero = document.querySelector('.hero');
-        const scrollTop = window.pageYOffset;
-        hero.style.backgroundPosition = `center ${-scrollTop * 0.25}px`;
+        if (!hero) return;
+        hero.style.backgroundPosition = `center ${-window.pageYOffset * 0.25}px`;
     });
 
-    // Открытие формы по кнопке телефона
+    function openModal() {
+        if (modal) {
+            modal.style.display = 'flex';
+            pushTrackingEvent('order_click', { source: 'modal_open' });
+        }
+    }
+
+    function closeModalAction() {
+        if (modal) {
+            modal.style.display = 'none';
+        }
+    }
+
     if (phoneIcon) {
         phoneIcon.addEventListener('click', function (event) {
             event.preventDefault();
-            modal.style.display = 'flex';
+            openModal();
+            pushTrackingEvent('phone_click', { source: 'phone_floating_button' });
         });
     }
 
-    // Открытие формы по всем кнопкам с классом open-modal-button
-    const openModalButtons = document.querySelectorAll('.open-modal-button');
-    openModalButtons.forEach(button => {
+    document.querySelectorAll('.open-modal-button').forEach(button => {
         button.addEventListener('click', function (event) {
             event.preventDefault();
-            modal.style.display = 'flex';
+            openModal();
+            pushTrackingEvent('order_click', {
+                source: this.dataset.service || 'unknown_service',
+                button_text: this.textContent.trim()
+            });
         });
     });
 
-    // Закрытие формы
-    if (closeModal) {
-        closeModal.addEventListener('click', function () {
-            modal.style.display = 'none';
-        });
-    }
+    if (closeModal) closeModal.addEventListener('click', closeModalAction);
+    if (modalBackdrop) modalBackdrop.addEventListener('click', closeModalAction);
 
-    // Закрытие формы при клике на размытый фон
-    if (modalBackdrop) {
-        modalBackdrop.addEventListener('click', function () {
-            modal.style.display = 'none';
-        });
-    }
-
-    // Отправка формы
     if (form) {
         form.addEventListener('submit', function (event) {
             event.preventDefault();
 
-            // Показываем индикатор загрузки
-            submitText.style.display = 'none';
-            loadingSpinner.style.display = 'inline-block';
-            submitButton.disabled = true;
+            if (submitText) submitText.style.display = 'none';
+            if (loadingSpinner) loadingSpinner.style.display = 'inline-block';
+            if (submitButton) submitButton.disabled = true;
 
             const formData = new FormData(form);
             const name = formData.get('name');
@@ -87,58 +101,54 @@ document.addEventListener('DOMContentLoaded', function () {
 
             fetch('/submit', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ name, phone }),
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, phone })
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Ошибка сети');
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.success) {
-                    responseMessage.textContent = 'Спасибо! Мы свяжемся с вами в ближайшее время.';
-                    responseMessage.style.color = 'green';
-                    form.reset();
-                    setTimeout(() => {
-                        modal.style.display = 'none';
-                    }, 2000);
-                } else {
-                    responseMessage.textContent = 'Ошибка при отправке. Попробуйте ещё раз.';
-                    responseMessage.style.color = 'red';
-                }
-            })
-            .catch(error => {
-                console.error('Ошибка:', error);
-                responseMessage.textContent = 'Ошибка при отправке. Попробуйте ещё раз.';
-                responseMessage.style.color = 'red';
-            })
-            .finally(() => {
-                submitText.style.display = 'inline-block';
-                loadingSpinner.style.display = 'none';
-                submitButton.disabled = false;
-            });
+                .then(response => {
+                    if (!response.ok) throw new Error('Ошибка сети');
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        if (responseMessage) {
+                            responseMessage.textContent = 'Спасибо! Мы свяжемся с вами в ближайшее время.';
+                            responseMessage.style.color = 'green';
+                        }
+                        pushTrackingEvent('form_submit', {
+                            form_id: 'contactForm',
+                            lead_type: 'callback'
+                        });
+                        form.reset();
+                        setTimeout(closeModalAction, 2000);
+                    } else if (responseMessage) {
+                        responseMessage.textContent = 'Ошибка при отправке. Попробуйте ещё раз.';
+                        responseMessage.style.color = 'red';
+                    }
+                })
+                .catch(error => {
+                    console.error('Ошибка:', error);
+                    if (responseMessage) {
+                        responseMessage.textContent = 'Ошибка при отправке. Попробуйте ещё раз.';
+                        responseMessage.style.color = 'red';
+                    }
+                })
+                .finally(() => {
+                    if (submitText) submitText.style.display = 'inline-block';
+                    if (loadingSpinner) loadingSpinner.style.display = 'none';
+                    if (submitButton) submitButton.disabled = false;
+                });
         });
     }
 
-    // Плавная прокрутка к якорям
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
+            if (!target) return;
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     });
 
-    // Ленивая загрузка изображений
     document.querySelectorAll('img[data-src]').forEach(img => {
         const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
@@ -152,9 +162,8 @@ document.addEventListener('DOMContentLoaded', function () {
         observer.observe(img);
     });
 
-    // Ripple-эффект при клике на кнопках
     document.querySelectorAll('button, .cta-button, .service-button, .order-button').forEach(button => {
-        button.addEventListener('click', function(e) {
+        button.addEventListener('click', function (e) {
             const ripple = document.createElement('span');
             const rect = this.getBoundingClientRect();
             const size = Math.max(rect.width, rect.height);
@@ -175,33 +184,78 @@ document.addEventListener('DOMContentLoaded', function () {
                 z-index: 0;
             `;
             this.appendChild(ripple);
-
             ripple.addEventListener('animationend', () => ripple.remove());
         });
     });
 
-    // Анимация при скролле (появление элементов)
-    const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                obs.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
     document.querySelectorAll('.animate').forEach(element => {
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
         observer.observe(element);
+    });
+
+    document.querySelectorAll('[data-track]').forEach(element => {
+        element.addEventListener('click', function () {
+            const eventName = this.dataset.track;
+            pushTrackingEvent(eventName, {
+                service: this.dataset.service || undefined,
+                messenger: this.dataset.messenger || undefined,
+                text: this.textContent.trim()
+            });
+        });
+    });
+
+    document.querySelectorAll('.quick-order-form').forEach(formElement => {
+        formElement.addEventListener('submit', function (event) {
+            event.preventDefault();
+        });
+
+        const triggerButton = formElement.querySelector('.open-modal-button');
+        if (triggerButton) {
+            triggerButton.addEventListener('click', function () {
+                const quickName = formElement.querySelector('input[name="name"]');
+                const quickPhone = formElement.querySelector('input[name="phone"]');
+                if (form && quickName && quickPhone) {
+                    const modalName = form.querySelector('#name');
+                    const modalPhone = form.querySelector('#phone');
+                    if (modalName) modalName.value = quickName.value;
+                    if (modalPhone) modalPhone.value = quickPhone.value;
+                }
+                pushTrackingEvent('form_submit', {
+                    form_id: formElement.dataset.trackForm || 'quick_order',
+                    lead_type: 'pre_fill'
+                });
+            });
+        }
+    });
+
+    document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+        link.addEventListener('click', function () {
+            pushTrackingEvent('phone_click', { source: 'tel_link' });
+        });
+    });
+
+    document.querySelectorAll('a[href*="t.me"], a[href*="viber://"]').forEach(link => {
+        link.addEventListener('click', function () {
+            pushTrackingEvent('messenger_click', { source: this.href });
+        });
     });
 });
 
-// Анимация для ripple-эффекта
-const styleSheet = document.styleSheets[0];
-styleSheet.insertRule(`
-    @keyframes ripple {
-        to {
-            transform: scale(2);
-            opacity: 0;
+if (document.styleSheets.length > 0) {
+    const styleSheet = document.styleSheets[0];
+    styleSheet.insertRule(`
+        @keyframes ripple {
+            to {
+                transform: scale(2);
+                opacity: 0;
+            }
         }
-    }
-`, styleSheet.cssRules.length);
+    `, styleSheet.cssRules.length);
+}
