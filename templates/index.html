@@ -158,10 +158,10 @@
             <div class="carousel">
                 <div class="carousel-track" aria-label="Фотографии выполненных объектов">
                     {{range .Photos}}
-                    <img src="{{.}}" alt="фото с объекта" loading="lazy">
+                    <img src="{{.}}" alt="фото с объекта" decoding="async">
                     {{end}}
                     {{range .Photos}}
-                    <img src="{{.}}" alt="" aria-hidden="true" loading="lazy">
+                    <img src="{{.}}" alt="" aria-hidden="true" decoding="async">
                     {{end}}
                 </div>
             </div>
