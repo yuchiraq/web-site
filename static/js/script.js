@@ -49,6 +49,10 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', () => {
         const hero = document.querySelector('.hero');
         if (!hero) return;
+        if (window.innerWidth <= 768) {
+            hero.style.backgroundPosition = 'center';
+            return;
+        }
         hero.style.backgroundPosition = `center ${-window.pageYOffset * 0.25}px`;
     });
 
