@@ -255,10 +255,14 @@ main {
 
 @media (max-width: 768px) {
     .hero {
-        height: 80vh;
-        padding: 2rem 0;
-        background-attachment: scroll; /* Отключаем fixed для мобильных */
-        background-size: 250%; /* Увеличиваем масштаб для мобильных */
+        height: auto;
+        min-height: 92vh;
+        padding: 2.2rem 0 1.5rem;
+        align-items: flex-start;
+        background-image: url('/static/images/hero_mobile.png');
+        background-position: center;
+        background-size: cover;
+        background-attachment: scroll;
     }
 }
 
@@ -307,6 +311,27 @@ main {
     font-weight: 300;
 }
 
+
+.hero-accent {
+    color: #f4c91f;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hero-cta-secondary {
+    background: #f4d316;
+    color: #101010;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.hero-cta-secondary:hover {
+    color: #101010;
+}
 .cta-button {
     display: inline-block;
     background: var(--gradient);
@@ -364,18 +389,30 @@ main {
     }
 
     .hero h1 {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
+        font-size: 2.65rem;
+        line-height: 1.05;
+        margin: 0;
+        max-width: 10.5ch;
     }
 
     .hero p {
-        margin-top: 0;
-        font-size: 1.1rem;
-        margin-bottom: 0.7rem;
+        margin-top: 0.9rem;
+        font-size: 1.02rem;
+        line-height: 1.45;
+        margin-bottom: 1rem;
+        max-width: 27ch;
     }
 
-    .cta-button {
-        padding: 1rem;
+    .hero-actions {
+        display: grid;
+        gap: 0.7rem;
+        width: 100%;
+    }
+
+    .hero-actions .cta-button {
+        width: 100%;
+        text-align: center;
+        padding: 0.92rem 1rem;
         font-size: 1.1rem;
     }
 }
