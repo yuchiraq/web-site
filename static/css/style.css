@@ -246,7 +246,7 @@ main {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: url('/static/images/hero_new.jpg') no-repeat local center/cover;
+    background: url('/static/images/hero_new.webp') no-repeat local center/cover;
     background-attachment: scroll; /* Для параллакс-эффекта */
     background-size: cover;
     color: #FFFFFF;
