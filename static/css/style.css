@@ -1521,3 +1521,89 @@ main {
         padding-top: 1rem;
     }
 }
+<<<<<<< codex/conduct-full-website-audit-and-improvements-whsn2i
+
+/* Fixes after review: services mobile/layout and seamless project carousel */
+.service-hero__actions .cta-button,
+.service-hero__actions .messenger-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 46px;
+}
+
+.service-hero__actions .messenger-link {
+    min-width: 112px;
+}
+
+.quick-order-form,
+.quick-order-form label {
+    min-width: 0;
+}
+
+.quick-order-form input,
+.quick-order-form button {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .service-hero {
+        padding: 1rem 0 2rem;
+    }
+
+    .service-hero h1 {
+        font-size: 1.7rem;
+        line-height: 1.3;
+    }
+
+    .service-hero__lead {
+        font-size: 1rem;
+    }
+
+    .service-hero__actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+    }
+
+    .service-hero__actions .cta-button,
+    .service-hero__actions .messenger-link {
+        width: 100%;
+    }
+}
+
+.carousel {
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    animation: scrollLoop 24s linear infinite;
+}
+
+.carousel-track img {
+    flex: 0 0 auto;
+}
+
+@keyframes scrollLoop {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-track {
+        animation-duration: 9s;
+    }
+}
+=======
+>>>>>>> main
