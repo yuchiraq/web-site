@@ -1355,3 +1355,223 @@ main {
         font-size: 0.9rem;
     }
 }
+/* Service landing improvements */
+.service-hero {
+    padding: 1.5rem 0 2.5rem;
+}
+
+.service-hero__grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+}
+
+.service-hero__lead {
+    font-size: 1.1rem;
+    line-height: 1.65;
+    margin-bottom: 1rem;
+}
+
+.service-hero__benefits {
+    margin: 0 0 1.2rem;
+    padding-left: 1.1rem;
+}
+
+.service-hero__benefits li {
+    margin-bottom: 0.4rem;
+}
+
+.service-hero__actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem;
+}
+
+.service-hero__actions .cta-button,
+.service-hero__actions .messenger-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    min-height: 46px;
+    box-sizing: border-box;
+}
+
+.cta-button--secondary {
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.messenger-link {
+    padding: 0.75rem 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--divider-color);
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.service-hero__media {
+    min-width: 0;
+}
+
+.service-hero__media img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+}
+
+.service-trust,
+.quick-order,
+.faq-section {
+    padding: 2.1rem 0;
+}
+
+.trust-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.trust-grid article {
+    padding: 1.15rem;
+    border-radius: var(--border-radius);
+    background: var(--card-light);
+    box-shadow: var(--shadow-light);
+    border: var(--glass-border);
+}
+
+.service-steps {
+    padding-left: 1.1rem;
+}
+
+.quick-order__wrap {
+    background: var(--card-light);
+    box-shadow: var(--shadow-light);
+    border-radius: var(--border-radius);
+    border: var(--glass-border);
+    padding: 1.25rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+}
+
+.quick-order-form {
+    display: grid;
+    gap: 0.75rem;
+    min-width: 0;
+}
+
+.quick-order-form label {
+    display: grid;
+    gap: 0.35rem;
+    font-size: 0.95rem;
+    min-width: 0;
+}
+
+.quick-order-form input,
+.quick-order-form button {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.quick-order-form input {
+    padding: 0.75rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--divider-color);
+    font-size: 1rem;
+}
+
+.faq-section details {
+    background: var(--card-light);
+    border: var(--glass-border);
+    border-radius: var(--border-radius);
+    padding: 1rem 1.15rem;
+    margin-bottom: 0.7rem;
+}
+
+.faq-section summary {
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.faq-section p {
+    margin-top: 0.7rem;
+}
+
+@media (max-width: 992px) {
+    .service-hero__grid,
+    .quick-order__wrap,
+    .trust-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-hero {
+        padding: 1rem 0 1.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-hero h1 {
+        font-size: 1.55rem;
+        line-height: 1.28;
+        margin-bottom: 0.85rem;
+    }
+
+    .service-hero__lead {
+        font-size: 0.98rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .service-hero__benefits {
+        margin-bottom: 1rem;
+    }
+
+    .service-hero__actions {
+        grid-template-columns: 1fr;
+        gap: 0.55rem;
+    }
+
+    .service-hero__media {
+        order: -1;
+    }
+
+    .service-detail {
+        padding-top: 0.5rem;
+    }
+}
+
+/* Seamless project carousel */
+.carousel {
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    animation: scrollLoop 24s linear infinite;
+}
+
+.carousel-track img {
+    flex: 0 0 auto;
+}
+
+@keyframes scrollLoop {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+    .carousel-track {
+        animation-duration: 9s;
+    }
+}
