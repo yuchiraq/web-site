@@ -1521,6 +1521,7 @@ main {
         padding-top: 1rem;
     }
 }
+<<<<<<< codex/conduct-full-website-audit-and-improvements-whsn2i
 
 /* Fixes after review: services mobile/layout and seamless project carousel */
 .service-hero__actions .cta-button,
@@ -1604,3 +1605,5 @@ main {
         animation-duration: 9s;
     }
 }
+=======
+>>>>>>> main
