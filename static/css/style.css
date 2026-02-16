@@ -414,19 +414,13 @@ main {
 
 @media (max-width: 768px) {
     .hero-content {
-        width: 100%;
-        min-height: calc(100vh - 1.8rem);
-        padding: 0.6rem 0 0;
+        padding: 1.2rem 0;
         max-width: calc(100% - 1.5rem);
         background: transparent;
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
         border: none;
         box-shadow: none;
-        display: grid;
-        grid-template-rows: 1fr auto;
-        justify-items: center;
-        align-items: stretch;
     }
 
     .hero h1 {
@@ -459,6 +453,14 @@ main {
         display: grid;
         margin-bottom: 1.8rem;
         align-self: end;
+    }
+
+    .hero-actions-desktop {
+        display: none;
+    }
+
+    .hero-actions-mobile {
+        display: grid;
     }
 
     .hero-actions .cta-button {
