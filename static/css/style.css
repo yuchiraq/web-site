@@ -359,8 +359,8 @@ main {
 
 @media (max-width: 768px) {
     .hero-content {
-        padding: 2rem;
-        max-width: 70%;
+        padding: 1.2rem;
+        max-width: calc(100% - 1.5rem);
     }
 
     .hero h1 {
@@ -410,6 +410,14 @@ main {
     flex: 1;
 }
 
+.about-mobile-lead {
+    display: none;
+}
+
+.about-desktop-content {
+    display: block;
+}
+
 .about-text p {
     font-size: 1.1rem;
     line-height: 1.8;
@@ -448,25 +456,38 @@ main {
 
 @media (max-width: 768px) {
     .about {
-        padding: 0rem 0;
+        padding: 0;
     }
 
     .about h2 {
-        font-size: 2rem;
+        font-size: 1.65rem;
+        margin-bottom: 1rem;
     }
 
     .about-content {
         flex-direction: column;
-        padding: 1.5rem;
+        padding: 1rem;
+        gap: 1rem;
     }
 
     .about-image {
         max-width: 100%;
     }
 
-    .about-text p,
-    .about-text li {
-        font-size: 1rem;
+    .about-image img {
+        max-height: 180px;
+        object-fit: cover;
+    }
+
+    .about-mobile-lead {
+        display: block;
+        margin: 0;
+        font-size: 0.98rem;
+        line-height: 1.55;
+    }
+
+    .about-desktop-content {
+        display: none;
     }
 }
 
@@ -521,20 +542,35 @@ main {
 
 @media (max-width: 768px) {
     .features {
-        padding: 0rem 0;
+        padding: 0;
     }
 
     .features h2 {
-        font-size: 2rem;
+        font-size: 1.65rem;
+        margin-bottom: 0.8rem;
     }
 
     .feature-list {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 0.75rem;
     }
 
     .feature-item {
-        padding: 1.5rem;
+        padding: 1rem;
+    }
+
+    .feature-item h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.35rem;
+    }
+
+    .feature-item p {
+        font-size: 0.95rem;
+        margin: 0;
+    }
+
+    .feature-list .feature-item:nth-child(n+3) {
+        display: none;
     }
 }
 
@@ -648,20 +684,35 @@ main {
 
 @media (max-width: 768px) {
     .services {
-        padding: 2rem 0;
+        padding: 1.25rem 0 2rem;
     }
 
     .services h2 {
-        font-size: 2rem;
+        font-size: 1.65rem;
+        margin-bottom: 0.8rem;
     }
 
     .service-list {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 0.9rem;
     }
 
     .service-item {
-        padding: 1rem;
+        padding: 0.85rem;
+    }
+
+    .service-item img {
+        height: 150px;
+        margin-bottom: 0.6rem;
+    }
+
+    .service-item h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .service-item p {
+        display: none;
     }
 }
 
@@ -1541,6 +1592,10 @@ main {
     display: flex;
     width: max-content;
     will-change: transform;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     animation: scrollLoop 24s linear infinite;
 }
 

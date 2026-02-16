@@ -200,6 +200,29 @@ document.addEventListener('DOMContentLoaded', function () {
         observer.observe(element);
     });
 
+
+    const homepageCarouselTrack = document.querySelector('.projects .carousel-track');
+
+    function refreshHomepageCarousel() {
+        if (!homepageCarouselTrack || window.innerWidth > 768) return;
+        const style = window.getComputedStyle(homepageCarouselTrack);
+        if (style.display === 'none') return;
+        homepageCarouselTrack.style.animation = 'none';
+        void homepageCarouselTrack.offsetHeight;
+        homepageCarouselTrack.style.animation = '';
+    }
+
+    if (homepageCarouselTrack) {
+        window.addEventListener('pageshow', refreshHomepageCarousel);
+        window.addEventListener('orientationchange', refreshHomepageCarousel);
+        let carouselRefreshTimeout;
+        window.addEventListener('scroll', function () {
+            if (window.innerWidth > 768) return;
+            clearTimeout(carouselRefreshTimeout);
+            carouselRefreshTimeout = setTimeout(refreshHomepageCarousel, 120);
+        }, { passive: true });
+    }
+
     document.querySelectorAll('[data-track]').forEach(element => {
         element.addEventListener('click', function () {
             const eventName = this.dataset.track;
