@@ -271,7 +271,7 @@ main {
     background: url('/static/images/hero_new.webp') no-repeat local center/cover;
     background-attachment: scroll; /* Для параллакс-эффекта */
     background-size: cover;
-    color: #FFFFFF;
+    color: #FFFFFF !important;
     overflow: hidden;
 }
 
