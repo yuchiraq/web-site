@@ -205,6 +205,57 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
+    const projectImageModal = document.getElementById('projectImageModal');
+    const projectImageModalContent = document.getElementById('projectImageModalContent');
+    const projectImageCloseButton = document.querySelector('.project-image-close');
+
+    function openProjectImageModal(sourceImage) {
+        if (!projectImageModal || !projectImageModalContent || !sourceImage) return;
+        projectImageModalContent.src = sourceImage.currentSrc || sourceImage.src;
+        projectImageModalContent.alt = sourceImage.alt || 'Увеличенное изображение проекта';
+        projectImageModal.classList.add('is-open');
+        projectImageModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeProjectImageModal() {
+        if (!projectImageModal || !projectImageModalContent) return;
+        projectImageModal.classList.remove('is-open');
+        projectImageModal.setAttribute('aria-hidden', 'true');
+        projectImageModalContent.src = '';
+        document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.project-carousel-image').forEach(image => {
+        if (image.getAttribute('aria-hidden') === 'true') return;
+        image.addEventListener('click', () => openProjectImageModal(image));
+        image.addEventListener('keydown', event => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                openProjectImageModal(image);
+            }
+        });
+    });
+
+    if (projectImageCloseButton) {
+        projectImageCloseButton.addEventListener('click', closeProjectImageModal);
+    }
+
+    if (projectImageModal) {
+        projectImageModal.addEventListener('click', event => {
+            if (event.target.closest('[data-close-project-modal="true"]')) {
+                closeProjectImageModal();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && projectImageModal && projectImageModal.classList.contains('is-open')) {
+            closeProjectImageModal();
+        }
+    });
+
+
     const homepageCarouselTrack = document.querySelector('.projects .carousel-track');
 
     function refreshHomepageCarousel() {
