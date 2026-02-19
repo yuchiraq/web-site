@@ -986,6 +986,15 @@ main {
     .project-image-content img {
         max-height: calc(88vh - 1.2rem);
     }
+
+    .project-image-content {
+        width: 94vw;
+        padding: 0.6rem;
+    }
+
+    .project-image-content img {
+        max-height: calc(88vh - 1.2rem);
+    }
 }
 
 /* Наши клиенты (карусель и счетчик) */
