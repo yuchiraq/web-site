@@ -269,6 +269,9 @@ document.addEventListener('DOMContentLoaded', function () {
             if (track.closest('.carousel-row-secondary')) {
                 duration += isMobile ? 24 : 20;
             }
+            if (isMobile) {
+                duration *= 3;
+            }
             track.style.setProperty('--carousel-duration', `${duration}s`);
         });
     }
