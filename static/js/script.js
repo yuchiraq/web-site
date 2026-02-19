@@ -256,20 +256,40 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-    const homepageCarouselTrack = document.querySelector('.projects .carousel-track');
+    const homepageCarouselTracks = document.querySelectorAll('.projects .carousel-track');
 
-    function refreshHomepageCarousel() {
-        if (!homepageCarouselTrack || window.innerWidth > 768) return;
-        const style = window.getComputedStyle(homepageCarouselTrack);
-        if (style.display === 'none') return;
-        homepageCarouselTrack.style.animation = 'none';
-        void homepageCarouselTrack.offsetHeight;
-        homepageCarouselTrack.style.animation = '';
+    function setHomepageCarouselSpeed() {
+        homepageCarouselTracks.forEach(track => {
+            const visibleItemsCount = track.querySelectorAll('.project-carousel-image:not([aria-hidden="true"])').length;
+            if (!visibleItemsCount) return;
+            const isMobile = window.innerWidth <= 768;
+            const baseDuration = isMobile ? 58 : 44;
+            const itemFactor = isMobile ? 4.5 : 3.5;
+            let duration = Math.max(baseDuration, Math.round(visibleItemsCount * itemFactor));
+            if (track.closest('.carousel-row-secondary')) {
+                duration += isMobile ? 12 : 8;
+            }
+            track.style.setProperty('--carousel-duration', `${duration}s`);
+        });
     }
 
-    if (homepageCarouselTrack) {
+    function refreshHomepageCarousel() {
+        if (!homepageCarouselTracks.length) return;
+        setHomepageCarouselSpeed();
+        homepageCarouselTracks.forEach(track => {
+            const style = window.getComputedStyle(track);
+            if (style.display === 'none') return;
+            track.style.animation = 'none';
+            void track.offsetHeight;
+            track.style.animation = '';
+        });
+    }
+
+    if (homepageCarouselTracks.length) {
+        refreshHomepageCarousel();
         window.addEventListener('pageshow', refreshHomepageCarousel);
         window.addEventListener('orientationchange', refreshHomepageCarousel);
+        window.addEventListener('resize', refreshHomepageCarousel);
         let carouselRefreshTimeout;
         window.addEventListener('scroll', function () {
             if (window.innerWidth > 768) return;

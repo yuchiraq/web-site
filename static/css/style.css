@@ -839,11 +839,29 @@ main {
     position: relative;
     overflow: hidden;
     width: 100%;
+    display: grid;
+    gap: 0.9rem;
+}
+
+.carousel-row {
+    position: relative;
+    overflow: hidden;
 }
 
 .carousel-track {
     display: flex;
-    animation: scroll 44s linear infinite;
+    animation: scroll var(--carousel-duration, 56s) linear infinite;
+    will-change: transform;
+}
+
+.carousel-row-secondary {
+    display: none;
+}
+
+.carousel-row-secondary .carousel-track {
+    animation-direction: reverse;
+    animation-delay: -8s;
+    margin-left: -4rem;
 }
 
 .carousel-track img {
@@ -947,14 +965,26 @@ main {
         font-size: 2rem;
     }
 
-    .carousel-track {
-        display: flex;
-        animation: scroll 34s linear infinite;
+    .carousel {
+        gap: 0.6rem;
+    }
+
+    .carousel-row-secondary {
+        display: block;
     }
 
     .carousel-track img {
         width: auto;
-        height: 222px;
+        height: 172px;
+    }
+
+    .project-image-content {
+        width: 94vw;
+        padding: 0.6rem;
+    }
+
+    .project-image-content img {
+        max-height: calc(88vh - 1.2rem);
     }
 
     .project-image-content {
