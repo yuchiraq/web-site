@@ -1887,7 +1887,7 @@ main {
     }
 
     .carousel-track {
-        animation-duration: 9s;
+        animation-duration: 22s;
         transform: translate3d(0, 0, 0);
     }
 
