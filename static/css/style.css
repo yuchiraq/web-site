@@ -839,11 +839,29 @@ main {
     position: relative;
     overflow: hidden;
     width: 100%;
+    display: grid;
+    gap: 0.9rem;
+}
+
+.carousel-row {
+    position: relative;
+    overflow: hidden;
 }
 
 .carousel-track {
     display: flex;
-    animation: scroll 44s linear infinite;
+    animation: scroll var(--carousel-duration, 56s) linear infinite;
+    will-change: transform;
+}
+
+.carousel-row-secondary {
+    display: none;
+}
+
+.carousel-row-secondary .carousel-track {
+    animation-direction: reverse;
+    animation-delay: -8s;
+    margin-left: -4rem;
 }
 
 .carousel-track img {
@@ -854,6 +872,77 @@ main {
     margin-right: 1rem;
     box-shadow: var(--shadow-light);
     transition: transform 0.3s ease;
+}
+
+
+.carousel-track img:hover {
+    transform: translateY(-4px);
+}
+
+.project-carousel-image {
+    cursor: zoom-in;
+}
+
+.project-image-modal {
+    display: none;
+    position: fixed;
+    z-index: 1200;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-image-modal.is-open {
+    display: flex;
+}
+
+.project-image-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(var(--blur));
+    -webkit-backdrop-filter: blur(var(--blur));
+}
+
+.project-image-content {
+    position: relative;
+    z-index: 1;
+    width: min(92vw, 1080px);
+    max-height: 90vh;
+    border-radius: var(--border-radius);
+    border: var(--glass-border);
+    background: rgba(20, 24, 33, 0.35);
+    box-shadow: var(--glass-shadow);
+    padding: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-image-content img {
+    width: 100%;
+    max-height: calc(90vh - 1.7rem);
+    object-fit: contain;
+    border-radius: calc(var(--border-radius) - 4px);
+}
+
+.project-image-close {
+    position: absolute;
+    right: 0.45rem;
+    top: 0.2rem;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.project-image-close:hover {
+    background: var(--gradient);
 }
 
 
@@ -876,14 +965,26 @@ main {
         font-size: 2rem;
     }
 
-    .carousel-track {
-        display: flex;
-        animation: scroll 34s linear infinite;
+    .carousel {
+        gap: 0.6rem;
+    }
+
+    .carousel-row-secondary {
+        display: block;
     }
 
     .carousel-track img {
         width: auto;
-        height: 222px;
+        height: 172px;
+    }
+
+    .project-image-content {
+        width: 94vw;
+        padding: 0.6rem;
+    }
+
+    .project-image-content img {
+        max-height: calc(88vh - 1.2rem);
     }
 }
 
