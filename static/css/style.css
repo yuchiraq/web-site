@@ -840,7 +840,7 @@ main {
     overflow: hidden;
     width: 100%;
     display: grid;
-    gap: 0.9rem;
+    gap: 1rem;
 }
 
 .carousel-row {
@@ -854,19 +854,14 @@ main {
     will-change: transform;
 }
 
-.carousel-row-secondary {
-    display: none;
-}
-
 .carousel-row-secondary .carousel-track {
-    animation-direction: reverse;
-    animation-delay: -8s;
-    margin-left: -4rem;
+    animation-delay: -16s;
+    margin-left: -6rem;
 }
 
 .carousel-track img {
     width: auto;
-    height: 400px;
+    height: 280px;
     object-fit: cover;
     border-radius: var(--border-radius);
     margin-right: 1rem;
@@ -966,25 +961,16 @@ main {
     }
 
     .carousel {
-        gap: 0.6rem;
+        gap: 0.5rem;
     }
 
-    .carousel-row-secondary {
-        display: block;
+    .carousel-row-secondary .carousel-track {
+        margin-left: -2.5rem;
     }
 
     .carousel-track img {
         width: auto;
-        height: 172px;
-    }
-
-    .project-image-content {
-        width: 94vw;
-        padding: 0.6rem;
-    }
-
-    .project-image-content img {
-        max-height: calc(88vh - 1.2rem);
+        height: 140px;
     }
 
     .project-image-content {

@@ -263,11 +263,11 @@ document.addEventListener('DOMContentLoaded', function () {
             const visibleItemsCount = track.querySelectorAll('.project-carousel-image:not([aria-hidden="true"])').length;
             if (!visibleItemsCount) return;
             const isMobile = window.innerWidth <= 768;
-            const baseDuration = isMobile ? 58 : 44;
-            const itemFactor = isMobile ? 4.5 : 3.5;
+            const baseDuration = isMobile ? 180 : 120;
+            const itemFactor = isMobile ? 12 : 8;
             let duration = Math.max(baseDuration, Math.round(visibleItemsCount * itemFactor));
             if (track.closest('.carousel-row-secondary')) {
-                duration += isMobile ? 12 : 8;
+                duration += isMobile ? 24 : 20;
             }
             track.style.setProperty('--carousel-duration', `${duration}s`);
         });
