@@ -205,20 +205,91 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-    const homepageCarouselTrack = document.querySelector('.projects .carousel-track');
+    const projectImageModal = document.getElementById('projectImageModal');
+    const projectImageModalContent = document.getElementById('projectImageModalContent');
+    const projectImageCloseButton = document.querySelector('.project-image-close');
 
-    function refreshHomepageCarousel() {
-        if (!homepageCarouselTrack || window.innerWidth > 768) return;
-        const style = window.getComputedStyle(homepageCarouselTrack);
-        if (style.display === 'none') return;
-        homepageCarouselTrack.style.animation = 'none';
-        void homepageCarouselTrack.offsetHeight;
-        homepageCarouselTrack.style.animation = '';
+    function openProjectImageModal(sourceImage) {
+        if (!projectImageModal || !projectImageModalContent || !sourceImage) return;
+        projectImageModalContent.src = sourceImage.currentSrc || sourceImage.src;
+        projectImageModalContent.alt = sourceImage.alt || 'Увеличенное изображение проекта';
+        projectImageModal.classList.add('is-open');
+        projectImageModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
     }
 
-    if (homepageCarouselTrack) {
+    function closeProjectImageModal() {
+        if (!projectImageModal || !projectImageModalContent) return;
+        projectImageModal.classList.remove('is-open');
+        projectImageModal.setAttribute('aria-hidden', 'true');
+        projectImageModalContent.src = '';
+        document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.project-carousel-image').forEach(image => {
+        if (image.getAttribute('aria-hidden') === 'true') return;
+        image.addEventListener('click', () => openProjectImageModal(image));
+        image.addEventListener('keydown', event => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                openProjectImageModal(image);
+            }
+        });
+    });
+
+    if (projectImageCloseButton) {
+        projectImageCloseButton.addEventListener('click', closeProjectImageModal);
+    }
+
+    if (projectImageModal) {
+        projectImageModal.addEventListener('click', event => {
+            if (event.target.closest('[data-close-project-modal="true"]')) {
+                closeProjectImageModal();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && projectImageModal && projectImageModal.classList.contains('is-open')) {
+            closeProjectImageModal();
+        }
+    });
+
+
+    const homepageCarouselTracks = document.querySelectorAll('.projects .carousel-track');
+
+    function setHomepageCarouselSpeed() {
+        homepageCarouselTracks.forEach(track => {
+            const visibleItemsCount = track.querySelectorAll('.project-carousel-image:not([aria-hidden="true"])').length;
+            if (!visibleItemsCount) return;
+            const isMobile = window.innerWidth <= 768;
+            const baseDuration = isMobile ? 180 : 120;
+            const itemFactor = isMobile ? 12 : 8;
+            let duration = Math.max(baseDuration, Math.round(visibleItemsCount * itemFactor));
+            if (track.closest('.carousel-row-secondary')) {
+                duration += isMobile ? 24 : 20;
+            }
+            track.style.setProperty('--carousel-duration', `${duration}s`);
+        });
+    }
+
+    function refreshHomepageCarousel() {
+        if (!homepageCarouselTracks.length) return;
+        setHomepageCarouselSpeed();
+        homepageCarouselTracks.forEach(track => {
+            const style = window.getComputedStyle(track);
+            if (style.display === 'none') return;
+            track.style.animation = 'none';
+            void track.offsetHeight;
+            track.style.animation = '';
+        });
+    }
+
+    if (homepageCarouselTracks.length) {
+        refreshHomepageCarousel();
         window.addEventListener('pageshow', refreshHomepageCarousel);
         window.addEventListener('orientationchange', refreshHomepageCarousel);
+        window.addEventListener('resize', refreshHomepageCarousel);
         let carouselRefreshTimeout;
         window.addEventListener('scroll', function () {
             if (window.innerWidth > 768) return;
