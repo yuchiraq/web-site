@@ -21,26 +21,32 @@ func indexHandler(c *gin.Context) {
 	})
 }
 
-
 func getProjectPhotos() []string {
-	// Get photos for the carousel
-	photoPath := "static/images/photos"
-	files, err := os.ReadDir(photoPath)
-	if err != nil {
-		// Log the error and continue without photos
-		fmt.Println("Error reading photos directory:", err)
+	projectPhotosOnce.Do(func() {
+		photoPath := "static/images/photos"
+		files, err := os.ReadDir(photoPath)
+		if err != nil {
+			fmt.Println("Error reading photos directory:", err)
+			projectPhotos = []string{}
+			return
+		}
+
+		photos := make([]string, 0, len(files))
+		for _, file := range files {
+			if !file.IsDir() {
+				photos = append(photos, filepath.ToSlash(filepath.Join("/", "static", "images", "photos", file.Name())))
+			}
+		}
+		projectPhotos = photos
+	})
+
+	if len(projectPhotos) == 0 {
 		return nil
 	}
 
-	var photos []string
-	for _, file := range files {
-		if !file.IsDir() {
-			// Use filepath.ToSlash for cross-platform compatibility
-			photos = append(photos, filepath.ToSlash(filepath.Join("/", "static", "images", "photos", file.Name())))
-		}
-	}
+	photos := make([]string, len(projectPhotos))
+	copy(photos, projectPhotos)
 
-	// Shuffle photos
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 	r.Shuffle(len(photos), func(i, j int) {
 		photos[i], photos[j] = photos[j], photos[i]
