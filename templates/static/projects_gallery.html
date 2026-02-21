@@ -1,0 +1,38 @@
+{{ define "projects_gallery" }}
+<section class="projects">
+    <div class="container">
+        <h2 data-aos="fade-up">Наши проекты</h2>
+    </div>
+    <div class="carousel">
+        <div class="carousel-row carousel-row-primary">
+            <div class="carousel-track" aria-label="Фотографии выполненных объектов">
+                {{range .Photos}}
+                <img src="{{.}}" alt="фото с объекта" decoding="async" class="project-carousel-image" tabindex="0" role="button" aria-label="Открыть фото в полном размере">
+                {{end}}
+                {{range .Photos}}
+                <img src="{{.}}" alt="" aria-hidden="true" decoding="async" class="project-carousel-image" tabindex="-1">
+                {{end}}
+            </div>
+        </div>
+
+        <div class="carousel-row carousel-row-secondary">
+            <div class="carousel-track" aria-label="Дополнительная строка фотографий выполненных объектов">
+                {{range .Photos}}
+                <img src="{{.}}" alt="фото с объекта" decoding="async" class="project-carousel-image" tabindex="0" role="button" aria-label="Открыть фото в полном размере">
+                {{end}}
+                {{range .Photos}}
+                <img src="{{.}}" alt="" aria-hidden="true" decoding="async" class="project-carousel-image" tabindex="-1">
+                {{end}}
+            </div>
+        </div>
+    </div>
+
+    <div id="projectImageModal" class="project-image-modal" aria-hidden="true" role="dialog" aria-label="Просмотр изображения">
+        <div class="project-image-backdrop" data-close-project-modal="true"></div>
+        <div class="project-image-content">
+            <button type="button" class="project-image-close" aria-label="Закрыть просмотр">&times;</button>
+            <img id="projectImageModalContent" src="" alt="Увеличенное изображение проекта">
+        </div>
+    </div>
+</section>
+{{ end }}

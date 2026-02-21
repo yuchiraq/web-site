@@ -13,17 +13,23 @@ import (
 
 func indexHandler(c *gin.Context) {
 	title := "ЧСУП АВАЮССТРОЙ | Строительство в Бресте" // Title for the main page
+	photos := getProjectPhotos()
 
+	c.HTML(http.StatusOK, "index.html", gin.H{
+		"Title":  title,
+		"Photos": photos,
+	})
+}
+
+
+func getProjectPhotos() []string {
 	// Get photos for the carousel
 	photoPath := "static/images/photos"
 	files, err := os.ReadDir(photoPath)
 	if err != nil {
 		// Log the error and continue without photos
 		fmt.Println("Error reading photos directory:", err)
-		c.HTML(http.StatusOK, "index.html", gin.H{
-			"Title": title,
-		})
-		return
+		return nil
 	}
 
 	var photos []string
@@ -40,8 +46,5 @@ func indexHandler(c *gin.Context) {
 		photos[i], photos[j] = photos[j], photos[i]
 	})
 
-	c.HTML(http.StatusOK, "index.html", gin.H{
-		"Title":  title,
-		"Photos": photos,
-	})
+	return photos
 }

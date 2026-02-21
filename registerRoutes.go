@@ -65,9 +65,15 @@ func registerRoutes(router *gin.Engine) error {
 				if title == "" {
 					title = "ЧСУП АВАЮССТРОЙ"
 				}
-				c.HTML(http.StatusOK, filepath.Base(path), gin.H{
+
+				data := gin.H{
 					"Title": title,
-				})
+				}
+				if strings.HasPrefix(route, "/services") {
+					data["Photos"] = getProjectPhotos()
+				}
+
+				c.HTML(http.StatusOK, filepath.Base(path), data)
 			})
 			fmt.Printf("Зарегистрирован маршрут: %s\n", route)
 		}
