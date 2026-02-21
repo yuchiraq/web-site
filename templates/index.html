@@ -97,7 +97,7 @@
                         </div>
                     </div>
                     <div class="about-image">
-                        <img src="/static/images/visitka.jpg" alt="О компании">
+                        <img src="/static/images/visitka.jpg" alt="О компании" loading="lazy" decoding="async" width="654" height="654">
                     </div>
                 </div>
             </div>
@@ -134,25 +134,25 @@
                 <h2 data-aos="fade-up">Наши услуги</h2>
                 <div class="service-list">
                     <div class="service-item" data-aos="fade-up" data-aos-delay="100">
-                        <img src="/static/images/water_lowering/cover.jpg" alt="Водопонижение">
+                        <img src="/static/images/water_lowering/cover.jpg" alt="Водопонижение" loading="lazy" decoding="async" width="860" height="575">
                         <h3>Водопонижение</h3>
                         <p>Понижаем уровень грунтовых вод.</p>
                         <a href="/services/water_lowering" class="service-button">Подробнее</a>
                     </div>
                     <div class="service-item" data-aos="fade-up" data-aos-delay="200">
-                        <img src="/static/images/plumbing/cover.jpg" alt="Водопровод">
+                        <img src="/static/images/plumbing/cover.jpg" alt="Водопровод" loading="lazy" decoding="async" width="860" height="575">
                         <h3>Водопровод</h3>
                         <p>Проектирование и монтаж водопроводных систем.</p>
                         <a href="/services/plumbing" class="service-button">Подробнее</a>
                     </div>
                     <div class="service-item" data-aos="fade-up" data-aos-delay="300">
-                        <img src="/static/images/sewerage/cover.jpg" alt="Канализация">
+                        <img src="/static/images/sewerage/cover.jpg" alt="Канализация" loading="lazy" decoding="async" width="860" height="575">
                         <h3>Канализация</h3>
                         <p>Устройство и обслуживание канализационных систем.</p>
                         <a href="/services/sewerage" class="service-button">Подробнее</a>
                     </div>
                     <div class="service-item" data-aos="fade-up" data-aos-delay="400">
-                        <img src="/static/images/cars/lgce.jpg" alt="Аренда техники">
+                        <img src="/static/images/cars/lgce.jpg" alt="Аренда техники" loading="lazy" decoding="async" width="1280" height="720">
                         <h3>Аренда техники</h3>
                         <p>Аренда экскаваторов, погрузчиков и другой спецтехники.</p>
                         <a href="/rent" class="service-button">Подробнее</a>
@@ -170,10 +170,10 @@
                 <div class="carousel-row carousel-row-primary">
                     <div class="carousel-track" aria-label="Фотографии выполненных объектов">
                         {{range .Photos}}
-                        <img src="{{.}}" alt="фото с объекта" decoding="async" class="project-carousel-image" tabindex="0" role="button" aria-label="Открыть фото в полном размере">
+                        <img src="{{.}}" alt="фото с объекта" loading="lazy" decoding="async" class="project-carousel-image" tabindex="0" role="button" aria-label="Открыть фото в полном размере">
                         {{end}}
                         {{range .Photos}}
-                        <img src="{{.}}" alt="" aria-hidden="true" decoding="async" class="project-carousel-image" tabindex="-1">
+                        <img src="{{.}}" alt="" aria-hidden="true" loading="lazy" decoding="async" class="project-carousel-image" tabindex="-1">
                         {{end}}
                     </div>
                 </div>
@@ -181,10 +181,10 @@
                 <div class="carousel-row carousel-row-secondary">
                     <div class="carousel-track" aria-label="Дополнительная строка фотографий выполненных объектов">
                         {{range .Photos}}
-                        <img src="{{.}}" alt="фото с объекта" decoding="async" class="project-carousel-image" tabindex="0" role="button" aria-label="Открыть фото в полном размере">
+                        <img src="{{.}}" alt="фото с объекта" loading="lazy" decoding="async" class="project-carousel-image" tabindex="0" role="button" aria-label="Открыть фото в полном размере">
                         {{end}}
                         {{range .Photos}}
-                        <img src="{{.}}" alt="" aria-hidden="true" decoding="async" class="project-carousel-image" tabindex="-1">
+                        <img src="{{.}}" alt="" aria-hidden="true" loading="lazy" decoding="async" class="project-carousel-image" tabindex="-1">
                         {{end}}
                     </div>
                 </div>

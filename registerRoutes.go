@@ -5,9 +5,16 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"sort"
 	"strings"
+	"sync"
 
 	"github.com/gin-gonic/gin"
+)
+
+var (
+	projectPhotos     []string
+	projectPhotosOnce sync.Once
 )
 
 // Функция для загрузки шаблонов
@@ -25,6 +32,7 @@ func loadTemplates(engine *gin.Engine) error {
 	if err != nil {
 		return err
 	}
+	sort.Strings(files)
 	engine.LoadHTMLFiles(files...)
 	return nil
 }
@@ -58,6 +66,7 @@ func registerRoutes(router *gin.Engine) error {
 			route := strings.TrimPrefix(path, "templates/")
 			route = strings.TrimSuffix(route, ".html")
 			route = "/" + route
+			templateName := filepath.Base(path)
 
 			// Регистрируем маршрут
 			router.GET(route, func(c *gin.Context) {
@@ -73,7 +82,7 @@ func registerRoutes(router *gin.Engine) error {
 					data["Photos"] = getProjectPhotos()
 				}
 
-				c.HTML(http.StatusOK, filepath.Base(path), data)
+				c.HTML(http.StatusOK, templateName, data)
 			})
 			fmt.Printf("Зарегистрирован маршрут: %s\n", route)
 		}
