@@ -34,16 +34,18 @@ type Settings struct {
 
 var settings Settings
 
-func init() {
+func loadSettings() error {
 	// Загрузка настроек из settings.json
 	file, err := os.ReadFile("settings.json")
 	if err != nil {
-		log.Fatalf("Ошибка чтения settings.json: %v", err)
+		return err
 	}
 
 	if err := json.Unmarshal(file, &settings); err != nil {
-		log.Fatalf("Ошибка разбора settings.json: %v", err)
+		return err
 	}
+
+	return nil
 }
 
 func submitHandler(c *gin.Context) {
@@ -71,9 +73,13 @@ func submitHandler(c *gin.Context) {
 	}*/
 
 	// Отправляем уведомление в Telegram всем указанным чатам
-	for _, chatID := range settings.Telegram.ChatIDs {
-		if err := sendTelegramMessage(chatID, req.Name, req.Phone); err != nil {
-			log.Printf("Ошибка при отправке Telegram-уведомления в чат %s: %v", chatID, err)
+	if settings.Telegram.BotToken == "" || len(settings.Telegram.ChatIDs) == 0 {
+		log.Printf("Предупреждение: Telegram не настроен, уведомления не отправлены")
+	} else {
+		for _, chatID := range settings.Telegram.ChatIDs {
+			if err := sendTelegramMessage(chatID, req.Name, req.Phone); err != nil {
+				log.Printf("Ошибка при отправке Telegram-уведомления в чат %s: %v", chatID, err)
+			}
 		}
 	}
 
