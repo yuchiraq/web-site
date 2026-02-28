@@ -2976,175 +2976,29 @@ main {
     margin-top: 0.75rem;
 }
 
- (max-width: 992px) {
-
-.service-hero__geo {
-    margin: 0 0 0.75rem;
-    font-weight: 500;
-}
-
-.topas-hero-points {
-    list-style: none;
-    padding-left: 0;
-}
-
-.topas-hero-points li {
-    position: relative;
-    padding-left: 1.25rem;
-}
-
-.topas-hero-points li::before {
-    content: "✔";
-    position: absolute;
-    left: 0;
-    color: var(--primary-color);
-    font-weight: 700;
-}
-
-.topas-compare .topas-subtitle {
-    margin-top: 1.4rem;
-}
-
-.topas-compare-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-}
-
-.topas-compare-card ul {
-    margin: 0;
-    padding-left: 1.1rem;
-}
-
-.topas-compare-card--bad {
-    border-left: 4px solid #c62828;
-}
-
-.topas-compare-card--good {
-    border-left: 4px solid var(--primary-color);
-}
-
-.topas-mod-grid .price-card {
-    min-height: 180px;
-}
-
-.topas-lead-list {
-    margin: 0.75rem 0 0;
-    padding-left: 1.1rem;
-}
-
-.topas-lead-list li {
-    margin-bottom: 0.35rem;
-}
-
-@media    .service-hero__grid,
-    .quick-order__wrap,
-    .trust-grid,
-    .cases-grid,
-    .problem-grid,
-    .reuse-grid,
-    .pricing-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .service-hero {
-        padding-top: 1rem;
-    }
-
-    .topas-compare-grid {
-        grid-template-columns: 1fr;
-    }
-}
-.carousel {
-    width: 100%;
-    overflow: hidden;
-}
-
-.carousel-track {
-    display: flex;
-    width: max-content;
-    will-change: transform;
-    transform: translate3d(0, 0, 0);
-    -webkit-transform: translate3d(0, 0, 0);
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    animation: scrollLoop 24s linear infinite;
-}
-
-.carousel-track img {
-    flex: 0 0 auto;
-    display: block;
-}
-
-@keyframes scrollLoop {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-50%);
-    }
-}
 
 @media (max-width: 768px) {
-    .carousel {
-        min-height: 222px;
+    .service-hero__actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
     }
 
-    .carousel-track {
-        animation-duration: 22s;
-        transform: translate3d(0, 0, 0);
+    .service-hero__actions .cta-button,
+    .service-hero__actions .messenger-link {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        text-align: center;
     }
 
-    .service-hero {
-        padding: 2.5rem 0;
-        color: #fff;
-    }
-
-    .service-hero--water,
-    .service-hero--topas {
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
-    .service-hero--water {
-        background-image: url("/static/images/water_lowering/cover.png");
-    }
-
-    .service-hero--topas {
-        background-image: url("/static/images/topas/cover.jpg");
-    }
-
-    .service-hero--water::before,
-    .service-hero--topas::before {
-        opacity: 1;
-        background: linear-gradient(135deg, rgba(8, 28, 52, 0.85), rgba(8, 28, 52, 0.55));
-    }
-
-    .service-hero__grid {
-        position: relative;
-        z-index: 1;
-    }
-
-    .service-hero__lead,
-    .service-hero__benefits li,
-    .service-hero__geo {
-        color: rgba(255, 255, 255, 0.94);
-    }
-
-    .service-hero__media {
-        display: none;
-    }
-
-    .service-hero .cta-button--secondary {
-        border-color: rgba(255, 255, 255, 0.8);
-        color: #fff;
-    }
-
-    .service-hero .messenger-link {
-        border-color: rgba(255, 255, 255, 0.45);
-        color: #fff;
-        background: rgba(255, 255, 255, 0.08);
+    .problem-grid article,
+    .price-card,
+    .case-card,
+    .trust-grid article,
+    .quick-order-form label,
+    .faq-section details {
+        min-width: 0;
+        overflow-wrap: anywhere;
     }
 }
-
