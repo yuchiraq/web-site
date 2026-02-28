@@ -3002,3 +3002,131 @@ main {
         overflow-wrap: anywhere;
     }
 }
+
+/* Mobile readability fixes for service pages (water lowering + topas) */
+@media (max-width: 768px) {
+    .service-hero--water,
+    .service-hero--topas {
+        background-image: none;
+        color: var(--text-light);
+        padding: 1.25rem 0 1.6rem;
+    }
+
+    .service-hero--water::before,
+    .service-hero--topas::before {
+        display: none;
+    }
+
+    .service-hero--water .service-hero__media,
+    .service-hero--topas .service-hero__media {
+        display: block;
+        margin-top: 0.75rem;
+    }
+
+    .service-hero--water .service-hero__media img,
+    .service-hero--topas .service-hero__media img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+    }
+
+    .service-hero h1 {
+        font-size: 1.7rem;
+        line-height: 1.2;
+        margin-bottom: 0.7rem;
+    }
+
+    .service-hero__lead {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 0.65rem;
+    }
+
+    .service-hero__benefits li,
+    .service-problem p,
+    .service-solution p,
+    .service-trust li,
+    .price-card__text,
+    .faq-section p,
+    .quick-order-form label {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .service-problem h2,
+    .service-solution h2,
+    .service-pricing h2,
+    .service-trust h2,
+    .quick-order h2,
+    .faq-section h2,
+    .service-gallery h2 {
+        font-size: 1.45rem;
+        line-height: 1.25;
+        margin-bottom: 0.8rem;
+    }
+
+    .service-problem,
+    .service-solution,
+    .service-pricing,
+    .service-trust,
+    .quick-order,
+    .faq-section,
+    .service-gallery {
+        padding: 1.5rem 0;
+    }
+
+    .service-problem .container,
+    .service-solution .container,
+    .service-pricing .container,
+    .service-trust .container,
+    .quick-order .container,
+    .faq-section .container,
+    .service-gallery .container,
+    .service-hero .container {
+        max-width: 100%;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .problem-grid article,
+    .price-card,
+    .case-card,
+    .trust-grid article,
+    .quick-order__wrap,
+    .faq-section details {
+        padding: 0.9rem;
+    }
+
+    .quick-order__wrap {
+        gap: 0.9rem;
+    }
+}
+
+/* Responsive grid fallback for service pages */
+@media (max-width: 992px) {
+    .service-hero__grid,
+    .quick-order__wrap,
+    .trust-grid,
+    .cases-grid,
+    .problem-grid,
+    .reuse-grid,
+    .pricing-grid,
+    .topas-compare-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-order__wrap {
+        padding: 1rem;
+    }
+}
+
+.quick-order-form input {
+    box-sizing: border-box;
+}
+
+.carousel,
+.carousel-row,
+.projects {
+    overflow-x: hidden;
+}
