@@ -361,6 +361,36 @@ document.addEventListener('DOMContentLoaded', function () {
             pushTrackingEvent('messenger_click', { source: this.href });
         });
     });
+
+    const clientCounters = document.querySelectorAll('.trusted-clients .counter[data-target]');
+    if (clientCounters.length) {
+        const animateCounter = counter => {
+            const target = Number(counter.dataset.target) || 0;
+            const duration = 1400;
+            const start = performance.now();
+
+            const step = now => {
+                const progress = Math.min((now - start) / duration, 1);
+                const value = Math.floor(progress * target);
+                counter.textContent = String(value);
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                }
+            };
+
+            requestAnimationFrame(step);
+        };
+
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                animateCounter(entry.target);
+                observer.unobserve(entry.target);
+            });
+        }, { threshold: 0.45 });
+
+        clientCounters.forEach(counter => counterObserver.observe(counter));
+    }
 });
 
 const localStyleSheet = Array.from(document.styleSheets).find(sheet => {
