@@ -12,13 +12,31 @@ import (
 )
 
 func indexHandler(c *gin.Context) {
-	title := "ЧСУП АВАЮССТРОЙ | Строительство в Бресте" // Title for the main page
+	title := "ЧСУП АВАЮССТРОЙ | Строительство в Бресте"
 	photos := getProjectPhotos()
+	secondaryPhotos := getSecondaryProjectPhotos(photos)
 
 	c.HTML(http.StatusOK, "index.html", gin.H{
-		"Title":  title,
-		"Photos": photos,
+		"Title":           title,
+		"Photos":          photos,
+		"PhotosSecondary": secondaryPhotos,
 	})
+}
+
+func getSecondaryProjectPhotos(primary []string) []string {
+	if len(primary) == 0 {
+		return nil
+	}
+
+	secondary := make([]string, len(primary))
+	copy(secondary, primary)
+
+	if len(secondary) == 1 {
+		return secondary
+	}
+
+	shift := len(secondary) / 2
+	return append(secondary[shift:], secondary[:shift]...)
 }
 
 func getProjectPhotos() []string {

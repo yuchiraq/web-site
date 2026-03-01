@@ -3130,3 +3130,94 @@ main {
 .projects {
     overflow-x: hidden;
 }
+
+/* TOPAS informative block on homepage */
+.topas-info {
+    padding: 2rem 0 1rem;
+}
+
+.topas-info__grid {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 1.4rem;
+    align-items: center;
+    background: var(--card-light);
+    border: var(--glass-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    padding: 1.2rem;
+}
+
+.topas-info__media img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    object-fit: cover;
+}
+
+.topas-info__content h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.85rem;
+    line-height: 1.25;
+}
+
+.topas-info__content p {
+    margin: 0 0 0.7rem;
+    font-size: 1.05rem;
+}
+
+.topas-info__list {
+    margin: 0;
+    padding-left: 1.05rem;
+}
+
+.topas-info__list li {
+    margin-bottom: 0.45rem;
+    line-height: 1.5;
+}
+
+.topas-info__actions {
+    margin-top: 0.9rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .topas-info {
+        padding: 1.2rem 0 0.5rem;
+    }
+
+    .topas-info__grid {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+        padding: 0.9rem;
+    }
+
+    .topas-info__content h2 {
+        font-size: 1.35rem;
+        line-height: 1.25;
+    }
+
+    .topas-info__content p,
+    .topas-info__list li {
+        font-size: 0.94rem;
+        line-height: 1.45;
+    }
+
+    .topas-info__actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.55rem;
+    }
+
+    .topas-info__actions .service-button,
+    .topas-info__actions .cta-button {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+}

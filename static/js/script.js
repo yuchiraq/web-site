@@ -277,11 +277,11 @@ document.addEventListener('DOMContentLoaded', function () {
             const visibleItemsCount = track.querySelectorAll('.project-carousel-image:not([aria-hidden="true"])').length;
             if (!visibleItemsCount) return;
             const isMobile = window.innerWidth <= 768;
-            const baseDuration = isMobile ? 180 : 120;
-            const itemFactor = isMobile ? 12 : 8;
+            const baseDuration = isMobile ? 180 : 72;
+            const itemFactor = isMobile ? 12 : 5;
             let duration = Math.max(baseDuration, Math.round(visibleItemsCount * itemFactor));
             if (track.closest('.carousel-row-secondary')) {
-                duration += isMobile ? 24 : 20;
+                duration += isMobile ? 24 : 8;
             }
             if (isMobile) {
                 duration *= 3;
