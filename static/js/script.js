@@ -366,7 +366,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (clientCounters.length) {
         const animateCounter = counter => {
             const target = Number(counter.dataset.target) || 0;
-            const duration = 1400;
+            const duration = 60000;
             const start = performance.now();
 
             const step = now => {
