@@ -2072,6 +2072,46 @@ main {
     min-height: 180px;
 }
 
+.topas-models {
+    background: linear-gradient(180deg, rgba(30, 136, 229, 0.06), transparent);
+}
+
+.topas-models-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.topas-model-card {
+    background: var(--card-light);
+    border: var(--glass-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    padding: 1rem;
+}
+
+.topas-model-card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+}
+
+.topas-model-card p {
+    margin: 0 0 0.65rem;
+}
+
+.topas-model-card ul {
+    margin: 0;
+    padding-left: 1rem;
+    display: grid;
+    gap: 0.3rem;
+}
+
+.topas-models-note {
+    margin-top: 0.9rem;
+    font-size: 0.92rem;
+}
+
 .topas-lead-list {
     margin: 0.75rem 0 0;
     padding-left: 1.1rem;
@@ -3231,6 +3271,15 @@ main {
 
     .quick-order__wrap {
         gap: 0.9rem;
+    }
+
+    .topas-models-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .topas-model-card {
+        padding: 0.85rem;
     }
 }
 
