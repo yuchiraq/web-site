@@ -205,6 +205,16 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+
+    const seasonalRentImages = document.querySelectorAll('.seasonal-rent-image[data-summer-src][data-winter-src]');
+    if (seasonalRentImages.length) {
+        const month = new Date().getMonth() + 1;
+        const isWinter = month === 12 || month <= 2;
+        seasonalRentImages.forEach(image => {
+            image.src = isWinter ? image.dataset.winterSrc : image.dataset.summerSrc;
+        });
+    }
+
     const animatedElements = document.querySelectorAll('.animate');
     if (animatedElements.length) {
         const animationObserver = new IntersectionObserver((entries, obs) => {
