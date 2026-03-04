@@ -1503,6 +1503,33 @@ main {
     margin: 0 1rem 1rem;
 }
 
+
+.rent-card-image-wrap {
+    position: relative;
+}
+
+.rent-price-tag {
+    position: absolute;
+    top: 0.85rem;
+    right: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+    background: linear-gradient(135deg, #ff6b35, #ff8f1f);
+    box-shadow: 0 8px 20px rgba(255, 107, 53, 0.35);
+    z-index: 2;
+}
+
+[data-theme="dark"] .rent-price-tag {
+    box-shadow: 0 8px 20px rgba(255, 143, 31, 0.25);
+}
+
 @media (max-width: 768px) {
     .boxes-list {
         grid-template-columns: 1fr;
