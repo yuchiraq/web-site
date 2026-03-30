@@ -145,7 +145,6 @@ main {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--secondary-color);
-    -webkit-text-stroke: 0.5px var(--text-light);
     transition: color 0.3s ease;
 }
 
