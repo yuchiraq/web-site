@@ -1503,6 +1503,33 @@ main {
     margin: 0 1rem 1rem;
 }
 
+
+.rent-card-image-wrap {
+    position: relative;
+}
+
+.rent-price-tag {
+    position: absolute;
+    top: 0.85rem;
+    right: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+    background: linear-gradient(135deg, #ff6b35, #ff8f1f);
+    box-shadow: 0 8px 20px rgba(255, 107, 53, 0.35);
+    z-index: 2;
+}
+
+[data-theme="dark"] .rent-price-tag {
+    box-shadow: 0 8px 20px rgba(255, 143, 31, 0.25);
+}
+
 @media (max-width: 768px) {
     .boxes-list {
         grid-template-columns: 1fr;
@@ -2043,6 +2070,46 @@ main {
 
 .topas-mod-grid .price-card {
     min-height: 180px;
+}
+
+.topas-models {
+    background: linear-gradient(180deg, rgba(30, 136, 229, 0.06), transparent);
+}
+
+.topas-models-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.topas-model-card {
+    background: var(--card-light);
+    border: var(--glass-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    padding: 1rem;
+}
+
+.topas-model-card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+}
+
+.topas-model-card p {
+    margin: 0 0 0.65rem;
+}
+
+.topas-model-card ul {
+    margin: 0;
+    padding-left: 1rem;
+    display: grid;
+    gap: 0.3rem;
+}
+
+.topas-models-note {
+    margin-top: 0.9rem;
+    font-size: 0.92rem;
 }
 
 .topas-lead-list {
@@ -3204,6 +3271,15 @@ main {
 
     .quick-order__wrap {
         gap: 0.9rem;
+    }
+
+    .topas-models-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .topas-model-card {
+        padding: 0.85rem;
     }
 }
 

@@ -205,6 +205,16 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+
+    const seasonalRentImages = document.querySelectorAll('.seasonal-rent-image[data-summer-src][data-winter-src]');
+    if (seasonalRentImages.length) {
+        const month = new Date().getMonth() + 1;
+        const isWinter = month === 12 || month <= 2;
+        seasonalRentImages.forEach(image => {
+            image.src = isWinter ? image.dataset.winterSrc : image.dataset.summerSrc;
+        });
+    }
+
     const animatedElements = document.querySelectorAll('.animate');
     if (animatedElements.length) {
         const animationObserver = new IntersectionObserver((entries, obs) => {
@@ -276,16 +286,18 @@ document.addEventListener('DOMContentLoaded', function () {
         homepageCarouselTracks.forEach(track => {
             const visibleItemsCount = track.querySelectorAll('.project-carousel-image:not([aria-hidden="true"])').length;
             if (!visibleItemsCount) return;
+
             const isMobile = window.innerWidth <= 768;
-            const baseDuration = isMobile ? 180 : 72;
-            const itemFactor = isMobile ? 12 : 5;
-            let duration = Math.max(baseDuration, Math.round(visibleItemsCount * itemFactor));
+            const perItemDuration = isMobile ? 1.7 : 1.15;
+            const minDuration = isMobile ? 24 : 18;
+            const maxDuration = isMobile ? 58 : 44;
+            let duration = Math.round(visibleItemsCount * perItemDuration);
+            duration = Math.max(minDuration, Math.min(maxDuration, duration));
+
             if (track.closest('.carousel-row-secondary')) {
-                duration += isMobile ? 24 : 8;
+                duration += isMobile ? 3 : 2;
             }
-            if (isMobile) {
-                duration *= 3;
-            }
+
             track.style.setProperty('--carousel-duration', `${duration}s`);
         });
     }
@@ -307,12 +319,6 @@ document.addEventListener('DOMContentLoaded', function () {
         window.addEventListener('pageshow', refreshHomepageCarousel);
         window.addEventListener('orientationchange', refreshHomepageCarousel);
         window.addEventListener('resize', refreshHomepageCarousel);
-        let carouselRefreshTimeout;
-        window.addEventListener('scroll', function () {
-            if (window.innerWidth > 768) return;
-            clearTimeout(carouselRefreshTimeout);
-            carouselRefreshTimeout = setTimeout(refreshHomepageCarousel, 120);
-        }, { passive: true });
     }
 
     document.querySelectorAll('[data-track]').forEach(element => {
