@@ -1,195 +1,349 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const header = document.querySelector('.header');
-    const phoneIcon = document.getElementById('openPhoneForm');
-    const modal = document.getElementById('phoneFormModal');
-    const modalBackdrop = document.querySelector('.modal-backdrop');
-    const closeModal = document.querySelector('.close');
-    const form = document.getElementById('contactForm');
-    const responseMessage = document.getElementById('responseMessage');
+document.addEventListener("DOMContentLoaded", () => {
+    const body = document.body;
+    const header = document.querySelector(".header");
+    const hero = document.querySelector(".hero");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const headerPanel = document.querySelector(".header-panel");
+    const navBackdrop = document.querySelector(".nav-backdrop");
 
+    const phoneIcon = document.getElementById("openPhoneForm");
+    const modal = document.getElementById("phoneFormModal");
+    const modalBackdrop = modal ? modal.querySelector(".modal-backdrop") : null;
+    const closeModalButton = modal ? modal.querySelector(".close") : null;
+    const form = document.getElementById("contactForm");
+    const responseMessage = document.getElementById("responseMessage");
     const submitButton = form ? form.querySelector('button[type="submit"]') : null;
-    const submitText = submitButton ? submitButton.querySelector('.submit-text') : null;
-    const loadingSpinner = submitButton ? submitButton.querySelector('.loading-spinner') : null;
+    const submitText = submitButton ? submitButton.querySelector(".submit-text") : null;
+    const loadingSpinner = submitButton ? submitButton.querySelector(".loading-spinner") : null;
 
-    let lastScroll = 0;
+    const projectImageModal = document.getElementById("projectImageModal");
+    const projectImageModalContent = document.getElementById("projectImageModalContent");
+    const projectImageCloseButton = document.querySelector(".project-image-close");
+    const copyNotification = document.getElementById("copy-notification");
 
-    function pushTrackingEvent(eventName, params = {}) {
+    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const marketingStorageKey = "avayusstroi_marketing_context";
+    const trackingParamKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "gclid", "fbclid", "yclid"];
+    document.documentElement.setAttribute("data-theme", prefersDarkScheme.matches ? "dark" : "light");
+
+    let activeLeadContext = {
+        source: window.location.pathname,
+        ctaText: ""
+    };
+
+    const getStoredMarketingContext = () => {
+        try {
+            const rawValue = window.localStorage.getItem(marketingStorageKey);
+            if (!rawValue) return {};
+
+            const parsedValue = JSON.parse(rawValue);
+            return parsedValue && typeof parsedValue === "object" ? parsedValue : {};
+        } catch (error) {
+            return {};
+        }
+    };
+
+    const resolveMarketingContext = () => {
+        const params = new URLSearchParams(window.location.search);
+        const storedContext = getStoredMarketingContext();
+        const nextContext = { ...storedContext };
+        let hasFreshTrackingParams = false;
+
+        trackingParamKeys.forEach(paramKey => {
+            const value = params.get(paramKey);
+            if (!value) return;
+
+            nextContext[paramKey] = value;
+            hasFreshTrackingParams = true;
+        });
+
+        if (!nextContext.initialReferrer && document.referrer) {
+            nextContext.initialReferrer = document.referrer;
+        }
+
+        if (!nextContext.landingPage || hasFreshTrackingParams) {
+            nextContext.landingPage = window.location.href;
+        }
+
+        try {
+            window.localStorage.setItem(marketingStorageKey, JSON.stringify(nextContext));
+        } catch (error) {
+            // Ignore storage errors and continue with in-memory context.
+        }
+
+        return nextContext;
+    };
+
+    const marketingContext = resolveMarketingContext();
+
+    const getMarketingContext = () => ({
+        landingPage: marketingContext.landingPage || window.location.href,
+        referrer: marketingContext.initialReferrer || document.referrer || "",
+        utmSource: marketingContext.utm_source || "",
+        utmMedium: marketingContext.utm_medium || "",
+        utmCampaign: marketingContext.utm_campaign || "",
+        utmContent: marketingContext.utm_content || "",
+        utmTerm: marketingContext.utm_term || "",
+        gclid: marketingContext.gclid || "",
+        fbclid: marketingContext.fbclid || "",
+        yclid: marketingContext.yclid || ""
+    });
+
+    const setActiveLeadContext = (source, ctaText = "") => {
+        activeLeadContext = {
+            source: source || window.location.pathname,
+            ctaText
+        };
+    };
+
+    const syncScrollLock = () => {
+        const shouldLock =
+            body.classList.contains("menu-open") ||
+            body.classList.contains("modal-open") ||
+            Boolean(projectImageModal && projectImageModal.classList.contains("is-open"));
+        body.classList.toggle("scroll-locked", shouldLock);
+    };
+
+    const pushTrackingEvent = (eventName, params = {}) => {
+        if (!eventName) return;
+
         window.dataLayer = window.dataLayer || [];
-        const payload = Object.assign({
+        const payload = {
             event: eventName,
-            event_category: 'lead',
-            page_path: window.location.pathname
-        }, params);
+            event_category: "lead",
+            page_path: window.location.pathname,
+            ...getMarketingContext(),
+            ...params
+        };
 
         window.dataLayer.push(payload);
 
-        if (typeof window.gtag === 'function') {
-            window.gtag('event', eventName, params);
+        if (typeof window.gtag === "function") {
+            window.gtag("event", eventName, params);
         }
 
-        if (typeof window.ym === 'function') {
-            window.ym(100205864, 'reachGoal', eventName, params);
+        if (typeof window.ym === "function") {
+            window.ym(100205864, "reachGoal", eventName, params);
         }
+    };
+
+    const setMenuState = isOpen => {
+        if (!menuToggle || !headerPanel) return;
+
+        const desktop = window.innerWidth > 960;
+        const nextState = desktop ? false : isOpen;
+
+        body.classList.toggle("menu-open", nextState);
+        menuToggle.setAttribute("aria-expanded", String(nextState));
+        headerPanel.setAttribute("aria-hidden", String(!desktop && !nextState));
+        if (navBackdrop) {
+            navBackdrop.setAttribute("aria-hidden", String(!nextState));
+        }
+        syncScrollLock();
+    };
+
+    if (menuToggle && headerPanel) {
+        setMenuState(false);
+
+        menuToggle.addEventListener("click", () => {
+            const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+            setMenuState(!isOpen);
+        });
+
+        if (navBackdrop) {
+            navBackdrop.addEventListener("click", () => setMenuState(false));
+        }
+
+        document.querySelectorAll(".nav a").forEach(link => {
+            link.addEventListener("click", () => setMenuState(false));
+        });
+
+        window.addEventListener("resize", () => {
+            setMenuState(false);
+            headerPanel.setAttribute("aria-hidden", String(window.innerWidth <= 960));
+        });
     }
 
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    document.documentElement.setAttribute('data-theme', prefersDarkScheme.matches ? 'dark' : 'light');
-
-    const hero = document.querySelector('.hero');
-
-    let isScrollScheduled = false;
-    function onScroll() {
+    let scrollTicking = false;
+    let lastScroll = 0;
+    const updateOnScroll = () => {
         const currentScroll = window.scrollY;
 
         if (header) {
             if (currentScroll > lastScroll && currentScroll > 100) {
-                header.classList.add('scrolled');
-            } else if (currentScroll < lastScroll) {
-                header.classList.remove('scrolled');
+                header.classList.add("scrolled");
+            } else if (currentScroll < lastScroll || currentScroll <= 24) {
+                header.classList.remove("scrolled");
             }
         }
 
-        if (hero) {
-            if (window.innerWidth <= 768) {
-                hero.style.backgroundPosition = 'center';
-            } else {
-                hero.style.backgroundPosition = `center ${-window.pageYOffset * 0.25}px`;
-            }
+        if (hero && !prefersReducedMotion.matches && window.innerWidth > 960) {
+            hero.style.backgroundPosition = `center ${Math.round(currentScroll * 0.18)}px`;
+        } else if (hero) {
+            hero.style.backgroundPosition = "center";
         }
 
         lastScroll = currentScroll;
-        isScrollScheduled = false;
-    }
+        scrollTicking = false;
+    };
 
-    window.addEventListener('scroll', () => {
-        if (isScrollScheduled) return;
-        isScrollScheduled = true;
-        window.requestAnimationFrame(onScroll);
+    window.addEventListener("scroll", () => {
+        if (scrollTicking) return;
+        scrollTicking = true;
+        window.requestAnimationFrame(updateOnScroll);
     }, { passive: true });
 
-    function openModal() {
-        if (modal) {
-            modal.style.display = 'flex';
-            pushTrackingEvent('order_click', { source: 'modal_open' });
-        }
-    }
+    updateOnScroll();
 
-    function closeModalAction() {
-        if (modal) {
-            modal.style.display = 'none';
+    const openModal = () => {
+        if (!modal) return;
+
+        if (body.classList.contains("menu-open")) {
+            setMenuState(false);
         }
-    }
+
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+        body.classList.add("modal-open");
+        syncScrollLock();
+    };
+
+    const closeModal = () => {
+        if (!modal) return;
+
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+        body.classList.remove("modal-open");
+        syncScrollLock();
+    };
 
     if (phoneIcon) {
-        phoneIcon.addEventListener('click', function (event) {
+        phoneIcon.addEventListener("click", event => {
             event.preventDefault();
+            setActiveLeadContext("phone_floating_button", "floating_phone");
             openModal();
-            pushTrackingEvent('phone_click', { source: 'phone_floating_button' });
+            pushTrackingEvent("phone_click", { source: "phone_floating_button" });
         });
     }
 
-    document.querySelectorAll('.open-modal-button').forEach(button => {
-        button.addEventListener('click', function (event) {
+    document.querySelectorAll(".open-modal-button").forEach(button => {
+        button.addEventListener("click", event => {
             event.preventDefault();
+            setActiveLeadContext(button.dataset.service || button.dataset.track || "modal", button.textContent.trim());
             openModal();
-            pushTrackingEvent('order_click', {
-                source: this.dataset.service || 'unknown_service',
-                button_text: this.textContent.trim()
-            });
         });
     });
 
-    if (closeModal) closeModal.addEventListener('click', closeModalAction);
-    if (modalBackdrop) modalBackdrop.addEventListener('click', closeModalAction);
+    if (closeModalButton) {
+        closeModalButton.addEventListener("click", closeModal);
+    }
+
+    if (modalBackdrop) {
+        modalBackdrop.addEventListener("click", closeModal);
+    }
 
     if (form) {
-        form.addEventListener('submit', function (event) {
+        form.addEventListener("submit", event => {
             event.preventDefault();
 
-            if (submitText) submitText.style.display = 'none';
-            if (loadingSpinner) loadingSpinner.style.display = 'inline-block';
+            const formData = new FormData(form);
+            const name = String(formData.get("name") || "").trim();
+            const phone = String(formData.get("phone") || "").trim();
+
+            if (!name || !phone) {
+                if (responseMessage) {
+                    responseMessage.textContent = "Заполните имя и телефон, пожалуйста.";
+                    responseMessage.style.color = "#c13a2f";
+                }
+                return;
+            }
+
+            if (submitText) submitText.style.display = "none";
+            if (loadingSpinner) loadingSpinner.style.display = "inline-block";
             if (submitButton) submitButton.disabled = true;
 
-            const formData = new FormData(form);
-            const name = formData.get('name');
-            const phone = formData.get('phone');
+            const marketingPayload = getMarketingContext();
 
-            fetch('/submit', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, phone })
+            fetch("/submit", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name,
+                    phone,
+                    page: window.location.href,
+                    source: activeLeadContext.source,
+                    ctaText: activeLeadContext.ctaText,
+                    ...marketingPayload
+                })
             })
                 .then(response => {
-                    if (!response.ok) throw new Error('Ошибка сети');
+                    if (!response.ok) {
+                        throw new Error("Ошибка сети");
+                    }
                     return response.json();
                 })
                 .then(data => {
                     if (data.success) {
                         if (responseMessage) {
-                            responseMessage.textContent = 'Спасибо! Мы свяжемся с вами в ближайшее время.';
-                            responseMessage.style.color = 'green';
+                            responseMessage.textContent = "Спасибо! Мы свяжемся с вами в ближайшее время.";
+                            responseMessage.style.color = "#2f7d4a";
                         }
-                        pushTrackingEvent('form_submit', {
-                            form_id: 'contactForm',
-                            lead_type: 'callback'
+
+                        pushTrackingEvent("form_submit", {
+                            form_id: "contactForm",
+                            lead_type: "callback"
                         });
+
                         form.reset();
-                        setTimeout(closeModalAction, 2000);
-                    } else if (responseMessage) {
-                        responseMessage.textContent = 'Ошибка при отправке. Попробуйте ещё раз.';
-                        responseMessage.style.color = 'red';
+                        window.setTimeout(closeModal, 1800);
+                        return;
                     }
+
+                    throw new Error("Ошибка отправки");
                 })
                 .catch(error => {
-                    console.error('Ошибка:', error);
+                    console.error("Ошибка:", error);
                     if (responseMessage) {
-                        responseMessage.textContent = 'Ошибка при отправке. Попробуйте ещё раз.';
-                        responseMessage.style.color = 'red';
+                        responseMessage.textContent = "Не удалось отправить заявку. Попробуйте еще раз.";
+                        responseMessage.style.color = "#c13a2f";
                     }
                 })
                 .finally(() => {
-                    if (submitText) submitText.style.display = 'inline-block';
-                    if (loadingSpinner) loadingSpinner.style.display = 'none';
+                    if (submitText) submitText.style.display = "inline-block";
+                    if (loadingSpinner) loadingSpinner.style.display = "none";
                     if (submitButton) submitButton.disabled = false;
                 });
         });
     }
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const target = document.querySelector(this.getAttribute('href'));
+    document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
+        anchor.addEventListener("click", event => {
+            const targetSelector = anchor.getAttribute("href");
+            if (!targetSelector) return;
+
+            const target = document.querySelector(targetSelector);
             if (!target) return;
-            e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            event.preventDefault();
+            target.scrollIntoView({ behavior: prefersReducedMotion.matches ? "auto" : "smooth", block: "start" });
         });
     });
 
-    const lazyImages = document.querySelectorAll('img[data-src]');
-    if (lazyImages.length) {
-        const imageObserver = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                const img = entry.target;
-                img.setAttribute('src', img.getAttribute('data-src'));
-                img.onload = () => img.removeAttribute('data-src');
-                obs.unobserve(img);
-            });
-        }, { threshold: 0.1 });
+    document.querySelectorAll("button, .cta-button, .service-button, .order-button, .header-phone, .header-cta, .contact-link, .messenger-badge").forEach(button => {
+        button.addEventListener("click", event => {
+            const target = event.currentTarget;
+            if (!(target instanceof HTMLElement)) return;
 
-        lazyImages.forEach(img => imageObserver.observe(img));
-    }
-
-    document.querySelectorAll('button, .cta-button, .service-button, .order-button').forEach(button => {
-        button.addEventListener('click', function (e) {
-            const ripple = document.createElement('span');
-            const rect = this.getBoundingClientRect();
+            const ripple = document.createElement("span");
+            const rect = target.getBoundingClientRect();
             const size = Math.max(rect.width, rect.height);
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
+            const x = event.clientX - rect.left - size / 2;
+            const y = event.clientY - rect.top - size / 2;
 
             ripple.style.cssText = `
                 position: absolute;
-                background: rgba(255, 255, 255, 0.3);
+                background: rgba(255, 255, 255, 0.26);
                 border-radius: 50%;
                 width: ${size}px;
                 height: ${size}px;
@@ -200,61 +354,74 @@ document.addEventListener('DOMContentLoaded', function () {
                 pointer-events: none;
                 z-index: 0;
             `;
-            this.appendChild(ripple);
-            ripple.addEventListener('animationend', () => ripple.remove());
+
+            target.appendChild(ripple);
+            ripple.addEventListener("animationend", () => ripple.remove());
         });
     });
 
+    const lazyImages = document.querySelectorAll("img[data-src]");
+    if (lazyImages.length && "IntersectionObserver" in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                const img = entry.target;
+                img.setAttribute("src", img.getAttribute("data-src"));
+                img.onload = () => img.removeAttribute("data-src");
+                observer.unobserve(img);
+            });
+        }, { threshold: 0.1 });
 
-    const seasonalRentImages = document.querySelectorAll('.seasonal-rent-image[data-summer-src][data-winter-src]');
-    if (seasonalRentImages.length) {
+        lazyImages.forEach(img => imageObserver.observe(img));
+    }
+
+    const seasonalImages = document.querySelectorAll("[data-summer-src][data-winter-src]");
+    if (seasonalImages.length) {
         const month = new Date().getMonth() + 1;
         const isWinter = month === 12 || month <= 2;
-        seasonalRentImages.forEach(image => {
+        seasonalImages.forEach(image => {
             image.src = isWinter ? image.dataset.winterSrc : image.dataset.summerSrc;
         });
     }
 
-    const animatedElements = document.querySelectorAll('.animate');
-    if (animatedElements.length) {
-        const animationObserver = new IntersectionObserver((entries, obs) => {
+    const animatedElements = document.querySelectorAll(".animate");
+    if (animatedElements.length && "IntersectionObserver" in window) {
+        const animationObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (!entry.isIntersecting) return;
-                entry.target.classList.add('visible');
-                obs.unobserve(entry.target);
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
             });
         }, { threshold: 0.1 });
 
         animatedElements.forEach(element => animationObserver.observe(element));
     }
 
-
-    const projectImageModal = document.getElementById('projectImageModal');
-    const projectImageModalContent = document.getElementById('projectImageModalContent');
-    const projectImageCloseButton = document.querySelector('.project-image-close');
-
-    function openProjectImageModal(sourceImage) {
+    const openProjectImageModal = sourceImage => {
         if (!projectImageModal || !projectImageModalContent || !sourceImage) return;
+
         projectImageModalContent.src = sourceImage.currentSrc || sourceImage.src;
-        projectImageModalContent.alt = sourceImage.alt || 'Увеличенное изображение проекта';
-        projectImageModal.classList.add('is-open');
-        projectImageModal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-    }
+        projectImageModalContent.alt = sourceImage.alt || "Увеличенное изображение проекта";
+        projectImageModal.classList.add("is-open");
+        projectImageModal.setAttribute("aria-hidden", "false");
+        syncScrollLock();
+    };
 
-    function closeProjectImageModal() {
+    const closeProjectImageModal = () => {
         if (!projectImageModal || !projectImageModalContent) return;
-        projectImageModal.classList.remove('is-open');
-        projectImageModal.setAttribute('aria-hidden', 'true');
-        projectImageModalContent.src = '';
-        document.body.style.overflow = '';
-    }
 
-    document.querySelectorAll('.project-carousel-image').forEach(image => {
-        if (image.getAttribute('aria-hidden') === 'true') return;
-        image.addEventListener('click', () => openProjectImageModal(image));
-        image.addEventListener('keydown', event => {
-            if (event.key === 'Enter' || event.key === ' ') {
+        projectImageModal.classList.remove("is-open");
+        projectImageModal.setAttribute("aria-hidden", "true");
+        projectImageModalContent.src = "";
+        syncScrollLock();
+    };
+
+    document.querySelectorAll(".project-carousel-image").forEach(image => {
+        if (image.getAttribute("aria-hidden") === "true") return;
+
+        image.addEventListener("click", () => openProjectImageModal(image));
+        image.addEventListener("keydown", event => {
+            if (event.key === "Enter" || event.key === " ") {
                 event.preventDefault();
                 openProjectImageModal(image);
             }
@@ -262,69 +429,64 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     if (projectImageCloseButton) {
-        projectImageCloseButton.addEventListener('click', closeProjectImageModal);
+        projectImageCloseButton.addEventListener("click", closeProjectImageModal);
     }
 
     if (projectImageModal) {
-        projectImageModal.addEventListener('click', event => {
-            if (event.target.closest('[data-close-project-modal="true"]')) {
+        projectImageModal.addEventListener("click", event => {
+            const target = event.target;
+            if (target instanceof Element && target.closest("[data-close-project-modal='true']")) {
                 closeProjectImageModal();
             }
         });
     }
 
-    document.addEventListener('keydown', event => {
-        if (event.key === 'Escape' && projectImageModal && projectImageModal.classList.contains('is-open')) {
-            closeProjectImageModal();
-        }
-    });
+    const homepageCarouselTracks = document.querySelectorAll(".projects .carousel-track");
 
-
-    const homepageCarouselTracks = document.querySelectorAll('.projects .carousel-track');
-
-    function setHomepageCarouselSpeed() {
+    const setHomepageCarouselSpeed = () => {
         homepageCarouselTracks.forEach(track => {
-            const visibleItemsCount = track.querySelectorAll('.project-carousel-image:not([aria-hidden="true"])').length;
+            const visibleItemsCount = track.querySelectorAll(".project-carousel-image:not([aria-hidden='true'])").length;
             if (!visibleItemsCount) return;
 
             const isMobile = window.innerWidth <= 768;
-            const perItemDuration = isMobile ? 1.7 : 1.15;
-            const minDuration = isMobile ? 24 : 18;
-            const maxDuration = isMobile ? 58 : 44;
+            const perItemDuration = isMobile ? 1.6 : 1.05;
+            const minDuration = isMobile ? 20 : 16;
+            const maxDuration = isMobile ? 44 : 38;
             let duration = Math.round(visibleItemsCount * perItemDuration);
             duration = Math.max(minDuration, Math.min(maxDuration, duration));
 
-            if (track.closest('.carousel-row-secondary')) {
-                duration += isMobile ? 3 : 2;
+            if (track.closest(".carousel-row-secondary")) {
+                duration += isMobile ? 2 : 1;
             }
 
-            track.style.setProperty('--carousel-duration', `${duration}s`);
+            track.style.setProperty("--carousel-duration", `${duration}s`);
         });
-    }
+    };
 
-    function refreshHomepageCarousel() {
-        if (!homepageCarouselTracks.length) return;
+    const refreshHomepageCarousel = () => {
+        if (!homepageCarouselTracks.length || prefersReducedMotion.matches) return;
+
         setHomepageCarouselSpeed();
         homepageCarouselTracks.forEach(track => {
             const style = window.getComputedStyle(track);
-            if (style.display === 'none') return;
-            track.style.animation = 'none';
+            if (style.display === "none") return;
+
+            track.style.animation = "none";
             void track.offsetHeight;
-            track.style.animation = '';
+            track.style.animation = "";
         });
-    }
+    };
 
     if (homepageCarouselTracks.length) {
         refreshHomepageCarousel();
-        window.addEventListener('pageshow', refreshHomepageCarousel);
-        window.addEventListener('orientationchange', refreshHomepageCarousel);
-        window.addEventListener('resize', refreshHomepageCarousel);
+        window.addEventListener("pageshow", refreshHomepageCarousel);
+        window.addEventListener("orientationchange", refreshHomepageCarousel);
+        window.addEventListener("resize", refreshHomepageCarousel);
     }
 
-    document.querySelectorAll('[data-track]').forEach(element => {
-        element.addEventListener('click', function () {
-            const eventName = this.dataset.track;
-            pushTrackingEvent(eventName, {
+    document.querySelectorAll("[data-track]").forEach(element => {
+        element.addEventListener("click", function () {
+            pushTrackingEvent(this.dataset.track, {
                 service: this.dataset.service || undefined,
                 messenger: this.dataset.messenger || undefined,
                 text: this.textContent.trim()
@@ -332,59 +494,69 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    document.querySelectorAll('.quick-order-form').forEach(formElement => {
-        formElement.addEventListener('submit', function (event) {
+    document.querySelectorAll(".quick-order-form").forEach(formElement => {
+        formElement.addEventListener("submit", event => {
             event.preventDefault();
         });
 
-        const triggerButton = formElement.querySelector('.open-modal-button');
-        if (triggerButton) {
-            triggerButton.addEventListener('click', function () {
-                const quickName = formElement.querySelector('input[name="name"]');
-                const quickPhone = formElement.querySelector('input[name="phone"]');
-                if (form && quickName && quickPhone) {
-                    const modalName = form.querySelector('#name');
-                    const modalPhone = form.querySelector('#phone');
-                    if (modalName) modalName.value = quickName.value;
-                    if (modalPhone) modalPhone.value = quickPhone.value;
-                }
-                pushTrackingEvent('form_submit', {
-                    form_id: formElement.dataset.trackForm || 'quick_order',
-                    lead_type: 'pre_fill'
-                });
+        const triggerButton = formElement.querySelector(".open-modal-button");
+        if (!triggerButton) return;
+
+        triggerButton.addEventListener("click", () => {
+            const quickName = formElement.querySelector('input[name="name"]');
+            const quickPhone = formElement.querySelector('input[name="phone"]');
+
+            if (form && quickName && quickPhone) {
+                const modalName = form.querySelector("#name");
+                const modalPhone = form.querySelector("#phone");
+                if (modalName) modalName.value = quickName.value;
+                if (modalPhone) modalPhone.value = quickPhone.value;
+            }
+
+            pushTrackingEvent("form_submit", {
+                form_id: formElement.dataset.trackForm || "quick_order",
+                lead_type: "pre_fill"
             });
-        }
+        });
     });
 
     document.querySelectorAll('a[href^="tel:"]').forEach(link => {
-        link.addEventListener('click', function () {
-            pushTrackingEvent('phone_click', { source: 'tel_link' });
+        link.addEventListener("click", function () {
+            if (this.dataset.track) return;
+            pushTrackingEvent("phone_click", { source: "tel_link" });
         });
     });
 
     document.querySelectorAll('a[href*="t.me"], a[href*="viber://"]').forEach(link => {
-        link.addEventListener('click', function () {
-            pushTrackingEvent('messenger_click', { source: this.href });
+        link.addEventListener("click", function () {
+            if (this.dataset.track) return;
+            pushTrackingEvent("messenger_click", { source: this.href });
         });
     });
 
-    const clientCounters = document.querySelectorAll('.trusted-clients .counter[data-target]');
-    if (clientCounters.length) {
+    const clientCounters = document.querySelectorAll(".trusted-clients .counter[data-target]");
+    if (clientCounters.length && "IntersectionObserver" in window) {
         const animateCounter = counter => {
             const target = Number(counter.dataset.target) || 0;
-            const duration = 60000;
-            const start = performance.now();
+            const stepSize = 1;
+            const intervalMs = 100;
+            let currentValue = 0;
 
-            const step = now => {
-                const progress = Math.min((now - start) / duration, 1);
-                const value = Math.floor(progress * target);
-                counter.textContent = String(value);
-                if (progress < 1) {
-                    requestAnimationFrame(step);
+            if (prefersReducedMotion.matches) {
+                counter.textContent = String(target);
+                return;
+            }
+
+            counter.textContent = "0";
+
+            const timerId = window.setInterval(() => {
+                currentValue = Math.min(currentValue + stepSize, target);
+                counter.textContent = String(currentValue);
+
+                if (currentValue >= target) {
+                    window.clearInterval(timerId);
                 }
-            };
-
-            requestAnimationFrame(step);
+            }, intervalMs);
         };
 
         const counterObserver = new IntersectionObserver((entries, observer) => {
@@ -397,23 +569,64 @@ document.addEventListener('DOMContentLoaded', function () {
 
         clientCounters.forEach(counter => counterObserver.observe(counter));
     }
-});
 
-const localStyleSheet = Array.from(document.styleSheets).find(sheet => {
-    try {
-        return Boolean(sheet.cssRules);
-    } catch (error) {
-        return false;
-    }
-});
+    const showCopyNotification = () => {
+        if (!copyNotification) return;
 
-if (localStyleSheet) {
-    localStyleSheet.insertRule(`
-        @keyframes ripple {
-            to {
-                transform: scale(2);
-                opacity: 0;
-            }
+        copyNotification.classList.add("is-visible");
+        window.clearTimeout(showCopyNotification.timeoutId);
+        showCopyNotification.timeoutId = window.setTimeout(() => {
+            copyNotification.classList.remove("is-visible");
+        }, 1800);
+    };
+
+    document.querySelectorAll("[data-copy-card]").forEach(card => {
+        const copyCard = () => {
+            if (!navigator.clipboard) return;
+            navigator.clipboard.writeText(card.innerText.trim())
+                .then(showCopyNotification)
+                .catch(error => console.error("Не удалось скопировать текст:", error));
+        };
+
+        card.addEventListener("click", event => {
+            const target = event.target;
+            if (target instanceof Element && target.closest("a, button")) return;
+            copyCard();
+        });
+
+        card.addEventListener("keydown", event => {
+            if (event.key !== "Enter" && event.key !== " ") return;
+            const target = event.target;
+            if (target instanceof Element && target.closest("a, button")) return;
+            event.preventDefault();
+            copyCard();
+        });
+    });
+
+    document.addEventListener("keydown", event => {
+        if (event.key !== "Escape") return;
+
+        if (body.classList.contains("menu-open")) {
+            setMenuState(false);
         }
-    `, localStyleSheet.cssRules.length);
-}
+
+        if (modal && modal.classList.contains("is-open")) {
+            closeModal();
+        }
+
+        if (projectImageModal && projectImageModal.classList.contains("is-open")) {
+            closeProjectImageModal();
+        }
+    });
+});
+
+const rippleStyle = document.createElement("style");
+rippleStyle.textContent = `
+    @keyframes ripple {
+        to {
+            transform: scale(2);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(rippleStyle);

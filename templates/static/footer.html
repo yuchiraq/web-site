@@ -2,31 +2,44 @@
 <footer class="footer">
     <div class="container">
         <div class="footer-content">
+            <div class="footer-section footer-section--brand">
+                <a class="footer-brand" href="/" aria-label="АВАЮССТРОЙ - на главную">
+                    <img src="/static/images/logo_n.svg" alt="Логотип АВАЮССТРОЙ">
+                    <span>АВАЮССТРОЙ</span>
+                </a>
+                <p>Инженерные сети, автономная канализация, дренаж и аренда спецтехники по Бресту и Брестской области.</p>
+                <a href="#" class="footer-cta open-modal-button" data-track="order_click" data-service="footer">Получить консультацию</a>
+            </div>
+
             <div class="footer-section">
                 <h3>Контакты</h3>
-                <p><strong>Телефон 1:</strong> +375 (29) 720-27-91 (Александр)</p>
-                <p><strong>Телефон 2:</strong> +375 (33) 670-92-73 (Александр)</p>
-                <p><strong>Адрес:</strong> г. Брест, ул. Янки Купалы, 109</p>
-                <p><strong>email:</strong> avajsstroi@mail.ru</p>
+                <p><a href="tel:+375297202791">+375 (29) 720-27-91</a></p>
+                <p><a href="tel:+375336709273">+375 (33) 670-92-73</a></p>
+                <p><a href="mailto:avajsstroi@mail.ru">avajsstroi@mail.ru</a></p>
+                <p>г. Брест, ул. Янки Купалы, 109</p>
             </div>
+
             <div class="footer-section">
                 <h3>Реквизиты</h3>
-                <p><strong>Свидетельство о государственной регистрации:</strong> 291002836</p>
+                <p>УНП: 291002836</p>
+                <p>р/с: BY41OLMP30123001046460000933</p>
+                <p>ОАО «Белгазпромбанк»</p>
             </div>
-            <div class="footer-section">
-                <h3>О компании</h3>
-                <p>© 2026 ЧСУП «АВАЮССТРОЙ».</p>
-                <p>Site designed by <strong>Chiraq Concept</strong></p>
-            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 ЧСУП «АВАЮССТРОЙ».</p>
+            <p>Design: <strong>by Qoncept</strong></p>
         </div>
     </div>
 </footer>
-<script src="/static/js/script.js?v=20260330a" defer></script>
+<script src="/static/js/script.js?v=20260420b" defer></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init({
         duration: 800,
         once: true,
+        disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches
     });
 </script>
 {{ end }}

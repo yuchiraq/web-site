@@ -52,10 +52,11 @@ func generateRSSFeed(c *gin.Context) {
 		if err != nil {
 			return err
 		}
+		normalizedPath := filepath.ToSlash(filePath)
 
 		// Обрабатываем только HTML-файлы в поддиректории services/
 		if !info.IsDir() && strings.HasSuffix(filePath, ".html") {
-			relativePath := strings.TrimPrefix(filePath, "templates/")
+			relativePath := strings.TrimPrefix(normalizedPath, "templates/")
 			pagePath := strings.TrimSuffix(relativePath, ".html")
 
 			// Пропускаем корневые страницы

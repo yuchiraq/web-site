@@ -29,16 +29,17 @@ func GenerateSitemap() error {
 		if err != nil {
 			return err
 		}
+		normalizedPath := filepath.ToSlash(path)
 		// Пропускаем вложенные шаблоны
-		if strings.Contains(path, "header.html") || strings.Contains(path, "footer.html") ||
-			strings.Contains(path, "head.html") || strings.Contains(path, "phone_button.html") {
+		if strings.HasSuffix(normalizedPath, "header.html") || strings.HasSuffix(normalizedPath, "footer.html") ||
+			strings.HasSuffix(normalizedPath, "head.html") || strings.HasSuffix(normalizedPath, "phone_button.html") {
 			return nil
 		}
-		if strings.Contains(path, "templates/static") || strings.Contains(path, "404.html") {
+		if strings.Contains(normalizedPath, "templates/static/") || strings.HasSuffix(normalizedPath, "404.html") {
 			return nil
 		}
 		if !info.IsDir() && filepath.Ext(path) == ".html" {
-			route := strings.TrimPrefix(path, "templates/")
+			route := strings.TrimPrefix(normalizedPath, "templates/")
 			route = strings.TrimSuffix(route, ".html")
 			if route == "index" {
 				route = "/"

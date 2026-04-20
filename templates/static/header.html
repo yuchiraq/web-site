@@ -8,7 +8,7 @@
     for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
     k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
     (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
- 
+
     ym(100205864, "init", {
          clickmap:true,
          trackLinks:true,
@@ -37,49 +37,55 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-KFSZLS83');</script>
     <!-- End Google Tag Manager -->
-     
+
      <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KFSZLS83"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
     <div class="container">
-        <div class="logo">
-            <img src="/static/images/logo.svg" alt="Логотип АВАЮССТРОЙ">
-            <span>АВАЮССТРОЙ</span>
+        <div class="header-bar">
+            <a class="logo" href="/" aria-label="АВАЮССТРОЙ - на главную">
+                <img src="/static/images/logo.svg" alt="Логотип АВАЮССТРОЙ">
+                <span class="logo-copy">
+                    <strong>АВАЮССТРОЙ</strong>
+                    <small>Инженерные работы и спецтехника</small>
+                </span>
+            </a>
         </div>
-        <nav class="nav">
-            <a href="/">Главная</a>
-            <a href="/services">Услуги</a>
-            <a href="/rent">Аренда</a>
-            <a href="/contacts">Контакты</a>
-        </nav>
+        <div class="header-panel">
+            <nav class="nav" aria-label="Основная навигация">
+                <a href="/">Главная</a>
+                <a href="/services">Услуги</a>
+                <a href="/rent">Аренда</a>
+                <a href="/contacts">Контакты</a>
+            </nav>
+        </div>
     </div>
-    
 </header>
 
-<!-- Модальное окно -->
-<div id="phoneFormModal" class="modal">
+<div id="phoneFormModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="phoneFormTitle">
     <div class="modal-backdrop"></div>
     <div class="modal-content">
-        <span class="close">&times;</span>
-        <h3>Оставьте заявку, и мы свяжемся с вами!</h3>
+        <button type="button" class="close" aria-label="Закрыть форму">&times;</button>
+        <p class="modal-eyebrow">Быстрая связь</p>
+        <h3 id="phoneFormTitle">Оставьте заявку, и мы свяжемся с вами</h3>
+        <p class="modal-description">Подскажем по стоимости, срокам и подберем решение под ваш объект.</p>
         <form id="contactForm">
-            <input type="text" id="name" name="name" placeholder="Ваше имя" required>
-            <input type="tel" id="phone" name="phone" placeholder="Ваш телефон" required>
+            <input type="text" id="name" name="name" placeholder="Ваше имя" autocomplete="name" required>
+            <input type="tel" id="phone" name="phone" placeholder="Ваш телефон" inputmode="tel" autocomplete="tel" required>
             <button type="submit" class="cta-button">
                 <span class="submit-text">Отправить заявку</span>
-                <span class="loading-spinner" style="display: none;">⏳</span>
+                <span class="loading-spinner" style="display: none;">...</span>
             </button>
         </form>
-        <p id="responseMessage"></p>
+        <p id="responseMessage" role="status" aria-live="polite"></p>
     </div>
 </div>
 
-<!-- Кнопка телефона -->
 <div class="phone-button">
-    <button class="phone-icon" id="openPhoneForm">
-        <img src="/static/images/phone-icon.svg" alt="Позвонить">
+    <button class="phone-icon" id="openPhoneForm" type="button" aria-label="Открыть форму обратного звонка">
+        <img src="/static/images/phone-icon.svg" alt="Иконка телефона">
     </button>
 </div>
 {{ end }}

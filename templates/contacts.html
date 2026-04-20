@@ -3,102 +3,118 @@
 <head>
     {{ template "head" }}
     <title>АВАЮССТРОЙ | Контакты</title>
-<!-- Мета-тег description -->
-<meta name="description" content="Свяжитесь с ЧСУП «АВАЮССТРОЙ» в Бресте и Брестской области. Получите консультацию и закажите услуги по строительству, дренажу и аренде техники!">
-<!-- Мета-тег keywords -->
-<meta name="keywords" content="
-    контакты АВАЮССТРОЙ Брест, контакты строительной компании Брест, телефон АВАЮССТРОЙ Брест,
-    адрес АВАЮССТРОЙ Брест, контакты в Брестской области, заказ услуг Брест, консультация по строительству Брест,
-    контакты дренажных услуг Брест, контакты аренды техники Брест, поддержка АВАЮССТРОЙ Брест
+    <meta name="description" content="Свяжитесь с ЧСУП «АВАЮССТРОЙ» в Бресте и Брестской области. Получите консультацию и закажите услуги по строительству, дренажу и аренде техники.">
+    <meta name="keywords" content="
+        контакты АВАЮССТРОЙ Брест, контакты строительной компании Брест, телефон АВАЮССТРОЙ Брест,
+        адрес АВАЮССТРОЙ Брест, контакты в Брестской области, заказ услуг Брест, консультация по строительству Брест,
+        контакты дренажных услуг Брест, контакты аренды техники Брест, поддержка АВАЮССТРОЙ Брест
     ">
-    <!-- Подключение иконок FontAwesome для кнопок Viber и Telegram -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .copy-notification {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #4CAF50;
-            color: white;
-            padding: 16px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            display: none;
-            z-index: 1000;
-            font-size: 16px;
-            transition: opacity 0.5s, bottom 0.5s;
-        }
-    </style>
 </head>
 <body>
     {{ template "header" }}
 
-
     <main>
-        <!-- Призыв к действию -->
-        <section class="cta">
-            <div class="container">
-                <h2>Закажите услугу прямо сейчас!</h2>
-                <p>Свяжитесь с нами для получения консультации или оформления заказа.</p>
-                <a href="#" class="cta-button open-modal-button">Заказать звонок</a>
-            </div>
-        </section>
-        <section class="section">
-            <div class="container">
-                <h2>Контакты</h2>
-                <div class="boxes-list">
-                    <div class="box" style="padding-top: 1rem; cursor: pointer;" title="Нажмите, чтобы скопировать" onclick="copyToClipboard(this)">
-                        <h3>ЧСУП «АВАЮССТРОЙ»</h3>
-                        <p><strong>email:</strong> avajsstroi@mail.ru</p>
-                        <p><strong>Телефоны:</strong></p>
-                        <ul>
-                            <li>
-                                +375 (29) 720-27-91 (Александр)
-                                <!-- Кнопка Viber -->
-                                <a href="viber://chat?number=%2B375297202791" target="_blank" style="margin-left: 10px;">
-                                    <i class="fab fa-viber" style="color: #7360F2; font-size: 24px;"></i>
-                                </a>
-                                <!-- Кнопка Telegram -->
-                                <a href="https://t.me/+375297202791" target="_blank" style="margin-left: 10px;">
-                                    <i class="fab fa-telegram" style="color: #0088cc; font-size: 24px;"></i>
-                                </a>
-                            </li>
-                            <li>
-                                +375 (33) 670-92-73 (Александр)
-                                <!-- Кнопка Viber -->
-                                <a href="viber://chat?number=%2B375336709273" target="_blank" style="margin-left: 10px;">
-                                    <i class="fab fa-viber" style="color: #7360F2; font-size: 24px;"></i>
-                                </a>
-                                <!-- Кнопка Telegram -->
-                                <a href="https://t.me/+375336709273" target="_blank" style="margin-left: 10px;">
-                                    <i class="fab fa-telegram" style="color: #0088cc; font-size: 24px;"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="box" style="padding-top: 1rem; cursor: pointer;" title="Нажмите, чтобы скопировать" onclick="copyToClipboard(this)">
-                        <h3>Частное строительное унитарное предприятие «АВАЮССТРОЙ»</h3>
-                        <p><strong>Адрес:</strong> 224032, г. Брест, ул. Янки Купалы, 109</p>
-                        <p><strong>Директор:</strong> А.С. Стракович (на основании устава, приказ №1 от 27.10.2010)</p>
-                        <p><strong>УНП:</strong> 291002836</p>
-                    </div>
-                    <div class="box" style="padding-top: 1rem; cursor: pointer;" title="Нажмите, чтобы скопировать" onclick="copyToClipboard(this)">
-                        <h3>Платёжные реквизиты:</h3>
-                        <ul>
-                            <li><strong>Расчётный счёт:</strong> BY41OLMP30123001046460000933</li>
-                            <li><strong>Банк:</strong> Брестская областная дирекция ОАО «Белгазпромбанк»</li>
-                            <li><strong>Адрес банка:</strong> г. Брест, ул. Московская, 174 А</li>
-                            <li><strong>БИК:</strong> OLMPBY2X</li>
-                            <li><strong>УНП банка:</strong> 100429079</li>
-                        </ul>
+        <section class="page-hero page-hero--contacts">
+            <div class="container page-hero__grid">
+                <div>
+                    <span class="page-hero__eyebrow">Контакты</span>
+                    <h1>Свяжитесь с нами удобным способом</h1>
+                    <p>Подскажем по срокам, стоимости и комплектации объекта. Можно позвонить, написать в мессенджер или оставить заявку на обратный звонок.</p>
+                    <div class="page-hero__actions">
+                        <a href="#" class="cta-button open-modal-button" data-track="order_click" data-service="contacts">Заказать звонок</a>
+                        <a href="tel:+375297202791" class="service-button" data-track="phone_click" data-service="contacts">Позвонить сейчас</a>
                     </div>
                 </div>
+                <div class="page-hero__facts">
+                    <div class="page-hero__fact">
+                        <strong>Брест</strong>
+                        <span>ул. Янки Купалы, 109</span>
+                    </div>
+                    <div class="page-hero__fact">
+                        <strong>2 телефона</strong>
+                        <span>оперативная связь по проектам и аренде техники</span>
+                    </div>
+                    <div class="page-hero__fact">
+                        <strong>Telegram / Viber</strong>
+                        <span>удобно отправить фото участка или быстро задать вопрос</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                <!-- Блок с Яндекс.Картами -->
-                <div class="map-container">
-                    <h3>Мы на карте</h3>
-                    <iframe src="https://yandex.by/map-widget/v1/?z=12&ol=biz&oid=140245006449" class="box" width="100%" frameborder="0" ></iframe>
+        <section class="contacts-section">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-kicker">Контактные данные</span>
+                    <h2>Все важное в одном месте</h2>
+                    <p>Карточки ниже можно скопировать одним нажатием, чтобы быстро отправить реквизиты или контактные данные коллегам.</p>
+                </div>
+
+                <div class="contacts-grid">
+                    <article class="contact-card contact-card--primary" data-copy-card tabindex="0" title="Нажмите, чтобы скопировать">
+                        <p class="contact-card__label">Связь</p>
+                        <h3>ЧСУП «АВАЮССТРОЙ»</h3>
+                        <div class="contact-list">
+                            <p><strong>Email:</strong> <a href="mailto:avajsstroi@mail.ru">avajsstroi@mail.ru</a></p>
+                        </div>
+                        <ul class="contact-phones">
+                            <li>
+                                <span>+375 (29) 720-27-91 (Александр)</span>
+                                <div class="messenger-list">
+                                    <a href="viber://chat?number=%2B375297202791" target="_blank" rel="noopener" class="messenger-badge">Viber</a>
+                                    <a href="https://t.me/+375297202791" target="_blank" rel="noopener" class="messenger-badge messenger-badge--telegram">Telegram</a>
+                                </div>
+                            </li>
+                            <li>
+                                <span>+375 (33) 670-92-73 (Александр)</span>
+                                <div class="messenger-list">
+                                    <a href="viber://chat?number=%2B375336709273" target="_blank" rel="noopener" class="messenger-badge">Viber</a>
+                                    <a href="https://t.me/+375336709273" target="_blank" rel="noopener" class="messenger-badge messenger-badge--telegram">Telegram</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="contact-actions">
+                            <a href="tel:+375297202791" class="contact-link">Позвонить</a>
+                            <a href="mailto:avajsstroi@mail.ru" class="contact-link contact-link--secondary">Написать на email</a>
+                        </div>
+                        <p class="contact-copy-hint">Нажмите на карточку, чтобы скопировать данные.</p>
+                    </article>
+
+                    <article class="contact-card" data-copy-card tabindex="0" title="Нажмите, чтобы скопировать">
+                        <p class="contact-card__label">Компания</p>
+                        <h3>Юридическая информация</h3>
+                        <div class="contact-list">
+                            <p><strong>Наименование:</strong> Частное строительное унитарное предприятие «АВАЮССТРОЙ»</p>
+                            <p><strong>Адрес:</strong> 224032, г. Брест, ул. Янки Купалы, 109</p>
+                            <p><strong>Директор:</strong> А.С. Стракович (на основании устава, приказ №1 от 27.10.2010)</p>
+                            <p><strong>УНП:</strong> 291002836</p>
+                        </div>
+                        <p class="contact-copy-hint">Карточку удобно копировать целиком для документов и переписки.</p>
+                    </article>
+
+                    <article class="contact-card" data-copy-card tabindex="0" title="Нажмите, чтобы скопировать">
+                        <p class="contact-card__label">Оплата</p>
+                        <h3>Платежные реквизиты</h3>
+                        <div class="contact-list">
+                            <p><strong>Расчетный счет:</strong> BY41OLMP30123001046460000933</p>
+                            <p><strong>Банк:</strong> Брестская областная дирекция ОАО «Белгазпромбанк»</p>
+                            <p><strong>Адрес банка:</strong> г. Брест, ул. Московская, 174 А</p>
+                            <p><strong>БИК:</strong> OLMPBY2X</p>
+                            <p><strong>УНП банка:</strong> 100429079</p>
+                        </div>
+                        <p class="contact-copy-hint">Нажмите, чтобы быстро скопировать реквизиты.</p>
+                    </article>
+                </div>
+
+                <div class="map-card">
+                    <div class="map-card__content">
+                        <div>
+                            <p class="contact-card__label">На карте</p>
+                            <h3>Офис в Бресте</h3>
+                            <p>Приезжайте по предварительному звонку или отправьте геолокацию объекта - подскажем по выезду специалиста и удобному времени связи.</p>
+                        </div>
+                    </div>
+                    <iframe src="https://yandex.by/map-widget/v1/?z=12&ol=biz&oid=140245006449" title="АВАЮССТРОЙ на карте" loading="lazy"></iframe>
                 </div>
             </div>
         </section>
@@ -106,28 +122,5 @@
     {{ template "footer" }}
 
     <div id="copy-notification" class="copy-notification">Текст скопирован в буфер обмена</div>
-
-    <script>
-        function copyToClipboard(element) {
-            const textToCopy = element.innerText;
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                const notification = document.getElementById('copy-notification');
-                notification.style.display = 'block';
-                notification.style.opacity = '1';
-                notification.style.bottom = '40px';
-                setTimeout(() => {
-                    notification.style.opacity = '0';
-                    notification.style.bottom = '20px';
-                    setTimeout(() => {
-                        notification.style.display = 'none';
-                    }, 500);
-                }, 2000);
-            }).catch(err => {
-                console.error('Не удалось скопировать текст: ', err);
-            });
-        }
-    </script>
-
-
 </body>
 </html>
