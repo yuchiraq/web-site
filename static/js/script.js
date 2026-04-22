@@ -153,6 +153,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (heroLead) {
             heroLead.textContent = "Проектируем, монтируем и запускаем инженерные решения по Бресту и области с понятной сметой и гарантией на работы.";
         }
+        if (heroLead) {
+            heroLead.textContent = "Подбираем решение, выполняем монтаж и запускаем объект по Бресту и области с понятной сметой и гарантией на работы.";
+        }
     }
 
     let scrollTicking = false;
@@ -443,6 +446,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (track.closest(".carousel-row-secondary")) {
                 duration += isMobile ? 1 : 1;
+            }
+
+            if (isMobile) {
+                duration = Math.max(7, Math.min(14, Math.round(visibleItemsCount * 0.55)));
             }
 
             track.style.setProperty("--carousel-duration", `${duration}s`);

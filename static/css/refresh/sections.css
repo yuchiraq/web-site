@@ -67,6 +67,9 @@
     text-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
     text-align: center;
     text-wrap: balance;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
 }
 
 .hero h1 br {
