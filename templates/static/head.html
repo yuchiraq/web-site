@@ -2,11 +2,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#18242f">
+    {{ if .SiteMeta.GoogleSiteVerification }}
+    <meta name="google-site-verification" content="{{ .SiteMeta.GoogleSiteVerification }}">
+    {{ end }}
+    {{ if .SiteMeta.YandexVerification }}
+    <meta name="yandex-verification" content="{{ .SiteMeta.YandexVerification }}">
+    {{ end }}
+    {{ if .SiteMeta.FacebookDomainVerification }}
+    <meta name="facebook-domain-verification" content="{{ .SiteMeta.FacebookDomainVerification }}">
+    {{ end }}
+    <meta name="robots" content="{{ .SEO.Robots }}">
     <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
+    {{ if .SEO.Canonical }}
+    <link rel="canonical" href="{{ .SEO.Canonical }}">
+    <link rel="alternate" hreflang="ru-BY" href="{{ .SEO.Canonical }}">
+    {{ end }}
+    <link rel="alternate" type="application/rss+xml" title="АВАЮССТРОЙ RSS" href="https://avayusstroi.by/rss.xml">
+    <meta property="og:type" content="{{ .SEO.Type }}">
+    <meta property="og:locale" content="ru_BY">
+    <meta property="og:site_name" content="ЧСУП «АВАЮССТРОЙ»">
+    {{ if .SEO.Canonical }}
+    <meta property="og:url" content="{{ .SEO.Canonical }}">
+    {{ end }}
+    <meta property="og:title" content="{{ .SEO.Title }}">
+    <meta property="og:description" content="{{ .SEO.Description }}">
+    {{ if .SEO.Image }}
+    <meta property="og:image" content="{{ .SEO.Image }}">
+    <meta property="og:image:alt" content="{{ .SEO.ImageAlt }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{ .SEO.Image }}">
+    {{ else }}
+    <meta name="twitter:card" content="summary">
+    {{ end }}
+    <meta name="twitter:title" content="{{ .SEO.Title }}">
+    <meta name="twitter:description" content="{{ .SEO.Description }}">
     <link rel="stylesheet" href="/static/css/style.css?v=20260304b">
     <link rel="stylesheet" href="/static/css/refresh/base.css?v=20260422a">
     <link rel="stylesheet" href="/static/css/refresh/sections.css?v=20260422a">
     <link rel="stylesheet" href="/static/css/refresh/pages.css?v=20260422a">
     <link rel="stylesheet" href="/static/css/refresh/responsive.css?v=20260422a">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": "https://avayusstroi.by/#organization",
+              "name": "ЧСУП «АВАЮССТРОЙ»",
+              "url": "https://avayusstroi.by",
+              "logo": "https://avayusstroi.by/static/images/logo_n.png",
+              "image": "https://avayusstroi.by/static/images/visitka.jpg",
+              "email": "avajsstroi@mail.ru",
+              "telephone": ["+375297202791", "+375336709273"],
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "ул. Янки Купалы, 109",
+                "addressLocality": "Брест",
+                "postalCode": "224032",
+                "addressCountry": "BY"
+              },
+              "areaServed": ["Брест", "Брестская область"]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://avayusstroi.by/#website",
+              "url": "https://avayusstroi.by",
+              "name": "АВАЮССТРОЙ",
+              "publisher": {
+                "@id": "https://avayusstroi.by/#organization"
+              }
+            }
+          ]
+        }
+    </script>
 {{ end }}

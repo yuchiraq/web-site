@@ -12,15 +12,14 @@ import (
 )
 
 func indexHandler(c *gin.Context) {
-	title := "ЧСУП АВАЮССТРОЙ | Строительство в Бресте"
+	data := pageData("/")
 	photos := getProjectPhotos()
 	secondaryPhotos := getSecondaryProjectPhotos(photos)
 
-	c.HTML(http.StatusOK, "index.html", gin.H{
-		"Title":           title,
-		"Photos":          photos,
-		"PhotosSecondary": secondaryPhotos,
-	})
+	data["Photos"] = photos
+	data["PhotosSecondary"] = secondaryPhotos
+
+	c.HTML(http.StatusOK, "index.html", data)
 }
 
 func getSecondaryProjectPhotos(primary []string) []string {

@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"net/smtp"
 	"net/url"
 	"os"
 	"strings"
@@ -105,21 +104,6 @@ func submitHandler(c *gin.Context) {
 
 	log.Printf("Успешная заявка: имя=%s телефон=%s источник=%s", req.Name, req.Phone, req.Source)
 	c.JSON(http.StatusOK, gin.H{"success": true})
-}
-
-func sendEmail(name, phone string) error {
-	from := settings.SMTP.From
-	password := settings.SMTP.Password
-	to := settings.SMTP.To
-	smtpHost := settings.SMTP.SMTPHost
-	smtpPort := settings.SMTP.SMTPPort
-
-	subject := "Новая заявка с сайта"
-	body := fmt.Sprintf("Имя: %s\nТелефон: %s", name, phone)
-	message := fmt.Sprintf("To: %s\r\nSubject: %s\r\n\r\n%s", to, subject, body)
-
-	auth := smtp.PlainAuth("", from, password, smtpHost)
-	return smtp.SendMail(smtpHost+":"+smtpPort, auth, from, []string{to}, []byte(message))
 }
 
 func sendTelegramMessage(chatID string, req ContactRequest) error {

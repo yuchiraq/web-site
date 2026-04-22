@@ -1,5 +1,5 @@
 User-agent: *
-Disallow: /admin
 Allow: /
+Disallow: /admin
+Host: avayusstroi.by
 Sitemap: https://avayusstroi.by/sitemap.xml
-Allow: /rss.xml

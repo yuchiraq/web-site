@@ -10,42 +10,37 @@ import (
 )
 
 func main() {
-	gin.SetMode(gin.ReleaseMode) // Устанавливаем режим release
+	gin.SetMode(gin.ReleaseMode)
+
 	r := gin.New()
 	r.Use(gin.Logger(), gin.Recovery(), cacheControlMiddleware())
 
-	// Настройка логирования в файл
 	logFile, err := os.OpenFile("logs/server.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {
-		log.Fatalf("Ошибка открытия файла логов: %v", err)
+		log.Fatalf("failed to open log file: %v", err)
 	}
 	defer logFile.Close()
 	log.SetOutput(logFile)
 
 	if err := loadSettings(); err != nil {
-		log.Printf("Предупреждение: settings.json не загружен: %v", err)
+		log.Printf("warning: settings.json was not loaded: %v", err)
 	}
 
-	// Генерация sitemap.xml перед запуском сервера
 	if err := GenerateSitemap(); err != nil {
-		log.Fatalf("Ошибка генерации sitemap.xml: %v", err)
+		log.Fatalf("failed to generate sitemap.xml: %v", err)
 	}
-	log.Println("sitemap.xml успешно сгенерирован")
+	log.Println("sitemap.xml generated")
 
-	// Загрузка шаблонов
 	if err := loadTemplates(r); err != nil {
-		log.Fatalf("Ошибка загрузки шаблонов: %v", err)
+		log.Fatalf("failed to load templates: %v", err)
 	}
 
-	// Обработчик для главной страницы
 	r.GET("/", indexHandler)
 
-	// Автоматическая регистрация остальных маршрутов
 	if err := registerRoutes(r); err != nil {
-		log.Fatalf("Ошибка регистрации маршрутов: %v", err)
+		log.Fatalf("failed to register routes: %v", err)
 	}
 
-	// Статические файлы
 	r.Static("/static", "./static")
 	r.StaticFile("/sitemap.xml", "./static/data/sitemap.xml")
 	r.StaticFile("/robots.txt", "./static/data/robots.txt")
@@ -53,16 +48,11 @@ func main() {
 	r.StaticFile("/favicon.svg", "./static/images/logo_n.svg")
 	r.StaticFile("/favicon", "./static/images/logo_n.svg")
 
-	// Обработчик формы
 	r.POST("/submit", submitHandler)
-	// RSS-фид
 	r.GET("/rss.xml", generateRSSFeed)
 
-	// Обработка 404
 	r.NoRoute(func(c *gin.Context) {
-		c.HTML(404, "404.html", gin.H{
-			"Title": "404 - Страница не найдена",
-		})
+		c.HTML(http.StatusNotFound, "404.html", pageData("/404"))
 	})
 
 	server := &http.Server{
@@ -74,9 +64,9 @@ func main() {
 		IdleTimeout:       60 * time.Second,
 	}
 
-	log.Println("Запуск HTTP-сервера на порту 8088")
+	log.Println("starting HTTP server on :8088")
 	if err := server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
-		log.Fatalf("Ошибка запуска HTTP-сервера: %v", err)
+		log.Fatalf("failed to start HTTP server: %v", err)
 	}
 }
 

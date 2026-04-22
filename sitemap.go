@@ -4,6 +4,7 @@ import (
 	"encoding/xml"
 	"os"
 	"path/filepath"
+	"sort"
 	"strings"
 )
 
@@ -20,75 +21,82 @@ type URLSet struct {
 	URLs    []URL    `xml:"url"`
 }
 
-// GenerateSitemap создаёт или обновляет sitemap.xml
 func GenerateSitemap() error {
-	urls := []URL{}
+	urls := make([]URL, 0)
 
-	// Сканируем папку templates
 	err := filepath.Walk("templates", func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err
 		}
+
 		normalizedPath := filepath.ToSlash(path)
-		// Пропускаем вложенные шаблоны
-		if strings.HasSuffix(normalizedPath, "header.html") || strings.HasSuffix(normalizedPath, "footer.html") ||
-			strings.HasSuffix(normalizedPath, "head.html") || strings.HasSuffix(normalizedPath, "phone_button.html") {
+		if strings.Contains(normalizedPath, "templates/static/") ||
+			strings.HasSuffix(normalizedPath, "header.html") ||
+			strings.HasSuffix(normalizedPath, "footer.html") ||
+			strings.HasSuffix(normalizedPath, "head.html") ||
+			strings.HasSuffix(normalizedPath, "phone_button.html") ||
+			strings.HasSuffix(normalizedPath, "404.html") {
 			return nil
 		}
-		if strings.Contains(normalizedPath, "templates/static/") || strings.HasSuffix(normalizedPath, "404.html") {
+		if info.IsDir() || filepath.Ext(path) != ".html" {
 			return nil
 		}
-		if !info.IsDir() && filepath.Ext(path) == ".html" {
-			route := strings.TrimPrefix(normalizedPath, "templates/")
-			route = strings.TrimSuffix(route, ".html")
-			if route == "index" {
-				route = "/"
-			} else {
-				route = "/" + route
-			}
-			priority := "0.5"
-			changeFreq := "monthly"
-			if route == "/" {
-				priority = "1.0"
-				changeFreq = "daily"
-			} else if strings.HasPrefix(route, "/services") {
-				priority = "0.7"
-				changeFreq = "weekly"
-			}
-			// Получаем дату последнего изменения файла
-			lastMod := info.ModTime().Format("2006-01-02")
-			urls = append(urls, URL{
-				Loc:        "https://avayusstroi.by" + route,
-				LastMod:    lastMod,
-				ChangeFreq: changeFreq,
-				Priority:   priority,
-			})
+
+		route := strings.TrimPrefix(normalizedPath, "templates/")
+		route = strings.TrimSuffix(route, ".html")
+		if route == "index" {
+			route = "/"
+		} else {
+			route = "/" + route
 		}
+
+		priority := "0.5"
+		changeFreq := "monthly"
+		switch {
+		case route == "/":
+			priority = "1.0"
+			changeFreq = "daily"
+		case route == "/services" || route == "/rent" || route == "/contacts":
+			priority = "0.8"
+			changeFreq = "weekly"
+		case strings.HasPrefix(route, "/services/"):
+			priority = "0.7"
+			changeFreq = "weekly"
+		}
+
+		urls = append(urls, URL{
+			Loc:        canonicalURL(route),
+			LastMod:    info.ModTime().Format("2006-01-02"),
+			ChangeFreq: changeFreq,
+			Priority:   priority,
+		})
+
 		return nil
 	})
 	if err != nil {
 		return err
 	}
 
-	// Создаём структуру для sitemap
+	sort.Slice(urls, func(i, j int) bool {
+		return urls[i].Loc < urls[j].Loc
+	})
+
 	urlSet := URLSet{
 		XMLNS: "http://www.sitemaps.org/schemas/sitemap/0.9",
 		URLs:  urls,
 	}
 
-	// Создаём файл sitemap.xml
 	file, err := os.Create("static/data/sitemap.xml")
 	if err != nil {
 		return err
 	}
 	defer file.Close()
 
-	// Кодируем данные в XML и записываем в файл
-	encoder := xml.NewEncoder(file)
-	encoder.Indent("", "  ")
-	if err := encoder.Encode(urlSet); err != nil {
+	if _, err := file.WriteString(xml.Header); err != nil {
 		return err
 	}
 
-	return nil
+	encoder := xml.NewEncoder(file)
+	encoder.Indent("", "  ")
+	return encoder.Encode(urlSet)
 }
