@@ -1,0 +1,453 @@
+/* Home sections and shared content blocks */
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 760px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: url("/static/images/hero_new.webp") center center / cover no-repeat;
+}
+
+.hero-overlay {
+    background:
+        linear-gradient(135deg, rgba(10, 16, 22, 0.78), rgba(10, 16, 22, 0.34)),
+        radial-gradient(circle at right center, rgba(240, 122, 22, 0.14), transparent 34%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    width: min(900px, 100%);
+    min-height: 0;
+    padding: 2.95rem 2.8rem 2.45rem;
+    gap: 1.15rem;
+    background: rgba(17, 27, 36, 0.34);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: var(--border-radius);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    animation: slideIn 1s ease-out;
+}
+
+.hero-kicker,
+.hero-panel__eyebrow,
+.section-kicker,
+.page-hero__eyebrow,
+.contact-card__label,
+.modal-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: fit-content;
+    padding: 0.45rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 0.83rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    margin: 0;
+    max-width: 13.8ch;
+    font-size: clamp(3.4rem, 6vw, 4.8rem);
+    line-height: 1.06;
+    letter-spacing: 0.015em;
+    color: #fff;
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
+    text-align: center;
+    text-wrap: balance;
+}
+
+.hero h1 br {
+    display: none;
+}
+
+.hero-accent {
+    color: #f7c963;
+    display: inline-block;
+    white-space: nowrap;
+    overflow-wrap: normal;
+}
+
+.hero p {
+    display: block;
+    max-width: 39rem;
+    margin: 0 auto;
+    font-size: 1.3rem;
+    line-height: 1.58;
+    color: rgba(255, 255, 255, 0.84);
+    text-align: center;
+    text-wrap: pretty;
+}
+
+.hero-actions,
+.page-hero__actions,
+.topas-info__actions,
+.error-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.95rem;
+}
+
+.hero-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.85rem;
+    margin-top: 0.4rem;
+}
+
+.hero-highlight,
+.page-hero__fact,
+.workflow-step,
+.contact-card,
+.map-card,
+.hero-panel,
+.feature-item,
+.service-item,
+.box {
+    position: relative;
+    overflow: hidden;
+    background: var(--card-light);
+    border: var(--glass-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.hero-highlight {
+    padding: 1rem 1.1rem;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.hero-highlight strong,
+.page-hero__fact strong,
+.workflow-step__index {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.hero-highlight span {
+    display: block;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.hero-panel {
+    padding: 1.4rem;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.06)),
+        rgba(14, 22, 30, 0.68);
+    color: #fff;
+}
+
+.hero-panel h2 {
+    margin: 0.8rem 0 0.7rem;
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+    line-height: 1.05;
+}
+
+.hero-panel__list {
+    margin: 0;
+    padding-left: 1rem;
+    display: grid;
+    gap: 0.6rem;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.hero-panel__metrics {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin-top: 1.15rem;
+}
+
+.hero-panel__metrics div {
+    padding: 0.9rem 1rem;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.hero-panel__metrics strong {
+    display: block;
+    margin-bottom: 0.15rem;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+}
+
+.hero-panel__metrics span {
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 0.92rem;
+}
+
+.cta-button,
+.service-button {
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 52px;
+    position: relative;
+    overflow: hidden;
+    gap: 0.45rem;
+    padding: 0.95rem 1.5rem;
+    border-radius: 999px;
+    border: none;
+    font-size: 0.96rem;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    vertical-align: middle;
+    text-wrap: balance;
+    box-shadow: 0 18px 38px rgba(240, 122, 22, 0.2);
+}
+
+.cta-button {
+    background: var(--gradient);
+    color: #18242f;
+}
+
+.service-button {
+    background: var(--gradient);
+    color: #18242f;
+}
+
+.cta-button:hover,
+.service-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 24px 48px rgba(240, 122, 22, 0.26);
+}
+
+.hero-cta-secondary,
+.cta-button--secondary,
+.contact-link--secondary {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    box-shadow: none;
+}
+
+.cta-button--secondary {
+    color: var(--text-light);
+    border-color: rgba(24, 36, 47, 0.15);
+}
+
+.hero-cta-secondary:hover,
+.contact-link--secondary:hover,
+.cta-button--secondary:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: inherit;
+}
+
+.features,
+.services,
+.workflow,
+.topas-info,
+.trusted-clients,
+.projects,
+.cta,
+.catalog-section,
+.contacts-section {
+    padding: 4.5rem 0;
+}
+
+.features .container,
+.services .container,
+.trusted-clients .container,
+.projects .container {
+    display: grid;
+    gap: 1.8rem;
+}
+
+.section-heading {
+    display: grid;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+    max-width: 52rem;
+}
+
+.section-kicker,
+.page-hero__eyebrow,
+.contact-card__label,
+.modal-eyebrow {
+    color: var(--primary-color);
+    background: rgba(240, 122, 22, 0.12);
+    border-color: rgba(240, 122, 22, 0.14);
+}
+
+.section-heading h2,
+.features h2,
+.services h2,
+.trusted-clients h2,
+.projects h2,
+.cta h2,
+.topas-info__content h2,
+.page-hero h1,
+.error-hero h1 {
+    margin: 0;
+    font-size: clamp(2.2rem, 4.6vw, 3.6rem);
+    line-height: 1;
+}
+
+.section-heading p,
+.page-hero p,
+.cta p,
+.topas-info__content p,
+.contact-list p,
+.map-card p {
+    margin: 0;
+    color: var(--text-muted);
+    line-height: 1.75;
+}
+
+.feature-list,
+.service-list,
+.workflow-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.35rem;
+}
+
+.feature-item,
+.service-item,
+.workflow-step,
+.box,
+.contact-card {
+    padding: 1.75rem;
+}
+
+.feature-item::before,
+.service-item::before,
+.workflow-step::before,
+.box::before,
+.contact-card::before,
+.map-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(240, 122, 22, 0.08), transparent 55%);
+    pointer-events: none;
+}
+
+.feature-item h3,
+.service-item h3,
+.workflow-step h3,
+.box h3,
+.contact-card h3 {
+    margin: 0 0 0.7rem;
+    font-size: 1.82rem;
+    line-height: 1.05;
+}
+
+.feature-item p,
+.service-item p,
+.workflow-step p,
+.box p,
+.contact-card p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 1.04rem;
+    line-height: 1.75;
+}
+
+.feature-list .feature-item:nth-child(n+3) {
+    display: block;
+}
+
+.service-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.service-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.service-item img,
+.box img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 11;
+    object-fit: cover;
+    border-radius: 18px;
+    margin-bottom: 1.15rem;
+}
+
+.service-item p {
+    display: block;
+    margin-bottom: 1.15rem;
+}
+
+.service-item .service-button {
+    margin-top: auto;
+}
+
+.feature-item h3,
+.feature-item p,
+.service-item h3,
+.service-item p,
+.service-item .service-button,
+.box h3,
+.box p {
+    padding-inline: 0.35rem;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    text-decoration: none;
+    color: inherit;
+}
+
+.box:hover,
+.feature-item:hover,
+.service-item:hover,
+.workflow-step:hover,
+.contact-card:hover,
+.map-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-elevated);
+}
+
+.boxes-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.35rem;
+}
+
+.rent-card-image-wrap {
+    margin-bottom: 0.1rem;
+}
+
+.rent-price-tag {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.55rem 0.8rem;
+    border-radius: 999px;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+}
+

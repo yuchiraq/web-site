@@ -2,9 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const body = document.body;
     const header = document.querySelector(".header");
     const hero = document.querySelector(".hero");
-    const menuToggle = document.querySelector(".menu-toggle");
-    const headerPanel = document.querySelector(".header-panel");
-    const navBackdrop = document.querySelector(".nav-backdrop");
+    const navLinks = Array.from(document.querySelectorAll(".nav a"));
 
     const phoneIcon = document.getElementById("openPhoneForm");
     const modal = document.getElementById("phoneFormModal");
@@ -99,7 +97,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const syncScrollLock = () => {
         const shouldLock =
-            body.classList.contains("menu-open") ||
             body.classList.contains("modal-open") ||
             Boolean(projectImageModal && projectImageModal.classList.contains("is-open"));
         body.classList.toggle("scroll-locked", shouldLock);
@@ -128,41 +125,34 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    const setMenuState = isOpen => {
-        if (!menuToggle || !headerPanel) return;
+    if (navLinks.length) {
+        const currentPath = window.location.pathname.replace(/\/+$/, "") || "/";
+        navLinks.forEach(link => {
+            const linkPath = new URL(link.href, window.location.origin).pathname.replace(/\/+$/, "") || "/";
+            const isCurrent = linkPath === "/"
+                ? currentPath === "/"
+                : currentPath === linkPath || currentPath.startsWith(`${linkPath}/`);
 
-        const desktop = window.innerWidth > 960;
-        const nextState = desktop ? false : isOpen;
-
-        body.classList.toggle("menu-open", nextState);
-        menuToggle.setAttribute("aria-expanded", String(nextState));
-        headerPanel.setAttribute("aria-hidden", String(!desktop && !nextState));
-        if (navBackdrop) {
-            navBackdrop.setAttribute("aria-hidden", String(!nextState));
-        }
-        syncScrollLock();
-    };
-
-    if (menuToggle && headerPanel) {
-        setMenuState(false);
-
-        menuToggle.addEventListener("click", () => {
-            const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
-            setMenuState(!isOpen);
+            link.classList.toggle("is-current", isCurrent);
+            if (isCurrent) {
+                link.setAttribute("aria-current", "page");
+            } else {
+                link.removeAttribute("aria-current");
+            }
         });
+    }
 
-        if (navBackdrop) {
-            navBackdrop.addEventListener("click", () => setMenuState(false));
+    if (window.location.pathname === "/") {
+        const heroTitle = document.querySelector(".hero h1");
+        const heroLead = document.querySelector(".hero p");
+
+        if (heroTitle) {
+            heroTitle.innerHTML = 'Автономная канализация и <span class="hero-accent">водопонижение</span> под ключ';
         }
 
-        document.querySelectorAll(".nav a").forEach(link => {
-            link.addEventListener("click", () => setMenuState(false));
-        });
-
-        window.addEventListener("resize", () => {
-            setMenuState(false);
-            headerPanel.setAttribute("aria-hidden", String(window.innerWidth <= 960));
-        });
+        if (heroLead) {
+            heroLead.textContent = "Проектируем, монтируем и запускаем инженерные решения по Бресту и области с понятной сметой и гарантией на работы.";
+        }
     }
 
     let scrollTicking = false;
@@ -198,10 +188,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const openModal = () => {
         if (!modal) return;
-
-        if (body.classList.contains("menu-open")) {
-            setMenuState(false);
-        }
 
         modal.classList.add("is-open");
         modal.setAttribute("aria-hidden", "false");
@@ -330,7 +316,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    document.querySelectorAll("button, .cta-button, .service-button, .order-button, .header-phone, .header-cta, .contact-link, .messenger-badge").forEach(button => {
+    document.querySelectorAll("button, .cta-button, .service-button, .order-button, .contact-link, .messenger-badge").forEach(button => {
         button.addEventListener("click", event => {
             const target = event.currentTarget;
             if (!(target instanceof HTMLElement)) return;
@@ -449,14 +435,14 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!visibleItemsCount) return;
 
             const isMobile = window.innerWidth <= 768;
-            const perItemDuration = isMobile ? 1.6 : 1.05;
-            const minDuration = isMobile ? 20 : 16;
-            const maxDuration = isMobile ? 44 : 38;
+            const perItemDuration = isMobile ? 0.92 : 1.05;
+            const minDuration = isMobile ? 11 : 16;
+            const maxDuration = isMobile ? 24 : 38;
             let duration = Math.round(visibleItemsCount * perItemDuration);
             duration = Math.max(minDuration, Math.min(maxDuration, duration));
 
             if (track.closest(".carousel-row-secondary")) {
-                duration += isMobile ? 2 : 1;
+                duration += isMobile ? 1 : 1;
             }
 
             track.style.setProperty("--carousel-duration", `${duration}s`);
@@ -580,11 +566,59 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 1800);
     };
 
+    const getCopyCardText = card => {
+        const clone = card.cloneNode(true);
+        clone.querySelectorAll(".contact-actions, .contact-copy-hint, .messenger-list").forEach(element => element.remove());
+        return clone.innerText.replace(/\n{3,}/g, "\n\n").trim();
+    };
+
+    const copyText = async text => {
+        if (!text) return false;
+
+        if (navigator.clipboard && window.isSecureContext) {
+            try {
+                await navigator.clipboard.writeText(text);
+                return true;
+            } catch (error) {
+                // Fall back to a manual copy strategy below.
+            }
+        }
+
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        textArea.setAttribute("readonly", "");
+        textArea.style.position = "fixed";
+        textArea.style.top = "0";
+        textArea.style.left = "0";
+        textArea.style.opacity = "0";
+        textArea.style.pointerEvents = "none";
+        document.body.appendChild(textArea);
+        textArea.focus({ preventScroll: true });
+        textArea.select();
+        textArea.setSelectionRange(0, textArea.value.length);
+
+        let didCopy = false;
+        try {
+            didCopy = document.execCommand("copy");
+        } catch (error) {
+            didCopy = false;
+        }
+
+        textArea.remove();
+        return didCopy;
+    };
+
     document.querySelectorAll("[data-copy-card]").forEach(card => {
         const copyCard = () => {
-            if (!navigator.clipboard) return;
-            navigator.clipboard.writeText(card.innerText.trim())
-                .then(showCopyNotification)
+            copyText(getCopyCardText(card))
+                .then(didCopy => {
+                    if (didCopy) {
+                        showCopyNotification();
+                        return;
+                    }
+
+                    console.error("Не удалось скопировать текст.");
+                })
                 .catch(error => console.error("Не удалось скопировать текст:", error));
         };
 
@@ -605,10 +639,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.addEventListener("keydown", event => {
         if (event.key !== "Escape") return;
-
-        if (body.classList.contains("menu-open")) {
-            setMenuState(false);
-        }
 
         if (modal && modal.classList.contains("is-open")) {
             closeModal();
