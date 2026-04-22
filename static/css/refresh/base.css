@@ -155,7 +155,7 @@ main {
 
 .header.scrolled {
     height: 56px;
-    background: rgba(16, 25, 33, 0.92);
+    background: rgba(18, 28, 37, 0.78);
 }
 
 .header .container {
@@ -235,7 +235,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1.15rem;
+    gap: 1.5rem;
     margin: 0.4rem 0 0;
 }
 
@@ -244,15 +244,15 @@ main {
     align-items: center;
     justify-content: center;
     position: relative;
-    min-height: 40px;
+    min-height: 44px;
     min-width: 0;
-    padding: 0.5rem 0.1rem 0.72rem;
+    padding: 0.62rem 0.45rem 0.84rem;
     border-radius: 0;
     border: none;
     color: rgba(255, 255, 255, 0.84);
     text-decoration: none;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 1.02rem;
     letter-spacing: 0.01em;
     text-align: center;
     white-space: nowrap;

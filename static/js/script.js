@@ -438,14 +438,14 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!visibleItemsCount) return;
 
             const isMobile = window.innerWidth <= 768;
-            const perItemDuration = isMobile ? 0.92 : 1.05;
-            const minDuration = isMobile ? 11 : 16;
-            const maxDuration = isMobile ? 24 : 38;
+            const perItemDuration = isMobile ? 0.55 : 1.05;
+            const minDuration = isMobile ? 7 : 16;
+            const maxDuration = isMobile ? 14 : 38;
             let duration = Math.round(visibleItemsCount * perItemDuration);
             duration = Math.max(minDuration, Math.min(maxDuration, duration));
 
-            if (track.closest(".carousel-row-secondary")) {
-                duration += isMobile ? 1 : 1;
+            if (track.closest(".carousel-row-secondary") && !isMobile) {
+                duration += 1;
             }
 
             if (isMobile) {
