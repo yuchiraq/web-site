@@ -17,6 +17,7 @@
     .service-list,
     .workflow-grid,
     .contacts-grid,
+    .vacancy-panel,
     .boxes-list {
         grid-template-columns: 1fr;
     }
@@ -169,6 +170,7 @@
     .service-list,
     .workflow-grid,
     .contacts-grid,
+    .vacancy-panel,
     .trusted-clients__grid,
     .boxes-list {
         grid-template-columns: 1fr;
@@ -458,6 +460,7 @@
     .page-hero__grid,
     .service-hero__grid,
     .contacts-grid,
+    .vacancy-panel,
     .footer-content {
         grid-template-columns: 1fr;
     }
@@ -465,6 +468,7 @@
     .page-hero__fact,
     .contact-card,
     .map-card,
+    .vacancy-panel,
     .quick-order__wrap {
         padding: 1rem;
     }
@@ -484,6 +488,17 @@
         min-height: 42px;
         padding: 0.72rem 0.95rem;
         font-size: 0.9rem;
+    }
+
+    .vacancy-panel__actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .vacancy-panel__actions .cta-button,
+    .vacancy-panel__actions .service-button {
+        width: 100%;
+        text-align: center;
     }
 
     .footer-bottom {

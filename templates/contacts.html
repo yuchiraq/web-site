@@ -3,7 +3,7 @@
 <head>
     {{ template "head" }}
     <title>Контакты АВАЮССТРОЙ | Брест</title>
-    <meta name="description" content="Свяжитесь с ЧСУП «АВАЮССТРОЙ» в Бресте и Брестской области. Получите консультацию и закажите услуги по строительству, дренажу и аренде техники.">
+    <meta name="description" content="Свяжитесь с ЧСУП «АВАЮССТРОЙ» в Бресте и Брестской области. Получите консультацию, закажите услуги или узнайте о вакансии монтажника.">
 </head>
 <body>
     {{ template "header" }}
@@ -14,7 +14,7 @@
                 <div>
                     <span class="page-hero__eyebrow">Контакты</span>
                     <h1>Свяжитесь с нами удобным способом</h1>
-                    <p>Подскажем по срокам, стоимости и комплектации объекта. Можно позвонить, написать в мессенджер или оставить заявку на обратный звонок.</p>
+                    <p>Подскажем по срокам, стоимости и комплектации объекта. Можно позвонить, написать в мессенджер, оставить заявку на обратный звонок или узнать о работе в нашей команде.</p>
                     <div class="page-hero__actions">
                         <a href="#" class="cta-button open-modal-button" data-track="order_click" data-service="contacts">Заказать звонок</a>
                         <a href="tel:+375297202791" class="service-button" data-track="phone_click" data-service="contacts">Позвонить сейчас</a>
@@ -27,11 +27,15 @@
                     </div>
                     <div class="page-hero__fact">
                         <strong>2 телефона</strong>
-                        <span>оперативная связь по проектам и аренде техники</span>
+                        <span>оперативная связь по проектам, аренде техники и выезду на объект</span>
                     </div>
                     <div class="page-hero__fact">
                         <strong>Telegram / Viber</strong>
-                        <span>удобно отправить фото участка или быстро задать вопрос</span>
+                        <span>удобно отправить фото участка, схему или быстро уточнить вопрос</span>
+                    </div>
+                    <div class="page-hero__fact page-hero__fact--vacancy">
+                        <strong>Вакансии</strong>
+                        <span>Ищем монтажников, не боящихся тяжелой работы. Подробности ниже на странице.</span>
                     </div>
                 </div>
             </div>
@@ -42,7 +46,7 @@
                 <div class="section-heading">
                     <span class="section-kicker">Контактные данные</span>
                     <h2>Все важное в одном месте</h2>
-                    <p>Карточки ниже можно скопировать одним нажатием, чтобы быстро отправить реквизиты или контактные данные коллегам.</p>
+                    <p>Карточки ниже можно скопировать одним нажатием, чтобы быстро отправить реквизиты, телефоны или юридические данные коллегам и заказчикам.</p>
                 </div>
 
                 <div class="contacts-grid">
@@ -106,10 +110,30 @@
                         <div>
                             <p class="contact-card__label">На карте</p>
                             <h3>Офис в Бресте</h3>
-                            <p>Приезжайте по предварительному звонку или отправьте геолокацию объекта - подскажем по выезду специалиста и удобному времени связи.</p>
+                            <p>Приезжайте по предварительному звонку или отправьте геолокацию объекта. Подскажем по выезду специалиста и удобному времени связи.</p>
                         </div>
                     </div>
                     <iframe src="https://yandex.by/map-widget/v1/?z=12&ol=biz&oid=140245006449" title="АВАЮССТРОЙ на карте" loading="lazy"></iframe>
+                </div>
+
+                <div id="vacancies" class="vacancy-panel" data-aos="fade-up">
+                    <div class="vacancy-panel__intro">
+                        <p class="contact-card__label">Вакансии</p>
+                        <h2>Ищем монтажников в команду</h2>
+                        <p>Нужны монтажники, которые не боятся тяжелой работы и готовы держать темп на объекте. Работаем по Бресту и области, даем стабильную загрузку и достойную зарплату за нормальный результат.</p>
+                    </div>
+                    <div class="vacancy-panel__details">
+                        <ul class="vacancy-panel__list">
+                            <li>Монтаж инженерных сетей и работа на реальных объектах без «пустых обещаний».</li>
+                            <li>Подойдет тем, кто спокойно относится к физической нагрузке и умеет работать в команде.</li>
+                            <li>Достойная зарплата, понятные условия и прямая связь с руководителем по выходу на объект.</li>
+                        </ul>
+                        <div class="vacancy-panel__actions">
+                            <a href="tel:+375297202791" class="cta-button" data-track="vacancy_call_click" data-service="vacancies">Позвонить по вакансии</a>
+                            <a href="https://t.me/+375297202791" target="_blank" rel="noopener" class="service-button" data-track="vacancy_telegram_click" data-messenger="telegram" data-service="vacancies">Написать в Telegram</a>
+                            <a href="#" class="service-button open-modal-button" data-track="vacancy_callback_click" data-service="vacancies">Оставить контакты</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

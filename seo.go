@@ -2,7 +2,7 @@ package main
 
 const (
 	siteURL         = "https://avayusstroi.by"
-	siteName        = "ЧСУП «АВАЮССТРОЙ»"
+	siteName        = "АВАЮССТРОЙ"
 	defaultRobots   = "index,follow,max-image-preview:large"
 	defaultOGType   = "website"
 	defaultSEOImage = siteURL + "/static/images/hero_new.webp"
@@ -21,7 +21,7 @@ type SEOData struct {
 var seoDataByPath = map[string]SEOData{
 	"/": {
 		Title:       "Автономная канализация и водопонижение в Бресте | АВАЮССТРОЙ",
-		Description: "ЧСУП «АВАЮССТРОЙ» выполняет монтаж автономной канализации, водопонижение, дренаж и аренду спецтехники в Бресте и Брестской области.",
+		Description: "АВАЮССТРОЙ выполняет монтаж автономной канализации, водопонижение, дренаж и аренду спецтехники в Бресте и Брестской области.",
 		Image:       siteURL + "/static/images/hero_new.webp",
 		ImageAlt:    "Автономная канализация и водопонижение от АВАЮССТРОЙ",
 	},
@@ -39,7 +39,7 @@ var seoDataByPath = map[string]SEOData{
 	},
 	"/contacts": {
 		Title:       "Контакты АВАЮССТРОЙ | Брест",
-		Description: "Телефоны, адрес, реквизиты и быстрые способы связи с АВАЮССТРОЙ в Бресте. Можно позвонить, написать или оставить заявку.",
+		Description: "Телефоны, адрес, реквизиты, быстрые способы связи и вакансии АВАЮССТРОЙ в Бресте. Можно позвонить, написать или оставить заявку.",
 		Image:       siteURL + "/static/images/visitka.jpg",
 		ImageAlt:    "Контакты АВАЮССТРОЙ",
 	},

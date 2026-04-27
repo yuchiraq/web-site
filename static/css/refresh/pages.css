@@ -299,6 +299,63 @@
     border-radius: 22px;
 }
 
+.page-hero__fact--vacancy {
+    background:
+        linear-gradient(135deg, rgba(240, 122, 22, 0.12), rgba(245, 177, 52, 0.08)),
+        rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(240, 122, 22, 0.16);
+}
+
+.vacancy-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: 1.15rem;
+    margin-top: 1rem;
+    padding: 1.25rem;
+    border-radius: 28px;
+    background:
+        radial-gradient(circle at top right, rgba(245, 177, 52, 0.16), transparent 34%),
+        linear-gradient(140deg, rgba(17, 28, 37, 0.98), rgba(33, 48, 61, 0.95));
+    color: #fff;
+    box-shadow: 0 28px 68px rgba(8, 13, 18, 0.2);
+}
+
+.vacancy-panel h2,
+.vacancy-panel p,
+.vacancy-panel li {
+    color: #fff;
+}
+
+.vacancy-panel__intro,
+.vacancy-panel__details {
+    display: grid;
+    gap: 0.9rem;
+    align-content: start;
+}
+
+.vacancy-panel__intro p:not(.contact-card__label) {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.vacancy-panel__list {
+    margin: 0;
+    padding-left: 1.15rem;
+    display: grid;
+    gap: 0.75rem;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.vacancy-panel__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.vacancy-panel__actions .cta-button,
+.vacancy-panel__actions .service-button {
+    min-height: 46px;
+}
+
 .copy-notification {
     position: fixed;
     left: 50%;
@@ -373,6 +430,17 @@
 .footer-section a {
     margin: 0;
     color: rgba(255, 255, 255, 0.74);
+}
+
+.footer-note {
+    max-width: 20rem;
+    font-size: 0.96rem;
+    line-height: 1.55;
+}
+
+.footer-note a {
+    color: #fff;
+    font-weight: 700;
 }
 
 .footer-links a {
