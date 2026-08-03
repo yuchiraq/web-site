@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru" data-theme="light">
 <head>
-    {{ template "head" }}
-    <title>Водопонижение в Бресте и Брестской области | Иглофильтры и дренаж — АВАЮССТРОЙ</title>
-    <meta name="description" content="Услуги водопонижения в Бресте и области: иглофильтры, насосы, дренаж для котлованов и строительных площадок. Точный расчет, безопасные работы, гарантия.">
+    {{ template "head" . }}
 
     <script type="application/ld+json">
         {
@@ -81,7 +79,7 @@
     </script>
 </head>
 <body>
-{{ template "header" }}
+{{ template "header" . }}
 
 <main>
     
@@ -192,6 +190,6 @@
 
 </main>
 
-{{ template "footer" }}
+{{ template "footer" . }}
 </body>
 </html>

@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru" data-theme="light">
 <head>
-    {{ template "head" }}
-    <title>Контакты АВАЮССТРОЙ | Брест</title>
-    <meta name="description" content="Свяжитесь с ЧСУП «АВАЮССТРОЙ» в Бресте и Брестской области. Получите консультацию, закажите услуги или узнайте о вакансии монтажника.">
+    {{ template "head" . }}
 </head>
 <body>
-    {{ template "header" }}
+    {{ template "header" . }}
 
     <main>
         <section class="page-hero page-hero--contacts">
@@ -138,7 +136,7 @@
             </div>
         </section>
     </main>
-    {{ template "footer" }}
+    {{ template "footer" . }}
 
     <div id="copy-notification" class="copy-notification">Текст скопирован в буфер обмена</div>
 </body>

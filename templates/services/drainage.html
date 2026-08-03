@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru" data-theme="light">
 <head>
-    {{ template "head" }}
-    <title>Дренажные системы в Бресте | АВАЮССТРОЙ</title>
-    <meta name="description" content="ЧСУП «АВАЮССТРОЙ» предлагает профессиональные услуги по устройству дренажных систем в Бресте и Брестской области. Эффективное решение для отвода воды с вашего участка!">
+    {{ template "head" . }}
 </head>
 <body>
-    {{ template "header"}}
+    {{ template "header" . }}
 
     <main>
         <section class="service-detail">
@@ -52,7 +50,7 @@
 
     </main>
 
-    {{ template "footer" }}
+    {{ template "footer" . }}
 
 </body>
 </html>

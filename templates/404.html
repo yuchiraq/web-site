@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru" data-theme="light">
 <head>
-    {{ template "head" }}
-    <title>404 - Страница не найдена | ЧСУП «АВАЮССТРОЙ»</title>
-    <meta name="description" content="Страница не найдена. Вернитесь на главную страницу сайта ЧСУП «АВАЮССТРОЙ», чтобы найти информацию об инженерных и строительных услугах в Бресте.">
+    {{ template "head" . }}
 </head>
 <body>
-    {{ template "header" }}
+    {{ template "header" . }}
 
     <main>
         <section class="error-hero">
@@ -22,6 +20,6 @@
         </section>
     </main>
 
-    {{ template "footer" }}
+    {{ template "footer" . }}
 </body>
 </html>

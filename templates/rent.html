@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru" data-theme="light">
 <head>
-    {{ template "head" }}
-    <title>Аренда спецтехники в Бресте | АВАЮССТРОЙ</title>
-    <meta name="description" content="ЧСУП «АВАЮССТРОЙ» предлагает аренду спецтехники и оборудования в Бресте и Брестской области. Доступные условия, техника для земляных и строительных работ, выезд на объект.">
+    {{ template "head" . }}
 </head>
 <body>
-    {{ template "header"}}
+    {{ template "header" . }}
 
     <main>
         <section class="page-hero">
@@ -138,6 +136,6 @@
             </div>
         </section>
     </main>
-    {{ template "footer" }}
+    {{ template "footer" . }}
 </body>
 </html>

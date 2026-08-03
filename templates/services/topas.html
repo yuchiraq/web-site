@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru" data-theme="light">
 <head>
-    {{ template "head" }}
-    <title>Установка автономной канализации ТОПАС в Бресте | Под ключ</title>
-    <meta name="description" content="Монтаж автономной канализации ТОПАС в Бресте и области. Без запаха. Установка за 1–2 дня. Бесплатный выезд инженера.">
+    {{ template "head" . }}
 
     <script type="application/ld+json">
         {
@@ -55,7 +53,7 @@
     </script>
 </head>
 <body>
-{{ template "header" }}
+{{ template "header" . }}
 
 <main>
 
@@ -305,6 +303,6 @@
 
 </main>
 
-{{ template "footer" }}
+{{ template "footer" . }}
 </body>
 </html>

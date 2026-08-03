@@ -4,6 +4,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -13,7 +14,7 @@ func main() {
 	gin.SetMode(gin.ReleaseMode)
 
 	r := gin.New()
-	r.Use(gin.Logger(), gin.Recovery(), cacheControlMiddleware())
+	r.Use(gin.Logger(), gin.Recovery(), canonicalHostMiddleware(), cacheControlMiddleware())
 
 	logFile, err := os.OpenFile("logs/server.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {
@@ -67,6 +68,23 @@ func main() {
 	log.Println("starting HTTP server on :8088")
 	if err := server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
 		log.Fatalf("failed to start HTTP server: %v", err)
+	}
+}
+
+func canonicalHostMiddleware() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		host := strings.ToLower(c.Request.Host)
+		if colonIndex := strings.Index(host, ":"); colonIndex != -1 {
+			host = host[:colonIndex]
+		}
+
+		if host == "www.avayusstroi.by" {
+			c.Redirect(http.StatusMovedPermanently, siteURL+c.Request.URL.RequestURI())
+			c.Abort()
+			return
+		}
+
+		c.Next()
 	}
 }
 

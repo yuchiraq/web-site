@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru" data-theme="light">
 <head>
-    {{ template "head" }}
-    <title>Автономная канализация и водопонижение в Бресте | АВАЮССТРОЙ</title>
-    <meta name="description" content="АВАЮССТРОЙ - надежный подрядчик по автономной канализации, водопонижению, дренажу и аренде спецтехники в Бресте и Брестской области.">
+    {{ template "head" . }}
 </head>
 <body>
-    {{ template "header" }}
+    {{ template "header" . }}
 
     <main>
         <section class="hero">
@@ -202,6 +200,6 @@
         </section>
     </main>
 
-    {{ template "footer" }}
+    {{ template "footer" . }}
 </body>
 </html>

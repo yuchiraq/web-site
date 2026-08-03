@@ -11,8 +11,12 @@
     {{ if .SiteMeta.FacebookDomainVerification }}
     <meta name="facebook-domain-verification" content="{{ .SiteMeta.FacebookDomainVerification }}">
     {{ end }}
+    <title>{{ .SEO.Title }}</title>
+    <meta name="description" content="{{ .SEO.Description }}">
     <meta name="application-name" content="АВАЮССТРОЙ">
     <meta name="apple-mobile-web-app-title" content="АВАЮССТРОЙ">
+    <meta name="author" content="АВАЮССТРОЙ">
+    <meta name="publisher" content="АВАЮССТРОЙ">
     <meta name="robots" content="{{ .SEO.Robots }}">
     <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
     {{ if .SEO.Canonical }}
@@ -43,6 +47,7 @@
     <link rel="stylesheet" href="/static/css/refresh/sections.css?v=20260422a">
     <link rel="stylesheet" href="/static/css/refresh/pages.css?v=20260422a">
     <link rel="stylesheet" href="/static/css/refresh/responsive.css?v=20260422a">
+    <link rel="stylesheet" href="/static/css/refresh/polish.css?v=20260803h">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
     <script type="application/ld+json">
         {
@@ -55,6 +60,9 @@
               "legalName": "ЧСУП «АВАЮССТРОЙ»",
               "alternateName": ["ЧСУП «АВАЮССТРОЙ»", "Avayusstroi"],
               "url": "https://avayusstroi.by",
+              "sameAs": [
+                "https://www.instagram.com/avayusstroi/"
+              ],
               "logo": "https://avayusstroi.by/static/images/logo_n.png",
               "image": "https://avayusstroi.by/static/images/visitka.jpg",
               "email": "avajsstroi@mail.ru",
@@ -79,6 +87,8 @@
               "@id": "https://avayusstroi.by/#website",
               "url": "https://avayusstroi.by",
               "name": "АВАЮССТРОЙ",
+              "alternateName": "Avayusstroi",
+              "inLanguage": "ru-BY",
               "publisher": {
                 "@id": "https://avayusstroi.by/#organization"
               }

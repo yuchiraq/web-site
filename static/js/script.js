@@ -23,7 +23,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const marketingStorageKey = "avayusstroi_marketing_context";
     const trackingParamKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "gclid", "fbclid", "yclid"];
-    document.documentElement.setAttribute("data-theme", prefersDarkScheme.matches ? "dark" : "light");
+
+    const syncTheme = () => {
+        document.documentElement.setAttribute("data-theme", prefersDarkScheme.matches ? "dark" : "light");
+    };
+
+    syncTheme();
+    if (typeof prefersDarkScheme.addEventListener === "function") {
+        prefersDarkScheme.addEventListener("change", syncTheme);
+    } else if (typeof prefersDarkScheme.addListener === "function") {
+        prefersDarkScheme.addListener(syncTheme);
+    }
 
     let activeLeadContext = {
         source: window.location.pathname,
