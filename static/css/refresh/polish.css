@@ -428,6 +428,20 @@ main {
     border-radius: 8px;
 }
 
+.service-hero__media {
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.service-hero__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
 .service-item img,
 .box img {
     aspect-ratio: 16 / 10;
@@ -546,6 +560,7 @@ main {
     padding: clamp(3rem, 6vw, 5rem) 0;
 }
 
+.service-detail .container > h1,
 .service-detail .container > h2 {
     margin: 0 0 1.25rem;
     font-size: clamp(2rem, 4vw, 3rem);

@@ -2,6 +2,28 @@
 <html lang="ru" data-theme="light">
 <head>
     {{ template "head" . }}
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Service",
+              "name": "Аренда спецтехники в Бресте",
+              "serviceType": "Аренда строительной и специальной техники с оператором",
+              "provider": {"@id": "https://avayusstroi.by/#organization"},
+              "areaServed": ["Брест", "Брестский район", "Брестская область"],
+              "url": "https://avayusstroi.by/rent"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://avayusstroi.by/"},
+                {"@type": "ListItem", "position": 2, "name": "Аренда спецтехники", "item": "https://avayusstroi.by/rent"}
+              ]
+            }
+          ]
+        }
+    </script>
 </head>
 <body>
     {{ template "header" . }}
@@ -11,8 +33,8 @@
             <div class="container page-hero__grid">
                 <div>
                     <span class="page-hero__eyebrow">Аренда спецтехники</span>
-                    <h1>Техника и оборудование для строительных задач</h1>
-                    <p>Предоставляем спецтехнику и оборудование для земляных, монтажных и транспортных работ. Поможем подобрать вариант под задачу и подскажем по условиям аренды.</p>
+                    <h1>Аренда спецтехники в Бресте и Брестской области</h1>
+                    <p>Предоставляем строительную технику и оборудование для земляных, монтажных и транспортных работ. Поможем подобрать машину под задачу, рассчитать время работы и согласовать подачу на объект.</p>
                     <div class="page-hero__actions">
                         <a href="#" class="cta-button open-modal-button" data-track="order_click" data-service="rent_page">Подобрать технику</a>
                         <a href="/contacts" class="service-button">Запросить условия</a>

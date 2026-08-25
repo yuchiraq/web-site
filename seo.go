@@ -2,7 +2,7 @@ package main
 
 const (
 	siteURL         = "https://avayusstroi.by"
-	siteName        = "АВАЮССТРОЙ"
+	siteName        = "ЧСУП АВАЮССТРОЙ"
 	defaultRobots   = "index,follow,max-image-preview:large"
 	defaultOGType   = "website"
 	defaultSEOImage = siteURL + "/static/images/hero_new.webp"
@@ -20,7 +20,7 @@ type SEOData struct {
 
 var seoDataByPath = map[string]SEOData{
 	"/": {
-		Title:       "АВАЮССТРОЙ | Автономная канализация и водопонижение в Бресте",
+		Title:       "ЧСУП АВАЮССТРОЙ | Автономная канализация и водопонижение в Бресте",
 		Description: "АВАЮССТРОЙ выполняет монтаж автономной канализации, водопонижение, дренаж и аренду спецтехники в Бресте и Брестской области.",
 		Image:       siteURL + "/static/images/hero_new.webp",
 		ImageAlt:    "Автономная канализация и водопонижение от АВАЮССТРОЙ",

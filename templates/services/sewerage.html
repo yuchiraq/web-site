@@ -2,59 +2,140 @@
 <html lang="ru" data-theme="light">
 <head>
     {{ template "head" . }}
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Service",
+              "name": "Монтаж канализации под ключ в Бресте",
+              "serviceType": "Проектирование, монтаж и обслуживание канализационных систем",
+              "provider": {"@id": "https://avayusstroi.by/#organization"},
+              "areaServed": ["Брест", "Брестский район", "Брестская область"],
+              "url": "https://avayusstroi.by/services/sewerage"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://avayusstroi.by/"},
+                {"@type": "ListItem", "position": 2, "name": "Услуги", "item": "https://avayusstroi.by/services"},
+                {"@type": "ListItem", "position": 3, "name": "Монтаж канализации", "item": "https://avayusstroi.by/services/sewerage"}
+              ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "Сколько стоит монтаж канализации в Бресте?",
+                  "acceptedAnswer": {"@type": "Answer", "text": "Стоимость зависит от типа системы, длины трассы, глубины заложения труб, грунта и объема земляных работ. Точную смету составляем после уточнения задачи и осмотра участка."}
+                },
+                {
+                  "@type": "Question",
+                  "name": "Работаете ли вы по Брестской области?",
+                  "acceptedAnswer": {"@type": "Answer", "text": "Да, выполняем монтаж канализации в Бресте, Брестском районе и по Брестской области."}
+                },
+                {
+                  "@type": "Question",
+                  "name": "Можно ли заказать канализацию под ключ?",
+                  "acceptedAnswer": {"@type": "Answer", "text": "Да. Берем на себя подбор решения, земляные работы, прокладку труб, монтаж оборудования, подключение и проверку системы."}
+                }
+              ]
+            }
+          ]
+        }
+    </script>
 </head>
 <body>
     {{ template "header" . }}
 
     <main>
-        <section class="service-detail">
-            <div class="container">
-                <h2>Канализация</h2>
-                <div class="service-content">
-                    <div class="service-image">
-                        <div class="image-wrapper">
-                            <img src="/static/images/sewerage/cover.jpg" alt="Канализация">
-                            <div class="overlay">
-                                <a href="/contacts" class="order-button">Заказать</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="service-description">
-                        <h3>Что такое канализация?</h3>
-                        <p>
-                            Канализация — это система труб и сооружений, предназначенная для отвода сточных вод. 
-                            Мы предоставляем услуги по проектированию, монтажу и обслуживанию канализационных систем.
-                        </p>
-                        <h3>Наши услуги</h3>
-                        <p>
-                            Мы предлагаем полный спектр услуг по канализации:
-                        </p>
-                        <ul>
-                            <li>Проектирование и монтаж канализационных систем.</li>
-                            <li>Ремонт и замена труб.</li>
-                            <li>Очистка и обслуживание канализационных сетей.</li>
-                        </ul>
-                        <h3>Преимущества работы с нами</h3>
-                        <p>
-                            Наша компания гарантирует качественное выполнение работ с использованием современных технологий. 
-                            Мы обеспечиваем:
-                        </p>
-                        <ul>
-                            <li>Долговечность и надежность систем.</li>
-                            <li>Соблюдение всех норм и стандартов.</li>
-                            <li>Оперативное выполнение заказов.</li>
-                        </ul>
+        <section class="service-hero">
+            <div class="container service-hero__grid">
+                <div>
+                    <h1>Монтаж канализации под ключ в Бресте и Брестской области</h1>
+                    <p class="service-hero__lead">Проектируем и монтируем наружные канализационные сети для частных домов, коммерческих и производственных объектов.</p>
+                    <p class="service-hero__geo">Выезжаем по Бресту, Брестскому району и всей области.</p>
+                    <ul class="service-hero__benefits">
+                        <li>Подбираем решение под участок, нагрузку и условия подключения.</li>
+                        <li>Выполняем земляные и монтажные работы собственной техникой.</li>
+                        <li>Заранее согласовываем состав работ и понятную смету.</li>
+                    </ul>
+                    <div class="service-hero__actions">
+                        <a href="#" class="cta-button open-modal-button" data-track="order_click" data-service="sewerage">Рассчитать стоимость</a>
+                        <a href="tel:+375297202791" class="messenger-link" data-track="phone_click" data-service="sewerage">Позвонить</a>
                     </div>
                 </div>
-                
+                <div class="service-hero__media">
+                    <img src="/static/images/sewerage/cover.jpg" alt="Монтаж канализации в Бресте" fetchpriority="high" width="860" height="575">
+                </div>
             </div>
         </section>
 
-    {{ template "projects_gallery" . }}
+        <section class="service-problem">
+            <div class="container">
+                <h2>Какие задачи решаем</h2>
+                <div class="problem-grid">
+                    <article><h3>Канализация частного дома</h3><p>Прокладываем наружную сеть от дома до автономной станции, септика или точки подключения.</p></article>
+                    <article><h3>Новая инженерная сеть</h3><p>Подбираем трассу, уклон и материалы с учетом рельефа и будущей нагрузки.</p></article>
+                    <article><h3>Замена старых труб</h3><p>Демонтируем проблемные участки и восстанавливаем работоспособность системы.</p></article>
+                    <article><h3>Коммерческие объекты</h3><p>Выполняем наружные сети для предприятий, площадок и объектов строительства.</p></article>
+                    <article><h3>Сложный участок</h3><p>Учитываем высокий уровень грунтовых вод, глубину заложения и ограниченный подъезд.</p></article>
+                    <article><h3>Комплексные работы</h3><p>Совмещаем канализацию с дренажом, водопроводом и подготовкой участка.</p></article>
+                </div>
+            </div>
+        </section>
 
+        <section class="service-trust">
+            <div class="container">
+                <h2>Как проходит монтаж канализации</h2>
+                <ol class="service-steps">
+                    <li><strong>Обсуждаем объект</strong> — уточняем назначение системы, расположение дома и точки отвода.</li>
+                    <li><strong>Осматриваем участок</strong> — оцениваем рельеф, грунт, подъезд техники и существующие коммуникации.</li>
+                    <li><strong>Готовим решение</strong> — определяем трассу, материалы, глубину и состав работ.</li>
+                    <li><strong>Выполняем монтаж</strong> — проводим земляные работы, укладываем трубы и подключаем оборудование.</li>
+                    <li><strong>Проверяем систему</strong> — контролируем соединения и работоспособность перед сдачей объекта.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="service-pricing">
+            <div class="container">
+                <h2>От чего зависит стоимость</h2>
+                <div class="pricing-grid">
+                    <article class="price-card"><h3>Длина и глубина трассы</h3><p class="price-card__text">Чем больше объем земляных работ и длина трубопровода, тем выше итоговая стоимость.</p></article>
+                    <article class="price-card"><h3>Тип системы</h3><p class="price-card__text">Цена зависит от подключения к центральной сети, септику или автономной станции.</p></article>
+                    <article class="price-card"><h3>Условия участка</h3><p class="price-card__text">Учитываем грунт, уровень воды, рельеф и доступ строительной техники.</p></article>
+                    <article class="price-card"><h3>Дополнительные работы</h3><p class="price-card__text">Колодцы, демонтаж, восстановление участка и сопряжение с другими сетями рассчитываются отдельно.</p></article>
+                </div>
+                <p class="pricing-note">Оставьте заявку — уточним задачу и подготовим расчет без скрытых работ в процессе монтажа.</p>
+            </div>
+        </section>
+
+        <section class="service-solution">
+            <div class="container">
+                <h2>Смежные инженерные работы</h2>
+                <div class="reuse-grid">
+                    <article><h3><a href="/services/topas">Автономная канализация ТОПАС</a></h3><p>Подбор и монтаж станции для дома или коммерческого объекта.</p></article>
+                    <article><h3><a href="/services/drainage">Дренаж участка</a></h3><p>Защита фундамента и территории от грунтовых и поверхностных вод.</p></article>
+                    <article><h3><a href="/services/plumbing">Наружный водопровод</a></h3><p>Проектирование и монтаж наружных сетей водоснабжения.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="container">
+                <h2>Частые вопросы о монтаже канализации</h2>
+                <details><summary>Сколько стоит монтаж канализации в Бресте?</summary><p>Стоимость зависит от типа системы, длины трассы, глубины заложения труб, грунта и объема земляных работ. Точную смету составляем после уточнения задачи и осмотра участка.</p></details>
+                <details><summary>Работаете ли вы по Брестской области?</summary><p>Да, выполняем монтаж канализации в Бресте, Брестском районе и по Брестской области.</p></details>
+                <details><summary>Можно ли заказать канализацию под ключ?</summary><p>Да. Берем на себя подбор решения, земляные работы, прокладку труб, монтаж оборудования, подключение и проверку системы.</p></details>
+                <details><summary>Можно ли совместить монтаж с дренажом или водопроводом?</summary><p>Да, комплексное выполнение инженерных сетей помогает согласовать трассы и эффективнее организовать земляные работы.</p></details>
+            </div>
+        </section>
+
+        {{ template "projects_gallery" . }}
     </main>
 
     {{ template "footer" . }}
-    
 </body>
 </html>

@@ -941,6 +941,11 @@ main {
 }
 
 .trusted-clients__item--summary .counter {
+    display: inline-block;
+    min-width: 3ch;
+    text-align: center;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
     color: var(--primary-color);
     font-weight: 700;
 }
