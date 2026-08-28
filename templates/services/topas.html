@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" data-theme="light">
+<html lang="ru-BY" data-theme="light">
 <head>
     {{ template "head" . }}
 
@@ -47,6 +47,29 @@
                 "@type": "Answer",
                 "text": "В большинстве случаев монтаж и запуск выполняем за 1–2 дня после согласования решения."
               }
+            }
+          ]
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Service",
+              "name": "Автономная канализация ТОПАС под ключ в Бресте",
+              "serviceType": "Подбор, монтаж и запуск автономной канализации ТОПАС",
+              "provider": {"@id": "https://avayusstroi.by/#organization"},
+              "areaServed": ["Брест", "Брестский район", "Брестская область"],
+              "url": "https://avayusstroi.by/services/topas"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://avayusstroi.by/"},
+                {"@type": "ListItem", "position": 2, "name": "Услуги", "item": "https://avayusstroi.by/services"},
+                {"@type": "ListItem", "position": 3, "name": "Автономная канализация ТОПАС", "item": "https://avayusstroi.by/services/topas"}
+              ]
             }
           ]
         }

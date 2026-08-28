@@ -1,4 +1,4 @@
-module main
+module avayusstroi.by/site
 
 go 1.23.2
 

@@ -1,7 +1,30 @@
 <!DOCTYPE html>
-<html lang="ru" data-theme="light">
+<html lang="ru-BY" data-theme="light">
 <head>
     {{ template "head" . }}
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Service",
+              "name": "Монтаж водопровода в Бресте",
+              "serviceType": "Проектирование и монтаж наружных сетей водоснабжения",
+              "provider": {"@id": "https://avayusstroi.by/#organization"},
+              "areaServed": ["Брест", "Брестский район", "Брестская область"],
+              "url": "https://avayusstroi.by/services/plumbing"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://avayusstroi.by/"},
+                {"@type": "ListItem", "position": 2, "name": "Услуги", "item": "https://avayusstroi.by/services"},
+                {"@type": "ListItem", "position": 3, "name": "Водоснабжение", "item": "https://avayusstroi.by/services/plumbing"}
+              ]
+            }
+          ]
+        }
+    </script>
 </head>
 <body>
     {{ template "header" . }}

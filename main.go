@@ -27,6 +27,11 @@ func main() {
 		log.Printf("warning: settings.json was not loaded: %v", err)
 	}
 
+	qrScanTracker := NewQRScanTracker(defaultQRStatsPath)
+	if err := qrScanTracker.Load(); err != nil {
+		log.Printf("warning: QR statistics were not loaded and counting is disabled: %v", err)
+	}
+
 	if err := GenerateSitemap(); err != nil {
 		log.Fatalf("failed to generate sitemap.xml: %v", err)
 	}
@@ -37,6 +42,7 @@ func main() {
 	}
 
 	r.GET("/", indexHandler)
+	r.GET("/qr", qrRedirectHandler(qrScanTracker))
 
 	if err := registerRoutes(r); err != nil {
 		log.Fatalf("failed to register routes: %v", err)

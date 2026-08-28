@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const projectImageModalContent = document.getElementById("projectImageModalContent");
     const projectImageCloseButton = document.querySelector(".project-image-close");
     const copyNotification = document.getElementById("copy-notification");
-
     const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const marketingStorageKey = "avayusstroi_marketing_context";
@@ -393,6 +392,40 @@ document.addEventListener("DOMContentLoaded", () => {
         animatedElements.forEach(element => animationObserver.observe(element));
     }
 
+    const revealElements = Array.from(document.querySelectorAll([
+        "[data-aos]",
+        ".feature-item",
+        ".service-item",
+        ".workflow-step",
+        ".trusted-clients__item",
+        ".box",
+        ".contact-card",
+        ".price-card",
+        ".case-card",
+        ".problem-grid article",
+        ".reuse-grid article",
+        ".faq-section details"
+    ].join(", ")));
+
+    if (revealElements.length && !prefersReducedMotion.matches && "IntersectionObserver" in window) {
+        document.documentElement.classList.add("motion-ready");
+
+        revealElements.forEach((element, index) => {
+            element.classList.add("reveal-item");
+            element.style.setProperty("--reveal-delay", `${(index % 4) * 70}ms`);
+        });
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add("is-revealed");
+                observer.unobserve(entry.target);
+            });
+        }, { rootMargin: "0px 0px -8%", threshold: 0.08 });
+
+        revealElements.forEach(element => revealObserver.observe(element));
+    }
+
     const openProjectImageModal = sourceImage => {
         if (!projectImageModal || !projectImageModalContent || !sourceImage) return;
 
@@ -538,9 +571,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (clientCounters.length && "IntersectionObserver" in window) {
         const animateCounter = counter => {
             const target = Number(counter.dataset.target) || 0;
-            const stepSize = 1;
-            const intervalMs = 100;
-            let currentValue = 0;
 
             if (prefersReducedMotion.matches) {
                 counter.textContent = String(target);
@@ -548,15 +578,20 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             counter.textContent = "0";
+            const duration = 1500;
+            const startedAt = performance.now();
 
-            const timerId = window.setInterval(() => {
-                currentValue = Math.min(currentValue + stepSize, target);
-                counter.textContent = String(currentValue);
+            const updateCounter = currentTime => {
+                const progress = Math.min((currentTime - startedAt) / duration, 1);
+                const easedProgress = 1 - Math.pow(1 - progress, 3);
+                counter.textContent = String(Math.round(target * easedProgress));
 
-                if (currentValue >= target) {
-                    window.clearInterval(timerId);
+                if (progress < 1) {
+                    window.requestAnimationFrame(updateCounter);
                 }
-            }, intervalMs);
+            };
+
+            window.requestAnimationFrame(updateCounter);
         };
 
         const counterObserver = new IntersectionObserver((entries, observer) => {

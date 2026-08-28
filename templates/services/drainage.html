@@ -1,7 +1,30 @@
 <!DOCTYPE html>
-<html lang="ru" data-theme="light">
+<html lang="ru-BY" data-theme="light">
 <head>
     {{ template "head" . }}
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Service",
+              "name": "Дренажные системы в Бресте",
+              "serviceType": "Проектирование и монтаж дренажных систем",
+              "provider": {"@id": "https://avayusstroi.by/#organization"},
+              "areaServed": ["Брест", "Брестский район", "Брестская область"],
+              "url": "https://avayusstroi.by/services/drainage"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://avayusstroi.by/"},
+                {"@type": "ListItem", "position": 2, "name": "Услуги", "item": "https://avayusstroi.by/services"},
+                {"@type": "ListItem", "position": 3, "name": "Дренажные системы", "item": "https://avayusstroi.by/services/drainage"}
+              ]
+            }
+          ]
+        }
+    </script>
 </head>
 <body>
     {{ template "header" . }}
@@ -13,7 +36,7 @@
                 <div class="service-content">
                     <div class="service-image">
                         <img src="/static/images/drainage/cover.jpg" alt="Дренажные системы" >
-                        <a href="#" class="order-button">Заказать</a>
+                        <a href="/contacts" class="order-button" data-track="order_click" data-service="drainage">Заказать</a>
                     </div>
                     <div class="service-description">
                         <h3>Что такое дренажные системы?</h3>
