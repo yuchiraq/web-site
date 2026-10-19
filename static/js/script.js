@@ -1,3 +1,73 @@
+(() => {
+    const root = document.documentElement;
+    const overlay = document.querySelector("[data-site-preloader]");
+
+    if (!overlay || !root.classList.contains("preloader-active")) {
+        overlay?.remove();
+        return;
+    }
+
+    const count = overlay.querySelector("[data-site-preloader-count]");
+    const bar = overlay.querySelector("[data-site-preloader-bar]");
+    const startedAt = performance.now();
+    let displayedProgress = 0;
+    let pageReady = document.readyState === "complete";
+    let finished = false;
+
+    document.body.classList.add("preloader-lock");
+
+    const markReady = () => {
+        pageReady = true;
+    };
+
+    if (!pageReady) {
+        window.addEventListener("load", markReady, { once: true });
+    }
+
+    window.setTimeout(markReady, 850);
+
+    const finish = () => {
+        if (finished) return;
+        finished = true;
+        overlay.dataset.phase = "fade-ui";
+
+        window.setTimeout(() => {
+            overlay.dataset.phase = "reveal";
+        }, 90);
+
+        window.setTimeout(() => {
+            root.classList.remove("preloader-active");
+            document.body.classList.remove("preloader-lock");
+            overlay.remove();
+            try {
+                window.sessionStorage.setItem("avayusstroi_intro_seen", "1");
+            } catch (error) {}
+        }, 800);
+    };
+
+    const renderProgress = currentTime => {
+        const elapsed = currentTime - startedAt;
+        const loadingTarget = Math.min(94, 12 + elapsed * 0.18);
+        const targetProgress = pageReady ? 100 : loadingTarget;
+        displayedProgress += (targetProgress - displayedProgress) * 0.28;
+
+        const roundedProgress = Math.min(100, Math.round(displayedProgress));
+        if (count) count.textContent = String(roundedProgress);
+        if (bar) bar.style.transform = `scaleX(${roundedProgress / 100})`;
+
+        if (pageReady && elapsed >= 260 && displayedProgress >= 98.6) {
+            if (count) count.textContent = "100";
+            if (bar) bar.style.transform = "scaleX(1)";
+            finish();
+            return;
+        }
+
+        window.requestAnimationFrame(renderProgress);
+    };
+
+    window.requestAnimationFrame(renderProgress);
+})();
+
 document.addEventListener("DOMContentLoaded", () => {
     const body = document.body;
     const header = document.querySelector(".header");
@@ -17,6 +87,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const projectImageModal = document.getElementById("projectImageModal");
     const projectImageModalContent = document.getElementById("projectImageModalContent");
     const projectImageCloseButton = document.querySelector(".project-image-close");
+    const projectImageCaption = document.getElementById("projectImageCaption");
+    const projectImagePosition = document.getElementById("projectImagePosition");
+    const projectImagePreviousButton = document.querySelector(".project-image-nav--previous");
+    const projectImageNextButton = document.querySelector(".project-image-nav--next");
+    const projectImages = Array.from(document.querySelectorAll(".project-carousel-image:not([aria-hidden='true'])"));
     const copyNotification = document.getElementById("copy-notification");
     const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -426,28 +501,52 @@ document.addEventListener("DOMContentLoaded", () => {
         revealElements.forEach(element => revealObserver.observe(element));
     }
 
+    let activeProjectImageIndex = -1;
+    let projectImageTrigger = null;
+
+    const showProjectImage = index => {
+        if (!projectImageModal || !projectImageModalContent || !projectImages.length) return;
+
+        activeProjectImageIndex = (index + projectImages.length) % projectImages.length;
+        const sourceImage = projectImages[activeProjectImageIndex];
+        const description = sourceImage.alt || "Фото выполненного объекта";
+
+        projectImageModal.classList.add("is-loading");
+        projectImageModalContent.src = sourceImage.currentSrc || sourceImage.src;
+        projectImageModalContent.alt = description;
+        if (projectImageCaption) projectImageCaption.textContent = description;
+        if (projectImagePosition) projectImagePosition.textContent = `${activeProjectImageIndex + 1} / ${projectImages.length}`;
+
+        if (projectImageModalContent.complete) {
+            window.requestAnimationFrame(() => projectImageModal.classList.remove("is-loading"));
+        }
+    };
+
     const openProjectImageModal = sourceImage => {
         if (!projectImageModal || !projectImageModalContent || !sourceImage) return;
 
-        projectImageModalContent.src = sourceImage.currentSrc || sourceImage.src;
-        projectImageModalContent.alt = sourceImage.alt || "Увеличенное изображение проекта";
+        projectImageTrigger = sourceImage;
+        showProjectImage(projectImages.indexOf(sourceImage));
         projectImageModal.classList.add("is-open");
         projectImageModal.setAttribute("aria-hidden", "false");
         syncScrollLock();
+        window.setTimeout(() => projectImageCloseButton?.focus(), 0);
     };
 
     const closeProjectImageModal = () => {
         if (!projectImageModal || !projectImageModalContent) return;
 
         projectImageModal.classList.remove("is-open");
+        projectImageModal.classList.remove("is-loading");
         projectImageModal.setAttribute("aria-hidden", "true");
         projectImageModalContent.src = "";
+        activeProjectImageIndex = -1;
         syncScrollLock();
+        projectImageTrigger?.focus();
+        projectImageTrigger = null;
     };
 
-    document.querySelectorAll(".project-carousel-image").forEach(image => {
-        if (image.getAttribute("aria-hidden") === "true") return;
-
+    projectImages.forEach(image => {
         image.addEventListener("click", () => openProjectImageModal(image));
         image.addEventListener("keydown", event => {
             if (event.key === "Enter" || event.key === " ") {
@@ -461,6 +560,18 @@ document.addEventListener("DOMContentLoaded", () => {
         projectImageCloseButton.addEventListener("click", closeProjectImageModal);
     }
 
+    projectImageModalContent?.addEventListener("load", () => {
+        projectImageModal?.classList.remove("is-loading");
+    });
+
+    projectImagePreviousButton?.addEventListener("click", () => {
+        showProjectImage(activeProjectImageIndex - 1);
+    });
+
+    projectImageNextButton?.addEventListener("click", () => {
+        showProjectImage(activeProjectImageIndex + 1);
+    });
+
     if (projectImageModal) {
         projectImageModal.addEventListener("click", event => {
             const target = event.target;
@@ -470,51 +581,38 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    const homepageCarouselTracks = document.querySelectorAll(".projects .carousel-track");
+    const marqueeTracks = document.querySelectorAll(".projects .carousel-track");
+    let marqueeResizeFrame = 0;
 
-    const setHomepageCarouselSpeed = () => {
-        homepageCarouselTracks.forEach(track => {
-            const visibleItemsCount = track.querySelectorAll(".project-carousel-image:not([aria-hidden='true'])").length;
-            if (!visibleItemsCount) return;
+    const setMarqueeSpeed = () => {
+        marqueeTracks.forEach(track => {
+            const group = track.querySelector(".carousel-group");
+            if (!group) return;
 
-            const isMobile = window.innerWidth <= 768;
-            const perItemDuration = isMobile ? 0.55 : 1.05;
-            const minDuration = isMobile ? 7 : 16;
-            const maxDuration = isMobile ? 14 : 38;
-            let duration = Math.round(visibleItemsCount * perItemDuration);
-            duration = Math.max(minDuration, Math.min(maxDuration, duration));
-
-            if (track.closest(".carousel-row-secondary") && !isMobile) {
-                duration += 1;
-            }
-
-            if (isMobile) {
-                duration = Math.max(7, Math.min(14, Math.round(visibleItemsCount * 0.55)));
-            }
-
-            track.style.setProperty("--carousel-duration", `${duration}s`);
+            const pixelsPerSecond = window.innerWidth <= 768 ? 42 : 58;
+            const duration = Math.max(24, Math.min(90, group.scrollWidth / pixelsPerSecond));
+            track.style.setProperty("--carousel-duration", `${duration.toFixed(2)}s`);
         });
     };
 
-    const refreshHomepageCarousel = () => {
-        if (!homepageCarouselTracks.length || prefersReducedMotion.matches) return;
-
-        setHomepageCarouselSpeed();
-        homepageCarouselTracks.forEach(track => {
-            const style = window.getComputedStyle(track);
-            if (style.display === "none") return;
-
-            track.style.animation = "none";
-            void track.offsetHeight;
-            track.style.animation = "";
-        });
+    const scheduleMarqueeMeasurement = () => {
+        window.cancelAnimationFrame(marqueeResizeFrame);
+        marqueeResizeFrame = window.requestAnimationFrame(setMarqueeSpeed);
     };
 
-    if (homepageCarouselTracks.length) {
-        refreshHomepageCarousel();
-        window.addEventListener("pageshow", refreshHomepageCarousel);
-        window.addEventListener("orientationchange", refreshHomepageCarousel);
-        window.addEventListener("resize", refreshHomepageCarousel);
+    if (marqueeTracks.length) {
+        setMarqueeSpeed();
+        window.addEventListener("load", setMarqueeSpeed, { once: true });
+        window.addEventListener("orientationchange", scheduleMarqueeMeasurement);
+        window.addEventListener("resize", scheduleMarqueeMeasurement);
+
+        if ("ResizeObserver" in window) {
+            const marqueeResizeObserver = new ResizeObserver(scheduleMarqueeMeasurement);
+            marqueeTracks.forEach(track => {
+                const group = track.querySelector(".carousel-group");
+                if (group) marqueeResizeObserver.observe(group);
+            });
+        }
     }
 
     document.querySelectorAll("[data-track]").forEach(element => {
@@ -568,41 +666,58 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const clientCounters = document.querySelectorAll(".trusted-clients .counter[data-target]");
-    if (clientCounters.length && "IntersectionObserver" in window) {
+    if (clientCounters.length) {
+        const numberFormatter = new Intl.NumberFormat("ru-BY", { maximumFractionDigits: 0 });
         const animateCounter = counter => {
             const target = Number(counter.dataset.target) || 0;
-
             if (prefersReducedMotion.matches) {
-                counter.textContent = String(target);
+                counter.textContent = numberFormatter.format(target);
                 return;
             }
 
-            counter.textContent = "0";
-            const duration = 1500;
-            const startedAt = performance.now();
+            let currentValue = 0;
+            let velocity = 0;
+            let previousTime = performance.now();
+            const stiffness = 100;
+            const damping = 20;
 
             const updateCounter = currentTime => {
-                const progress = Math.min((currentTime - startedAt) / duration, 1);
-                const easedProgress = 1 - Math.pow(1 - progress, 3);
-                counter.textContent = String(Math.round(target * easedProgress));
+                const delta = Math.min((currentTime - previousTime) / 1000, 0.034);
+                previousTime = currentTime;
 
-                if (progress < 1) {
+                const acceleration = (target - currentValue) * stiffness - velocity * damping;
+                velocity += acceleration * delta;
+                currentValue += velocity * delta;
+                counter.textContent = numberFormatter.format(Math.max(0, Math.min(target, Math.round(currentValue))));
+
+                if (Math.abs(target - currentValue) > 0.5 || Math.abs(velocity) > 0.5) {
                     window.requestAnimationFrame(updateCounter);
+                    return;
                 }
+
+                counter.textContent = numberFormatter.format(target);
+                counter.closest(".trusted-clients__item--summary")?.classList.add("is-counted");
             };
 
+            counter.textContent = "0";
             window.requestAnimationFrame(updateCounter);
         };
 
-        const counterObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                animateCounter(entry.target);
-                observer.unobserve(entry.target);
+        if (!("IntersectionObserver" in window)) {
+            clientCounters.forEach(counter => {
+                counter.textContent = numberFormatter.format(Number(counter.dataset.target) || 0);
             });
-        }, { threshold: 0.45 });
+        } else {
+            const counterObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    animateCounter(entry.target);
+                    observer.unobserve(entry.target);
+                });
+            }, { threshold: 0.45 });
 
-        clientCounters.forEach(counter => counterObserver.observe(counter));
+            clientCounters.forEach(counter => counterObserver.observe(counter));
+        }
     }
 
     const showCopyNotification = () => {
@@ -687,14 +802,23 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.addEventListener("keydown", event => {
-        if (event.key !== "Escape") return;
-
-        if (modal && modal.classList.contains("is-open")) {
-            closeModal();
+        if (projectImageModal && projectImageModal.classList.contains("is-open")) {
+            if (event.key === "ArrowLeft") {
+                showProjectImage(activeProjectImageIndex - 1);
+                return;
+            }
+            if (event.key === "ArrowRight") {
+                showProjectImage(activeProjectImageIndex + 1);
+                return;
+            }
+            if (event.key === "Escape") {
+                closeProjectImageModal();
+                return;
+            }
         }
 
-        if (projectImageModal && projectImageModal.classList.contains("is-open")) {
-            closeProjectImageModal();
+        if (event.key === "Escape" && modal && modal.classList.contains("is-open")) {
+            closeModal();
         }
     });
 });

@@ -1,4 +1,17 @@
 {{ define "header" }}
+<div class="site-preloader" data-site-preloader data-phase="loading" role="status" aria-label="Загрузка сайта">
+    <div class="site-preloader__shutter site-preloader__shutter--top" aria-hidden="true"></div>
+    <div class="site-preloader__shutter site-preloader__shutter--bottom" aria-hidden="true"></div>
+    <div class="site-preloader__progress" data-site-preloader-progress>
+        <div class="site-preloader__brand">
+            <img src="/static/images/logo.svg" alt="" width="64" height="64">
+            <span>АВАЮССТРОЙ</span>
+        </div>
+        <div class="site-preloader__count"><span data-site-preloader-count>0</span><small>%</small></div>
+        <div class="site-preloader__track" aria-hidden="true"><span data-site-preloader-bar></span></div>
+        <p>Инженерные решения под ключ</p>
+    </div>
+</div>
 <header class="header">
 
     <!-- Yandex.Metrika counter -->

@@ -136,7 +136,11 @@
 
         <section class="trusted-clients" aria-labelledby="trusted-clients-title">
             <div class="container" data-aos="fade-up">
-                <h2 id="trusted-clients-title">Нас выбирают</h2>
+                <div class="section-heading">
+                    <span class="section-kicker">Доверие</span>
+                    <h2 id="trusted-clients-title">Нас выбирают</h2>
+                    <p>Работаем с частными заказчиками, предприятиями и крупными организациями Брестской области.</p>
+                </div>
                 <div class="trusted-clients__grid">
                     <div class="trusted-clients__item"><img src="/static/images/clients/brestgaz.png" alt="Логотип Брестгаз" loading="lazy" decoding="async" width="240" height="120"></div>
                     <div class="trusted-clients__item"><img src="/static/images/clients/gefest.png" alt="Логотип Гефест" loading="lazy" decoding="async" width="240" height="120"></div>
@@ -148,46 +152,66 @@
                     <div class="trusted-clients__item"><img src="/static/images/clients/kasbud.png" alt="Логотип Касбуд" loading="lazy" decoding="async" width="240" height="120"></div>
                     <div class="trusted-clients__item"><img src="/static/images/clients/prodzhekstroi.png" alt="Логотип Проджекстрой" loading="lazy" decoding="async" width="240" height="120"></div>
                     <div class="trusted-clients__item trusted-clients__item--summary" aria-label="Счетчик других клиентов">
-                        <p><span>И другие</span> <span class="counter" data-target="999">0</span> <span>клиентов</span></p>
+                        <p><span>Уже выбрали</span> <span class="counter-wrap"><span class="counter" data-target="999">0</span><span class="counter-suffix">+</span></span> <span>клиентов</span></p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section class="projects">
-            <div class="container">
-                <h2 data-aos="fade-up">Наши проекты</h2>
+            <div class="container projects-heading" data-aos="fade-up">
+                <div>
+                    <span class="section-kicker">Реальные объекты</span>
+                    <h2>Наши проекты</h2>
+                </div>
+                <p>Монтаж инженерных сетей, работа спецтехники и готовые системы на объектах в Бресте и области.</p>
             </div>
             <div class="carousel">
                 <div class="carousel-row carousel-row-primary">
                     <div class="carousel-track" aria-label="Фотографии выполненных объектов">
-                        {{range .PhotosSecondary}}
-                        <img src="{{.}}" alt="Фото выполненного объекта" loading="lazy" decoding="async" class="project-carousel-image" tabindex="0" role="button" aria-label="Открыть фото в полном размере">
-                        {{end}}
-                        {{range .PhotosSecondary}}
-                        <img src="{{.}}" alt="" aria-hidden="true" loading="lazy" decoding="async" class="project-carousel-image" tabindex="-1">
-                        {{end}}
+                        <div class="carousel-group">
+                            {{range .Photos}}
+                            <img src="{{.}}" alt="Фото выполненного объекта" loading="lazy" decoding="async" class="project-carousel-image" tabindex="0" role="button" aria-label="Открыть фото в полном размере">
+                            {{end}}
+                        </div>
+                        <div class="carousel-group" aria-hidden="true">
+                            {{range .Photos}}
+                            <img src="{{.}}" alt="" aria-hidden="true" loading="lazy" decoding="async" class="project-carousel-image" tabindex="-1">
+                            {{end}}
+                        </div>
                     </div>
                 </div>
 
                 <div class="carousel-row carousel-row-secondary">
                     <div class="carousel-track" aria-label="Дополнительная строка фотографий выполненных объектов">
-                        {{range .Photos}}
-                        <img src="{{.}}" alt="Фото выполненного объекта" loading="lazy" decoding="async" class="project-carousel-image" tabindex="0" role="button" aria-label="Открыть фото в полном размере">
-                        {{end}}
-                        {{range .Photos}}
-                        <img src="{{.}}" alt="" aria-hidden="true" loading="lazy" decoding="async" class="project-carousel-image" tabindex="-1">
-                        {{end}}
+                        <div class="carousel-group">
+                            {{range .PhotosSecondary}}
+                            <img src="{{.}}" alt="Фото выполненного объекта" loading="lazy" decoding="async" class="project-carousel-image" tabindex="0" role="button" aria-label="Открыть фото в полном размере">
+                            {{end}}
+                        </div>
+                        <div class="carousel-group" aria-hidden="true">
+                            {{range .PhotosSecondary}}
+                            <img src="{{.}}" alt="" aria-hidden="true" loading="lazy" decoding="async" class="project-carousel-image" tabindex="-1">
+                            {{end}}
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div id="projectImageModal" class="project-image-modal" aria-hidden="true" role="dialog" aria-label="Просмотр изображения">
+            <div id="projectImageModal" class="project-image-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="projectImageCaption">
                 <div class="project-image-backdrop" data-close-project-modal="true"></div>
-                <div class="project-image-content">
+                <button type="button" class="project-image-nav project-image-nav--previous" aria-label="Предыдущее фото">‹</button>
+                <figure class="project-image-content">
                     <button type="button" class="project-image-close" aria-label="Закрыть просмотр">&times;</button>
-                    <img id="projectImageModalContent" src="" alt="Увеличенное изображение проекта">
-                </div>
+                    <div class="project-image-viewport">
+                        <img id="projectImageModalContent" src="" alt="Увеличенное изображение проекта">
+                    </div>
+                    <figcaption class="project-image-meta">
+                        <span id="projectImageCaption">Фото выполненного объекта</span>
+                        <span id="projectImagePosition" aria-live="polite"></span>
+                    </figcaption>
+                </figure>
+                <button type="button" class="project-image-nav project-image-nav--next" aria-label="Следующее фото">›</button>
             </div>
         </section>
 

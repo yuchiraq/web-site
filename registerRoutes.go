@@ -66,7 +66,10 @@ func registerRoutes(router *gin.Engine) error {
 			data := pageData(route)
 
 			if strings.HasPrefix(route, "/services") {
-				data["Photos"] = getProjectPhotos()
+				photos := getProjectPhotos()
+				primaryPhotos, secondaryPhotos := splitProjectPhotos(photos)
+				data["Photos"] = primaryPhotos
+				data["PhotosSecondary"] = secondaryPhotos
 			}
 
 			c.HTML(http.StatusOK, templateName, data)

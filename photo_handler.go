@@ -14,28 +14,30 @@ import (
 func indexHandler(c *gin.Context) {
 	data := pageData("/")
 	photos := getProjectPhotos()
-	secondaryPhotos := getSecondaryProjectPhotos(photos)
+	primaryPhotos, secondaryPhotos := splitProjectPhotos(photos)
 
-	data["Photos"] = photos
+	data["Photos"] = primaryPhotos
 	data["PhotosSecondary"] = secondaryPhotos
 
 	c.HTML(http.StatusOK, "index.html", data)
 }
 
-func getSecondaryProjectPhotos(primary []string) []string {
-	if len(primary) == 0 {
-		return nil
+func splitProjectPhotos(photos []string) ([]string, []string) {
+	if len(photos) < 2 {
+		return photos, photos
 	}
 
-	secondary := make([]string, len(primary))
-	copy(secondary, primary)
-
-	if len(secondary) == 1 {
-		return secondary
+	primary := make([]string, 0, (len(photos)+1)/2)
+	secondary := make([]string, 0, len(photos)/2)
+	for index, photo := range photos {
+		if index%2 == 0 {
+			primary = append(primary, photo)
+			continue
+		}
+		secondary = append(secondary, photo)
 	}
 
-	shift := len(secondary) / 2
-	return append(secondary[shift:], secondary[:shift]...)
+	return primary, secondary
 }
 
 func getProjectPhotos() []string {
