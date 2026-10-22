@@ -226,19 +226,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    if (window.location.pathname === "/") {
-        const heroTitle = document.querySelector(".hero h1");
-        const heroLead = document.querySelector(".hero p");
-
-        if (heroTitle) {
-            heroTitle.innerHTML = 'Автономная канализация и <span class="hero-accent">водопонижение</span> под ключ';
-        }
-
-        if (heroLead) {
-            heroLead.textContent = "Подбираем решение, выполняем монтаж и сдаем объект по Бресту и области с понятной сметой и гарантией на работы.";
-        }
-    }
-
     let scrollTicking = false;
     let lastScroll = 0;
     const updateOnScroll = () => {

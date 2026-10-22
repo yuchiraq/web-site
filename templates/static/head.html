@@ -40,7 +40,14 @@
     <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
     {{ if .SEO.Canonical }}
     <link rel="canonical" href="{{ .SEO.Canonical }}">
-    <link rel="alternate" hreflang="ru-BY" href="{{ .SEO.Canonical }}">
+    {{ end }}
+    {{ if .SEO.HeroImage }}
+    {{ if .SEO.HeroImageMobile }}
+    <link rel="preload" as="image" href="{{ .SEO.HeroImage }}" media="(min-width: 769px)" fetchpriority="high">
+    <link rel="preload" as="image" href="{{ .SEO.HeroImageMobile }}" media="(max-width: 768px)" fetchpriority="high">
+    {{ else }}
+    <link rel="preload" as="image" href="{{ .SEO.HeroImage }}" fetchpriority="high">
+    {{ end }}
     {{ end }}
     <link rel="alternate" type="application/rss+xml" title="АВАЮССТРОЙ RSS" href="https://avayusstroi.by/rss.xml">
     <meta property="og:type" content="{{ .SEO.Type }}">
@@ -56,6 +63,7 @@
     <meta property="og:image:alt" content="{{ .SEO.ImageAlt }}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="{{ .SEO.Image }}">
+    <meta name="twitter:image:alt" content="{{ .SEO.ImageAlt }}">
     {{ else }}
     <meta name="twitter:card" content="summary">
     {{ end }}
@@ -66,52 +74,8 @@
     <link rel="stylesheet" href="/static/css/refresh/sections.css?v=20260422a">
     <link rel="stylesheet" href="/static/css/refresh/pages.css?v=20260422a">
     <link rel="stylesheet" href="/static/css/refresh/responsive.css?v=20260422a">
-    <link rel="stylesheet" href="/static/css/refresh/polish.css?v=20261019b">
-    <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": ["Organization", "LocalBusiness"],
-              "@id": "https://avayusstroi.by/#organization",
-              "name": "ЧСУП АВАЮССТРОЙ",
-              "legalName": "ЧСУП «АВАЮССТРОЙ»",
-              "alternateName": ["ЧСУП «АВАЮССТРОЙ»", "Avayusstroi"],
-              "url": "https://avayusstroi.by",
-              "sameAs": [
-                "https://www.instagram.com/avayusstroi/"
-              ],
-              "logo": "https://avayusstroi.by/static/images/logo_n.png",
-              "image": "https://avayusstroi.by/static/images/visitka.jpg",
-              "email": "avajsstroi@mail.ru",
-              "telephone": ["+375297202791", "+375336709273"],
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "ул. Янки Купалы, 109",
-                "addressLocality": "Брест",
-                "postalCode": "224032",
-                "addressCountry": "BY"
-              },
-              "areaServed": ["Брест", "Брестская область"]
-            },
-            {
-              "@type": "Brand",
-              "@id": "https://avayusstroi.by/#brand",
-              "name": "ЧСУП АВАЮССТРОЙ",
-              "logo": "https://avayusstroi.by/static/images/logo_n.png"
-            },
-            {
-              "@type": "WebSite",
-              "@id": "https://avayusstroi.by/#website",
-              "url": "https://avayusstroi.by",
-              "name": "ЧСУП АВАЮССТРОЙ",
-              "alternateName": "Avayusstroi",
-              "inLanguage": "ru-BY",
-              "publisher": {
-                "@id": "https://avayusstroi.by/#organization"
-              }
-            }
-          ]
-        }
-    </script>
+    <link rel="stylesheet" href="/static/css/refresh/polish.css?v=20261022b">
+    {{ if .StructuredData }}
+    <script type="application/ld+json">{{ .StructuredData }}</script>
+    {{ end }}
 {{ end }}

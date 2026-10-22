@@ -675,6 +675,63 @@ summary:focus-visible {
     background: #101a21;
 }
 
+.qoncept-credit {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 0.8rem;
+    padding: 0.45rem 0;
+    color: #f4f2eb;
+    text-decoration: none;
+}
+
+.footer-bottom {
+    padding-right: 5rem;
+}
+
+.qoncept-credit__label {
+    color: #a7b0b6;
+    font-size: 0.72rem;
+    font-weight: 400;
+}
+
+.qoncept-credit__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.28rem;
+    font-size: 0.9rem;
+    letter-spacing: -0.025em;
+}
+
+.qoncept-credit__brand strong {
+    font-weight: 800;
+}
+
+.qoncept-credit__dot {
+    width: 6px;
+    height: 6px;
+    margin-right: 0.2rem;
+    border-radius: 50%;
+    background: #c5ff6a;
+}
+
+.qoncept-credit__arrow {
+    margin-left: 0.22rem;
+    color: #b7a0fc;
+    transition: transform 0.2s ease;
+}
+
+.footer-bottom .qoncept-credit:hover,
+.footer-bottom .qoncept-credit:focus-visible {
+    color: #f4f2eb;
+    text-decoration: none;
+}
+
+.qoncept-credit:hover .qoncept-credit__arrow,
+.qoncept-credit:focus-visible .qoncept-credit__arrow {
+    transform: translate(2px, -2px);
+}
+
 .footer-content {
     grid-template-columns: minmax(0, 1.35fr) repeat(3, minmax(0, 1fr));
     gap: clamp(1.25rem, 3vw, 2.5rem);
@@ -683,6 +740,77 @@ summary:focus-visible {
 .footer-service-links {
     display: grid;
     gap: 0.62rem;
+}
+
+.breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 1.4rem;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    line-height: 1.55;
+}
+
+.breadcrumbs a:hover {
+    color: var(--text-light);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+.service-advice-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+}
+
+.service-advice-grid h2 {
+    margin-top: 0.6rem;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    line-height: 1.25;
+}
+
+.service-advice-grid p,
+.service-advice-list {
+    color: var(--text-muted);
+    line-height: 1.75;
+}
+
+.service-advice-list {
+    padding-left: 1.25rem;
+}
+
+.service-advice-list li + li {
+    margin-top: 0.8rem;
+}
+
+.service-advice-panel {
+    padding: clamp(1.1rem, 3vw, 1.8rem);
+    border: var(--glass-border);
+    border-radius: 8px;
+    background: var(--card-light);
+}
+
+.rental-detail .service-hero__grid {
+    align-items: center;
+}
+
+.rental-detail .service-hero__media {
+    height: auto;
+    aspect-ratio: 4 / 3;
+}
+
+.rental-detail .service-hero__media img {
+    height: 100%;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .service-advice-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
 }
 
 .footer-service-links a {

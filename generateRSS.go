@@ -1,252 +1,108 @@
 package main
 
 import (
+	"encoding/xml"
 	"fmt"
-	"io/ioutil"
+	"html"
+	"net/http"
 	"os"
-	"path/filepath"
 	"strings"
-	"time"
 
 	"github.com/PuerkitoBio/goquery"
 	"github.com/gin-gonic/gin"
 )
 
-// Page представляет данные для одной страницы в RSS-фиде
-type Page struct {
-	Title        string
-	URL          string
-	Description  string
-	PubDate      string
-	Author       string
-	TurboContent string
+type RSSFeed struct {
+	XMLName xml.Name   `xml:"rss"`
+	Version string     `xml:"version,attr"`
+	Turbo   string     `xml:"xmlns:turbo,attr"`
+	Channel RSSChannel `xml:"channel"`
+}
+
+type RSSChannel struct {
+	Title       string    `xml:"title"`
+	Link        string    `xml:"link"`
+	Description string    `xml:"description"`
+	Language    string    `xml:"language"`
+	Items       []RSSItem `xml:"item"`
+}
+
+type RSSItem struct {
+	Turbo       string   `xml:"turbo,attr"`
+	Title       string   `xml:"title"`
+	Link        string   `xml:"link"`
+	GUID        string   `xml:"guid"`
+	Description string   `xml:"description"`
+	Content     RSSCDATA `xml:"turbo:content"`
+}
+
+type RSSCDATA struct {
+	HTML string `xml:",cdata"`
 }
 
 func generateRSSFeed(c *gin.Context) {
-	// Путь к директории с HTML-шаблонами
-	templateDir := "templates"
-
-	// Извлекаем номера телефонов из contacts.html
-	contactFilePath := "templates/contacts.html"
-	contactDoc, err := goquery.NewDocumentFromReader(strings.NewReader(readFile(contactFilePath)))
+	feed, err := buildRSSFeed()
 	if err != nil {
-		c.String(500, fmt.Sprintf("Ошибка парсинга contacts.html: %v", err))
+		c.Header("X-Robots-Tag", "noindex")
+		c.String(http.StatusInternalServerError, "Не удалось сформировать RSS")
+		_ = c.Error(err)
 		return
 	}
-	var phoneNumbers []string
-	contactDoc.Find("a[href^='tel:']").Each(func(i int, s *goquery.Selection) {
-		if href, exists := s.Attr("href"); exists {
-			phoneNumber := strings.TrimPrefix(href, "tel:")
-			phoneNumbers = append(phoneNumbers, phoneNumber)
-		}
-	})
-	if len(phoneNumbers) == 0 {
-		phoneNumbers = append(phoneNumbers, "+375123456789") // Запасной номер
-	}
-
-	// Список страниц для RSS
-	var pages []Page
-
-	// Рекурсивно обходим директорию templates
-	err = filepath.Walk(templateDir, func(filePath string, info os.FileInfo, err error) error {
-		if err != nil {
-			return err
-		}
-		normalizedPath := filepath.ToSlash(filePath)
-
-		// Обрабатываем только HTML-файлы в поддиректории services/
-		if !info.IsDir() && strings.HasSuffix(filePath, ".html") {
-			relativePath := strings.TrimPrefix(normalizedPath, "templates/")
-			pagePath := strings.TrimSuffix(relativePath, ".html")
-
-			// Пропускаем корневые страницы
-			if pagePath == "index" || pagePath == "services" || pagePath == "rent" || pagePath == "contacts" {
-				return nil
-			}
-
-			// Проверяем, что файл находится в services/
-			if !strings.HasPrefix(pagePath, "services/") {
-				return nil
-			}
-
-			// Определяем URL страницы
-			pageName := strings.TrimPrefix(pagePath, "services/")
-			pageURL := fmt.Sprintf("https://avayusstroi.by/services/%s", pageName)
-
-			// Парсим HTML-файл
-			doc, err := goquery.NewDocumentFromReader(strings.NewReader(readFile(filePath)))
-			if err != nil {
-				return fmt.Errorf("ошибка парсинга файла %s: %v", filePath, err)
-			}
-
-			// Извлекаем заголовок
-			title := doc.Find("title").Text()
-
-			// Извлекаем описание
-			description, _ := doc.Find(`meta[name="description"]`).Attr("content")
-			if description == "" {
-				description = "Услуги по строительству и дренажу от ЧСУП «АВАЮССТРОЙ»"
-			}
-
-			// Извлекаем контент для <turbo:content>
-			turboContent := `<![CDATA[`
-			turboContent += `<header>`
-
-			// Заголовок для <h1> (берём первый <h2> или <h1> из <main>)
-			h1 := doc.Find("main h1").First().Text()
-			if h1 == "" {
-				h1 = doc.Find("main h2").First().Text()
-			}
-			if h1 != "" {
-				turboContent += fmt.Sprintf(`<h1>%s</h1>`, h1)
-			}
-
-			// Изображение (берём из .service-image)
-			imgSrc, _ := doc.Find(".service-image img").Attr("src")
-			if imgSrc != "" {
-				turboContent += `<figure>`
-				turboContent += fmt.Sprintf(`<img src="https://avayusstroi.by%s">`, imgSrc)
-				turboContent += `</figure>`
-			}
-
-			// Меню
-			turboContent += `<menu>`
-			turboContent += `<a href="https://avayusstroi.by/">Главная</a>`
-			turboContent += `<a href="https://avayusstroi.by/services">Услуги</a>`
-			turboContent += `</menu>`
-			turboContent += `</header>`
-
-			// Извлекаем весь контент из <main>
-			mainContent := doc.Find("main")
-			mainContent.Children().Each(func(i int, section *goquery.Selection) {
-				section.Children().Each(func(j int, container *goquery.Selection) {
-					if container.HasClass("container") {
-						// Заголовки <h2>
-						container.Find("h2").Each(func(k int, h2 *goquery.Selection) {
-							turboContent += fmt.Sprintf(`<h2>%s</h2>`, h2.Text())
-						})
-
-						// Текст из <p>
-						container.Find("p").Each(func(k int, p *goquery.Selection) {
-							text := strings.TrimSpace(p.Text())
-							if text != "" {
-								turboContent += fmt.Sprintf(`<p>%s</p>`, text)
-							}
-						})
-
-						// Списки <ul>
-						container.Find("ul").Each(func(k int, ul *goquery.Selection) {
-							turboContent += `<ul>`
-							ul.Find("li").Each(func(m int, li *goquery.Selection) {
-								text := strings.TrimSpace(li.Text())
-								if text != "" {
-									turboContent += fmt.Sprintf(`<li>%s</li>`, text)
-								}
-							})
-							turboContent += `</ul>`
-						})
-
-						// Секция .service-content
-						if container.HasClass("service-content") {
-							container.Find(".service-description").Children().Each(func(k int, descChild *goquery.Selection) {
-								if descChild.Is("h3") {
-									turboContent += fmt.Sprintf(`<h2>%s</h2>`, descChild.Text())
-								} else if descChild.Is("p") {
-									text := strings.TrimSpace(descChild.Text())
-									if text != "" {
-										turboContent += fmt.Sprintf(`<p>%s</p>`, text)
-									}
-								} else if descChild.Is("ul") {
-									turboContent += `<ul>`
-									descChild.Find("li").Each(func(m int, li *goquery.Selection) {
-										text := strings.TrimSpace(li.Text())
-										if text != "" {
-											turboContent += fmt.Sprintf(`<li>%s</li>`, text)
-										}
-									})
-									turboContent += `</ul>`
-								}
-							})
-						}
-
-						// Галерея (например, для topas.html)
-						if container.HasClass("service-gallery") {
-							container.Find("h3").Each(func(k int, h3 *goquery.Selection) {
-								turboContent += fmt.Sprintf(`<h2>%s</h2>`, h3.Text())
-							})
-							container.Find(".gallery img").Each(func(k int, img *goquery.Selection) {
-								if src, exists := img.Attr("src"); exists {
-									turboContent += `<figure>`
-									turboContent += fmt.Sprintf(`<img src="https://avayusstroi.by%s">`, src)
-									turboContent += `</figure>`
-								}
-							})
-						}
-					}
-				})
-			})
-
-			// Добавляем кнопки "Заказать" с номерами телефонов
-			for _, phoneNumber := range phoneNumbers {
-				turboContent += fmt.Sprintf(`<button formaction="tel:%s" data-background-color="#5B97B0" data-color="white" data-primary="true">Заказать</button>`, phoneNumber)
-			}
-
-			turboContent += `]]>`
-
-			// Добавляем страницу в список
-			pages = append(pages, Page{
-				Title:        title,
-				URL:          pageURL,
-				Description:  description,
-				PubDate:      time.Now().Format(time.RFC1123Z),
-				Author:       "АВАЮССТРОЙ",
-				TurboContent: turboContent,
-			})
-		}
-		return nil
-	})
-
+	encoded, err := xml.MarshalIndent(feed, "", "  ")
 	if err != nil {
-		c.String(500, fmt.Sprintf("Ошибка обхода директории шаблонов: %v", err))
+		c.String(http.StatusInternalServerError, "Не удалось сформировать RSS")
 		return
 	}
-
-	// Генерируем XML
-	xmlContent := `<?xml version="1.0" encoding="UTF-8"?>
-    <rss xmlns:yandex="http://news.yandex.ru" xmlns:media="http://search.yahoo.com/mrss/" xmlns:turbo="http://turbo.yandex.ru" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-        <channel>
-            <title>АВАЮССТРОЙ | Услуги</title>
-            <link>https://avayusstroi.by</link>
-            <description>Услуги по строительству и дренажу в Бресте и области</description>
-            <language>ru</language>
-    `
-
-	for _, page := range pages {
-		xmlContent += `
-            <item turbo="true">
-                <title>` + page.Title + `</title>
-                <link>` + page.URL + `</link>
-                <description>` + page.Description + `</description>
-                <pubDate>` + page.PubDate + `</pubDate>
-                <author>` + page.Author + `</author>
-                <turbo:content>` + page.TurboContent + `</turbo:content>
-            </item>`
-	}
-
-	xmlContent += `
-        </channel>
-    </rss>`
-
-	// Отдаём XML
-	c.Data(200, "application/xml", []byte(xmlContent))
+	c.Data(http.StatusOK, "application/rss+xml; charset=utf-8", append([]byte(xml.Header), encoded...))
 }
 
-// Вспомогательная функция для чтения файла
-func readFile(filePath string) string {
-	content, err := ioutil.ReadFile(filePath)
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Ошибка чтения файла %s: %v\n", filePath, err)
-		os.Exit(1) // <- аварийный выход, чтобы явно увидеть ошибку
+func buildRSSFeed() (RSSFeed, error) {
+	feed := RSSFeed{
+		Version: "2.0", Turbo: "http://turbo.yandex.ru",
+		Channel: RSSChannel{Title: siteName + " — услуги и спецтехника", Link: siteURL + "/", Description: "Инженерные работы и аренда спецтехники в Бресте и Брестской области", Language: "ru-BY"},
 	}
-	return string(content)
+	for _, path := range publicPagePaths() {
+		if !strings.HasPrefix(path, "/services/") && !strings.HasPrefix(path, "/rent/") {
+			continue
+		}
+		seo := seoDataForPath(path)
+		content := "<header><h1>" + html.EscapeString(seo.Title) + "</h1><figure><img src=\"" + html.EscapeString(seo.Image) + "\"></figure></header>"
+		if rental := rentalPageForPath(path); rental != nil {
+			content += "<p>" + html.EscapeString(rental.Lead) + "</p><h2>Задачи и условия аренды</h2><ul>"
+			for _, text := range append(append([]string{}, rental.Tasks...), rental.Conditions...) {
+				content += "<li>" + html.EscapeString(text) + "</li>"
+			}
+			content += "</ul>"
+		} else {
+			file, err := os.ReadFile(templateForPath(path))
+			if err != nil {
+				return feed, fmt.Errorf("read RSS source %s: %w", path, err)
+			}
+			doc, err := goquery.NewDocumentFromReader(strings.NewReader(string(file)))
+			if err != nil {
+				return feed, fmt.Errorf("parse RSS source %s: %w", path, err)
+			}
+			doc.Find("main h2, main h3, main p, main li").Each(func(_ int, selection *goquery.Selection) {
+				text := strings.TrimSpace(selection.Text())
+				if text == "" || strings.Contains(text, "{{") {
+					return
+				}
+				tag := "p"
+				if selection.Is("h2,h3") {
+					tag = "h2"
+				}
+				content += "<" + tag + ">" + html.EscapeString(text) + "</" + tag + ">"
+			})
+		}
+		if advice, ok := serviceAdviceByPath[path]; ok {
+			content += "<h2>" + html.EscapeString(advice.TasksHeading) + "</h2>"
+			for _, text := range append(append([]string{}, advice.Tasks...), advice.Steps...) {
+				content += "<p>" + html.EscapeString(text) + "</p>"
+			}
+			content += "<h2>Расчёт стоимости</h2><p>" + html.EscapeString(advice.PriceFactors) + "</p><p>" + html.EscapeString(advice.RequestData) + "</p>"
+		}
+		content += "<p><a href=\"" + seo.Canonical + "\">Подробнее об услуге и заявка</a></p><p><a href=\"tel:+375297202791\">+375 (29) 720-27-91</a></p>"
+		feed.Channel.Items = append(feed.Channel.Items, RSSItem{Turbo: "true", Title: seo.Title, Link: seo.Canonical, GUID: seo.Canonical, Description: seo.Description, Content: RSSCDATA{HTML: content}})
+	}
+	return feed, nil
 }

@@ -14,6 +14,7 @@ func main() {
 	gin.SetMode(gin.ReleaseMode)
 
 	r := gin.New()
+	r.RedirectTrailingSlash = false
 	r.Use(gin.Logger(), gin.Recovery(), canonicalHostMiddleware(), cacheControlMiddleware())
 
 	logFile, err := os.OpenFile("logs/server.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
@@ -42,6 +43,7 @@ func main() {
 	}
 
 	r.GET("/", indexHandler)
+	r.HEAD("/", indexHandler)
 	r.GET("/qr", qrRedirectHandler(qrScanTracker))
 
 	if err := registerRoutes(r); err != nil {
@@ -59,6 +61,7 @@ func main() {
 	r.GET("/rss.xml", generateRSSFeed)
 
 	r.NoRoute(func(c *gin.Context) {
+		c.Header("X-Robots-Tag", "noindex, follow")
 		c.HTML(http.StatusNotFound, "404.html", pageData("/404"))
 	})
 
@@ -78,14 +81,43 @@ func main() {
 }
 
 func canonicalHostMiddleware() gin.HandlerFunc {
+	publicPaths := make(map[string]bool)
+	for _, path := range publicPagePaths() {
+		publicPaths[path] = true
+	}
 	return func(c *gin.Context) {
+		if c.Request.Method != http.MethodGet && c.Request.Method != http.MethodHead {
+			c.Next()
+			return
+		}
 		host := strings.ToLower(c.Request.Host)
 		if colonIndex := strings.Index(host, ":"); colonIndex != -1 {
 			host = host[:colonIndex]
 		}
 
-		if host == "www.avayusstroi.by" {
-			c.Redirect(http.StatusMovedPermanently, siteURL+c.Request.URL.RequestURI())
+		path := c.Request.URL.Path
+		normalizedPath := strings.TrimSuffix(strings.ToLower(path), "/")
+		normalizedPath = strings.TrimSuffix(normalizedPath, ".html")
+		if normalizedPath == "" || normalizedPath == "/index" {
+			normalizedPath = "/"
+		}
+		if !publicPaths[normalizedPath] && normalizedPath != "/qr" {
+			normalizedPath = path
+		}
+
+		// TLS is normally terminated by the production reverse proxy. Only
+		// redirect the apex scheme when the proxy explicitly reports HTTP;
+		// an absent forwarding header must not create a redirect loop.
+		forceHTTPS := host == "avayusstroi.by" && strings.EqualFold(c.GetHeader("X-Forwarded-Proto"), "http")
+		if host == "www.avayusstroi.by" || forceHTTPS || normalizedPath != path {
+			target := normalizedPath
+			if c.Request.URL.RawQuery != "" {
+				target += "?" + c.Request.URL.RawQuery
+			}
+			if host == "avayusstroi.by" || host == "www.avayusstroi.by" {
+				target = siteURL + target
+			}
+			c.Redirect(http.StatusMovedPermanently, target)
 			c.Abort()
 			return
 		}

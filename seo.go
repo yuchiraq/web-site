@@ -1,5 +1,11 @@
 package main
 
+import (
+	"net/url"
+	"sort"
+	"strings"
+)
+
 const (
 	siteURL         = "https://avayusstroi.by"
 	siteName        = "ЧСУП АВАЮССТРОЙ"
@@ -9,31 +15,38 @@ const (
 )
 
 type SEOData struct {
-	Title       string
-	Description string
-	Canonical   string
-	Image       string
-	ImageAlt    string
-	Robots      string
-	Type        string
+	Title           string
+	Description     string
+	Canonical       string
+	Image           string
+	ImageAlt        string
+	Robots          string
+	Type            string
+	PageType        string
+	HeroImage       string
+	HeroImageMobile string
 }
 
 var seoDataByPath = map[string]SEOData{
 	"/": {
-		Title:       "ЧСУП АВАЮССТРОЙ | Автономная канализация и водопонижение в Бресте",
-		Description: "АВАЮССТРОЙ выполняет монтаж автономной канализации, водопонижение, дренаж и аренду спецтехники в Бресте и Брестской области.",
-		Image:       siteURL + "/static/images/hero_new.webp",
-		ImageAlt:    "Автономная канализация и водопонижение от АВАЮССТРОЙ",
+		Title:           "Канализация и водопонижение в Бресте | ЧСУП АВАЮССТРОЙ",
+		Description:     "Автономная канализация ТОПАС, монтаж водопровода, дренаж и водопонижение в Бресте и области. Собственная спецтехника. Обсудим участок и рассчитаем работы.",
+		Image:           siteURL + "/static/images/hero_new.webp",
+		ImageAlt:        "Автономная канализация и водопонижение от АВАЮССТРОЙ",
+		HeroImage:       "/static/images/hero_new.webp",
+		HeroImageMobile: "/static/images/hero_mobile.png",
 	},
 	"/services": {
+		PageType:    "CollectionPage",
 		Title:       "Инженерные услуги в Бресте | ЧСУП АВАЮССТРОЙ",
 		Description: "Водопонижение, дренаж, автономная канализация, наружные сети и другие инженерные работы в Бресте и Брестской области.",
 		Image:       siteURL + "/static/images/topas/cover.jpg",
 		ImageAlt:    "Инженерные услуги АВАЮССТРОЙ в Бресте",
 	},
 	"/rent": {
-		Title:       "Аренда спецтехники в Бресте | ЧСУП АВАЮССТРОЙ",
-		Description: "Аренда спецтехники и оборудования в Бресте и области: техника для земляных, строительных и монтажных работ с выездом на объект.",
+		PageType:    "CollectionPage",
+		Title:       "Аренда спецтехники в Бресте: экскаватор, манипулятор | АВАЮССТРОЙ",
+		Description: "Экскаватор-погрузчик, миниэкскаватор, манипулятор DAF и оборудование в аренду в Бресте и области. Подберём технику под задачу и согласуем подачу на объект.",
 		Image:       siteURL + "/static/images/cars/lgce_summer.png",
 		ImageAlt:    "Аренда спецтехники АВАЮССТРОЙ",
 	},
@@ -42,16 +55,17 @@ var seoDataByPath = map[string]SEOData{
 		Description: "Телефоны, адрес, реквизиты, быстрые способы связи и вакансии АВАЮССТРОЙ в Бресте. Можно позвонить, написать или оставить заявку.",
 		Image:       siteURL + "/static/images/visitka.jpg",
 		ImageAlt:    "Контакты АВАЮССТРОЙ",
+		PageType:    "ContactPage",
 	},
 	"/services/drainage": {
-		Title:       "Дренажные системы в Бресте | ЧСУП АВАЮССТРОЙ",
-		Description: "Проектирование и устройство дренажных систем в Бресте и Брестской области для отвода воды и защиты участка от переувлажнения.",
+		Title:       "Дренаж участка и фундамента в Бресте | АВАЮССТРОЙ",
+		Description: "Устройство дренажа участка и фундамента в Бресте и области. Подбор схемы отвода воды, земляные работы, трубы и колодцы. Расчёт после оценки условий участка.",
 		Image:       siteURL + "/static/images/drainage/cover.jpg",
 		ImageAlt:    "Дренажные системы от АВАЮССТРОЙ",
 	},
 	"/services/plumbing": {
-		Title:       "Водоснабжение в Бресте | ЧСУП АВАЮССТРОЙ",
-		Description: "Проектирование и монтаж наружных сетей водоснабжения под ключ в Бресте и области для частных и коммерческих объектов.",
+		Title:       "Монтаж водопровода в Бресте — наружные сети | АВАЮССТРОЙ",
+		Description: "Прокладка наружного водопровода в Бресте и области: подбор трассы, земляные работы, монтаж и замена труб. Согласуем подключение и составим смету под объект.",
 		Image:       siteURL + "/static/images/plumbing/cover.jpg",
 		ImageAlt:    "Наружные сети водоснабжения от АВАЮССТРОЙ",
 	},
@@ -62,8 +76,8 @@ var seoDataByPath = map[string]SEOData{
 		ImageAlt:    "Монтаж канализации от АВАЮССТРОЙ",
 	},
 	"/services/storm_sewer": {
-		Title:       "Ливневая канализация в Бресте | ЧСУП АВАЮССТРОЙ",
-		Description: "Устройство ливневой канализации в Бресте и области для защиты участков, площадок и дорог от подтопления.",
+		Title:       "Ливневая канализация в Бресте — монтаж под ключ | АВАЮССТРОЙ",
+		Description: "Монтаж ливневой канализации в Бресте и области. Дождеприёмники, лотки, трубы и колодцы для участка и площадки. Подбор схемы водоотвода и расчёт стоимости.",
 		Image:       siteURL + "/static/images/storm_sewer/cover.jpg",
 		ImageAlt:    "Ливневая канализация от АВАЮССТРОЙ",
 	},
@@ -88,16 +102,46 @@ var seoDataByPath = map[string]SEOData{
 	},
 }
 
+// This registry is shared by routes, canonical tags, sitemap and RSS.
+// A template alone must never accidentally become an indexable public page.
+func publicPagePaths() []string {
+	paths := make([]string, 0, len(seoDataByPath)+len(rentalPages))
+	for path, seo := range seoDataByPath {
+		if path != "/404" && !strings.Contains(seo.Robots, "noindex") {
+			paths = append(paths, path)
+		}
+	}
+	for _, rental := range rentalPages {
+		paths = append(paths, rental.Path)
+	}
+	sort.Strings(paths)
+	return paths
+}
+
+func templateForPath(path string) string {
+	if rentalPageForPath(path) != nil {
+		return "templates/static/rental_detail.html"
+	}
+	if path == "/" {
+		return "templates/index.html"
+	}
+	return "templates" + path + ".html"
+}
+
 func seoDataForPath(path string) SEOData {
 	seo, ok := seoDataByPath[path]
+	if rental := rentalPageForPath(path); rental != nil {
+		seo, ok = rental.SEO, true
+	}
 	if !ok {
 		seo = SEOData{
-			Title:       siteName,
-			Description: "Инженерные и строительные услуги в Бресте и Брестской области.",
+			Title:       "Страница не найдена | " + siteName,
+			Description: "Перейдите к инженерным услугам, аренде спецтехники или контактам АВАЮССТРОЙ в Бресте.",
+			Robots:      "noindex,follow",
 		}
 	}
 
-	if seo.Canonical == "" && path != "/404" {
+	if seo.Canonical == "" && ok && path != "/404" {
 		seo.Canonical = canonicalURL(path)
 	}
 	if seo.Image == "" {
@@ -112,16 +156,21 @@ func seoDataForPath(path string) SEOData {
 	if seo.Type == "" {
 		seo.Type = defaultOGType
 	}
+	if seo.PageType == "" {
+		seo.PageType = "WebPage"
+	}
 
 	return seo
 }
 
 func canonicalURL(path string) string {
-	if path == "" || path == "/" {
+	parsed, err := url.Parse(path)
+	if err != nil {
 		return siteURL + "/"
 	}
-	if path[0] != '/' {
-		return siteURL + "/" + path
+	cleanPath := "/" + strings.Trim(parsed.Path, "/")
+	if cleanPath == "/index.html" || cleanPath == "/index" {
+		cleanPath = "/"
 	}
-	return siteURL + path
+	return siteURL + cleanPath
 }

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru-BY" data-theme="light">
+<head>
+    {{ template "head" . }}
+</head>
+<body>
+    {{ template "header" . }}
+    <main>
+        <section class="service-hero rental-detail">
+            <div class="container">
+                <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                    <a href="/">Главная</a><span aria-hidden="true">/</span><a href="/rent">Аренда спецтехники</a><span aria-hidden="true">/</span><span aria-current="page">{{ .Rental.Name }}</span>
+                </nav>
+                <div class="service-hero__grid">
+                    <div>
+                        <span class="section-kicker">Брест и Брестская область</span>
+                        <h1>{{ .Rental.Heading }}</h1>
+                        <p class="service-hero__lead">{{ .Rental.Lead }}</p>
+                        <div class="service-hero__actions">
+                            <a href="#" class="cta-button open-modal-button" data-track="order_click" data-service="{{ .Rental.Path }}">Рассчитать аренду</a>
+                            <a href="tel:+375297202791" class="messenger-link" data-track="phone_click" data-service="{{ .Rental.Path }}">+375 (29) 720-27-91</a>
+                        </div>
+                    </div>
+                    <div class="service-hero__media">
+                        <img src="{{ .Rental.Image }}" alt="{{ .Rental.ImageAlt }}" fetchpriority="high" decoding="async">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="service-solution">
+            <div class="container service-advice-grid">
+                <div>
+                    <span class="section-kicker">Под вашу задачу</span>
+                    <h2>Для каких работ подходит техника</h2>
+                    <ul class="service-advice-list">{{ range .Rental.Tasks }}<li>{{ . }}</li>{{ end }}</ul>
+                </div>
+                <div class="service-advice-panel">
+                    <h2>Что уточнить до заказа</h2>
+                    <ul class="service-advice-list">{{ range .Rental.Conditions }}<li>{{ . }}</li>{{ end }}</ul>
+                </div>
+            </div>
+        </section>
+        <section class="service-trust">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-kicker">Понятный расчёт</span>
+                    <h2>Как заказать технику</h2>
+                    <p>Стоимость зависит от задачи, оборудования, адреса и времени работы. Условия подачи и расчёта согласуем до начала работ.</p>
+                </div>
+                <ol class="service-steps">
+                    <li><strong>Расскажите об объекте.</strong> Сообщите адрес, задачу, размеры и желаемую дату. Фото или схема помогут оценить условия.</li>
+                    <li><strong>Согласуйте состав работ.</strong> Уточним подходящую технику, оборудование, подъезд и место работы.</li>
+                    <li><strong>Получите расчёт и дату подачи.</strong> Обсудим продолжительность, условия аренды и дополнительные работы.</li>
+                </ol>
+                <div class="service-hero__actions"><a href="#" class="cta-button open-modal-button" data-track="order_click" data-service="{{ .Rental.Path }}">Обсудить подачу техники</a><a href="/contacts" class="messenger-link">Контакты и реквизиты</a></div>
+            </div>
+        </section>
+        <section class="faq-section">
+            <div class="container">
+                <h2>Вопросы перед арендой</h2>
+                {{ range .Rental.FAQ }}<details><summary>{{ .Question }}</summary><p>{{ .Answer }}</p></details>{{ end }}
+            </div>
+        </section>
+        <section class="service-solution">
+            <div class="container">
+                <h2>Другая техника и инженерные работы</h2>
+                <div class="reuse-grid">
+                    {{ range .Rentals }}{{ if ne .Path $.Rental.Path }}<article><h3><a href="{{ .Path }}">{{ .Name }}</a></h3><p>{{ .Heading }}</p></article>{{ end }}{{ end }}
+                    <article><h3><a href="/services">Монтаж инженерных сетей</a></h3><p>Канализация, водопровод, дренаж и водопонижение с подбором техники под объект.</p></article>
+                </div>
+                <p><a href="/rent">Весь каталог техники и оборудования →</a></p>
+            </div>
+        </section>
+    </main>
+    {{ template "footer" . }}
+</body>
+</html>

@@ -51994,3 +51994,73 @@
 2026/04/27 19:38:24 warning: settings.json was not loaded: open settings.json: The system cannot find the file specified.
 2026/04/27 19:38:24 sitemap.xml generated
 2026/04/27 19:38:24 starting HTTP server on :8088
+2026/08/03 20:50:45 warning: settings.json was not loaded: open settings.json: The system cannot find the file specified.
+2026/08/03 20:50:45 sitemap.xml generated
+2026/08/03 20:50:45 starting HTTP server on :8088
+2026/08/25 22:46:32 warning: settings.json was not loaded: open settings.json: The system cannot find the file specified.
+2026/08/25 22:46:32 sitemap.xml generated
+2026/08/25 22:46:32 starting HTTP server on :8088
+2026/08/25 22:49:58 warning: settings.json was not loaded: open settings.json: The system cannot find the file specified.
+2026/08/25 22:49:58 sitemap.xml generated
+2026/08/25 22:49:58 starting HTTP server on :8088
+2026/08/28 22:30:12 warning: settings.json was not loaded: open settings.json: The system cannot find the file specified.
+2026/08/28 22:30:12 sitemap.xml generated
+2026/08/28 22:30:12 starting HTTP server on :8088
+2026/08/28 22:41:37 warning: settings.json was not loaded: open settings.json: The system cannot find the file specified.
+2026/08/28 22:41:37 sitemap.xml generated
+2026/08/28 22:41:37 starting HTTP server on :8088
+2026/08/28 22:43:04 warning: settings.json was not loaded: open settings.json: The system cannot find the file specified.
+2026/08/28 22:43:04 sitemap.xml generated
+2026/08/28 22:43:04 starting HTTP server on :8088
+2026/08/28 22:44:36 warning: settings.json was not loaded: open settings.json: The system cannot find the file specified.
+2026/08/28 22:44:36 sitemap.xml generated
+2026/08/28 22:44:36 starting HTTP server on :8088
+2026/08/28 22:46:57 warning: settings.json was not loaded: open settings.json: The system cannot find the file specified.
+2026/08/28 22:46:57 sitemap.xml generated
+2026/08/28 22:46:57 starting HTTP server on :8088
+2026/08/28 22:48:02 warning: settings.json was not loaded: open settings.json: The system cannot find the file specified.
+2026/08/28 22:48:02 sitemap.xml generated
+2026/08/28 22:48:02 starting HTTP server on :8088
+2026/08/28 22:49:12 warning: settings.json was not loaded: open settings.json: The system cannot find the file specified.
+2026/08/28 22:49:12 sitemap.xml generated
+2026/08/28 22:49:12 starting HTTP server on :8088
+2026/08/28 22:53:09 warning: settings.json was not loaded: open settings.json: The system cannot find the file specified.
+2026/08/28 22:53:09 sitemap.xml generated
+2026/08/28 22:53:09 starting HTTP server on :8088
+2026/08/28 22:59:28 warning: settings.json was not loaded: open settings.json: The system cannot find the file specified.
+2026/08/28 22:59:28 sitemap.xml generated
+2026/08/28 22:59:28 starting HTTP server on :8088
+2026/08/28 22:59:28 failed to start HTTP server: listen tcp :8088: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2026/08/28 23:00:07 warning: settings.json was not loaded: open settings.json: The system cannot find the file specified.
+2026/08/28 23:00:07 sitemap.xml generated
+2026/08/28 23:00:07 starting HTTP server on :8088
+2026/08/28 23:07:42 warning: settings.json was not loaded: open settings.json: The system cannot find the file specified.
+2026/08/28 23:07:42 sitemap.xml generated
+2026/08/28 23:07:42 starting HTTP server on :8088
+2026/08/28 23:34:19 warning: settings.json was not loaded: open settings.json: The system cannot find the file specified.
+2026/08/28 23:34:19 sitemap.xml generated
+2026/08/28 23:34:19 starting HTTP server on :8088
+2026/08/28 23:34:19 failed to start HTTP server: listen tcp :8088: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2026/08/28 23:34:33 warning: settings.json was not loaded: open settings.json: The system cannot find the file specified.
+2026/08/28 23:34:33 sitemap.xml generated
+2026/08/28 23:34:33 starting HTTP server on :8088
+2026/08/28 23:34:46 QR scan counted: campaign=codex-check total=1
+2026/08/28 23:36:36 warning: settings.json was not loaded: open settings.json: The system cannot find the file specified.
+2026/08/28 23:36:36 sitemap.xml generated
+2026/08/28 23:36:36 starting HTTP server on :8088
+2026/08/28 23:36:55 QR scan counted: campaign=main total=1
+2026/10/19 16:11:51 warning: settings.json was not loaded: open settings.json: The system cannot find the file specified.
+2026/10/19 16:11:51 sitemap.xml generated
+2026/10/19 16:11:52 starting HTTP server on :8088
+2026/10/19 16:19:51 warning: settings.json was not loaded: open settings.json: The system cannot find the file specified.
+2026/10/19 16:19:51 sitemap.xml generated
+2026/10/19 16:19:51 starting HTTP server on :8088
+2026/10/22 11:29:18 warning: settings.json was not loaded: open settings.json: The system cannot find the file specified.
+2026/10/22 11:29:18 sitemap.xml generated
+2026/10/22 11:29:18 starting HTTP server on :8088
+2026/10/22 11:33:23 warning: settings.json was not loaded: open settings.json: The system cannot find the file specified.
+2026/10/22 11:33:23 sitemap.xml generated
+2026/10/22 11:33:23 starting HTTP server on :8088
+2026/10/22 11:40:47 warning: settings.json was not loaded: open settings.json: The system cannot find the file specified.
+2026/10/22 11:40:47 sitemap.xml generated
+2026/10/22 11:40:47 starting HTTP server on :8088

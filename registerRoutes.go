@@ -39,30 +39,16 @@ func loadTemplates(engine *gin.Engine) error {
 }
 
 func registerRoutes(router *gin.Engine) error {
-	return filepath.Walk("templates", func(path string, info os.FileInfo, err error) error {
-		if err != nil {
-			return err
+	for _, route := range publicPagePaths() {
+		if route == "/" {
+			continue
 		}
-
-		normalizedPath := filepath.ToSlash(path)
-		if strings.Contains(normalizedPath, "templates/static/") ||
-			strings.HasSuffix(normalizedPath, "header.html") ||
-			strings.HasSuffix(normalizedPath, "footer.html") ||
-			strings.HasSuffix(normalizedPath, "head.html") ||
-			strings.HasSuffix(normalizedPath, "phone_button.html") ||
-			strings.HasSuffix(normalizedPath, "index.html") {
-			return nil
+		templatePath := templateForPath(route)
+		if _, err := os.Stat(templatePath); err != nil {
+			return fmt.Errorf("public page %s: %w", route, err)
 		}
-		if info.IsDir() || filepath.Ext(path) != ".html" {
-			return nil
-		}
-
-		route := strings.TrimPrefix(normalizedPath, "templates/")
-		route = strings.TrimSuffix(route, ".html")
-		route = "/" + route
-		templateName := filepath.Base(path)
-
-		router.GET(route, func(c *gin.Context) {
+		templateName := filepath.Base(templatePath)
+		handler := func(c *gin.Context) {
 			data := pageData(route)
 
 			if strings.HasPrefix(route, "/services") {
@@ -73,9 +59,11 @@ func registerRoutes(router *gin.Engine) error {
 			}
 
 			c.HTML(http.StatusOK, templateName, data)
-		})
+		}
+		router.GET(route, handler)
+		router.HEAD(route, handler)
 
 		fmt.Printf("Registered route: %s\n", route)
-		return nil
-	})
+	}
+	return nil
 }

@@ -1,0 +1,33 @@
+{{ define "service_advice" }}
+<section class="service-solution">
+    <div class="container service-advice-grid">
+        <div>
+            <span class="section-kicker">Условия вашего объекта</span>
+            <h2>{{ .ServiceAdvice.TasksHeading }}</h2>
+            <ul class="service-advice-list">{{ range .ServiceAdvice.Tasks }}<li>{{ . }}</li>{{ end }}</ul>
+        </div>
+        <div class="service-advice-panel">
+            <h2>Как проходят работы</h2>
+            <ol class="service-advice-list">{{ range .ServiceAdvice.Steps }}<li>{{ . }}</li>{{ end }}</ol>
+        </div>
+    </div>
+</section>
+<section class="service-pricing">
+    <div class="container service-advice-grid">
+        <div><h2>От чего зависит стоимость</h2><p>{{ .ServiceAdvice.PriceFactors }}</p></div>
+        <div><h2>Что отправить для расчёта</h2><p>{{ .ServiceAdvice.RequestData }}</p>
+            <div class="service-hero__actions"><a href="#" class="cta-button open-modal-button" data-track="order_click" data-service="{{ .SEO.Canonical }}">Получить расчёт</a><a href="/contacts" class="messenger-link">Контакты</a></div>
+        </div>
+    </div>
+</section>
+<section class="faq-section">
+    <div class="container"><h2>Частые вопросы перед заказом</h2>
+        {{ range .ServiceAdvice.FAQ }}<details><summary>{{ .Question }}</summary><p>{{ .Answer }}</p></details>{{ end }}
+    </div>
+</section>
+<section class="service-solution">
+    <div class="container"><h2>Связанные работы и техника</h2>
+        <div class="reuse-grid">{{ range .ServiceAdvice.Related }}<article><h3><a href="{{ .Path }}">{{ .Name }}</a></h3><p>{{ .Text }}</p></article>{{ end }}</div>
+    </div>
+</section>
+{{ end }}
