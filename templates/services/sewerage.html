@@ -2,49 +2,6 @@
 <html lang="ru-BY" data-theme="light">
 <head>
     {{ template "head" . }}
-    <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "Service",
-              "name": "Монтаж канализации под ключ в Бресте",
-              "serviceType": "Проектирование, монтаж и обслуживание канализационных систем",
-              "provider": {"@id": "https://avayusstroi.by/#organization"},
-              "areaServed": ["Брест", "Брестский район", "Брестская область"],
-              "url": "https://avayusstroi.by/services/sewerage"
-            },
-            {
-              "@type": "BreadcrumbList",
-              "itemListElement": [
-                {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://avayusstroi.by/"},
-                {"@type": "ListItem", "position": 2, "name": "Услуги", "item": "https://avayusstroi.by/services"},
-                {"@type": "ListItem", "position": 3, "name": "Монтаж канализации", "item": "https://avayusstroi.by/services/sewerage"}
-              ]
-            },
-            {
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "Сколько стоит монтаж канализации в Бресте?",
-                  "acceptedAnswer": {"@type": "Answer", "text": "Стоимость зависит от типа системы, длины трассы, глубины заложения труб, грунта и объема земляных работ. Точную смету составляем после уточнения задачи и осмотра участка."}
-                },
-                {
-                  "@type": "Question",
-                  "name": "Работаете ли вы по Брестской области?",
-                  "acceptedAnswer": {"@type": "Answer", "text": "Да, выполняем монтаж канализации в Бресте, Брестском районе и по Брестской области."}
-                },
-                {
-                  "@type": "Question",
-                  "name": "Можно ли заказать канализацию под ключ?",
-                  "acceptedAnswer": {"@type": "Answer", "text": "Да. Берем на себя подбор решения, земляные работы, прокладку труб, монтаж оборудования, подключение и проверку системы."}
-                }
-              ]
-            }
-          ]
-        }
-    </script>
 </head>
 <body>
     {{ template "header" . }}
@@ -123,15 +80,7 @@
             </div>
         </section>
 
-        <section class="faq-section">
-            <div class="container">
-                <h2>Частые вопросы о монтаже канализации</h2>
-                <details><summary>Сколько стоит монтаж канализации в Бресте?</summary><p>Стоимость зависит от типа системы, длины трассы, глубины заложения труб, грунта и объема земляных работ. Точную смету составляем после уточнения задачи и осмотра участка.</p></details>
-                <details><summary>Работаете ли вы по Брестской области?</summary><p>Да, выполняем монтаж канализации в Бресте, Брестском районе и по Брестской области.</p></details>
-                <details><summary>Можно ли заказать канализацию под ключ?</summary><p>Да. Берем на себя подбор решения, земляные работы, прокладку труб, монтаж оборудования, подключение и проверку системы.</p></details>
-                <details><summary>Можно ли совместить монтаж с дренажом или водопроводом?</summary><p>Да, комплексное выполнение инженерных сетей помогает согласовать трассы и эффективнее организовать земляные работы.</p></details>
-            </div>
-        </section>
+    {{ template "service_topics" . }}
 
         {{ template "projects_gallery" . }}
     </main>

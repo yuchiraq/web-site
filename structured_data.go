@@ -82,6 +82,31 @@ func structuredDataForPath(path string, seo SEOData) template.JS {
 		}
 		graph = append(graph, map[string]any{"@type": "FAQPage", "@id": seo.Canonical + "#faq", "mainEntity": questions})
 	}
+	if service, ok := serviceTopics[path]; ok {
+		graph = append(graph, serviceData(path, service.Name, service.Description, seo.Image),
+			breadcrumbData([]string{"Главная", "Услуги", service.Name}, []string{"/", "/services", path}), faqData(seo.Canonical, service.FAQ))
+	}
+	if topic := topicPageForPath(path); topic != nil {
+		graph = append(graph, breadcrumbData([]string{"Главная", topic.ParentName, topic.Name}, []string{"/", topic.ParentPath, path}))
+		if len(topic.FAQ) > 0 {
+			graph = append(graph, faqData(seo.Canonical, topic.FAQ))
+		}
+		if topic.Kind == "service" {
+			graph = append(graph, serviceData(path, topic.Heading, topic.Lead, seo.Image))
+		}
+		if topic.Kind == "guide" {
+			graph = append(graph, map[string]any{"@type": "Article", "@id": seo.Canonical + "#article", "headline": topic.Heading,
+				"description": topic.Lead, "image": seo.Image, "inLanguage": "ru-BY", "mainEntityOfPage": map[string]string{"@id": seo.Canonical + "#webpage"},
+				"author": map[string]string{"@id": organizationID}, "publisher": map[string]string{"@id": organizationID}})
+		}
+		if topic.Kind == "collection" {
+			items := []any{}
+			for _, link := range topic.Related {
+				items = append(items, map[string]any{"@type": "ListItem", "position": len(items) + 1, "url": canonicalURL(link.Path), "name": link.Name})
+			}
+			graph = append(graph, map[string]any{"@type": "ItemList", "itemListElement": items})
+		}
+	}
 
 	encoded, err := json.Marshal(map[string]any{"@context": "https://schema.org", "@graph": graph})
 	if err != nil {
@@ -89,6 +114,20 @@ func structuredDataForPath(path string, seo SEOData) template.JS {
 	}
 	// Every value is encoded by encoding/json, including HTML-sensitive characters.
 	return template.JS(encoded)
+}
+
+func serviceData(path, name, description, image string) map[string]any {
+	return map[string]any{"@type": "Service", "@id": canonicalURL(path) + "#service", "url": canonicalURL(path), "name": name,
+		"serviceType": name, "description": description, "image": image, "provider": map[string]string{"@id": siteURL + "/#organization"},
+		"areaServed": []string{"Брест", "Брестский район", "Брестская область"}}
+}
+
+func faqData(canonical string, faqs []RentalFAQ) map[string]any {
+	questions := []any{}
+	for _, faq := range faqs {
+		questions = append(questions, map[string]any{"@type": "Question", "name": faq.Question, "acceptedAnswer": map[string]string{"@type": "Answer", "text": faq.Answer}})
+	}
+	return map[string]any{"@type": "FAQPage", "@id": canonical + "#faq", "mainEntity": questions}
 }
 
 func breadcrumbData(names, paths []string) map[string]any {

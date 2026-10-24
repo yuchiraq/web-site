@@ -7,6 +7,18 @@
     <loc>https://avayusstroi.by/contacts</loc>
   </url>
   <url>
+    <loc>https://avayusstroi.by/guides</loc>
+  </url>
+  <url>
+    <loc>https://avayusstroi.by/guides/autonomous-sewerage-cost</loc>
+  </url>
+  <url>
+    <loc>https://avayusstroi.by/guides/sewerage-high-groundwater</loc>
+  </url>
+  <url>
+    <loc>https://avayusstroi.by/regions/brest-region</loc>
+  </url>
+  <url>
     <loc>https://avayusstroi.by/rent</loc>
   </url>
   <url>
@@ -31,6 +43,9 @@
     <loc>https://avayusstroi.by/services/sewerage</loc>
   </url>
   <url>
+    <loc>https://avayusstroi.by/services/sewerage-without-pumping</loc>
+  </url>
+  <url>
     <loc>https://avayusstroi.by/services/storm_sewer</loc>
   </url>
   <url>
@@ -38,5 +53,8 @@
   </url>
   <url>
     <loc>https://avayusstroi.by/services/water_lowering</loc>
+  </url>
+  <url>
+    <loc>https://avayusstroi.by/services/wellpoint-dewatering</loc>
   </url>
 </urlset>

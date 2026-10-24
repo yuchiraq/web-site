@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru-BY" data-theme="light">
+<head>{{ template "head" . }}</head>
+<body>
+{{ template "header" . }}
+<main class="topic-page topic-page--{{ .Topic.Kind }}">
+    <section class="service-hero topic-hero">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="/">Главная</a><span aria-hidden="true">/</span><a href="{{ .Topic.ParentPath }}">{{ .Topic.ParentName }}</a><span aria-hidden="true">/</span><span aria-current="page">{{ .Topic.Name }}</span></nav>
+            <div class="service-hero__grid">
+                <div>
+                    <span class="section-kicker">{{ if eq .Topic.Kind "guide" }}Памятка заказчику · АВАЮССТРОЙ{{ else }}Брест и Брестская область{{ end }}</span>
+                    <h1>{{ .Topic.Heading }}</h1>
+                    <p class="service-hero__lead">{{ .Topic.Lead }}</p>
+                    <div class="service-hero__actions"><a href="#" class="cta-button open-modal-button" data-track="order_click" data-service="{{ .Topic.Path }}">{{ .Topic.CTA }}</a><a href="{{ if eq .Topic.Path "/services/wellpoint-dewatering" }}tel:+375336709273{{ else }}tel:+375297202791{{ end }}" class="messenger-link" data-track="phone_click" data-service="{{ .Topic.Path }}">Позвонить</a></div>
+                </div>
+                <div class="service-hero__media"><img src="{{ .Topic.Image }}" alt="{{ .Topic.ImageAlt }}" width="860" height="575" fetchpriority="high" decoding="async"></div>
+            </div>
+        </div>
+    </section>
+    <div class="container topic-layout">
+        <aside class="topic-toc"><nav aria-label="Содержание страницы"><span class="section-kicker">На этой странице</span>{{ range .Topic.Sections }}<a href="#{{ .ID }}">{{ .Heading }}</a>{{ end }}{{ if .Topic.FAQ }}<a href="#questions">Ответы на вопросы</a>{{ end }}<a href="#related">Что дальше</a></nav></aside>
+        <div class="topic-body">
+            {{ range .Topic.Sections }}<section class="topic-section" id="{{ .ID }}"><h2>{{ .Heading }}</h2>{{ if .Text }}<p>{{ .Text }}</p>{{ end }}{{ if .Items }}<ul class="service-advice-list">{{ range .Items }}<li>{{ . }}</li>{{ end }}</ul>{{ end }}</section>{{ end }}
+            {{ if .Topic.Sources }}<section class="topic-section topic-sources"><h2>Технические источники</h2><p>Параметры оборудования и требования к его применению проверяют по актуальной документации. Эти материалы не заменяют оценку участка.</p><ul>{{ range .Topic.Sources }}<li><a href="{{ .Path }}" target="_blank" rel="noopener">{{ .Name }}</a> — {{ .Text }}</li>{{ end }}</ul></section>{{ end }}
+            {{ if .Topic.FAQ }}<section class="faq-section topic-section" id="questions"><h2>Ответы перед заказом</h2>{{ range .Topic.FAQ }}<details><summary>{{ .Question }}</summary><p>{{ .Answer }}</p></details>{{ end }}</section>{{ end }}
+        </div>
+    </div>
+    <section class="service-solution topic-next" id="related"><div class="container"><span class="section-kicker">От вопроса к решению</span><h2>{{ if eq .Topic.Kind "collection" }}Выберите материал{{ else }}Продолжить по вашей задаче{{ end }}</h2><div class="reuse-grid">{{ range .Topic.Related }}<article><h3><a href="{{ .Path }}">{{ .Name }}</a></h3><p>{{ .Text }}</p></article>{{ end }}</div><div class="topic-request"><div><h2>Обсудим ваш объект</h2><p>Укажите населённый пункт и задачу. Уточним исходные данные, состав работ и следующий шаг.</p></div><a href="#" class="cta-button open-modal-button" data-track="order_click" data-service="{{ .Topic.Path }}">{{ .Topic.CTA }}</a></div></div></section>
+</main>
+{{ template "footer" . }}
+</body>
+</html>

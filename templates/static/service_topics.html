@@ -1,0 +1,7 @@
+{{ define "service_topics" }}
+<section class="service-solution"><div class="container">
+    {{ range .ServiceTopic.Sections }}<div class="topic-section" id="{{ .ID }}"><span class="section-kicker">Перед заказом</span><h2>{{ .Heading }}</h2><p>{{ .Text }}</p><ul class="service-advice-list">{{ range .Items }}<li>{{ . }}</li>{{ end }}</ul></div>{{ end }}
+    <h2>Подробнее по вашей задаче</h2><div class="reuse-grid">{{ range .ServiceTopic.Related }}<article><h3><a href="{{ .Path }}">{{ .Name }}</a></h3><p>{{ .Text }}</p></article>{{ end }}</div>
+</div></section>
+<section class="faq-section"><div class="container"><h2>Вопросы перед заказом</h2>{{ range .ServiceTopic.FAQ }}<details><summary>{{ .Question }}</summary><p>{{ .Answer }}</p></details>{{ end }}</div></section>
+{{ end }}

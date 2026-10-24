@@ -129,15 +129,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const resolveMarketingContext = () => {
         const params = new URLSearchParams(window.location.search);
         const storedContext = getStoredMarketingContext();
+        const hasFreshTrackingParams = trackingParamKeys.some(key => params.get(key));
         const nextContext = { ...storedContext };
-        let hasFreshTrackingParams = false;
+
+        // A new campaign replaces the old one instead of mixing its fields.
+        if (hasFreshTrackingParams) {
+            trackingParamKeys.forEach(key => delete nextContext[key]);
+            nextContext.initialReferrer = document.referrer || "";
+        }
 
         trackingParamKeys.forEach(paramKey => {
             const value = params.get(paramKey);
             if (!value) return;
 
             nextContext[paramKey] = value;
-            hasFreshTrackingParams = true;
         });
 
         if (!nextContext.initialReferrer && document.referrer) {
@@ -257,13 +262,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateOnScroll();
 
+    let leadModalTrigger = null;
     const openModal = () => {
         if (!modal) return;
 
+        leadModalTrigger = document.activeElement;
         modal.classList.add("is-open");
         modal.setAttribute("aria-hidden", "false");
         body.classList.add("modal-open");
         syncScrollLock();
+        closeModalButton?.focus({ preventScroll: true });
     };
 
     const closeModal = () => {
@@ -273,6 +281,7 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.setAttribute("aria-hidden", "true");
         body.classList.remove("modal-open");
         syncScrollLock();
+        leadModalTrigger?.focus({ preventScroll: true });
     };
 
     if (phoneIcon) {
@@ -280,7 +289,7 @@ document.addEventListener("DOMContentLoaded", () => {
             event.preventDefault();
             setActiveLeadContext("phone_floating_button", "floating_phone");
             openModal();
-            pushTrackingEvent("phone_click", { source: "phone_floating_button" });
+            pushTrackingEvent("callback_open", { source: "phone_floating_button" });
         });
     }
 
@@ -307,6 +316,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const formData = new FormData(form);
             const name = String(formData.get("name") || "").trim();
             const phone = String(formData.get("phone") || "").trim();
+            const city = String(formData.get("city") || "").trim();
+            const task = String(formData.get("task") || "").trim();
 
             if (!name || !phone) {
                 if (responseMessage) {
@@ -328,6 +339,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: JSON.stringify({
                     name,
                     phone,
+                    city,
+                    task,
                     page: window.location.href,
                     source: activeLeadContext.source,
                     ctaText: activeLeadContext.ctaText,
@@ -349,7 +362,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         pushTrackingEvent("form_submit", {
                             form_id: "contactForm",
-                            lead_type: "callback"
+                            lead_type: /water_lowering|wellpoint-dewatering/.test(activeLeadContext.source + window.location.pathname) ? "dewatering" : /topas|sewerage/.test(activeLeadContext.source + window.location.pathname) ? "sewerage" : "callback"
                         });
 
                         form.reset();
@@ -362,7 +375,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 .catch(error => {
                     console.error("Ошибка:", error);
                     if (responseMessage) {
-                        responseMessage.textContent = "Не удалось отправить заявку. Попробуйте еще раз.";
+                        responseMessage.textContent = "Не удалось отправить заявку. Позвоните: +375 (29) 720-27-91 или +375 (33) 670-92-73.";
                         responseMessage.style.color = "#c13a2f";
                     }
                 })
@@ -631,7 +644,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (modalPhone) modalPhone.value = quickPhone.value;
             }
 
-            pushTrackingEvent("form_submit", {
+            pushTrackingEvent("quick_order_prefill", {
                 form_id: formElement.dataset.trackForm || "quick_order",
                 lead_type: "pre_fill"
             });
@@ -806,6 +819,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (event.key === "Escape" && modal && modal.classList.contains("is-open")) {
             closeModal();
+        }
+        if (event.key === "Tab" && modal?.classList.contains("is-open")) {
+            const controls = Array.from(modal.querySelectorAll('button:not([disabled]), input, textarea, a[href]')).filter(control => control.getClientRects().length);
+            const first = controls[0];
+            const last = controls[controls.length - 1];
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last?.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first?.focus();
+            }
         }
     });
 });

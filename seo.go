@@ -70,8 +70,8 @@ var seoDataByPath = map[string]SEOData{
 		ImageAlt:    "Наружные сети водоснабжения от АВАЮССТРОЙ",
 	},
 	"/services/sewerage": {
-		Title:       "Монтаж канализации в Бресте | ЧСУП АВАЮССТРОЙ",
-		Description: "Монтаж канализационных систем любой сложности в Бресте и Брестской области для домов, участков и коммерческих объектов.",
+		Title:       "Канализация под ключ в Бресте — монтаж наружных сетей | АВАЮССТРОЙ",
+		Description: "Монтаж канализации для частного дома и строительных объектов в Бресте и области. Наружные трубы, колодцы, земляные работы и подключение. Расчёт по участку.",
 		Image:       siteURL + "/static/images/sewerage/cover.jpg",
 		ImageAlt:    "Монтаж канализации от АВАЮССТРОЙ",
 	},
@@ -83,13 +83,13 @@ var seoDataByPath = map[string]SEOData{
 	},
 	"/services/topas": {
 		Title:       "Автономная канализация ТОПАС в Бресте | ЧСУП АВАЮССТРОЙ",
-		Description: "Монтаж автономной канализации ТОПАС в Бресте и области. Без запаха, с понятной сметой, выездом инженера и установкой под ключ.",
+		Description: "Подбор и монтаж автономной канализации ТОПАС для дома и дачи в Бресте и области. Учтём нагрузку, грунт и отвод воды. Рассчитаем оборудование и установку.",
 		Image:       siteURL + "/static/images/topas/cover.jpg",
 		ImageAlt:    "Установка автономной канализации ТОПАС",
 	},
 	"/services/water_lowering": {
 		Title:       "Водопонижение в Бресте и области | ЧСУП АВАЮССТРОЙ",
-		Description: "Услуги водопонижения в Бресте и области: иглофильтры, насосы, дренаж для котлованов и строительных площадок. Точный расчет, безопасные работы, гарантия.",
+		Description: "Строительное водопонижение в Бресте и области: котлованы, траншеи, инженерные сети. Подбор метода по геологии и уровню воды. Расчёт по исходным данным объекта.",
 		Image:       siteURL + "/static/images/water_lowering/cover.png",
 		ImageAlt:    "Работы по водопонижению от АВАЮССТРОЙ",
 	},
@@ -105,7 +105,7 @@ var seoDataByPath = map[string]SEOData{
 // This registry is shared by routes, canonical tags, sitemap and RSS.
 // A template alone must never accidentally become an indexable public page.
 func publicPagePaths() []string {
-	paths := make([]string, 0, len(seoDataByPath)+len(rentalPages))
+	paths := make([]string, 0, len(seoDataByPath)+len(rentalPages)+len(topicPages))
 	for path, seo := range seoDataByPath {
 		if path != "/404" && !strings.Contains(seo.Robots, "noindex") {
 			paths = append(paths, path)
@@ -114,11 +114,17 @@ func publicPagePaths() []string {
 	for _, rental := range rentalPages {
 		paths = append(paths, rental.Path)
 	}
+	for _, topic := range topicPages {
+		paths = append(paths, topic.Path)
+	}
 	sort.Strings(paths)
 	return paths
 }
 
 func templateForPath(path string) string {
+	if topicPageForPath(path) != nil {
+		return "templates/static/topic_page.html"
+	}
 	if rentalPageForPath(path) != nil {
 		return "templates/static/rental_detail.html"
 	}
@@ -130,6 +136,10 @@ func templateForPath(path string) string {
 
 func seoDataForPath(path string) SEOData {
 	seo, ok := seoDataByPath[path]
+	if topic := topicPageForPath(path); topic != nil {
+		seo, ok = topic.SEO, true
+		seo.Image, seo.ImageAlt = siteURL+topic.Image, topic.ImageAlt
+	}
 	if rental := rentalPageForPath(path); rental != nil {
 		seo, ok = rental.SEO, true
 	}

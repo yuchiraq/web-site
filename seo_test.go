@@ -5,6 +5,8 @@ import (
 	"encoding/xml"
 	"net/http"
 	"net/http/httptest"
+	"net/url"
+	"os"
 	"strings"
 	"testing"
 
@@ -106,6 +108,116 @@ func TestPublicPagesSEOAndLinks(t *testing.T) {
 	}
 }
 
+func TestPublicInternalLinksAndImagesExist(t *testing.T) {
+	router := seoTestRouter(t)
+	known := map[string]bool{"/qr": true}
+	for _, path := range publicPagePaths() {
+		known[path] = true
+	}
+	for _, path := range publicPagePaths() {
+		response := httptest.NewRecorder()
+		router.ServeHTTP(response, httptest.NewRequest(http.MethodGet, path, nil))
+		doc, err := goquery.NewDocumentFromReader(strings.NewReader(response.Body.String()))
+		if err != nil {
+			t.Fatal(err)
+		}
+		doc.Find("a[href^='/'], img[src^='/']").Each(func(_ int, node *goquery.Selection) {
+			raw := node.AttrOr("href", node.AttrOr("src", ""))
+			parsed, err := url.Parse(raw)
+			if err != nil {
+				t.Errorf("%s: invalid URL %q", path, raw)
+				return
+			}
+			if strings.HasPrefix(parsed.Path, "/static/") {
+				if _, err := os.Stat("." + parsed.Path); err != nil {
+					t.Errorf("%s: missing asset %s", path, raw)
+				}
+			} else if !known[parsed.Path] {
+				t.Errorf("%s: broken internal link %s", path, raw)
+			}
+		})
+	}
+}
+
+func TestCampaignDraftAndSitemap(t *testing.T) {
+	data, err := os.ReadFile("docs/marketing/campaign-draft.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	var draft struct {
+		Status    string
+		Campaigns []struct {
+			Groups []struct {
+				ID, Landing                       string
+				Keywords, Headlines, Descriptions []string
+			}
+		}
+	}
+	if err := json.Unmarshal(data, &draft); err != nil {
+		t.Fatal(err)
+	}
+	if draft.Status != "DRAFT_NOT_LAUNCHED" {
+		t.Fatal("campaign status must be explicit")
+	}
+	groups, keywordCount := 0, 0
+	keywords := map[string]bool{}
+	for _, campaign := range draft.Campaigns {
+		for _, group := range campaign.Groups {
+			groups++
+			if seoDataForPath(group.Landing).Canonical == "" {
+				t.Errorf("unknown ad landing %s", group.Landing)
+			}
+			if len(group.Headlines) < 3 || len(group.Descriptions) < 2 {
+				t.Errorf("incomplete ad group %s", group.ID)
+			}
+			for _, headline := range group.Headlines {
+				if len([]rune(headline)) > 30 {
+					t.Errorf("headline too long: %s", headline)
+				}
+			}
+			for _, description := range group.Descriptions {
+				if len([]rune(description)) > 90 {
+					t.Errorf("description too long: %s", description)
+				}
+			}
+			for _, keyword := range group.Keywords {
+				if keywords[keyword] {
+					t.Errorf("duplicate draft keyword %s", keyword)
+				}
+				keywords[keyword] = true
+				keywordCount++
+			}
+		}
+	}
+	if groups != 8 || keywordCount != 80 {
+		t.Errorf("unexpected campaign size: %d groups, %d keywords", groups, keywordCount)
+	}
+	xmlData, err := os.ReadFile("static/data/sitemap.xml")
+	if err != nil {
+		t.Fatal(err)
+	}
+	var sitemap URLSet
+	if err := xml.Unmarshal(xmlData, &sitemap); err != nil {
+		t.Fatal(err)
+	}
+	want := map[string]bool{}
+	for _, path := range publicPagePaths() {
+		want[canonicalURL(path)] = true
+	}
+	if len(sitemap.URLs) != len(want) {
+		t.Errorf("sitemap count=%d, public registry=%d", len(sitemap.URLs), len(want))
+	}
+	for _, item := range sitemap.URLs {
+		if !want[item.Loc] {
+			t.Errorf("unknown or duplicate sitemap URL %s", item.Loc)
+		}
+		delete(want, item.Loc)
+	}
+	if len(want) != 0 {
+		t.Errorf("missing sitemap entries: %v", want)
+	}
+}
+
 func TestCanonicalRedirectsAndNotFound(t *testing.T) {
 	router := seoTestRouter(t)
 	tests := []struct {
@@ -150,8 +262,8 @@ func TestRSSUsesCanonicalMetadata(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if len(feed.Channel.Items) != 9 {
-		t.Fatalf("RSS contains %d items, want 9", len(feed.Channel.Items))
+	if len(feed.Channel.Items) != 13 {
+		t.Fatalf("RSS contains %d items, want 13 service, rental and guide pages", len(feed.Channel.Items))
 	}
 	for _, item := range feed.Channel.Items {
 		path := strings.TrimPrefix(item.Link, siteURL)
@@ -170,5 +282,75 @@ func TestRSSUsesCanonicalMetadata(t *testing.T) {
 	var parsed any
 	if err := xml.Unmarshal(encoded, &parsed); err != nil {
 		t.Fatalf("RSS is not valid XML: %v", err)
+	}
+}
+
+func TestTopicPagesAndFAQMatchVisibleContent(t *testing.T) {
+	router := seoTestRouter(t)
+	paths := map[string]bool{}
+	for _, path := range publicPagePaths() {
+		if paths[path] {
+			t.Fatalf("duplicate public path: %s", path)
+		}
+		paths[path] = true
+		response := httptest.NewRecorder()
+		router.ServeHTTP(response, httptest.NewRequest(http.MethodGet, path, nil))
+		doc, _ := goquery.NewDocumentFromReader(strings.NewReader(response.Body.String()))
+		visible := []RentalFAQ{}
+		doc.Find("main details").Each(func(_ int, detail *goquery.Selection) {
+			visible = append(visible, RentalFAQ{Question: strings.TrimSpace(detail.Find("summary").Text()), Answer: strings.TrimSpace(detail.Find("p").Text())})
+		})
+		questions := []RentalFAQ{}
+		faqCount := 0
+		doc.Find("script[type='application/ld+json']").Each(func(_ int, script *goquery.Selection) {
+			var root map[string]any
+			if err := json.Unmarshal([]byte(script.Text()), &root); err != nil {
+				t.Fatal(err)
+			}
+			nodes := []any{root}
+			if graph, ok := root["@graph"].([]any); ok {
+				nodes = graph
+			}
+			for _, raw := range nodes {
+				node := raw.(map[string]any)
+				if node["@type"] != "FAQPage" {
+					continue
+				}
+				faqCount++
+				for _, q := range node["mainEntity"].([]any) {
+					question := q.(map[string]any)
+					answer := question["acceptedAnswer"].(map[string]any)
+					questions = append(questions, RentalFAQ{Question: question["name"].(string), Answer: answer["text"].(string)})
+				}
+			}
+		})
+		if faqCount > 1 || len(questions) != len(visible) {
+			t.Errorf("%s: FAQ mismatch, %d graph nodes, %d schema / %d visible answers", path, faqCount, len(questions), len(visible))
+		}
+		for i := range questions {
+			if i < len(visible) && questions[i] != visible[i] {
+				t.Errorf("%s: FAQ answer differs at %d", path, i)
+			}
+		}
+		if topic := topicPageForPath(path); topic != nil {
+			for _, section := range topic.Sections {
+				if doc.Find("main #"+section.ID+" h2").Text() != section.Heading {
+					t.Errorf("%s: content not rendered server-side: %s", path, section.ID)
+				}
+			}
+			if doc.Find("main .open-modal-button").Length() < 2 {
+				t.Errorf("%s: missing lead CTAs", path)
+			}
+		}
+	}
+	for _, path := range []string{"/services/sewerage-without-pumping", "/services/wellpoint-dewatering", "/guides/autonomous-sewerage-cost", "/guides/sewerage-high-groundwater", "/guides", "/regions/brest-region"} {
+		if !paths[path] {
+			t.Errorf("missing marketing page: %s", path)
+		}
+		response := httptest.NewRecorder()
+		router.ServeHTTP(response, httptest.NewRequest(http.MethodHead, path, nil))
+		if response.Code != http.StatusOK {
+			t.Errorf("HEAD %s = %d", path, response.Code)
+		}
 	}
 }

@@ -1,8 +1,10 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
+	"io"
 	"log"
 	"net/http"
 	"net/url"
@@ -14,8 +16,10 @@ import (
 )
 
 type ContactRequest struct {
-	Name        string `json:"name"`
-	Phone       string `json:"phone"`
+	Name        string `json:"name" binding:"max=120"`
+	Phone       string `json:"phone" binding:"max=80"`
+	City        string `json:"city" binding:"max=160"`
+	Task        string `json:"task" binding:"max=1000"`
 	Page        string `json:"page"`
 	Source      string `json:"source"`
 	CTAText     string `json:"ctaText"`
@@ -46,6 +50,7 @@ type Settings struct {
 }
 
 var settings Settings
+var telegramHTTPClient = &http.Client{Timeout: 10 * time.Second}
 
 func loadSettings() error {
 	file, err := os.ReadFile("settings.json")
@@ -61,6 +66,8 @@ func loadSettings() error {
 }
 
 func submitHandler(c *gin.Context) {
+	c.Header("Cache-Control", "no-store")
+	c.Request.Body = http.MaxBytesReader(c.Writer, c.Request.Body, 16*1024)
 	var req ContactRequest
 	if err := c.ShouldBindJSON(&req); err != nil {
 		log.Printf("Ошибка при разборе JSON: %v", err)
@@ -70,6 +77,8 @@ func submitHandler(c *gin.Context) {
 
 	req.Name = strings.TrimSpace(req.Name)
 	req.Phone = strings.TrimSpace(req.Phone)
+	req.City = strings.TrimSpace(req.City)
+	req.Task = strings.TrimSpace(req.Task)
 	req.Page = strings.TrimSpace(req.Page)
 	req.Source = strings.TrimSpace(req.Source)
 	req.CTAText = strings.TrimSpace(req.CTAText)
@@ -90,27 +99,53 @@ func submitHandler(c *gin.Context) {
 		return
 	}
 
-	log.Printf("Получена заявка: имя=%s телефон=%s источник=%s страница=%s", req.Name, req.Phone, req.Source, req.Page)
-
 	if settings.Telegram.BotToken == "" || len(settings.Telegram.ChatIDs) == 0 {
-		log.Printf("Предупреждение: Telegram не настроен, уведомления не отправлены")
-	} else {
-		for _, chatID := range settings.Telegram.ChatIDs {
-			if err := sendTelegramMessage(chatID, req); err != nil {
-				log.Printf("Ошибка при отправке Telegram-уведомления в чат %s: %v", chatID, err)
+		log.Printf("Заявка не доставлена: Telegram не настроен")
+		c.JSON(http.StatusServiceUnavailable, gin.H{"error": "Delivery unavailable"})
+		return
+	}
+	delivered := false
+	deliveryContext, cancelDelivery := context.WithTimeout(c.Request.Context(), 12*time.Second)
+	defer cancelDelivery()
+	results := make(chan bool, len(settings.Telegram.ChatIDs))
+	for _, chatID := range settings.Telegram.ChatIDs {
+		go func(id string) {
+			err := sendTelegramMessage(deliveryContext, id, req)
+			if err != nil {
+				// HTTP errors can include the bot token in the request URL.
+				log.Printf("Ошибка доставки заявки в Telegram")
 			}
+			results <- err == nil
+		}(chatID)
+	}
+waitForDelivery:
+	for range settings.Telegram.ChatIDs {
+		select {
+		case success := <-results:
+			delivered = delivered || success
+		case <-deliveryContext.Done():
+			break waitForDelivery
 		}
 	}
-
-	log.Printf("Успешная заявка: имя=%s телефон=%s источник=%s", req.Name, req.Phone, req.Source)
+	if !delivered {
+		c.JSON(http.StatusBadGateway, gin.H{"error": "Delivery failed"})
+		return
+	}
+	log.Printf("Заявка доставлена, источник=%s", req.Source)
 	c.JSON(http.StatusOK, gin.H{"success": true})
 }
 
-func sendTelegramMessage(chatID string, req ContactRequest) error {
+func sendTelegramMessage(ctx context.Context, chatID string, req ContactRequest) error {
 	lines := []string{
 		"Новая заявка с сайта:",
 		fmt.Sprintf("Имя: %s", req.Name),
 		fmt.Sprintf("Телефон: %s", req.Phone),
+	}
+	if req.City != "" {
+		lines = append(lines, "Населённый пункт: "+req.City)
+	}
+	if req.Task != "" {
+		lines = append(lines, "Задача: "+req.Task)
 	}
 
 	if req.Source != "" {
@@ -164,14 +199,21 @@ func sendTelegramMessage(chatID string, req ContactRequest) error {
 	}
 
 	message := strings.Join(lines, "\n")
+	if runes := []rune(message); len(runes) > 3900 {
+		message = string(runes[:3900]) + "\n[Контекст сокращён]"
+	}
 	apiURL := fmt.Sprintf("https://api.telegram.org/bot%s/sendMessage", settings.Telegram.BotToken)
 
 	formData := url.Values{}
 	formData.Set("chat_id", chatID)
 	formData.Set("text", message)
 
-	client := &http.Client{Timeout: 10 * time.Second}
-	resp, err := client.Post(apiURL, "application/x-www-form-urlencoded", strings.NewReader(formData.Encode()))
+	request, err := http.NewRequestWithContext(ctx, http.MethodPost, apiURL, strings.NewReader(formData.Encode()))
+	if err != nil {
+		return err
+	}
+	request.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	resp, err := telegramHTTPClient.Do(request)
 	if err != nil {
 		return err
 	}
@@ -179,6 +221,12 @@ func sendTelegramMessage(chatID string, req ContactRequest) error {
 
 	if resp.StatusCode != http.StatusOK {
 		return fmt.Errorf("ошибка при отправке сообщения в Telegram: %s", resp.Status)
+	}
+	var confirmation struct {
+		OK bool `json:"ok"`
+	}
+	if err := json.NewDecoder(io.LimitReader(resp.Body, 64*1024)).Decode(&confirmation); err != nil || !confirmation.OK {
+		return fmt.Errorf("Telegram did not confirm delivery")
 	}
 
 	return nil

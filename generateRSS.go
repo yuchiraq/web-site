@@ -62,12 +62,20 @@ func buildRSSFeed() (RSSFeed, error) {
 		Channel: RSSChannel{Title: siteName + " — услуги и спецтехника", Link: siteURL + "/", Description: "Инженерные работы и аренда спецтехники в Бресте и Брестской области", Language: "ru-BY"},
 	}
 	for _, path := range publicPagePaths() {
-		if !strings.HasPrefix(path, "/services/") && !strings.HasPrefix(path, "/rent/") {
+		if !strings.HasPrefix(path, "/services/") && !strings.HasPrefix(path, "/rent/") && !strings.HasPrefix(path, "/guides/") {
 			continue
 		}
 		seo := seoDataForPath(path)
 		content := "<header><h1>" + html.EscapeString(seo.Title) + "</h1><figure><img src=\"" + html.EscapeString(seo.Image) + "\"></figure></header>"
-		if rental := rentalPageForPath(path); rental != nil {
+		if topic := topicPageForPath(path); topic != nil {
+			content += "<p>" + html.EscapeString(topic.Lead) + "</p>"
+			for _, section := range topic.Sections {
+				content += rssSection(section)
+			}
+			for _, faq := range topic.FAQ {
+				content += "<h2>" + html.EscapeString(faq.Question) + "</h2><p>" + html.EscapeString(faq.Answer) + "</p>"
+			}
+		} else if rental := rentalPageForPath(path); rental != nil {
 			content += "<p>" + html.EscapeString(rental.Lead) + "</p><h2>Задачи и условия аренды</h2><ul>"
 			for _, text := range append(append([]string{}, rental.Tasks...), rental.Conditions...) {
 				content += "<li>" + html.EscapeString(text) + "</li>"
@@ -101,8 +109,28 @@ func buildRSSFeed() (RSSFeed, error) {
 			}
 			content += "<h2>Расчёт стоимости</h2><p>" + html.EscapeString(advice.PriceFactors) + "</p><p>" + html.EscapeString(advice.RequestData) + "</p>"
 		}
+		if service, ok := serviceTopics[path]; ok {
+			for _, section := range service.Sections {
+				content += rssSection(section)
+			}
+			for _, faq := range service.FAQ {
+				content += "<h2>" + html.EscapeString(faq.Question) + "</h2><p>" + html.EscapeString(faq.Answer) + "</p>"
+			}
+		}
 		content += "<p><a href=\"" + seo.Canonical + "\">Подробнее об услуге и заявка</a></p><p><a href=\"tel:+375297202791\">+375 (29) 720-27-91</a></p>"
 		feed.Channel.Items = append(feed.Channel.Items, RSSItem{Turbo: "true", Title: seo.Title, Link: seo.Canonical, GUID: seo.Canonical, Description: seo.Description, Content: RSSCDATA{HTML: content}})
 	}
 	return feed, nil
+}
+
+func rssSection(section TopicSection) string {
+	content := "<h2>" + html.EscapeString(section.Heading) + "</h2><p>" + html.EscapeString(section.Text) + "</p>"
+	if len(section.Items) > 0 {
+		content += "<ul>"
+		for _, item := range section.Items {
+			content += "<li>" + html.EscapeString(item) + "</li>"
+		}
+		content += "</ul>"
+	}
+	return content
 }

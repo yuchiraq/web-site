@@ -105,8 +105,14 @@
         <h3 id="phoneFormTitle">Оставьте заявку, и мы свяжемся с вами</h3>
         <p class="modal-description">Подскажем по стоимости, срокам и подберем решение под ваш объект.</p>
         <form id="contactForm">
-            <input type="text" id="name" name="name" placeholder="Ваше имя" autocomplete="name" required>
-            <input type="tel" id="phone" name="phone" placeholder="Ваш телефон" inputmode="tel" autocomplete="tel" required>
+            <label class="visually-hidden" for="name">Ваше имя</label>
+            <input type="text" id="name" name="name" class="ym-disable-keys" placeholder="Ваше имя" autocomplete="name" maxlength="120" required>
+            <label class="visually-hidden" for="phone">Ваш телефон</label>
+            <input type="tel" id="phone" name="phone" class="ym-disable-keys" placeholder="Ваш телефон" inputmode="tel" autocomplete="tel" maxlength="80" required>
+            <label class="visually-hidden" for="leadCity">Населённый пункт</label>
+            <input type="text" id="leadCity" name="city" class="ym-disable-keys" placeholder="Населённый пункт (необязательно)" autocomplete="address-level2" maxlength="160">
+            <label class="visually-hidden" for="leadTask">Задача и данные объекта</label>
+            <textarea id="leadTask" name="task" class="ym-disable-keys" rows="3" maxlength="1000" placeholder="Задача и условия участка (необязательно)"></textarea>
             <button type="submit" class="cta-button">
                 <span class="submit-text">Отправить заявку</span>
                 <span class="loading-spinner" style="display: none;">...</span>

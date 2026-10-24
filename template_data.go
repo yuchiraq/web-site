@@ -12,5 +12,7 @@ func pageData(path string) gin.H {
 		"Rental":         rentalPageForPath(path),
 		"Rentals":        rentalPages,
 		"ServiceAdvice":  serviceAdviceByPath[path],
+		"Topic":          topicPageForPath(path),
+		"ServiceTopic":   serviceTopics[path],
 	}
 }
